@@ -1,2 +1,6 @@
 mixin component
   .component=locals['component-example']
+
+mixin input(label,attribute='test')
+  .label= label 
+  input.input-text(name=attribute)

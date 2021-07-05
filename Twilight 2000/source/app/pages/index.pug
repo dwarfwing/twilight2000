@@ -1,4 +1,40 @@
 include ../components/component
 
 .page-container
-  +component
+  .row-tall
+    .col-third Twilight 2000
+    .col-third 
+      +input('Name','attr_name')
+    .col-third 
+      +input('Nationality')
+  .row-tall
+    .col-third 
+      +input('Branch')
+    .col-twothird 
+      +input('Appearance')
+  .row-tall
+    .col-third 
+      +input('Military Rank')
+    .col-twothird 
+      +input('Moral code')
+  .row-tall
+    .col-third 
+      +input('Buddy')
+    .col-twothird 
+      +input('Big dream')
+  .row-tall
+    .col-threequarter 
+      +input('How I met the group')
+    .col-quarter 
+      +input('Experience')
+  .row-tall
+    .col-whole Attributes and Skills 
+  .row-tall
+    .col-quarter 
+      +input('Strength')
+    .col-quarter 
+      +input('Agility')
+    .col-quarter 
+      +input('Intelligence')
+    .col-quarter 
+      +input('Empathy')

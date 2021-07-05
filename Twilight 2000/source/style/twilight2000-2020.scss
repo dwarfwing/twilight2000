@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+// -- Variables -- //
+
+$primary: #756758;
+$secondary: #5a4c3a;
+$light: #e4ddc9;
+$dark: #e4ddc9;
+$dark-font: #000;
+$gold: #ffd70066;
+
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  background-color: $light;
+}
+.component {
+  display: block;
+}
+.sheet-rolltemplate-sheetname {
+  display: block;
+}
+%row-commons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-bottom: 1px solid #534c3b; 
+}
+%cell-flex {
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-start;
+  align-self: stretch;
+}
+%text-base {
+  font-family: 'Abel';
+  color: $primary;
+  text-align: left;
+  padding-left: 3px;
+}
+%text-upper {
+  text-transform: uppercase;
+}
+
+div, span, p, h1, h2, h3, h4, input, select, option, .label {
+  @extend %text-base;
+  @extend %text-upper;
+}
+input {
+  background-color: $light;
+  width: 100%;
+}
+
+.row {
+  @extend %row-commons;
+  line-height: 1em;
+  min-height: 1em;
+}
+.row-tall {
+  @extend %row-commons;
+  line-height: 1.2em;
+  min-height: 1.2em;
+}
+.row-narrow {
+  @extend %row-commons;
+  line-height: 0.8em;
+  min-height: 0.8em;
+}
+.col-whole {
+  @extend %cell-flex;
+  max-width: 99%;
+  min-width: 99%;
+}
+.col-half {
+  @extend %cell-flex;
+  max-width: 49%;
+  min-width: 49%;
+}
+.col-third {
+  @extend %cell-flex;
+  max-width: 32%;
+  min-width: 32%;
+}
+.col-twothird {
+  @extend %cell-flex;
+  max-width: 66%;
+  min-width: 66%;
+}
+.col-quarter {
+  @extend %cell-flex;
+  max-width: 24%;
+  min-width: 24%;
+}
+.col-threequarter {
+  @extend %cell-flex;
+  max-width: 74%;
+  min-width: 74%;
+}
+input {
+  .input-text {
+    width: auto;
+  }
+}
+
