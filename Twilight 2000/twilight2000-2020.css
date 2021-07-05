@@ -1,95 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
 .page-container {
-  display: flex;
-  flex-direction: column;
-  background-color: #e4ddc9;
+  display: block;
 }
-
 .component {
   display: block;
 }
-
 .sheet-rolltemplate-sheetname {
   display: block;
 }
-
-.row-narrow, .row-tall, .row {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  border-bottom: 1px solid #534c3b;
-}
-
-.col-threequarter, .col-quarter, .col-twothird, .col-third, .col-half, .col-whole {
-  display: flex;
-  flex-direction: column;
-  justify-self: flex-start;
-  align-self: stretch;
-}
-
-div, span, p, h1, h2, h3, h4, input, select, option, .label {
-  font-family: "Abel";
-  color: #756758;
-  text-align: left;
-  padding-left: 3px;
-}
-
-div, span, p, h1, h2, h3, h4, input, select, option, .label {
-  text-transform: uppercase;
-}
-
-input {
-  background-color: #e4ddc9;
-  width: 100%;
-}
-
-.row {
-  line-height: 1em;
-  min-height: 1em;
-}
-
-.row-tall {
-  line-height: 1.2em;
-  min-height: 1.2em;
-}
-
-.row-narrow {
-  line-height: 0.8em;
-  min-height: 0.8em;
-}
-
-.col-whole {
-  max-width: 99%;
-  min-width: 99%;
-}
-
-.col-half {
-  max-width: 49%;
-  min-width: 49%;
-}
-
-.col-third {
-  max-width: 32%;
-  min-width: 32%;
-}
-
-.col-twothird {
-  max-width: 66%;
-  min-width: 66%;
-}
-
-.col-quarter {
-  max-width: 24%;
-  min-width: 24%;
-}
-
-.col-threequarter {
-  max-width: 74%;
-  min-width: 74%;
-}
-
-input .input-text {
-  width: auto;
-}
-
-/*# sourceMappingURL=twilight2000-2020.css.map */
