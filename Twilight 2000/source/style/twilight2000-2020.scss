@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
 
 // -- Variables -- //
 
 $primary: #756758;
 $secondary: #5a4c3a;
 $light: #e4ddc9;
-$dark: #e4ddc9;
+$tan: #cdc3af;
 $dark-font: #000;
 $gold: #ffd70066;
 
@@ -14,6 +14,7 @@ $gold: #ffd70066;
   display: flex;
   flex-direction: column;
   background-color: $light;
+  padding: 8px;
 }
 .component {
   display: block;
@@ -25,13 +26,22 @@ $gold: #ffd70066;
   display: flex;
   flex-direction: row;
   width: 100%;
-  border-bottom: 1px solid #534c3b; 
+  -border-bottom: 1px solid #534c3b; 
 }
-%cell-flex {
+%cell-flex-col {
   display: flex;
   flex-direction: column;
   justify-self: flex-start;
   align-self: stretch;
+  flex-wrap: wrap;
+}
+%cell-flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-self: flex-start;
+  align-self: stretch;
+  align-items: center;
+  flex-wrap: wrap;
 }
 %text-base {
   font-family: 'Abel';
@@ -42,14 +52,155 @@ $gold: #ffd70066;
 %text-upper {
   text-transform: uppercase;
 }
-
-div, span, p, h1, h2, h3, h4, input, select, option, .label {
+%border-right {
+  padding-right: 3px;
+  border-right: 2px solid $primary;
+}
+%input-box {
+  padding: 2px;
+  border: 1px solid $primary !important;
+  border-radius: 2px;
+  min-width: 30px;
+  width: 30px;
+  min-height: 20px;
+  height: 20px;
+}
+%input-text {
+  width: auto;
+  background-color: transparent;
+  border-top: 0;
+  line-height: 1.2em;
+  height: 1.5em !important;
+  padding-top: 5px;
+}
+%input-select {
+  min-width: 38px;
+  width: 38px;
+  min-height: 26px;
+  height: 26px;
+  margin-bottom: unset;
+}
+%input-outline {
+  &:active, &:focus, &:focus-within, &:focus-visible, &:target, &:hover {
+    border: 1px solid $secondary !important;
+    outline-width: 0;
+  }
+}
+.logo {
+  @extend %text-base;
+  @extend %text-upper;
+  background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/T2K%204e/Images/t2k-logo.png');
+}
+div, span, p, .label {
+  @extend %text-base;
+}
+h1, h2, h3, h4, select, option, .label-caps {
   @extend %text-base;
   @extend %text-upper;
 }
+span {
+  &.input-die {
+  @extend %input-box;   
+  background-color: inherit !important;
+  min-width: 2.5em !important;
+  text-align: center;
+  }
+}
 input {
-  background-color: $light;
+  @extend %text-base;
+  @extend %input-text; 
+  @extend %input-outline;  
+  background-color: transparent;
+  color: $secondary;
   width: 100%;
+  margin-bottom: 3px !important;
+  &.input-number {
+    @extend %input-box;
+    @extend %input-select;
+  }
+  &.numbered-box {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    cursor: pointer;
+    z-index: 5;
+    opacity: 0;
+
+    & + span::before {
+      content: attr(title);
+      color: $secondary;
+      border: solid 1px $secondary;
+      text-align: center;
+      display: inline-block;
+      background: transparent;
+      
+      width: 18px;
+      height: 18px;
+      font-size: 10px;
+      font-weight: bold;
+      margin-left: -21px;
+      margin-right: 2px;
+      padding: 0px 0px 0px 0px;
+      line-height: 18px;
+      box-shadow: 0px 0px 5px #dcdcdc;
+    }
+    &:checked + span::before {
+      color: #ffffff;
+      background: #cc0000;
+      border: solid 1px #cc0000;
+      box-shadow: 0px 0px 10px #b30000;
+    }
+  }
+  &.grey-box:checked + span::before {
+    color: #ffffff;
+    background: #808080;
+    border: solid 1px #808080;
+    box-shadow: 0px 0px 10px #808080;
+  }
+  &.grey-box:checked + span::before {
+    color: #ffffff;
+    background: #808080;
+    border: solid 1px #808080;
+    box-shadow: 0px 0px 10px #808080;
+  }
+  &.green-box:checked + span::before {
+    color: #000000;
+    background: #7cfc00;
+    border: solid 1px #7cfc00;
+    box-shadow: 0px 0px 10px #008000;
+  }
+  &.gold-box:checked + span::before {
+    color: #000000;
+    background: #ffd700;
+    border: solid 1px #ffd700;
+    box-shadow: 0px 0px 10px #ffd700;
+  }  
+}
+
+select { 
+  @extend %input-outline;   
+  @extend %input-box;  
+  @extend %input-select;  
+  -width: 38px;
+  -height: 26px;    
+  justify-content: center;
+  justify-items: center;
+  background-color: $light;
+  padding-left: 5px;
+}
+option {    
+  @extend %input-outline;  
+  @extend %input-select; 
+  justify-content: center;
+  justify-items: center;
+  background-color: $light;
+  text-align: center;
+}
+.label {
+  margin-bottom: -8px;
 }
 
 .row {
@@ -67,39 +218,63 @@ input {
   line-height: 0.8em;
   min-height: 0.8em;
 }
-.col-whole {
-  @extend %cell-flex;
+.box {
+  @extend %cell-flex-col;
+  padding: 3px;
+}
+.row-whole {
+  @extend %cell-flex-row;
   max-width: 99%;
   min-width: 99%;
+  padding-bottom: 5px;
+}
+.row-fill {
+  flex: 1;
 }
 .col-half {
-  @extend %cell-flex;
+  @extend %cell-flex-col;
   max-width: 49%;
   min-width: 49%;
 }
 .col-third {
-  @extend %cell-flex;
+  @extend %cell-flex-col;
   max-width: 32%;
   min-width: 32%;
 }
 .col-twothird {
-  @extend %cell-flex;
+  @extend %cell-flex-col;
   max-width: 66%;
   min-width: 66%;
 }
 .col-quarter {
-  @extend %cell-flex;
+  @extend %cell-flex-col;
   max-width: 24%;
   min-width: 24%;
 }
 .col-threequarter {
-  @extend %cell-flex;
+  @extend %cell-flex-col;
   max-width: 74%;
   min-width: 74%;
 }
-input {
-  .input-text {
-    width: auto;
-  }
+.flex1 { flex: 1; }
+.flex5 { flex: 5; }
+.border-right {
+  @extend %border-right;
 }
+.border-bottom-long {
+  margin-top: 3px;
+  border-bottom: 2px solid $primary;
+}
+.border-bottom-short {
+  margin-top: 3px;
+  border-bottom: 1px solid $primary;
+}
+.background-tan {
+  background-color: $tan;
+}
+.flex-row {  
+  @extend %cell-flex-row;
+}
+
+
 

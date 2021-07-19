@@ -1,40 +1,88 @@
 include ../components/component
 
 .page-container
-  .row-tall
-    .col-third Twilight 2000
-    .col-third 
+  .row-tall.border-bottom-long
+    .col-third.border-right.logo
+    .col-third.border-right 
       +input('Name','attr_name')
     .col-third 
       +input('Nationality')
-  .row-tall
-    .col-third 
+  .row-tall.border-bottom-long
+    .col-third.border-right
       +input('Branch')
     .col-twothird 
       +input('Appearance')
-  .row-tall
-    .col-third 
+  .row-tall.border-bottom-long
+    .col-third.border-right 
       +input('Military Rank')
     .col-twothird 
       +input('Moral code')
-  .row-tall
-    .col-third 
+  .row-tall.border-bottom-long
+    .col-third.border-right 
       +input('Buddy')
     .col-twothird 
       +input('Big dream')
-  .row-tall
-    .col-threequarter 
+  .row-tall.border-bottom-long
+    .col-threequarter.border-right 
       +input('How I met the group')
     .col-quarter 
       +input('Experience')
-  .row-tall
+  .row-tall.border-bottom-long.background-tan
     .col-whole Attributes and Skills 
-  .row-tall
-    .col-quarter 
-      +input('Strength')
-    .col-quarter 
-      +input('Agility')
-    .col-quarter 
-      +input('Intelligence')
-    .col-quarter 
-      +input('Empathy')
+  .row-tall.border-bottom-long
+    .col-quarter.border-right.flex-column
+      .col-whole.flex-row
+        +input-attribute('Strength','attr_strength') 
+        +input-skill('Heavy Weapons','attr_skill_heavyweapons') 
+        +input-skill('Close Combat','attr_skill_closecombat') 
+        +input-skill('Stamina','attr_skill_stamina') 
+    .col-quarter.border-right.flex-column
+      .col-whole.flex-row 
+        +input-attribute('Agility','attr_agility')
+        +input-skill('Driving','attr_skill_driving') 
+        +input-skill('Mobility','attr_skill_mobility') 
+        +input-skill('Ranged Combat','attr_skill_rangedcombat') 
+    .col-quarter.border-right.flex-column
+      .col-whole.flex-row 
+        +input-attribute('Intelligence','attr_intelligence')
+        +input-skill('Recon','attr_skill_recon') 
+        +input-skill('Survival','attr_skill_survival') 
+        +input-skill('Tech','attr_skill_tech') 
+    .col-quarter.border-right.flex-column
+      .col-whole.flex-row  
+        +input-attribute('Empathy','attr_empathy')
+        +input-skill('Command','attr_skill_command') 
+        +input-skill('Persuasion','attr_skill_persuasion') 
+        +input-skill('Medical Aid','attr_skill_medicalaid') 
+  .row-tall.border-bottom-long
+    .col-whole
+      +input('Specialities')
+  .row-tall.border-bottom-long.background-tan
+    .col-half Combat
+    .col-quarter Armor
+    .col-quarter Conditions
+  .row-tall.border-bottom-long
+    .col-quarter.flex-row
+      .flex-row
+        .label Damage
+      +input-number('Hit capacity','hitcapacity')
+      +input-number('Stress Capacity','stresscapacity')
+      +input-number('Coolness Under Fire','cuf')
+      +input-number('Unit Morale','unitmorale')
+    .col-quarter.flex-row
+      .flex-row
+        .label Stress
+      +input('Critical Injuries','critials')
+      +input('Diseases','diseases')
+    .col-quarter.flex-row
+      +input-value-number('Head','armor_head')
+      +input-value-number('Arms','armor_arms')
+      +input-value-number('Torso','armor_torso')
+      +input-value-number('Legs','armor_legs')
+    .col-quarter.flex-row
+      +input-check('Starving','condition_starving')
+      +input-check('Dehydrated','condition_dehydrated')
+      +input-check('Sleep Deprived','condition_sleepdeprived')
+      +input-check('Hypothermic','condition_hypothermic')
+
+  

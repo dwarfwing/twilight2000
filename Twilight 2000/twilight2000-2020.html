@@ -1,75 +1,314 @@
 
 <div class="page-container">
-  <div class="row-tall">
-    <div class="col-third">Twilight 2000</div>
-    <div class="col-third"> 
-      <div class="label">Name</div>
+  <div class="row-tall border-bottom-long">
+    <div class="col-third border-right logo"></div>
+    <div class="col-third border-right"> 
+      <div class="label-caps">Name</div>
       <input class="input-text" name="attr_name"/>
     </div>
     <div class="col-third"> 
-      <div class="label">Nationality</div>
+      <div class="label-caps">Nationality</div>
       <input class="input-text" name="test"/>
     </div>
   </div>
-  <div class="row-tall">
-    <div class="col-third"> 
-      <div class="label">Branch</div>
+  <div class="row-tall border-bottom-long">
+    <div class="col-third border-right">
+      <div class="label-caps">Branch</div>
       <input class="input-text" name="test"/>
     </div>
     <div class="col-twothird"> 
-      <div class="label">Appearance</div>
+      <div class="label-caps">Appearance</div>
       <input class="input-text" name="test"/>
     </div>
   </div>
-  <div class="row-tall">
-    <div class="col-third"> 
-      <div class="label">Military Rank</div>
+  <div class="row-tall border-bottom-long">
+    <div class="col-third border-right"> 
+      <div class="label-caps">Military Rank</div>
       <input class="input-text" name="test"/>
     </div>
     <div class="col-twothird"> 
-      <div class="label">Moral code</div>
+      <div class="label-caps">Moral code</div>
       <input class="input-text" name="test"/>
     </div>
   </div>
-  <div class="row-tall">
-    <div class="col-third"> 
-      <div class="label">Buddy</div>
+  <div class="row-tall border-bottom-long">
+    <div class="col-third border-right"> 
+      <div class="label-caps">Buddy</div>
       <input class="input-text" name="test"/>
     </div>
     <div class="col-twothird"> 
-      <div class="label">Big dream</div>
+      <div class="label-caps">Big dream</div>
       <input class="input-text" name="test"/>
     </div>
   </div>
-  <div class="row-tall">
-    <div class="col-threequarter"> 
-      <div class="label">How I met the group</div>
+  <div class="row-tall border-bottom-long">
+    <div class="col-threequarter border-right"> 
+      <div class="label-caps">How I met the group</div>
       <input class="input-text" name="test"/>
     </div>
     <div class="col-quarter"> 
-      <div class="label">Experience</div>
+      <div class="label-caps">Experience</div>
       <input class="input-text" name="test"/>
     </div>
   </div>
-  <div class="row-tall">
+  <div class="row-tall border-bottom-long background-tan">
     <div class="col-whole">Attributes and Skills </div>
   </div>
-  <div class="row-tall">
-    <div class="col-quarter"> 
-      <div class="label">Strength</div>
+  <div class="row-tall border-bottom-long">
+    <div class="col-quarter border-right flex-column">
+      <div class="col-whole flex-row">
+        <div class="row-whole border-bottom-short">
+          <div class="label-caps row-fill">Strength</div>
+          <select class="attribute" name="attr_strength" value="C">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <div class="label row-fill">Heavy Weapons</div>
+          <select class="skill" name="attr_skill_heavyweapons" value="F">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <div class="label row-fill">Close Combat</div>
+          <select class="skill" name="attr_skill_closecombat" value="F">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <div class="label row-fill">Stamina</div>
+          <select class="skill" name="attr_skill_stamina" value="F">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-quarter border-right flex-column">
+      <div class="col-whole flex-row"> 
+        <div class="row-whole border-bottom-short">
+          <div class="label-caps row-fill">Agility</div>
+          <select class="attribute" name="attr_agility" value="C">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <div class="label row-fill">Driving</div>
+          <select class="skill" name="attr_skill_driving" value="F">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <div class="label row-fill">Mobility</div>
+          <select class="skill" name="attr_skill_mobility" value="F">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <div class="label row-fill">Ranged Combat</div>
+          <select class="skill" name="attr_skill_rangedcombat" value="F">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-quarter border-right flex-column">
+      <div class="col-whole flex-row"> 
+        <div class="row-whole border-bottom-short">
+          <div class="label-caps row-fill">Intelligence</div>
+          <select class="attribute" name="attr_intelligence" value="C">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <div class="label row-fill">Recon</div>
+          <select class="skill" name="attr_skill_recon" value="F">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <div class="label row-fill">Survival</div>
+          <select class="skill" name="attr_skill_survival" value="F">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <div class="label row-fill">Tech</div>
+          <select class="skill" name="attr_skill_tech" value="F">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-quarter border-right flex-column">
+      <div class="col-whole flex-row"> 
+        <div class="row-whole border-bottom-short">
+          <div class="label-caps row-fill">Empathy</div>
+          <select class="attribute" name="attr_empathy" value="C">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <div class="label row-fill">Command</div>
+          <select class="skill" name="attr_skill_command" value="F">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <div class="label row-fill">Persuasion</div>
+          <select class="skill" name="attr_skill_persuasion" value="F">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <div class="label row-fill">Medical Aid</div>
+          <select class="skill" name="attr_skill_medicalaid" value="F">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+          </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-tall border-bottom-long">
+    <div class="col-whole">
+      <div class="label-caps">Specialities</div>
       <input class="input-text" name="test"/>
     </div>
-    <div class="col-quarter"> 
-      <div class="label">Agility</div>
-      <input class="input-text" name="test"/>
+  </div>
+  <div class="row-tall border-bottom-long background-tan">
+    <div class="col-half">Combat</div>
+    <div class="col-quarter">Armor</div>
+    <div class="col-quarter">Conditions</div>
+  </div>
+  <div class="row-tall border-bottom-long">
+    <div class="col-quarter flex-row">
+      <div class="flex-row">
+        <div class="label">Damage</div>
+      </div>
+      <div class="row-whole border-bottom-short">
+        <div class="label row-fill">Hit capacity</div>
+        <input class="input-number" type="number" name="hitcapacity"/>
+      </div>
+      <div class="row-whole border-bottom-short">
+        <div class="label row-fill">Stress Capacity</div>
+        <input class="input-number" type="number" name="stresscapacity"/>
+      </div>
+      <div class="row-whole border-bottom-short">
+        <div class="label row-fill">Coolness Under Fire</div>
+        <input class="input-number" type="number" name="cuf"/>
+      </div>
+      <div class="row-whole border-bottom-short">
+        <div class="label row-fill">Unit Morale</div>
+        <input class="input-number" type="number" name="unitmorale"/>
+      </div>
     </div>
-    <div class="col-quarter"> 
-      <div class="label">Intelligence</div>
-      <input class="input-text" name="test"/>
+    <div class="col-quarter flex-row">
+      <div class="flex-row">
+        <div class="label">Stress</div>
+      </div>
+      <div class="label-caps">Critical Injuries</div>
+      <input class="input-text" name="critials"/>
+      <div class="label-caps">Diseases</div>
+      <input class="input-text" name="diseases"/>
     </div>
-    <div class="col-quarter"> 
-      <div class="label">Empathy</div>
-      <input class="input-text" name="test"/>
+    <div class="col-quarter flex-row">
+      <div class="row-whole border-bottom-short">
+        <div class="label row-fill">Head</div>
+        <input class="input-text flex5" name="armor_head"/>
+        <input class="input-number" type="number" name="armor_head_v"/>
+      </div>
+      <div class="row-whole border-bottom-short">
+        <div class="label row-fill">Arms</div>
+        <input class="input-text flex5" name="armor_arms"/>
+        <input class="input-number" type="number" name="armor_arms_v"/>
+      </div>
+      <div class="row-whole border-bottom-short">
+        <div class="label row-fill">Torso</div>
+        <input class="input-text flex5" name="armor_torso"/>
+        <input class="input-number" type="number" name="armor_torso_v"/>
+      </div>
+      <div class="row-whole border-bottom-short">
+        <div class="label row-fill">Legs</div>
+        <input class="input-text flex5" name="armor_legs"/>
+        <input class="input-number" type="number" name="armor_legs_v"/>
+      </div>
+    </div>
+    <div class="col-quarter flex-row">
+      <div class="row-whole border-bottom-short">
+        <div class="label row-fill">Starving</div>
+        <input class="numbered-box grey-box" type="checkbox" name="condition_starving"/><span title="+"></span>
+      </div>
+      <div class="row-whole border-bottom-short">
+        <div class="label row-fill">Dehydrated</div>
+        <input class="numbered-box grey-box" type="checkbox" name="condition_dehydrated"/><span title="+"></span>
+      </div>
+      <div class="row-whole border-bottom-short">
+        <div class="label row-fill">Sleep Deprived</div>
+        <input class="numbered-box grey-box" type="checkbox" name="condition_sleepdeprived"/><span title="+"></span>
+      </div>
+      <div class="row-whole border-bottom-short">
+        <div class="label row-fill">Hypothermic</div>
+        <input class="numbered-box grey-box" type="checkbox" name="condition_hypothermic"/><span title="+"></span>
+      </div>
     </div>
   </div>
 </div>
