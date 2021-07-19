@@ -1,9 +1,260 @@
+@import url("https://fonts.googleapis.com/css?family=Abel&display=swap");
 .page-container {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  background-color: #e4ddc9;
+  padding: 8px;
 }
+
 .component {
   display: block;
 }
+
 .sheet-rolltemplate-sheetname {
   display: block;
 }
+
+.row-narrow, .row-tall, .row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  -border-bottom: 1px solid #534c3b;
+}
+
+.col-threequarter, .col-quarter, .col-twothird, .col-third, .col-half, .box {
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-start;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+.flex-row, .row-whole {
+  display: flex;
+  flex-direction: row;
+  justify-self: flex-start;
+  align-self: stretch;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+input, h1, h2, h3, h4, select, option, .label-caps, div, span, p, .label, .logo {
+  font-family: "Abel";
+  color: #756758;
+  text-align: left;
+  padding-left: 3px;
+}
+
+h1, h2, h3, h4, select, option, .label-caps, .logo {
+  text-transform: uppercase;
+}
+
+.border-right {
+  padding-right: 3px;
+  border-right: 2px solid #756758;
+}
+
+select, input.input-number, span.input-die {
+  padding: 2px;
+  border: 1px solid #756758 !important;
+  border-radius: 2px;
+  min-width: 30px;
+  width: 30px;
+  min-height: 20px;
+  height: 20px;
+}
+
+input {
+  width: auto;
+  background-color: transparent;
+  border-top: 0;
+  line-height: 1.2em;
+  height: 1.5em !important;
+  padding-top: 5px;
+}
+
+option, select, input.input-number {
+  min-width: 38px;
+  width: 38px;
+  min-height: 26px;
+  height: 26px;
+  margin-bottom: unset;
+}
+
+option:active, select:active, input:active, option:focus, select:focus, input:focus, option:focus-within, select:focus-within, input:focus-within, option:focus-visible, select:focus-visible, input:focus-visible, option:target, select:target, input:target, option:hover, select:hover, input:hover {
+  border: 1px solid #5a4c3a !important;
+  outline-width: 0;
+}
+
+.logo {
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/T2K%204e/Images/t2k-logo.png");
+}
+
+span.input-die {
+  background-color: inherit !important;
+  min-width: 2.5em !important;
+  text-align: center;
+}
+
+input {
+  background-color: transparent;
+  color: #5a4c3a;
+  width: 100%;
+  margin-bottom: 3px !important;
+}
+input.numbered-box {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0;
+}
+input.numbered-box + span::before {
+  content: attr(title);
+  color: #5a4c3a;
+  border: solid 1px #5a4c3a;
+  text-align: center;
+  display: inline-block;
+  background: transparent;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  font-weight: bold;
+  margin-left: -21px;
+  margin-right: 2px;
+  padding: 0px 0px 0px 0px;
+  line-height: 18px;
+  box-shadow: 0px 0px 5px #dcdcdc;
+}
+input.numbered-box:checked + span::before {
+  color: #ffffff;
+  background: #cc0000;
+  border: solid 1px #cc0000;
+  box-shadow: 0px 0px 10px #b30000;
+}
+input.grey-box:checked + span::before {
+  color: #ffffff;
+  background: #808080;
+  border: solid 1px #808080;
+  box-shadow: 0px 0px 10px #808080;
+}
+input.grey-box:checked + span::before {
+  color: #ffffff;
+  background: #808080;
+  border: solid 1px #808080;
+  box-shadow: 0px 0px 10px #808080;
+}
+input.green-box:checked + span::before {
+  color: #000000;
+  background: #7cfc00;
+  border: solid 1px #7cfc00;
+  box-shadow: 0px 0px 10px #008000;
+}
+input.gold-box:checked + span::before {
+  color: #000000;
+  background: #ffd700;
+  border: solid 1px #ffd700;
+  box-shadow: 0px 0px 10px #ffd700;
+}
+
+select {
+  -width: 38px;
+  -height: 26px;
+  justify-content: center;
+  justify-items: center;
+  background-color: #e4ddc9;
+  padding-left: 5px;
+}
+
+option {
+  justify-content: center;
+  justify-items: center;
+  background-color: #e4ddc9;
+  text-align: center;
+}
+
+.label {
+  margin-bottom: -8px;
+}
+
+.row {
+  line-height: 1em;
+  min-height: 1em;
+}
+
+.row-tall {
+  line-height: 1.2em;
+  min-height: 1.2em;
+}
+
+.row-narrow {
+  line-height: 0.8em;
+  min-height: 0.8em;
+}
+
+.box {
+  padding: 3px;
+}
+
+.row-whole {
+  max-width: 99%;
+  min-width: 99%;
+  padding-bottom: 5px;
+}
+
+.row-fill {
+  flex: 1;
+}
+
+.col-half {
+  max-width: 49%;
+  min-width: 49%;
+}
+
+.col-third {
+  max-width: 32%;
+  min-width: 32%;
+}
+
+.col-twothird {
+  max-width: 66%;
+  min-width: 66%;
+}
+
+.col-quarter {
+  max-width: 24%;
+  min-width: 24%;
+}
+
+.col-threequarter {
+  max-width: 74%;
+  min-width: 74%;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flex5 {
+  flex: 5;
+}
+
+.border-bottom-long {
+  margin-top: 3px;
+  border-bottom: 2px solid #756758;
+}
+
+.border-bottom-short {
+  margin-top: 3px;
+  border-bottom: 1px solid #756758;
+}
+
+.background-tan {
+  background-color: #cdc3af;
+}
+
+/*# sourceMappingURL=twilight2000-2020.css.map */

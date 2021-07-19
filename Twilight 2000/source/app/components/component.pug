@@ -2,5 +2,40 @@ mixin component
   .component=locals['component-example']
 
 mixin input(label,attribute='test')
-  .label= label 
+  .label-caps= label 
   input.input-text(name=attribute)
+
+mixin input-attribute(label,attribute)
+  .row-whole.border-bottom-short
+    .label-caps.row-fill= label 
+    select.attribute(name=attribute, value='C')
+      each val in ['A', 'B', 'C', 'D']
+        option(value= val)= val
+    span.separator =
+    span.input-die(readonly= true) D6
+
+mixin input-skill(label,skill)
+  .row-whole.border-bottom-short
+    .label.row-fill= label 
+    select.skill(name=skill, value='F')
+      each val in ['A', 'B', 'C', 'D', 'F']
+        option(value= val)= val
+    span.separator =
+    span.input-die(readonly= true) D6
+
+mixin input-number(label,attribute)
+  .row-whole.border-bottom-short
+    .label.row-fill= label 
+    input(type='number').input-number(name=attribute)
+
+mixin input-value-number(label,attribute)
+  .row-whole.border-bottom-short
+    .label.row-fill= label 
+    input.input-text.flex5(name=attribute)
+    input(type='number').input-number(name=attribute+'_v')
+
+mixin input-check(label,attribute)
+  .row-whole.border-bottom-short
+    .label.row-fill= label 
+    input(type='checkbox').numbered-box.grey-box(name=attribute) 
+    span(title='+')
