@@ -1,5 +1,49 @@
-@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Special+Elite|Anton|Abel&display=swap');
+@font-face {
+	font-family: T2KCharSheet;
+    src: url(https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/STENCILSTD.OTF?raw=true) format("opentype");
+  }
+@font-face {
+  font-family: DaisyWheel;
+    src: url( https://github.com/dwarfwing/twilight2000/raw/main/Twilight%202000/assets/fonts/daisywhl.otf?raw=true) format("opentype");
+  }
 
+// -- Tabs -- //
+
+.basic,
+.attributes,
+.weapons,
+.combat,
+.gear,
+.vehicle,
+.notes {
+  display: none;
+}
+
+.tabstoggle[value="basic"] ~ div.basic,
+.tabstoggle[value="attributes"] ~ div.attributes,
+.tabstoggle[value="weapons"] ~ div.weapons,
+.tabstoggle[value="combat"] ~ div.combat,
+.tabstoggle[value="gear"] ~ div.gear,
+.tabstoggle[value="vehicle"] ~ div.vehicles,
+.tabstoggle[value="notes"] ~ div.notes {
+  display: flex;
+  flex-direction: column;
+}
+
+.sheet-tabstoggle[value="basic"] ~ div.tab-buttons-container button[type=action].main-buttons.button-basic,
+.sheet-tabstoggle[value="attributes"] ~ div.tab-buttons-container button[type=action].main-buttons.button-attributes,
+.sheet-tabstoggle[value="weapons"] ~ div.tab-buttons-container button[type=action].main-buttons.button-weapons,
+.sheet-tabstoggle[value="combat"] ~ div.tab-buttons-container button[type=action].main-buttons.sht-button-combat,
+.sheet-tabstoggle[value="gear"] ~ div.tab-buttons-container button[type=action].main-buttons.button-gear,
+.sheet-tabstoggle[value="vehicle"] ~ div.tab-buttons-container button[type=action].main-buttons.button-vehicle,
+.sheet-tabstoggle[value="notes"] ~ div.tab-buttons-container button[type=action].main-buttons.button-notes {
+	background-color: #877D70;
+	color: #fff;
+    border: 3px solid #877D70;
+}
+
+ 
 // -- Variables -- //
 
 $primary: #756758;
@@ -15,6 +59,7 @@ $gold: #ffd70066;
   flex-direction: column;
   background-color: $light;
   padding: 8px;
+  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/background.png);
 }
 .component {
   display: block;
@@ -44,7 +89,7 @@ $gold: #ffd70066;
   flex-wrap: wrap;
 }
 %text-base {
-  font-family: 'Abel';
+  font-family: 'GNUTypewriter','DaisyWheel','Special Elite','Abel';
   color: $primary;
   text-align: left;
   padding-left: 3px;
@@ -52,9 +97,21 @@ $gold: #ffd70066;
 %text-upper {
   text-transform: uppercase;
 }
+%text-lower {
+  text-transform: unset;
+  font-weight: unset;
+}
 %border-right {
   padding-right: 3px;
-  border-right: 2px solid $primary;
+  -border-right: 2px solid $primary;
+  border-width: 0 2px;
+  border-style: solid;
+  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 0 4 0;
+}
+%border-bottom {
+  border-width: 0 0 2px;
+  border-style: solid;
+  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 0 4 0;
 }
 %input-box {
   padding: 2px;
@@ -93,17 +150,30 @@ $gold: #ffd70066;
 }
 div, span, p, .label {
   @extend %text-base;
+  @extend %text-lower;
 }
 h1, h2, h3, h4, select, option, .label-caps {
   @extend %text-base;
   @extend %text-upper;
+  font-size: 1em;
 }
+.label-caps {
+ font-size: 90%; 
+ padding-left: 0;
+}
+div.headlabel div.label-caps {
+  font-size: 80%;
+}
+
 span {
   &.input-die {
   @extend %input-box;   
   background-color: inherit !important;
   min-width: 2.5em !important;
-  text-align: center;
+  text-align: center;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
   }
 }
 input {
@@ -117,6 +187,10 @@ input {
   &.input-number {
     @extend %input-box;
     @extend %input-select;
+  }
+  &.input-text {
+    color: $dark-font;
+    font-family: 'Abel';
   }
   &.numbered-box {
     width: 18px;
@@ -154,10 +228,10 @@ input {
       box-shadow: 0px 0px 10px #b30000;
     }
   }
-  &.grey-box:checked + span::before {
-    color: #ffffff;
-    background: #808080;
-    border: solid 1px #808080;
+  &.greyish-box:checked + span::before {
+    color: $light;
+    background: $primary;
+    border: solid 1px $secondary;
     box-shadow: 0px 0px 10px #808080;
   }
   &.grey-box:checked + span::before {
@@ -199,10 +273,22 @@ option {
   background-color: $light;
   text-align: center;
 }
-.label {
-  margin-bottom: -8px;
+.tab {
+  display: flex;
+  min-width: 16%;
+  max-width: 16%;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  min-height: 2.5em;
+  border: 1px solid $secondary;
+  border-bottom: unset;
+  background-color: $light;
+  margin-top: 4px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 0px;
 }
-
 .row {
   @extend %row-commons;
   line-height: 1em;
@@ -222,6 +308,10 @@ option {
   @extend %cell-flex-col;
   padding: 3px;
 }
+.row-100pc {
+  min-width: 100%;
+  max-width: 100%;
+}
 .row-whole {
   @extend %cell-flex-row;
   max-width: 99%;
@@ -230,6 +320,24 @@ option {
 }
 .row-fill {
   flex: 1;
+}
+.h-fill {
+  height: 100%;
+}
+.h-2-5em {
+  height: 2.5em;
+}
+.repcontainer, .repitem {
+  padding-left: 0;
+}
+.repcontrol_add, .repcontrol_edit {
+  float: right;
+  margin-top: 4px;
+  margin-right: 2px;
+  color: $light;
+  background: $primary;
+  border: solid 1px $secondary;
+  box-shadow: 0px 0px 10px #808080;
 }
 .col-half {
   @extend %cell-flex-col;
@@ -256,14 +364,41 @@ option {
   max-width: 74%;
   min-width: 74%;
 }
+.col-sixth {
+  @extend %cell-flex-col;
+  max-width: 16.5%;
+  min-width: 16.5%;
+}
+.col-14th {
+  @extend %cell-flex-col;
+  max-width: 7%;
+  min-width: 7%;
+}
+.col-3-14th {
+  @extend %cell-flex-col;
+  max-width: 20%;
+  min-width: 20%;
+}
 .flex1 { flex: 1; }
 .flex5 { flex: 5; }
 .border-right {
   @extend %border-right;
 }
+.no-pad {
+  padding: 0;
+}
+.middle {
+  align-items: center;
+  align-content: center;
+  align-self: center;
+}
+.center {
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+}
 .border-bottom-long {
-  margin-top: 3px;
-  border-bottom: 2px solid $primary;
+  @extend %border-bottom;
 }
 .border-bottom-short {
   margin-top: 3px;
