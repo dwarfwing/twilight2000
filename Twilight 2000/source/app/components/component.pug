@@ -39,3 +39,9 @@ mixin input-check(label,attribute)
     .label.row-fill= label 
     input(type='checkbox').numbered-box.grey-box(name=attribute) 
     span(title='+')
+
+mixin input-hidden(clss,nme,vlue='0')
+  input.input-hidden(type='hidden',class=clss, name= nme, value= vlue)
+
+mixin tab-button(label,name)
+  button.tab.main-buttons.attributes(class= "button-"+name, type= "action", name= "act_"+name)= label

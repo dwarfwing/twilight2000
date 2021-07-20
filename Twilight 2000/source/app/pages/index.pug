@@ -1,88 +1,128 @@
 include ../components/component
 
 .page-container
-  .row-tall.border-bottom-long
-    .col-third.border-right.logo
-    .col-third.border-right 
-      +input('Name','attr_name')
-    .col-third 
-      +input('Nationality')
-  .row-tall.border-bottom-long
-    .col-third.border-right
-      +input('Branch')
-    .col-twothird 
-      +input('Appearance')
-  .row-tall.border-bottom-long
-    .col-third.border-right 
-      +input('Military Rank')
-    .col-twothird 
-      +input('Moral code')
-  .row-tall.border-bottom-long
-    .col-third.border-right 
-      +input('Buddy')
-    .col-twothird 
-      +input('Big dream')
-  .row-tall.border-bottom-long
-    .col-threequarter.border-right 
-      +input('How I met the group')
-    .col-quarter 
-      +input('Experience')
-  .row-tall.border-bottom-long.background-tan
-    .col-whole Attributes and Skills 
-  .row-tall.border-bottom-long
-    .col-quarter.border-right.flex-column
-      .col-whole.flex-row
-        +input-attribute('Strength','attr_strength') 
-        +input-skill('Heavy Weapons','attr_skill_heavyweapons') 
-        +input-skill('Close Combat','attr_skill_closecombat') 
-        +input-skill('Stamina','attr_skill_stamina') 
-    .col-quarter.border-right.flex-column
-      .col-whole.flex-row 
-        +input-attribute('Agility','attr_agility')
-        +input-skill('Driving','attr_skill_driving') 
-        +input-skill('Mobility','attr_skill_mobility') 
-        +input-skill('Ranged Combat','attr_skill_rangedcombat') 
-    .col-quarter.border-right.flex-column
-      .col-whole.flex-row 
-        +input-attribute('Intelligence','attr_intelligence')
-        +input-skill('Recon','attr_skill_recon') 
-        +input-skill('Survival','attr_skill_survival') 
-        +input-skill('Tech','attr_skill_tech') 
-    .col-quarter.border-right.flex-column
-      .col-whole.flex-row  
-        +input-attribute('Empathy','attr_empathy')
-        +input-skill('Command','attr_skill_command') 
-        +input-skill('Persuasion','attr_skill_persuasion') 
-        +input-skill('Medical Aid','attr_skill_medicalaid') 
-  .row-tall.border-bottom-long
-    .col-whole
-      +input('Specialities')
-  .row-tall.border-bottom-long.background-tan
-    .col-half Combat
-    .col-quarter Armor
-    .col-quarter Conditions
-  .row-tall.border-bottom-long
-    .col-quarter.flex-row
-      .flex-row
-        .label Damage
-      +input-number('Hit capacity','hitcapacity')
-      +input-number('Stress Capacity','stresscapacity')
-      +input-number('Coolness Under Fire','cuf')
-      +input-number('Unit Morale','unitmorale')
-    .col-quarter.flex-row
-      .flex-row
-        .label Stress
-      +input('Critical Injuries','critials')
-      +input('Diseases','diseases')
-    .col-quarter.flex-row
-      +input-value-number('Head','armor_head')
-      +input-value-number('Arms','armor_arms')
-      +input-value-number('Torso','armor_torso')
-      +input-value-number('Legs','armor_legs')
-    .col-quarter.flex-row
-      +input-check('Starving','condition_starving')
-      +input-check('Dehydrated','condition_dehydrated')
-      +input-check('Sleep Deprived','condition_sleepdeprived')
-      +input-check('Hypothermic','condition_hypothermic')
-
-  
+  +input-hidden('tabstoggle','attr_sheetTab','basic')
+  .header
+    .row-tall.border-bottom-long
+      .col-third.border-right.logo
+      .col-third.headlabel.border-right 
+        +input('Name','attr_character_name')
+      .col-third.headlabel 
+        +input('Nationality')
+    .row-tall.border-bottom-long
+      .col-third.border-right
+        +input('Branch')
+      .col-twothird.headlabel 
+        +input('Appearance')
+    .row-tall.border-bottom-long
+      .col-third.headlabel.border-right 
+        +input('Military Rank')
+      .col-twothird.headlabel 
+        +input('Moral code')
+    .row-tall.border-bottom-long
+      .col-third.headlabel.border-right 
+        +input('Buddy')
+      .col-twothird.headlabel
+        +input('Big dream')
+    .row-tall.border-bottom-long
+      .col-threequarter.headlabel.border-right 
+        +input('How I met the group')
+      .col-quarter.headlabel
+        +input('Experience')
+  .tabs.row-tall.row-100pc.border-bottom-long.background-tan.tab-buttons-container
+    +input-hidden('tabstoggle','attr_sheetTab','basic')
+    +tab-button('Attributes <br/> and Skills','basic')
+    +tab-button('Combat','combat')
+    //+tab-button('Weapons','weapons')
+    +tab-button('Gear','gear')
+    +tab-button('Vehicles','vehicle')
+    +tab-button('Notes','notes')
+  .basic
+    .row-tall.border-bottom-long.background-tan
+      .col-whole Attributes and Skills 
+    .row-tall.border-bottom-long
+      .col-quarter.border-right.flex-column
+        .col-whole.flex-row
+          +input-attribute('Strength','attr_strength') 
+          +input-skill('Heavy Weapons','attr_skill_heavyweapons') 
+          +input-skill('Close Combat','attr_skill_closecombat') 
+          +input-skill('Stamina','attr_skill_stamina') 
+      .col-quarter.border-right.flex-column
+        .col-whole.flex-row 
+          +input-attribute('Agility','attr_agility')
+          +input-skill('Driving','attr_skill_driving') 
+          +input-skill('Mobility','attr_skill_mobility') 
+          +input-skill('Ranged Combat','attr_skill_rangedcombat') 
+      .col-quarter.border-right.flex-column
+        .col-whole.flex-row 
+          +input-attribute('Intelligence','attr_intelligence')
+          +input-skill('Recon','attr_skill_recon') 
+          +input-skill('Survival','attr_skill_survival') 
+          +input-skill('Tech','attr_skill_tech') 
+      .col-quarter.border-right.flex-column
+        .col-whole.flex-row  
+          +input-attribute('Empathy','attr_empathy')
+          +input-skill('Command','attr_skill_command') 
+          +input-skill('Persuasion','attr_skill_persuasion') 
+          +input-skill('Medical Aid','attr_skill_medicalaid') 
+    .row-tall.border-bottom-long
+      .col-whole
+        +input('Specialities')
+  .combat
+    .row-tall.border-bottom-long.background-tan
+      .col-half.border-right Combat
+      .col-quarter.border-right Armor
+      .col-quarter Conditions
+    .row-tall.border-bottom-long
+      .col-quarter.flex-row
+        .flex-row
+          .label Damage
+        +input-number('Hit capacity','hitcapacity')
+        +input-number('Stress Capacity','stresscapacity')
+        +input-number('Coolness Under Fire','cuf')
+        +input-number('Unit Morale','unitmorale')
+      .col-quarter.flex-row
+        .flex-row
+          .label Stress
+        +input('Critical Injuries','critials')
+        +input('Diseases','diseases')
+      .col-quarter.flex-row
+        +input-value-number('Head','armor_head')
+        +input-value-number('Arms','armor_arms')
+        +input-value-number('Torso','armor_torso')
+        +input-value-number('Legs','armor_legs')
+      .col-quarter.flex-row
+        +input-check('Starving','condition_starving')
+        +input-check('Dehydrated','condition_dehydrated')
+        +input-check('Sleep Deprived','condition_sleepdeprived')
+        +input-check('Hypothermic','condition_hypothermic')
+    .weapons-row 
+      //.row-tall.border-bottom-long.background-tan
+      //  .col-full Weapons
+      .row-tall.row-100pc.border-bottom-long.background-tan
+        .col-3-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em WEAPONS
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em REL
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em RDF
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em DAMAGE
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em CRIT
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em BLAST
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em RANGE
+        .col-14th.border-bottom-short.border-right.background-tan.no-pa.middle.center.h-2-5em MAG
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em ARMOR
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em WEIGHT
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em SPENT
+        .col-14th.border-bottom-short.background-tan.no-pad.middle.center.h-2-5em ROLL
+      fieldset.repeating_weapons
+        .row-tall.row-100pc
+          .col-3-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em M16
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em -
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 8
+          .col-14th.border-bottom-short.border-right.no-pa.middle.center.h-2-5em 30
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 12
+          .col-14th.border-bottom-short.no-pad.middle.center.h-2-5em t
