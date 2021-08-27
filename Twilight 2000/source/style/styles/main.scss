@@ -1,0 +1,43 @@
+// Main styles
+
+.logo {
+    @extend %text-base;
+    @extend %text-upper;
+    background-image: url('https://github.com/dwarfwing/twilight2000/blob/main/Twilight%202000/images/twilight2000logo.png?raw=true');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  div, span, p, label, .label, .row-whole label {
+    @extend %text-base;
+    @extend %text-lower;
+    box-sizing: border-box;
+  }
+  h1, h2, h3, h4, select, option, .label-caps {
+    @extend %text-base;
+    @extend %text-upper;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+  .label-caps {
+   font-size: 90%; 
+   padding-left: 0;
+  }
+  div.headlabel div.label-caps {
+    -font-size: 80%;
+  }
+  .row-whole label {
+    font-size: unset;
+    font-size: 80%;
+  }
+  
+  span {
+    &.input-die {
+    @extend %input-box;   
+    background-color: inherit !important;
+    min-width: 2.5em !important;
+    text-align: center;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+  }

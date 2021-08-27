@@ -1,0 +1,201 @@
+// Input
+
+input, textarea {
+    @extend %text-base;
+    @extend %input-text; 
+    @extend %no-outline;  
+    background-color: transparent;
+    color: $secondary;
+    width: 100%;
+    margin-bottom: 3px !important;
+    &.input-number {
+      @extend %input-box;
+      @extend %input-select;
+    }
+    &.input-text {
+      color: $dark-font;
+      font-family: 'Delius', 'Chilanka', 'Abel';
+    }
+    &.input-textarea {
+      color: $dark-font;
+      font-family: 'Delius', 'Chilanka', 'Abel';
+      height: auto;
+    }
+    &.spec-desc {
+      @extend %input-scrollbar;
+      @extend %no-outline;
+      width: 95%;
+      max-width: 95%;
+      height: 80px !important;
+      max-height: 80px !important;
+      resize: none;
+      -outline: unset;
+      padding: 4px;
+      margin-top: 3px;
+    }
+    &.numbered-box {
+      width: 18px;
+      height: 18px;
+      position: relative;
+      top: 0px;
+      left: 8px;
+      margin: 0px;
+      cursor: pointer;
+      z-index: 1;
+      opacity: 0;
+      & + span::before, & + label {
+        content: attr(title);
+        color: $secondary;
+        border: solid 1px $secondary;
+        text-align: center;
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+        font-weight: bold;
+        -margin-left: -14px;
+        margin-right: 3px;
+        padding: 0px 0px 0px 0px;
+        line-height: 18px;
+        box-shadow: 0px 0px 5px #dcdcdc;
+        z-index: 0;
+      }
+    }
+/*     &.numbered-box:checked + span::before, &.numbered-box:checked + label {
+      color: #ffffff;
+      background: #cc0000;
+      border: solid 1px #cc0000;
+      box-shadow: 0px 0px 10px #b30000;
+    } */
+/*     &.greyish-box:checked + span::before, &.greyish-box:checked + label {
+      color: $light;
+      background: $primary;
+      border: solid 1px $secondary;
+      box-shadow: 0px 0px 10px #808080;
+    } */
+    &.grey-box:checked + span::before, &.grey-box:checked + label {
+      color: #ffffff;
+      background: #808080;
+      border: solid 1px #808080;
+      box-shadow: 0px 0px 10px #808080;
+    }
+    &.green-box:checked + span::before, &.green-box:checked +  {
+      color: #000000;
+      background: #7cfc00;
+      border: solid 1px #7cfc00;
+      box-shadow: 0px 0px 10px #008000;
+    }
+    &.gold-box:checked + span::before, &.gold-box:checked + label {
+      color: #000000;
+      background: #ffd700;
+      border: solid 1px #ffd700;
+      box-shadow: 0px 0px 10px #ffd700;
+    }  
+    &.red-box:checked + span::before, &.red-box:checked + label {
+      color: #ffffff;
+      background: #cc0000;
+      border: solid 1px #cc0000;
+      box-shadow: 0px 0px 10px #b30000;
+    }
+  }
+
+div.damage {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+}
+input[type="radio"] + label.damage {
+  color: $light;
+  background: $primary;
+  border: solid 1px $secondary;
+  box-shadow: 0px 0px 10px #808080;
+}
+input[type="radio"].red-box + label.damage {
+  color: #ffffff;
+  background: #cc0000;
+  border: solid 1px #cc0000;
+  box-shadow: 0px 0px 10px #b30000;
+}
+input[type="radio"].gold-box + label.damage {
+  color: #000000;
+  background: #ffd700;
+  border: solid 1px #ffd700;
+  box-shadow: 0px 0px 10px #ffd700;
+}
+input[type="radio"][value="0"] + label.damage {
+  border-radius: 50%;
+  color: $light;
+  background: $primary;
+  border: solid 1px $secondary;
+  box-shadow: 0px 0px 10px #808080;
+}
+  
+/* Removes highlight from all radios _after_ selected one */
+input[type="radio"]:checked ~ input[type="radio"] + label.damage {
+  color: $secondary;
+  background: transparent;
+  border: solid 1px $secondary;
+  box-shadow: 0px 0px 5px #dcdcdc;
+}
+ 
+
+/*   input.damage[value="0"] ~ label.damage[data-value-lt~="0"] { @extend %checked-box-greyish; }
+  input.damage[value="1"] ~ label.damage[data-value-lt~="1"] { @extend %checked-box-greyish; }
+  input.damage[value="2"] ~ label.damage[data-value-lt~="2"] { @extend %checked-box-greyish; }
+  input.damage[value="3"] ~ label.damage[data-value-lt~="3"]  { @extend %checked-box-greyish; }
+  input.damage[value="4"] ~ label.damage[data-value-lt~="4"]  { @extend %checked-box-greyish; }
+  input.damage[value="5"] ~ label.damage[data-value-lt~="5"]  { @extend %checked-box-greyish; }
+  input.damage[value="6"] ~ label.damage[data-value-lt~="6"]  { @extend %checked-box-greyish; }
+  input.damage[value="7"] ~ label.damage[data-value-lt~="7"]  { @extend %checked-box-greyish; }
+  input.damage[value="8"] ~ label.damage[data-value-lt~="8"]  { @extend %checked-box-greyish; }
+  input.damage[value="9"] ~ label.damage[data-value-lt~="9"]  { @extend %checked-box-greyish; }
+  input.damage[value="10"] ~ label.damage[data-value-lt~="10"] { @extend %checked-box-greyish; } */
+
+/*   input[name="attr_damage"][value="1"] ~ label.damage1 { @extend %checked-box-greyish; }
+  input.damage-attr[value="2"] ~ label.damage1, input.damage-attr[value="2"] ~ label.damage2 { @extend %checked-box-greyish; }
+  input.damage-attr[value="3"] ~ .damage1, input.damage-attr[value="3"] ~ .damage2, input.damage-attr[value="3"] ~ .damage3 { @extend %checked-box-greyish; }
+  input.damage-attr[value="4"] ~ label.damage[data-value-lt~="4"] { @extend %checked-box-greyish; }
+  input.damage-attr[value="5"] ~ div label.damage5 { @extend %checked-box-greyish; }
+  input.damage-attr[value="6"] ~ div label.damage1 { @extend %checked-box-greyish; }
+  input.damage-attr[value="7"] ~ div label.damage2 { @extend %checked-box-greyish; }
+  input.damage-attr[value="8"] ~ div label.damage3 { @extend %checked-box-greyish; }
+  input.damage-attr[value="9"] ~ div label.damage4 { @extend %checked-box-greyish; }
+  input.damage-attr[value="10"] ~ div label.damage5 { @extend %checked-box-greyish; }
+  input.damage-attr[value="4"] ~ div label {background-color: red;} */
+
+/*   input.numbered-box:valid + label.damage { @extend %checked-box-greyish; } */
+  
+  select { 
+    @extend %no-outline;   
+    @extend %input-box;  
+    @extend %input-select;  
+    -width: 38px;
+    -height: 26px;    
+    justify-content: center;
+    justify-items: center;
+    background-color: transparent;
+    padding-left: 5px;
+    &.spec-category {
+      width: 95%;
+      margin: 3px;
+    }
+    &.weight {
+      appearance: none;
+      text-align: center;
+      text-align-last: center;    
+    }
+    &.weight option {
+      text-align: center;
+    }
+  }
+  option {    
+    @extend %no-outline;  
+    @extend %input-select; 
+    justify-content: center;
+    justify-items: center;
+    background-color: $light;
+    text-align: center;
+  }

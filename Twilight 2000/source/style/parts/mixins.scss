@@ -1,0 +1,146 @@
+// Mixins
+%row-commons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+    -border-bottom: 1px solid #534c3b; 
+  }
+  %cell-flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-self: stretch;
+    flex-wrap: wrap;
+
+  }
+  %cell-flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-start;
+    align-self: stretch;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  %text-base {
+    font-family: 'GNUTypewriter','DaisyWheel','Special Elite','Abel';
+    color: $primary;
+    text-align: left;
+    padding-left: 3px;
+    font-weight: normal;
+  }
+  %text-upper {
+    text-transform: uppercase;
+  }
+  %text-lower {
+    text-transform: unset;
+    font-weight: unset;
+  }
+  %bordered {
+    border: 1px solid $primary !important;
+  }
+  %dotted {
+    border: 1px dotted $primary !important;
+  }
+  %dashed {
+    border: 1px dashed $primary !important;
+  } 
+  %border-all {
+    padding-right: 3px;
+    -border-right: 2px solid $primary;
+    border-width: 2px;
+    border-style: solid;
+    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 4 4 4 4;
+  } 
+  %border-right {
+    padding-right: 3px;
+    -border-right: 2px solid $primary;
+    border-width: 0 2px 0 0;
+    border-style: solid;
+    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 4 0 0;
+  }
+  %border-bottom {
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 0 4 0;
+  }
+  %border-top {
+    border-width: 2px 0 0 0;
+    border-style: solid;
+    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 4 0 0 0;
+  }
+  %border-bottom-right {
+    border-width: 0 2px 2px 0;
+    border-style: solid;
+    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 4 4 0;
+  }
+  %input-box {
+    padding: 2px;
+    border: 1px solid $primary;
+    border-radius: 2px;
+    min-width: 30px;
+    width: 30px;
+    min-height: 20px;
+    height: 20px;
+  }
+  %input-text {
+    width: auto;
+    background-color: transparent;
+    border-top: 0;
+    line-height: 1.2em;
+    height: 1.5em;
+    padding-top: 5px;
+  }
+  %input-select {
+    min-width: 38px;
+    width: 38px;
+    min-height: 26px;
+    height: 26px;
+    margin-bottom: unset;
+  }
+  %input-scrollbar {
+    scrollbar-arrow-color: $primary;
+    scrollbar-base-color: $tan;
+    scrollbar-darkshadow-color: $secondary;
+    scrollbar-shadow-color: $secondary;
+    scrollbar-highlightcolor: $light;
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-button {
+      display: none;
+      color:$primary;
+      background:$secondary;
+    }
+    &::-webkit-scrollbar-track {
+      background: $tan;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $primary;
+      height: 5px;
+      cursor: grab;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      cursor: grab;
+    }
+  }
+  %input-outline {
+    &:active, &:focus, &:focus-within, &:focus-visible, &:target, &:hover {
+      border: 1px solid $secondary !important;
+      outline-width: 0;
+    }
+  }
+  %no-outline {
+    &:active, &:focus, &:focus-within, &:focus-visible, &:target, &:hover {
+      -border: 0 !important;
+      -outline-width: 0;
+      outline: none;
+    }
+  }
+  %checked-box-greyish {
+    color: $light;
+    background: $primary;
+    border: solid 1px $secondary;
+    box-shadow: 0px 0px 10px #808080;
+  }

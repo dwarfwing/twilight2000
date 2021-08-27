@@ -5,8 +5,17 @@ mixin input(label,attribute='test')
   .label-caps= label 
   input.input-text(name=attribute)
 
+mixin input-field(label,attribute='test')
+  .label-caps= label 
+  textarea.input-textarea(name= attribute)
+
+mixin span-value(label,attribute='test')
+  .row
+    .label-caps= label 
+    span.input-text(name=attribute)
+
 mixin input-attribute(label,attribute)
-  .row-whole.border-bottom-short
+  .row-whole
     .label-caps.row-fill= label 
     select.attribute(name=attribute, value='C')
       each val in ['A', 'B', 'C', 'D']
@@ -15,8 +24,9 @@ mixin input-attribute(label,attribute)
     span.input-die(readonly= true) D6
 
 mixin input-skill(label,skill)
-  .row-whole.border-bottom-short
-    .label.row-fill= label 
+  .row-whole
+    input.hidden(id=skill, name="act_"+skill, type="checkbox", value="1")
+    label.label.row-fill(for=skill)= label 
     select.skill(name=skill, value='F')
       each val in ['A', 'B', 'C', 'D', 'F']
         option(value= val)= val
@@ -24,18 +34,24 @@ mixin input-skill(label,skill)
     span.input-die(readonly= true) D6
 
 mixin input-number(label,attribute)
-  .row-whole.border-bottom-short
+  .row-whole
     .label.row-fill= label 
     input(type='number').input-number(name=attribute)
 
 mixin input-value-number(label,attribute)
-  .row-whole.border-bottom-short
+  .row-whole
     .label.row-fill= label 
     input.input-text.flex5(name=attribute)
     input(type='number').input-number(name=attribute+'_v')
 
+mixin input-condition(label,attribute)
+  .row-whole.border-top-short
+    .label.row-fill.right= label 
+    input(type='checkbox').numbered-box.grey-box(name=attribute) 
+    span(title='+')
+
 mixin input-check(label,attribute)
-  .row-whole.border-bottom-short
+  .row-whole
     .label.row-fill= label 
     input(type='checkbox').numbered-box.grey-box(name=attribute) 
     span(title='+')
@@ -44,4 +60,66 @@ mixin input-hidden(clss,nme,vlue='0')
   input.input-hidden(type='hidden',class=clss, name= nme, value= vlue)
 
 mixin tab-button(label,name)
-  button.tab.main-buttons.attributes(class= "button-"+name, type= "action", name= "act_"+name)= label
+  button.tab.main-buttons(class= "button-"+name, type= "action", name= "act_"+name)= label
+
+mixin speciality(label,category,description)
+  .speciality-box.box
+    input.input-text.spec-name(value= label)
+    //select.spec-category(name=spec-cat,value= category)
+      each val in ['Close Combat', 'Heavy Weapons', 'Stamina', 'Driving', 'Mobility', 'Ranged Combat', 'Recon', 'Survival', 'Tech', 'Command', 'Medical Aid', 'Persuasion']
+        option(value= val)= val
+    textarea.spec-desc.input-textarea= description
+
+mixin speciality-add
+  .speciality-box.box.center.middle.dashed
+    .center.middle= '+Add'
+
+mixin gear-item
+  .row-tall.row-100pc.no-pad
+    .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em  
+      input.input-text.gear-name(name= 'attr_name',value= label)
+    .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
+      select.weight(name='attr_weight',value='1')
+        each val in ['0.25', '0.5', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+          if val === '1' 
+            option(value= val, selected= selected)= val
+          else  
+            option(value= val)= val
+    .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
+      input(type='number').input-number(name='attr_amount')
+mixin tiny-item
+  .row-tall.row-100pc.no-pad
+    .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em  
+      input.input-text.gear-name(name= 'attr_name',value= label)
+    .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
+      input.input-number(name='attr_amount')
+
+mixin numbered-checkbox(attribute,index,color)
+  input.numbered-box(type= "checkbox",value= index,class= color+"-box",name= "attr_"+attribute,title= "@{"+attribute+"}")
+  span(title= index)
+mixin numbered-radiobox(attribute,index,color)
+  //- var i = 1, j = 10, lt = '', gt = '';
+  //while i < index
+    - gt += " "+i++
+  //while j > index
+    - lt += " "+(--j)
+  input.numbered-box(type= "radio",value= index,id= attribute+index,class= color+"-box" attribute,name= "attr_"+attribute,title= "@{"+attribute+"}",hidden)
+  //label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index
+  label.damage(title= index,for= attribute+index,class= attribute+index)= index
+mixin numbered-checkboxes(attribute,color,rowbreak)
+  - var i = 1, max = 10;
+  .row-whole.space-even
+    while i <= max/2
+      +numbered-checkbox(attribute,i++,color)
+  .row-whole.space-even
+    while i <= max
+      +numbered-checkbox(attribute,i++,color)
+mixin numbered-radioboxes(attribute,color,rowbreak)
+  - var i = 0, max = 10;
+  //.row-whole.space-even
+  while i <= max
+    if i == 6 
+      .spacer 
+      +numbered-radiobox(attribute,i++,color)
+    else 
+      +numbered-radiobox(attribute,i++,color)

@@ -1,8 +1,8 @@
 {
-  "html": "Sheet.html",
-  "css": "Sheet.css",
-  "authors": "",
+  "html": "twilight2000.html",
+  "css": "twilight2000.scss",
+  "authors": "Richard W",
+  "preview": "twilight2000.png",
   "roll20userid": "",
-  "preview": "Sheet.png",
-  "instructions": ""
+  "instructions": "Character sheet for use with Twilight 2000, 4th edition, the Roleplaying Game from Free League Publishing."
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Special+Elite|Anton|Abel&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Special+Elite|Anton|Abel|Chilanka|Delius&display=swap");
 @font-face {
   font-family: T2KCharSheet;
   src: url(https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/STENCILSTD.OTF?raw=true) format("opentype");
@@ -7,8 +7,23 @@
   font-family: DaisyWheel;
   src: url(https://github.com/dwarfwing/twilight2000/raw/main/Twilight%202000/assets/fonts/daisywhl.otf?raw=true) format("opentype");
 }
+.page-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #e4ddc9;
+  padding: 8px;
+  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/background.png);
+}
+
+.component {
+  display: block;
+}
+
+.sheet-rolltemplate-sheetname {
+  display: block;
+}
+
 .basic,
-.attributes,
 .weapons,
 .combat,
 .gear,
@@ -22,7 +37,7 @@
 .tabstoggle[value=weapons] ~ div.weapons,
 .tabstoggle[value=combat] ~ div.combat,
 .tabstoggle[value=gear] ~ div.gear,
-.tabstoggle[value=vehicle] ~ div.vehicles,
+.tabstoggle[value=vehicle] ~ div.vehicle,
 .tabstoggle[value=notes] ~ div.notes {
   display: flex;
   flex-direction: column;
@@ -40,30 +55,32 @@
   border: 3px solid #877D70;
 }
 
-.page-container {
+.tab {
   display: flex;
-  flex-direction: column;
-  background-color: #e4ddc9;
-  padding: 8px;
-  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/background.png);
-}
-
-.component {
-  display: block;
-}
-
-.sheet-rolltemplate-sheetname {
-  display: block;
+  min-width: 16%;
+  max-width: 16%;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  min-height: 2.5em;
+  border: 1px solid #5a4c3a;
+  border-bottom: unset;
+  background-color: transparent;
+  margin-top: 4px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 0px;
 }
 
 .row-narrow, .row-tall, .row {
   display: flex;
   flex-direction: row;
   width: 100%;
+  box-sizing: border-box;
   -border-bottom: 1px solid #534c3b;
 }
 
-.col-3-14th, .col-14th, .col-sixth, .col-threequarter, .col-quarter, .col-twothird, .col-third, .col-half, .box {
+.box, .col-3-14th, .col-14th, .col-sixth, .col-fifth, .col-threequarter, .col-quarter, .col-twothird, .col-third, .col-half {
   display: flex;
   flex-direction: column;
   justify-self: flex-start;
@@ -80,39 +97,72 @@
   flex-wrap: wrap;
 }
 
-input, h1, h2, h3, h4, select, option, .label-caps, div, span, p, .label, .logo {
+input, textarea, h1, h2, h3, h4, select, option, .label-caps, div, span, p, label, .label, .row-whole label, .logo {
   font-family: "GNUTypewriter", "DaisyWheel", "Special Elite", "Abel";
   color: #756758;
   text-align: left;
   padding-left: 3px;
+  font-weight: normal;
 }
 
 h1, h2, h3, h4, select, option, .label-caps, .logo {
   text-transform: uppercase;
 }
 
-div, span, p, .label {
+div, span, p, label, .label, .row-whole label {
   text-transform: unset;
   font-weight: unset;
+}
+
+.bordered {
+  border: 1px solid #756758 !important;
+}
+
+.dashed {
+  border: 1px dotted #756758 !important;
+}
+
+.dashed {
+  border: 1px dashed #756758 !important;
+}
+
+.border-all {
+  padding-right: 3px;
+  -border-right: 2px solid #756758;
+  border-width: 2px;
+  border-style: solid;
+  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 4 4 4 4;
 }
 
 .border-right {
   padding-right: 3px;
   -border-right: 2px solid #756758;
-  border-width: 0 2px;
+  border-width: 0 2px 0 0;
   border-style: solid;
-  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 0 4 0;
+  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 4 0 0;
 }
 
 .border-bottom-long {
-  border-width: 0 0 2px;
+  border-width: 0 0 2px 0;
   border-style: solid;
   border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 0 4 0;
 }
 
-select, input.input-number, span.input-die {
+.border-top-short {
+  border-width: 2px 0 0 0;
+  border-style: solid;
+  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 4 0 0 0;
+}
+
+.border-bottom-right {
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 4 4 0;
+}
+
+.speciality-box, select, input.input-number, textarea.input-number, span.input-die {
   padding: 2px;
-  border: 1px solid #756758 !important;
+  border: 1px solid #756758;
   border-radius: 2px;
   min-width: 30px;
   width: 30px;
@@ -120,16 +170,16 @@ select, input.input-number, span.input-die {
   height: 20px;
 }
 
-input {
+input, textarea {
   width: auto;
   background-color: transparent;
   border-top: 0;
   line-height: 1.2em;
-  height: 1.5em !important;
+  height: 1.5em;
   padding-top: 5px;
 }
 
-option, select, input.input-number {
+option, select, input.input-number, textarea.input-number {
   min-width: 38px;
   width: 38px;
   min-height: 26px;
@@ -137,17 +187,53 @@ option, select, input.input-number {
   margin-bottom: unset;
 }
 
-option:active, select:active, input:active, option:focus, select:focus, input:focus, option:focus-within, select:focus-within, input:focus-within, option:focus-visible, select:focus-visible, input:focus-visible, option:target, select:target, input:target, option:hover, select:hover, input:hover {
-  border: 1px solid #5a4c3a !important;
-  outline-width: 0;
+input.spec-desc, textarea.spec-desc {
+  scrollbar-arrow-color: #756758;
+  scrollbar-base-color: #cdc3af;
+  scrollbar-darkshadow-color: #5a4c3a;
+  scrollbar-shadow-color: #5a4c3a;
+  scrollbar-highlightcolor: #e4ddc9;
+}
+input.spec-desc::-webkit-scrollbar, textarea.spec-desc::-webkit-scrollbar {
+  width: 10px;
+}
+input.spec-desc::-webkit-scrollbar-button, textarea.spec-desc::-webkit-scrollbar-button {
+  display: none;
+  color: #756758;
+  background: #5a4c3a;
+}
+input.spec-desc::-webkit-scrollbar-track, textarea.spec-desc::-webkit-scrollbar-track {
+  background: #cdc3af;
+}
+input.spec-desc::-webkit-scrollbar-thumb, textarea.spec-desc::-webkit-scrollbar-thumb {
+  background: #756758;
+  height: 5px;
+  cursor: grab;
+}
+input.spec-desc::-webkit-scrollbar-thumb:hover, textarea.spec-desc::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  cursor: grab;
+}
+
+option:active, select:active, input:active, textarea:active, option:focus, select:focus, input:focus, textarea:focus, option:focus-within, select:focus-within, input:focus-within, textarea:focus-within, option:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible, option:target, select:target, input:target, textarea:target, option:hover, select:hover, input:hover, textarea:hover {
+  -border: 0 !important;
+  -outline-width: 0;
+  outline: none;
 }
 
 .logo {
-  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/T2K%204e/Images/t2k-logo.png");
+  background-image: url("https://github.com/dwarfwing/twilight2000/blob/main/Twilight%202000/images/twilight2000logo.png?raw=true");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+div, span, p, label, .label, .row-whole label {
+  box-sizing: border-box;
 }
 
 h1, h2, h3, h4, select, option, .label-caps {
   font-size: 1em;
+  box-sizing: border-box;
 }
 
 .label-caps {
@@ -156,6 +242,11 @@ h1, h2, h3, h4, select, option, .label-caps {
 }
 
 div.headlabel div.label-caps {
+  -font-size: 80%;
+}
+
+.row-whole label {
+  font-size: unset;
   font-size: 80%;
 }
 
@@ -168,82 +259,196 @@ span.input-die {
   justify-content: center;
 }
 
-input {
+.repcontainer, .repitem {
+  padding-left: 0;
+}
+
+.repcontrol_add, .repcontrol_edit {
+  float: right;
+  margin-top: 4px;
+  margin-right: 2px;
+  color: #e4ddc9;
+  background: #756758;
+  border: solid 1px #5a4c3a;
+  box-shadow: 0px 0px 10px #808080;
+}
+
+input, textarea {
   background-color: transparent;
   color: #5a4c3a;
   width: 100%;
   margin-bottom: 3px !important;
+  /*     &.numbered-box:checked + span::before, &.numbered-box:checked + label {
+        color: #ffffff;
+        background: #cc0000;
+        border: solid 1px #cc0000;
+        box-shadow: 0px 0px 10px #b30000;
+      } */
+  /*     &.greyish-box:checked + span::before, &.greyish-box:checked + label {
+        color: $light;
+        background: $primary;
+        border: solid 1px $secondary;
+        box-shadow: 0px 0px 10px #808080;
+      } */
 }
-input.input-text {
+input.input-text, textarea.input-text {
   color: #000;
-  font-family: "Abel";
+  font-family: "Delius", "Chilanka", "Abel";
 }
-input.numbered-box {
+input.input-textarea, textarea.input-textarea {
+  color: #000;
+  font-family: "Delius", "Chilanka", "Abel";
+  height: auto;
+}
+input.spec-desc, textarea.spec-desc {
+  width: 95%;
+  max-width: 95%;
+  height: 80px !important;
+  max-height: 80px !important;
+  resize: none;
+  -outline: unset;
+  padding: 4px;
+  margin-top: 3px;
+}
+input.numbered-box, textarea.numbered-box {
   width: 18px;
   height: 18px;
   position: relative;
   top: 0px;
-  left: 0px;
+  left: 8px;
   margin: 0px;
   cursor: pointer;
-  z-index: 5;
+  z-index: 1;
   opacity: 0;
 }
-input.numbered-box + span::before {
+input.numbered-box + span::before, input.numbered-box + label, textarea.numbered-box + span::before, textarea.numbered-box + label {
   content: attr(title);
   color: #5a4c3a;
   border: solid 1px #5a4c3a;
   text-align: center;
   display: inline-block;
   background: transparent;
+  cursor: pointer;
   width: 18px;
   height: 18px;
   font-size: 10px;
   font-weight: bold;
-  margin-left: -21px;
-  margin-right: 2px;
+  -margin-left: -14px;
+  margin-right: 3px;
   padding: 0px 0px 0px 0px;
   line-height: 18px;
   box-shadow: 0px 0px 5px #dcdcdc;
+  z-index: 0;
 }
-input.numbered-box:checked + span::before {
-  color: #ffffff;
-  background: #cc0000;
-  border: solid 1px #cc0000;
-  box-shadow: 0px 0px 10px #b30000;
-}
-input.greyish-box:checked + span::before {
-  color: #e4ddc9;
-  background: #756758;
-  border: solid 1px #5a4c3a;
-  box-shadow: 0px 0px 10px #808080;
-}
-input.grey-box:checked + span::before {
+input.grey-box:checked + span::before, input.grey-box:checked + label, textarea.grey-box:checked + span::before, textarea.grey-box:checked + label {
   color: #ffffff;
   background: #808080;
   border: solid 1px #808080;
   box-shadow: 0px 0px 10px #808080;
 }
-input.green-box:checked + span::before {
+input.green-box:checked + span::before, input.green-box:checked +, textarea.green-box:checked + span::before, textarea.green-box:checked + {
   color: #000000;
   background: #7cfc00;
   border: solid 1px #7cfc00;
   box-shadow: 0px 0px 10px #008000;
 }
-input.gold-box:checked + span::before {
+input.gold-box:checked + span::before, input.gold-box:checked + label, textarea.gold-box:checked + span::before, textarea.gold-box:checked + label {
+  color: #000000;
+  background: #ffd700;
+  border: solid 1px #ffd700;
+  box-shadow: 0px 0px 10px #ffd700;
+}
+input.red-box:checked + span::before, input.red-box:checked + label, textarea.red-box:checked + span::before, textarea.red-box:checked + label {
+  color: #ffffff;
+  background: #cc0000;
+  border: solid 1px #cc0000;
+  box-shadow: 0px 0px 10px #b30000;
+}
+
+div.damage {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+input[type=radio] + label.damage {
+  color: #e4ddc9;
+  background: #756758;
+  border: solid 1px #5a4c3a;
+  box-shadow: 0px 0px 10px #808080;
+}
+
+input[type=radio].red-box + label.damage {
+  color: #ffffff;
+  background: #cc0000;
+  border: solid 1px #cc0000;
+  box-shadow: 0px 0px 10px #b30000;
+}
+
+input[type=radio].gold-box + label.damage {
   color: #000000;
   background: #ffd700;
   border: solid 1px #ffd700;
   box-shadow: 0px 0px 10px #ffd700;
 }
 
+input[type=radio][value="0"] + label.damage {
+  border-radius: 50%;
+  color: #e4ddc9;
+  background: #756758;
+  border: solid 1px #5a4c3a;
+  box-shadow: 0px 0px 10px #808080;
+}
+
+/* Removes highlight from all radios _after_ selected one */
+input[type=radio]:checked ~ input[type=radio] + label.damage {
+  color: #5a4c3a;
+  background: transparent;
+  border: solid 1px #5a4c3a;
+  box-shadow: 0px 0px 5px #dcdcdc;
+}
+
+/*   input.damage[value="0"] ~ label.damage[data-value-lt~="0"] { @extend %checked-box-greyish; }
+  input.damage[value="1"] ~ label.damage[data-value-lt~="1"] { @extend %checked-box-greyish; }
+  input.damage[value="2"] ~ label.damage[data-value-lt~="2"] { @extend %checked-box-greyish; }
+  input.damage[value="3"] ~ label.damage[data-value-lt~="3"]  { @extend %checked-box-greyish; }
+  input.damage[value="4"] ~ label.damage[data-value-lt~="4"]  { @extend %checked-box-greyish; }
+  input.damage[value="5"] ~ label.damage[data-value-lt~="5"]  { @extend %checked-box-greyish; }
+  input.damage[value="6"] ~ label.damage[data-value-lt~="6"]  { @extend %checked-box-greyish; }
+  input.damage[value="7"] ~ label.damage[data-value-lt~="7"]  { @extend %checked-box-greyish; }
+  input.damage[value="8"] ~ label.damage[data-value-lt~="8"]  { @extend %checked-box-greyish; }
+  input.damage[value="9"] ~ label.damage[data-value-lt~="9"]  { @extend %checked-box-greyish; }
+  input.damage[value="10"] ~ label.damage[data-value-lt~="10"] { @extend %checked-box-greyish; } */
+/*   input[name="attr_damage"][value="1"] ~ label.damage1 { @extend %checked-box-greyish; }
+  input.damage-attr[value="2"] ~ label.damage1, input.damage-attr[value="2"] ~ label.damage2 { @extend %checked-box-greyish; }
+  input.damage-attr[value="3"] ~ .damage1, input.damage-attr[value="3"] ~ .damage2, input.damage-attr[value="3"] ~ .damage3 { @extend %checked-box-greyish; }
+  input.damage-attr[value="4"] ~ label.damage[data-value-lt~="4"] { @extend %checked-box-greyish; }
+  input.damage-attr[value="5"] ~ div label.damage5 { @extend %checked-box-greyish; }
+  input.damage-attr[value="6"] ~ div label.damage1 { @extend %checked-box-greyish; }
+  input.damage-attr[value="7"] ~ div label.damage2 { @extend %checked-box-greyish; }
+  input.damage-attr[value="8"] ~ div label.damage3 { @extend %checked-box-greyish; }
+  input.damage-attr[value="9"] ~ div label.damage4 { @extend %checked-box-greyish; }
+  input.damage-attr[value="10"] ~ div label.damage5 { @extend %checked-box-greyish; }
+  input.damage-attr[value="4"] ~ div label {background-color: red;} */
+/*   input.numbered-box:valid + label.damage { @extend %checked-box-greyish; } */
 select {
   -width: 38px;
   -height: 26px;
   justify-content: center;
   justify-items: center;
-  background-color: #e4ddc9;
+  background-color: transparent;
   padding-left: 5px;
+}
+select.spec-category {
+  width: 95%;
+  margin: 3px;
+}
+select.weight {
+  appearance: none;
+  text-align: center;
+  text-align-last: center;
+}
+select.weight option {
+  text-align: center;
 }
 
 option {
@@ -253,21 +458,157 @@ option {
   text-align: center;
 }
 
-.tab {
+.speciality-box {
+  margin: 4px;
+  max-width: 22%;
+  min-width: 22%;
+  min-height: 135px;
+  max-height: 135px;
   display: flex;
-  min-width: 16%;
-  max-width: 16%;
-  justify-content: center;
-  align-content: center;
+  flex-direction: column;
+}
+.speciality-box .spec-name {
+  background-color: #cdc3af;
+  padding: 4px;
+}
+
+.border-bottom-short {
+  margin-top: 3px;
+  border-bottom: 1px solid #756758;
+}
+
+.border-top-short {
+  margin-top: 3px;
+  padding-top: 5px;
+}
+
+.no-pad {
+  padding: 0;
+}
+
+.left-margin {
+  margin-left: 3px;
+}
+
+.middle {
   align-items: center;
-  min-height: 2.5em;
-  border: 1px solid #5a4c3a;
-  border-bottom: unset;
-  background-color: #e4ddc9;
-  margin-top: 4px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  padding: 0px;
+  align-content: center;
+  align-self: center;
+}
+
+.center {
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+}
+
+.right {
+  justify-content: right;
+  justify-self: right;
+  justify-items: right;
+  text-align: right;
+}
+
+.space-even {
+  display: flex;
+  justify-content: space-evenly;
+  justify-self: space-evenly;
+  justify-items: space-evenly;
+}
+
+.background-tan {
+  background-color: #cdc3af;
+}
+
+.col-half {
+  max-width: 50%;
+  min-width: 50%;
+}
+
+.col-third {
+  max-width: 33.3%;
+  min-width: 33.3%;
+}
+
+.col-twothird {
+  max-width: 67.7%;
+  min-width: 67.7%;
+}
+
+.col-quarter {
+  max-width: 25%;
+  min-width: 25%;
+}
+
+.col-threequarter {
+  max-width: 75%;
+  min-width: 75%;
+}
+
+.col-fifth {
+  max-width: 20%;
+  min-width: 20%;
+}
+
+.col-sixth {
+  max-width: 16.7%;
+  min-width: 16.7%;
+}
+
+.col-14th {
+  max-width: 6%;
+  min-width: 6%;
+}
+
+.col-3-14th {
+  max-width: 21.4%;
+  min-width: 21.4%;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flex5 {
+  flex: 5;
+}
+
+.logo {
+  background-image: url("https://github.com/dwarfwing/twilight2000/blob/main/Twilight%202000/images/twilight2000logo.png?raw=true");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+div, span, p, label, .label, .row-whole label {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, select, option, .label-caps {
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.label-caps {
+  font-size: 90%;
+  padding-left: 0;
+}
+
+div.headlabel div.label-caps {
+  -font-size: 80%;
+}
+
+.row-whole label {
+  font-size: unset;
+  font-size: 80%;
+}
+
+span.input-die {
+  background-color: inherit !important;
+  min-width: 2.5em !important;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .row {
@@ -304,6 +645,10 @@ option {
   flex: 1;
 }
 
+.row-half {
+  height: 50%;
+}
+
 .h-fill {
   height: 100%;
 }
@@ -312,91 +657,8 @@ option {
   height: 2.5em;
 }
 
-.repcontainer, .repitem {
-  padding-left: 0;
-}
-
-.repcontrol_add, .repcontrol_edit {
-  float: right;
-  margin-top: 4px;
-  margin-right: 2px;
-  color: #e4ddc9;
-  background: #756758;
-  border: solid 1px #5a4c3a;
-  box-shadow: 0px 0px 10px #808080;
-}
-
-.col-half {
-  max-width: 49%;
-  min-width: 49%;
-}
-
-.col-third {
-  max-width: 32%;
-  min-width: 32%;
-}
-
-.col-twothird {
-  max-width: 66%;
-  min-width: 66%;
-}
-
-.col-quarter {
-  max-width: 24%;
-  min-width: 24%;
-}
-
-.col-threequarter {
-  max-width: 74%;
-  min-width: 74%;
-}
-
-.col-sixth {
-  max-width: 16.5%;
-  min-width: 16.5%;
-}
-
-.col-14th {
-  max-width: 7%;
-  min-width: 7%;
-}
-
-.col-3-14th {
-  max-width: 20%;
-  min-width: 20%;
-}
-
-.flex1 {
-  flex: 1;
-}
-
-.flex5 {
-  flex: 5;
-}
-
-.no-pad {
-  padding: 0;
-}
-
-.middle {
-  align-items: center;
-  align-content: center;
-  align-self: center;
-}
-
-.center {
-  justify-content: center;
-  justify-self: center;
-  justify-items: center;
-}
-
-.border-bottom-short {
-  margin-top: 3px;
-  border-bottom: 1px solid #756758;
-}
-
-.background-tan {
-  background-color: #cdc3af;
+.action {
+  display: none;
 }
 
 /*# sourceMappingURL=twilight2000-2020.css.map */
