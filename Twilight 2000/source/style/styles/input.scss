@@ -127,8 +127,8 @@ input[type="radio"].gold-box + label.damage {
 }
 input[type="radio"][value="0"] + label.damage {
   border-radius: 50%;
-  color: $light;
-  background: $primary;
+  color: $primary;
+  background: $tan;
   border: solid 1px $secondary;
   box-shadow: 0px 0px 10px #808080;
 }

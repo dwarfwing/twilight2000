@@ -393,8 +393,8 @@ input[type=radio].gold-box + label.damage {
 
 input[type=radio][value="0"] + label.damage {
   border-radius: 50%;
-  color: #e4ddc9;
-  background: #756758;
+  color: #756758;
+  background: #cdc3af;
   border: solid 1px #5a4c3a;
   box-shadow: 0px 0px 10px #808080;
 }
