@@ -20,13 +20,13 @@
   flex-direction: column;
 }
 
-.sheet-tabstoggle[value="basic"] ~ div.tab-buttons-container button[type=action].main-buttons.button-basic,
-.sheet-tabstoggle[value="attributes"] ~ div.tab-buttons-container button[type=action].main-buttons.button-attributes,
-.sheet-tabstoggle[value="weapons"] ~ div.tab-buttons-container button[type=action].main-buttons.button-weapons,
-.sheet-tabstoggle[value="combat"] ~ div.tab-buttons-container button[type=action].main-buttons.sht-button-combat,
-.sheet-tabstoggle[value="gear"] ~ div.tab-buttons-container button[type=action].main-buttons.button-gear,
-.sheet-tabstoggle[value="vehicle"] ~ div.tab-buttons-container button[type=action].main-buttons.button-vehicle,
-.sheet-tabstoggle[value="notes"] ~ div.tab-buttons-container button[type=action].main-buttons.button-notes {
+.tabstoggle[value="basic"] ~ .main-buttons.button-basic,
+.tabstoggle[value="attributes"] ~ .main-buttons.button-attributes,
+.tabstoggle[value="weapons"] ~ .main-buttons.button-weapons,
+.tabstoggle[value="combat"] ~ .main-buttons.button-combat,
+.tabstoggle[value="gear"] ~ .main-buttons.button-gear,
+.tabstoggle[value="vehicle"] ~ .main-buttons.button-vehicle,
+.tabstoggle[value="notes"] ~ .main-buttons.button-notes {
 	background-color: #877D70;
 	color: #fff;
     border: 3px solid #877D70;

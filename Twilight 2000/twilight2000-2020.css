@@ -43,13 +43,13 @@
   flex-direction: column;
 }
 
-.sheet-tabstoggle[value=basic] ~ div.tab-buttons-container button[type=action].main-buttons.button-basic,
-.sheet-tabstoggle[value=attributes] ~ div.tab-buttons-container button[type=action].main-buttons.button-attributes,
-.sheet-tabstoggle[value=weapons] ~ div.tab-buttons-container button[type=action].main-buttons.button-weapons,
-.sheet-tabstoggle[value=combat] ~ div.tab-buttons-container button[type=action].main-buttons.sht-button-combat,
-.sheet-tabstoggle[value=gear] ~ div.tab-buttons-container button[type=action].main-buttons.button-gear,
-.sheet-tabstoggle[value=vehicle] ~ div.tab-buttons-container button[type=action].main-buttons.button-vehicle,
-.sheet-tabstoggle[value=notes] ~ div.tab-buttons-container button[type=action].main-buttons.button-notes {
+.tabstoggle[value=basic] ~ .main-buttons.button-basic,
+.tabstoggle[value=attributes] ~ .main-buttons.button-attributes,
+.tabstoggle[value=weapons] ~ .main-buttons.button-weapons,
+.tabstoggle[value=combat] ~ .main-buttons.button-combat,
+.tabstoggle[value=gear] ~ .main-buttons.button-gear,
+.tabstoggle[value=vehicle] ~ .main-buttons.button-vehicle,
+.tabstoggle[value=notes] ~ .main-buttons.button-notes {
   background-color: #877D70;
   color: #fff;
   border: 3px solid #877D70;
@@ -393,10 +393,14 @@ input[type=radio].gold-box + label.damage {
 
 input[type=radio][value="0"] + label.damage {
   border-radius: 50%;
-  color: #756758;
+  color: #e4ddc9;
   background: #cdc3af;
   border: solid 1px #5a4c3a;
   box-shadow: 0px 0px 10px #808080;
+}
+
+input[type=radio][value="0"]:checked + label.damage {
+  color: #756758;
 }
 
 /* Removes highlight from all radios _after_ selected one */
@@ -404,7 +408,7 @@ input[type=radio]:checked ~ input[type=radio] + label.damage {
   color: #5a4c3a;
   background: transparent;
   border: solid 1px #5a4c3a;
-  box-shadow: 0px 0px 5px #dcdcdc;
+  box-shadow: 0px 0px 5px #808080;
 }
 
 /*   input.damage[value="0"] ~ label.damage[data-value-lt~="0"] { @extend %checked-box-greyish; }

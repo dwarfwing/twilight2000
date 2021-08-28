@@ -313,6 +313,7 @@
               <div class="label">Damage</div>
             </div>
             <div class="row-whole damage">
+              <input class="damage hitcapacity hidden" name="attr_hitcapacity" value="ceil((@{strengthdie}+@{agilitydie})/4)" readonly="readonly" hidden="hidden"/>
               <input class="damage hidden" name="attr_damage" readonly="readonly" hidden="hidden"/>
               <!--.row-whole.space-even-->
               <!--while i < index- gt += " "+i++
@@ -400,6 +401,7 @@
               <div class="label">Stress</div>
             </div>
             <div class="row-whole damage">
+              <input class="damage stresscapacity hidden" name="attr_stresscapacity" value="ceil((@{intelligencedie}+@{empathydie})/4)" readonly="readonly" hidden="hidden"/>
               <input class="hidden damage" name="attr_stress" hidden="hidden" readonly="readonly"/>
               <!--.row-whole.space-even-->
               <!--while i < index- gt += " "+i++
@@ -1093,10 +1095,162 @@
     <label>This is a test</label>
   </div>
 </div>
-<rolltemplate class="sheet-rolltemplate-sheetname">
-  {{#rollName}}
-  {{/rollName}}
-</rolltemplate>
+<rolltemplate class="rolltemplate-t2k"></rolltemplate>
+<div class="template-wrap">
+  <div class="template-background">
+    <div class="template-grid">
+      <div class="template-grid-item template-span-six">
+        {{character-name}}
+        {{roll-name}}
+        {{#roll-dice}}
+        <div class="template-grid-item template-span-six template-to-the-center">
+          <div class="template-yellow">{{roll-dice}}</div>
+        </div>{{/roll-dice}}
+        {{#rollGreater() roll-die-one 0}} <!-- DIE ONE -->
+        <div class="template-grid-item template-span-one template-die-one">
+          {{#rollWasFumble() roll-die-one}}
+          {{#rollTotal() roll-one-type 6}}
+          <div class="template-base-six-fail">{{roll-die-one}}</div>{{/rollTotal() roll-one-type 6}}
+          {{#rollTotal() roll-one-type 8}}
+          <div class="template-base-eight-fail">{{roll-die-one}}</div>{{/rollTotal() roll-one-type 8}}
+          {{#rollTotal() roll-one-type 10}}
+          <div class="template-base-ten-fail">{{roll-die-one}}</div>{{/rollTotal() roll-one-type 10}}
+          {{#rollTotal() roll-one-type 12}}
+          <div class="template-base-twelve-fail">{{roll-die-one}}</div>{{/rollTotal() roll-one-type 12}}
+          {{/rollWasFumble() roll-die-one}}
+          {{#rollBetween() roll-die-one 2 5}}
+          {{#rollTotal() roll-one-type 6}}
+          <div class="template-base-six-between">{{roll-die-one}}</div>{{/rollTotal() roll-one-type 6}}
+          {{#rollTotal() roll-one-type 8}}
+          <div class="template-base-eight-between">{{roll-die-one}}</div>{{/rollTotal() roll-one-type 8}}
+          {{#rollTotal() roll-one-type 10}}
+          <div class="template-base-ten-between">{{roll-die-one}}</div>{{/rollTotal() roll-one-type 10}}
+          {{#rollTotal() roll-one-type 12}}
+          <div class="template-base-twelve-between">{{roll-die-one}}</div>{{/rollTotal() roll-one-type 12}}
+          {{/rollBetween() roll-die-one 2 5}}
+          {{#rollBetween() roll-die-one 6 9}}
+          {{#rollTotal() roll-one-type 6}}
+          <div class="template-base-six-success">{{roll-die-one}}</div>{{/rollTotal() roll-one-type 6}}
+          {{#rollTotal() roll-one-type 8}}
+          <div class="template-base-eight-success">{{roll-die-one}}</div>{{/rollTotal() roll-one-type 8}}
+          {{#rollTotal() roll-one-type 10}}
+          <div class="template-base-ten-success">{{roll-die-one}}</div>{{/rollTotal() roll-one-type 10}}
+          {{#rollTotal() roll-one-type 12}}
+          <div class="template-base-twelve-success">{{roll-die-one}}</div>{{/rollTotal() roll-one-type 12}}
+          {{/rollBetween() roll-die-one 6 9}}
+          {{#rollBetween() roll-die-one 10 12}}
+          {{#rollTotal() roll-one-type 10}}
+          <div class="template-base-ten-critical">{{roll-die-one}}</div>{{/rollTotal() roll-one-type 10}}
+          {{#rollTotal() roll-one-type 12}}
+          <div class="template-base-twelve-critical">{{roll-die-one}}</div>{{/rollTotal() roll-one-type 12}}
+          {{/rollBetween() roll-die-one 10 12}}
+        </div>{{/rollGreater() roll-die-one 0}}
+      </div>{{#rollGreater() roll-die-two 0}} <!-- DIE TWO -->
+      <div class="template-grid-item template-span-two template-die-two">
+        {{#rollWasFumble() roll-die-two}}
+        {{#rollTotal() roll-two-type 6}}
+        <div class="template-base-six-fail">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 6}}
+        {{#rollTotal() roll-two-type 8}}
+        <div class="template-base-eight-fail">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 8}}
+        {{#rollTotal() roll-two-type 10}}
+        <div class="template-base-ten-fail">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 10}}
+        {{#rollTotal() roll-two-type 12}}
+        <div class="template-base-twelve-fail">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 12}}
+        {{/rollWasFumble() roll-die-two}}
+        {{#rollBetween() roll-die-two 2 5}}
+        {{#rollTotal() roll-two-type 6}}
+        <div class="template-base-six-between">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 6}}
+        {{#rollTotal() roll-two-type 8}}
+        <div class="template-base-eight-between">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 8}}
+        {{#rollTotal() roll-two-type 10}}
+        <div class="template-base-ten-between">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 10}}
+        {{#rollTotal() roll-two-type 12}}
+        <div class="template-base-twelve-between">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 12}}
+        {{/rollBetween() roll-die-two 2 5}}
+        {{#rollBetween() roll-die-two 6 9}}
+        {{#rollTotal() roll-two-type 6}}
+        <div class="template-base-six-success">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 6}}
+        {{#rollTotal() roll-two-type 8}}
+        <div class="template-base-eight-success">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 8}}
+        {{#rollTotal() roll-two-type 10}}
+        <div class="template-base-ten-success">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 10}}
+        {{#rollTotal() roll-two-type 12}}
+        <div class="template-base-twelve-success">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 12}}
+        {{/rollBetween() roll-die-two 6 9}}
+        {{#rollBetween() roll-die-two 10 12}}
+        {{#rollTotal() roll-two-type 6}}
+        <div class="template-base-six-critical">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 6}}
+        {{#rollTotal() roll-two-type 8}}
+        <div class="template-base-eight-critical">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 8}}
+        {{#rollTotal() roll-two-type 10}}
+        <div class="template-base-ten-critical">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 10}}
+        {{#rollTotal() roll-two-type 12}}
+        <div class="template-base-twelve-critical">{{roll-die-two}}</div>{{/rollTotal() roll-two-type 12}}
+        {{/rollBetween() roll-die-two 10 12}}
+      </div>{{/rollGreater() roll-die-two 0}}
+      {{#rollGreater() ammo-dice 0}} <!-- AMMO DIE ONE -->
+      <div class="template-grid-item template-span-one template-ammo-die-one">
+            {{#rollWasFumble() ammo-roll-one}}
+        <div class="template-ammo-fail">{{ammo-roll-one}}</div>{{/rollWasFumble() ammo-roll-one}}
+        {{#rollBetween() ammo-roll-one 2 5}}
+        <div class="template-ammo-between">{{ammo-roll-one}}</div>{{/rollBetween() ammo-roll-one 2 5}}
+        {{#rollWasCrit() ammo-roll-one}}
+        <div class="template-ammo-success">{{ammo-roll-one}}</div>{{/rollWasCrit() ammo-roll-one}}     
+      </div>{{/rollGreater() ammo-dice 0}}
+      {{#rollGreater() ammo-dice 1}} <!-- AMMO DIE TWO -->
+      <div class="template-grid-item template-span-two template-ammo-die-two">{{#rollWasFumble() ammo-roll-two}}
+        <div class="template-ammo-fail">{{ammo-roll-two}}</div>{{/rollWasFumble() ammo-roll-two}}
+        {{#rollBetween() ammo-roll-two 2 5}}
+        <div class="template-ammo-between">{{ammo-roll-two}}</div>{{/rollBetween() ammo-roll-two 2 5}}
+        {{#rollWasCrit() ammo-roll-two}}
+        <div class="template-ammo-success">{{ammo-roll-two}}</div>{{/rollWasCrit() ammo-roll-two}}      
+      </div>{{/rollGreater() ammo-dice 1}}
+      {{#rollGreater() ammo-dice 2}} <!-- AMMO DIE THREE -->
+      <div class="template-grid-item">
+        template-span-three template-ammo-die-three      {{#rollWasFumble() ammo-roll-three}}
+        <div class="template-ammo-fail">{{ammo-roll-three}}</div>{{/rollWasFumble() ammo-roll-three}}
+        {{#rollBetween() ammo-roll-three 2 5}}
+        <div class="template-ammo-between">{{ammo-roll-three}}</div>{{/rollBetween() ammo-roll-three 2 5}}
+        {{#rollWasCrit() ammo-roll-three}}
+        <div class="template-ammo-success">{{ammo-roll-three}}</div>{{/rollWasCrit() ammo-roll-three}}      
+      </div>{{/rollGreater() ammo-dice 2}}
+      {{#rollGreater() ammo-dice 3}} <!-- AMMO DIE FOUR -->
+      <div class="template-grid-item">
+        template-span-four template-ammo-die-four      {{#rollWasFumble() ammo-roll-four}}
+        <div class="template-ammo-fail">{{ammo-roll-four}}</div>{{/rollWasFumble() ammo-roll-four}}
+        {{#rollBetween() ammo-roll-four 2 5}}
+        <div class="template-ammo-between">{{ammo-roll-four}}</div>{{/rollBetween() ammo-roll-four 2 5}}
+        {{#rollWasCrit() ammo-roll-four}}
+        <div class="template-ammo-success">{{ammo-roll-four}}</div>{{/rollWasCrit() ammo-roll-four}}      
+      </div>{{/rollGreater() ammo-dice 3}}
+      {{#rollGreater() ammo-dice 4}} <!-- AMMO DIE FIVE -->
+      <div class="template-grid-item">
+        template-span-five template-ammo-die-five      {{#rollWasFumble() ammo-roll-five}}
+        <div class="template-ammo-fail">{{ammo-roll-five}}</div>{{/rollWasFumble() ammo-roll-five}}
+        {{#rollBetween() ammo-roll-five 2 5}}
+        <div class="template-ammo-between">{{ammo-roll-five}}</div>{{/rollBetween() ammo-roll-five 2 5}}
+        {{#rollWasCrit() ammo-roll-five}}
+        <div class="template-ammo-success">{{ammo-roll-five}}</div>{{/rollWasCrit() ammo-roll-five}}      
+      </div>{{/rollGreater() ammo-dice 4}}
+      {{#rollGreater() ammo-dice 5}} <!-- AMMO DIE SIX -->
+      <div class="template-grid-item">
+        template-span-shix template-ammo-die-six      {{#rollWasFumble() ammo-roll-six}}
+        <div class="template-ammo-fail">{{ammo-roll-six}}</div>{{/rollWasFumble() ammo-roll-six}}
+        {{#rollBetween() ammo-roll-six 2 5}}
+        <div class="template-ammo-between">{{ammo-roll-six}}</div>{{/rollBetween() ammo-roll-six 2 5}}
+        {{#rollWasCrit() ammo-roll-six}}
+        <div class="template-ammo-success">{{ammo-roll-six}}</div>{{/rollWasCrit() ammo-roll-six}}      
+      </div>{{/rollGreater() ammo-dice 5}}
+      {{#current-crit}}
+      <div class="template-grid-item template-span-left"><span>Crit: </span>| {{current-crit}}   </div>{{/current-crit}}
+      {{#current-damage}}
+      <div class="template-grid-item template-span-center">
+         <span>Damage: </span>| {{current-damage}}     </div>{{/current-damage}}
+      {{#current-range}}
+      <div class="template-grid-item template-span-right"><span>Range: </span>| {{current-range}}  </div>{{/current-range}}
+    </div>
+  </div>
+</div>
 <script type="text/worker">/**
   Example worker function
 

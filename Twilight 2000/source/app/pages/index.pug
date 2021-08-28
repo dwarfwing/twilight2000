@@ -89,12 +89,14 @@ include ../components/component
             .row-whole
               .label Damage
             .row-whole.damage
+              input.damage.hitcapacity.hidden(name= "attr_hitcapacity",value="ceil((@{strengthdie}+@{agilitydie})/4)",readonly,hidden)
               input.damage.hidden(name= "attr_damage",readonly,hidden)
               +numbered-radioboxes('damage','greyish')
           .col-half.row-tall
             .row-whole
               .label Stress
             .row-whole.damage
+              input.damage.stresscapacity.hidden(name= "attr_stresscapacity",value="ceil((@{intelligencedie}+@{empathydie})/4)",readonly,hidden)
               input.hidden.damage(name= "attr_stress",hidden,readonly)
               +numbered-radioboxes('stress','greyish')
         .row-whole

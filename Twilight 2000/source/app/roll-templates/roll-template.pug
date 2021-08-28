@@ -1,3 +1,268 @@
-rolltemplate.sheet-rolltemplate-sheetname
-  | {{#rollName}}
-  | {{/rollName}}
+rolltemplate.rolltemplate-t2k
+.template-wrap
+  .template-background
+    .template-grid
+      .template-grid-item.template-span-six
+        | {{character-name}}
+        | {{roll-name}}
+                
+        | {{#roll-dice}}
+        .template-grid-item.template-span-six.template-to-the-center
+           .template-yellow
+              | {{roll-dice}}
+        | {{/roll-dice}}
+                
+        | {{#rollGreater() roll-die-one 0}} <!-- DIE ONE -->
+        .template-grid-item.template-span-one.template-die-one
+          | {{#rollWasFumble() roll-die-one}}
+          | {{#rollTotal() roll-one-type 6}}
+          .template-base-six-fail
+            | {{roll-die-one}}
+          | {{/rollTotal() roll-one-type 6}}
+          | {{#rollTotal() roll-one-type 8}}
+          .template-base-eight-fail
+            | {{roll-die-one}}
+          | {{/rollTotal() roll-one-type 8}}
+          | {{#rollTotal() roll-one-type 10}}
+          .template-base-ten-fail
+            | {{roll-die-one}}
+          | {{/rollTotal() roll-one-type 10}}
+          | {{#rollTotal() roll-one-type 12}}
+          .template-base-twelve-fail
+            | {{roll-die-one}}
+          | {{/rollTotal() roll-one-type 12}}
+          | {{/rollWasFumble() roll-die-one}}
+          | {{#rollBetween() roll-die-one 2 5}}
+          | {{#rollTotal() roll-one-type 6}}
+          .template-base-six-between
+            | {{roll-die-one}}
+          | {{/rollTotal() roll-one-type 6}}
+          | {{#rollTotal() roll-one-type 8}}
+          .template-base-eight-between
+            | {{roll-die-one}}
+          | {{/rollTotal() roll-one-type 8}}
+          | {{#rollTotal() roll-one-type 10}}
+          .template-base-ten-between
+            | {{roll-die-one}}
+          | {{/rollTotal() roll-one-type 10}}
+          | {{#rollTotal() roll-one-type 12}}
+          .template-base-twelve-between
+            | {{roll-die-one}}
+          | {{/rollTotal() roll-one-type 12}}
+          | {{/rollBetween() roll-die-one 2 5}}
+          | {{#rollBetween() roll-die-one 6 9}}
+          | {{#rollTotal() roll-one-type 6}}
+          .template-base-six-success
+            | {{roll-die-one}}
+          | {{/rollTotal() roll-one-type 6}}
+          | {{#rollTotal() roll-one-type 8}}
+          .template-base-eight-success
+            | {{roll-die-one}}
+          | {{/rollTotal() roll-one-type 8}}
+          | {{#rollTotal() roll-one-type 10}}
+          .template-base-ten-success
+            | {{roll-die-one}}
+          | {{/rollTotal() roll-one-type 10}}
+          | {{#rollTotal() roll-one-type 12}}
+          .template-base-twelve-success
+            | {{roll-die-one}}
+          | {{/rollTotal() roll-one-type 12}}
+          | {{/rollBetween() roll-die-one 6 9}}
+          | {{#rollBetween() roll-die-one 10 12}}
+          | {{#rollTotal() roll-one-type 10}}
+          .template-base-ten-critical
+            | {{roll-die-one}}
+          | {{/rollTotal() roll-one-type 10}}
+          | {{#rollTotal() roll-one-type 12}}
+          .template-base-twelve-critical
+            | {{roll-die-one}}
+          | {{/rollTotal() roll-one-type 12}}
+          | {{/rollBetween() roll-die-one 10 12}}
+
+        | {{/rollGreater() roll-die-one 0}}
+
+      | {{#rollGreater() roll-die-two 0}} <!-- DIE TWO -->
+      .template-grid-item.template-span-two.template-die-two
+        | {{#rollWasFumble() roll-die-two}}
+        | {{#rollTotal() roll-two-type 6}}
+        .template-base-six-fail
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 6}}
+        | {{#rollTotal() roll-two-type 8}}
+        .template-base-eight-fail
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 8}}
+        | {{#rollTotal() roll-two-type 10}}
+        .template-base-ten-fail
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 10}}
+        | {{#rollTotal() roll-two-type 12}}
+        .template-base-twelve-fail
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 12}}
+        | {{/rollWasFumble() roll-die-two}}
+        | {{#rollBetween() roll-die-two 2 5}}
+        | {{#rollTotal() roll-two-type 6}}
+        .template-base-six-between
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 6}}
+        | {{#rollTotal() roll-two-type 8}}
+        .template-base-eight-between
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 8}}
+        | {{#rollTotal() roll-two-type 10}}
+        .template-base-ten-between
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 10}}
+        | {{#rollTotal() roll-two-type 12}}
+        .template-base-twelve-between
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 12}}
+        | {{/rollBetween() roll-die-two 2 5}}
+        | {{#rollBetween() roll-die-two 6 9}}
+        | {{#rollTotal() roll-two-type 6}}
+        .template-base-six-success
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 6}}
+        | {{#rollTotal() roll-two-type 8}}
+        .template-base-eight-success
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 8}}
+        | {{#rollTotal() roll-two-type 10}}
+        .template-base-ten-success
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 10}}
+        | {{#rollTotal() roll-two-type 12}}
+        .template-base-twelve-success
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 12}}
+        | {{/rollBetween() roll-die-two 6 9}}
+        | {{#rollBetween() roll-die-two 10 12}}
+        | {{#rollTotal() roll-two-type 6}}
+        .template-base-six-critical
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 6}}
+        | {{#rollTotal() roll-two-type 8}}
+        .template-base-eight-critical
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 8}}
+        | {{#rollTotal() roll-two-type 10}}
+        .template-base-ten-critical
+            | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 10}}
+        | {{#rollTotal() roll-two-type 12}}
+        .template-base-twelve-critical
+          | {{roll-die-two}}
+        | {{/rollTotal() roll-two-type 12}}
+        | {{/rollBetween() roll-die-two 10 12}}
+    
+      | {{/rollGreater() roll-die-two 0}}
+
+      | {{#rollGreater() ammo-dice 0}} <!-- AMMO DIE ONE -->
+      .template-grid-item.template-span-one.template-ammo-die-one     
+        | {{#rollWasFumble() ammo-roll-one}}
+        .template-ammo-fail
+          | {{ammo-roll-one}}
+        | {{/rollWasFumble() ammo-roll-one}}
+        | {{#rollBetween() ammo-roll-one 2 5}}
+        .template-ammo-between
+          | {{ammo-roll-one}}
+        | {{/rollBetween() ammo-roll-one 2 5}}
+        | {{#rollWasCrit() ammo-roll-one}}
+        .template-ammo-success
+          | {{ammo-roll-one}}
+        | {{/rollWasCrit() ammo-roll-one}}     
+      | {{/rollGreater() ammo-dice 0}}
+      
+      | {{#rollGreater() ammo-dice 1}} <!-- AMMO DIE TWO -->
+      .template-grid-item.template-span-two.template-ammo-die-two
+        | {{#rollWasFumble() ammo-roll-two}}
+        .template-ammo-fail
+          | {{ammo-roll-two}}
+        | {{/rollWasFumble() ammo-roll-two}}
+        | {{#rollBetween() ammo-roll-two 2 5}}
+        .template-ammo-between
+          | {{ammo-roll-two}}
+        | {{/rollBetween() ammo-roll-two 2 5}}
+        | {{#rollWasCrit() ammo-roll-two}}
+        .template-ammo-success
+          | {{ammo-roll-two}}
+        | {{/rollWasCrit() ammo-roll-two}}      
+      | {{/rollGreater() ammo-dice 1}}
+      
+      | {{#rollGreater() ammo-dice 2}} <!-- AMMO DIE THREE -->
+      .template-grid-item template-span-three template-ammo-die-three      
+        | {{#rollWasFumble() ammo-roll-three}}
+        .template-ammo-fail
+          | {{ammo-roll-three}}
+        | {{/rollWasFumble() ammo-roll-three}}
+        | {{#rollBetween() ammo-roll-three 2 5}}
+        .template-ammo-between
+          | {{ammo-roll-three}}
+        | {{/rollBetween() ammo-roll-three 2 5}}
+        | {{#rollWasCrit() ammo-roll-three}}
+        .template-ammo-success
+          | {{ammo-roll-three}}
+        | {{/rollWasCrit() ammo-roll-three}}      
+      | {{/rollGreater() ammo-dice 2}}
+      
+      | {{#rollGreater() ammo-dice 3}} <!-- AMMO DIE FOUR -->
+      .template-grid-item template-span-four template-ammo-die-four      
+        | {{#rollWasFumble() ammo-roll-four}}
+        .template-ammo-fail
+          | {{ammo-roll-four}}
+        | {{/rollWasFumble() ammo-roll-four}}
+        | {{#rollBetween() ammo-roll-four 2 5}}
+        .template-ammo-between
+          | {{ammo-roll-four}}
+        | {{/rollBetween() ammo-roll-four 2 5}}
+        | {{#rollWasCrit() ammo-roll-four}}
+        .template-ammo-success
+          | {{ammo-roll-four}}
+        | {{/rollWasCrit() ammo-roll-four}}      
+      | {{/rollGreater() ammo-dice 3}}
+      
+      | {{#rollGreater() ammo-dice 4}} <!-- AMMO DIE FIVE -->
+      .template-grid-item template-span-five template-ammo-die-five      
+        | {{#rollWasFumble() ammo-roll-five}}
+        .template-ammo-fail
+          | {{ammo-roll-five}}
+        | {{/rollWasFumble() ammo-roll-five}}
+        | {{#rollBetween() ammo-roll-five 2 5}}
+        .template-ammo-between
+          | {{ammo-roll-five}}
+        | {{/rollBetween() ammo-roll-five 2 5}}
+        | {{#rollWasCrit() ammo-roll-five}}
+        .template-ammo-success
+          | {{ammo-roll-five}}
+        | {{/rollWasCrit() ammo-roll-five}}      
+      | {{/rollGreater() ammo-dice 4}}
+      
+      | {{#rollGreater() ammo-dice 5}} <!-- AMMO DIE SIX -->
+      .template-grid-item template-span-shix template-ammo-die-six      
+        | {{#rollWasFumble() ammo-roll-six}}
+        .template-ammo-fail
+          | {{ammo-roll-six}}
+        | {{/rollWasFumble() ammo-roll-six}}
+        | {{#rollBetween() ammo-roll-six 2 5}}
+        .template-ammo-between
+          | {{ammo-roll-six}}
+        | {{/rollBetween() ammo-roll-six 2 5}}
+        | {{#rollWasCrit() ammo-roll-six}}
+        .template-ammo-success
+          | {{ammo-roll-six}}
+        | {{/rollWasCrit() ammo-roll-six}}      
+      | {{/rollGreater() ammo-dice 5}}
+
+      | {{#current-crit}}
+      .template-grid-item.template-span-left
+        <span>Crit: </span>| {{current-crit}}   
+      | {{/current-crit}}
+      | {{#current-damage}}
+      .template-grid-item.template-span-center 
+        <span>Damage: </span>| {{current-damage}}     
+      | {{/current-damage}}
+      | {{#current-range}}
+      .template-grid-item.template-span-right
+        <span>Range: </span>| {{current-range}}  
+      | {{/current-range}}
