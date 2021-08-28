@@ -1,0 +1,14 @@
+// Main
+.page-container {
+    display: flex;
+    flex-direction: column;
+    background-color: $light;
+    padding: 8px;
+    background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/background.png);
+  }
+  .component {
+    display: block;
+  }
+  .sheet-rolltemplate-sheetname {
+    display: block;
+  }

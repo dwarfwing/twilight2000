@@ -1,0 +1,50 @@
+// -- Tabs -- //
+
+.basic,
+.weapons,
+.combat,
+.gear,
+.vehicle,
+.notes {
+  display: none;
+}
+
+.tabstoggle[value="basic"] ~ div.basic,
+.tabstoggle[value="attributes"] ~ div.attributes,
+.tabstoggle[value="weapons"] ~ div.weapons,
+.tabstoggle[value="combat"] ~ div.combat,
+.tabstoggle[value="gear"] ~ div.gear,
+.tabstoggle[value="vehicle"] ~ div.vehicle,
+.tabstoggle[value="notes"] ~ div.notes {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabstoggle[value="basic"] ~ .main-buttons.button-basic,
+.tabstoggle[value="attributes"] ~ .main-buttons.button-attributes,
+.tabstoggle[value="weapons"] ~ .main-buttons.button-weapons,
+.tabstoggle[value="combat"] ~ .main-buttons.button-combat,
+.tabstoggle[value="gear"] ~ .main-buttons.button-gear,
+.tabstoggle[value="vehicle"] ~ .main-buttons.button-vehicle,
+.tabstoggle[value="notes"] ~ .main-buttons.button-notes {
+	background-color: #877D70;
+	color: #fff;
+    border: 3px solid #877D70;
+}
+
+.tab {
+  display: flex;
+  min-width: 16%;
+  max-width: 16%;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  min-height: 2.5em;
+  border: 1px solid $secondary;
+  border-bottom: unset;
+  background-color: transparent;
+  margin-top: 4px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 0px;
+}

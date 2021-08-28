@@ -1,0 +1,70 @@
+
+.speciality-box {
+    @extend %input-box;
+    margin: 4px;
+    max-width: 22%;
+    min-width: 22%;
+    min-height: 135px;
+    max-height: 135px;
+    display: flex;
+    flex-direction: column;
+    .spec-name {
+      background-color: $tan;
+      padding: 4px;
+    }
+  }
+  
+.border-right {
+    @extend %border-right;
+  }
+  .border-all {
+    @extend %border-all;
+  }
+  .bordered {
+    @extend %bordered;
+  }
+  .dashed {
+    @extend %dashed;
+  }
+  .dashed {
+    @extend %dotted;
+  }
+  .border-bottom-long {
+    @extend %border-bottom;
+  }
+  .border-bottom-right {
+    @extend %border-bottom-right;
+  }
+  .border-bottom-short {
+    margin-top: 3px;
+    border-bottom: 1px solid $primary;
+  }
+  .border-top-short {
+    @extend %border-top;
+    margin-top: 3px;
+    padding-top: 5px;
+  }
+  .no-pad {   padding: 0; }
+  .left-margin {  margin-left: 3px; }
+  .middle {
+    align-items: center;
+    align-content: center;
+    align-self: center;
+  }
+  .center {
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+  }
+  .right {
+    justify-content: right;
+    justify-self: right;
+    justify-items: right;
+    text-align: right;
+  }
+  .space-even {
+    display: flex;
+    justify-content: space-evenly;
+    justify-self: space-evenly;
+    justify-items: space-evenly;
+  }

@@ -8,7 +8,8 @@ on('change:', function() {
 
 const buttonlist = ["basic","attributes","weapons","combat","gear","vehicle","notes"];
 buttonlist.forEach(button => {
-    on(`clicked:${button}`, function() {
+    on(`clicked:${button}`, function(eventInfo) {
+      console.log(JSON.stringify(eventInfo));
         setAttrs({
             sheetTab: button
         });

@@ -7,8 +7,10 @@ include ../components/component
       .col-third.border-right.logo
       .col-third.headlabel.border-right 
         +input('Name','attr_character_name')
-      .col-third.headlabel 
+      .col-quarter.headlabel.border-right 
         +input('Nationality')
+      .col-14th.headlabel 
+        +input('Age')
     .row-tall.border-bottom-long
       .col-third.border-right
         +input('Branch')
@@ -29,13 +31,12 @@ include ../components/component
         +input('How I met the group')
       .col-quarter.headlabel
         +input('Experience')
-  .tabs.row-tall.row-100pc.border-bottom-long.background-tan.tab-buttons-container
+  .tabs.row-tall.row-100pc.border-bottom-long.tab-buttons-container
     +input-hidden('tabstoggle','attr_sheetTab','basic')
     +tab-button('Attributes <br/> and Skills','basic')
     +tab-button('Combat','combat')
-    //+tab-button('Weapons','weapons')
     +tab-button('Gear','gear')
-    +tab-button('Vehicles','vehicle')
+    +tab-button('Vehicle','vehicle')
     +tab-button('Notes','notes')
   .basic
     .row-tall.border-bottom-long.background-tan
@@ -47,60 +48,99 @@ include ../components/component
           +input-skill('Heavy Weapons','attr_skill_heavyweapons') 
           +input-skill('Close Combat','attr_skill_closecombat') 
           +input-skill('Stamina','attr_skill_stamina') 
+          +input-condition('Starving','condition_starving')
       .col-quarter.border-right.flex-column
         .col-whole.flex-row 
           +input-attribute('Agility','attr_agility')
           +input-skill('Driving','attr_skill_driving') 
           +input-skill('Mobility','attr_skill_mobility') 
           +input-skill('Ranged Combat','attr_skill_rangedcombat') 
+          +input-condition('Dehydrated','condition_dehydrated')
       .col-quarter.border-right.flex-column
         .col-whole.flex-row 
           +input-attribute('Intelligence','attr_intelligence')
           +input-skill('Recon','attr_skill_recon') 
           +input-skill('Survival','attr_skill_survival') 
           +input-skill('Tech','attr_skill_tech') 
+          +input-condition('Sleep Deprived','condition_sleepdeprived')
       .col-quarter.border-right.flex-column
         .col-whole.flex-row  
           +input-attribute('Empathy','attr_empathy')
           +input-skill('Command','attr_skill_command') 
           +input-skill('Persuasion','attr_skill_persuasion') 
-          +input-skill('Medical Aid','attr_skill_medicalaid') 
+          +input-skill('Medical Aid','attr_skill_medicalaid')
+          +input-condition('Hypothermic','condition_hypothermic')
+    .row-tall.border-bottom-long.background-tan
+      .col-whole Specialities
     .row-tall.border-bottom-long
-      .col-whole
-        +input('Specialities')
+      .row-tall.flex-row
+        +speciality('Combat Medic','Medical Aid','Gives a +1 modifier to MEDICAL AID rolls for helping an incapacitated character get back up (page 73). No effect on treating critical injuries.')
+        +speciality('Combat Medic','Medical Aid','Gives a +1 modifier to MEDICAL AID rolls for helping an incapacitated character get back up (page 73). No effect on treating critical injuries.')
+        +speciality-add
   .combat
     .row-tall.border-bottom-long.background-tan
       .col-half.border-right Combat
       .col-quarter.border-right Armor
       .col-quarter Conditions
-    .row-tall.border-bottom-long
-      .col-quarter.flex-row
-        .flex-row
-          .label Damage
-        +input-number('Hit capacity','hitcapacity')
-        +input-number('Stress Capacity','stresscapacity')
-        +input-number('Coolness Under Fire','cuf')
-        +input-number('Unit Morale','unitmorale')
-      .col-quarter.flex-row
-        .flex-row
-          .label Stress
-        +input('Critical Injuries','critials')
-        +input('Diseases','diseases')
-      .col-quarter.flex-row
-        +input-value-number('Head','armor_head')
-        +input-value-number('Arms','armor_arms')
-        +input-value-number('Torso','armor_torso')
-        +input-value-number('Legs','armor_legs')
-      .col-quarter.flex-row
-        +input-check('Starving','condition_starving')
-        +input-check('Dehydrated','condition_dehydrated')
-        +input-check('Sleep Deprived','condition_sleepdeprived')
-        +input-check('Hypothermic','condition_hypothermic')
+    .row-tall
+      .col-half.border-right.flex-row
+        .row-whole.border-bottom-long
+          .col-half.row-tall.border-right
+            .row-whole
+              .label Damage
+            .row-whole.damage
+              input.damage.hitcapacity.hidden(name= "attr_hitcapacity",value="ceil((@{strengthdie}+@{agilitydie})/4)",readonly,hidden)
+              input.damage.hidden(name= "attr_damage",readonly,hidden)
+              +numbered-radioboxes('damage','greyish')
+          .col-half.row-tall
+            .row-whole
+              .label Stress
+            .row-whole.damage
+              input.damage.stresscapacity.hidden(name= "attr_stresscapacity",value="ceil((@{intelligencedie}+@{empathydie})/4)",readonly,hidden)
+              input.hidden.damage(name= "attr_stress",hidden,readonly)
+              +numbered-radioboxes('stress','greyish')
+        .row-whole
+          .col-half.border-right
+            +input-number('Hit capacity','hitcapacity')
+            +input-number('Stress Capacity','stresscapacity')
+            +input-number('Coolness Under Fire','cuf')
+            +input-number('Unit Morale','unitmorale')
+          .col-half 
+            .row-whole  
+              +input-field('Critical Injuries','critials')
+            .row-whole
+              +input-field('Diseases','diseases')
+      .col-half.flex-row
+        .row-whole.border-bottom-long
+          .col-half.flex-row.border-right
+            +input-value-number('Head','armor_head')
+            +input-value-number('Arms','armor_arms')
+            +input-value-number('Torso','armor_torso')
+            +input-value-number('Legs','armor_legs')
+          .col-half.flex-row
+            +input-check('Starving','condition_starving')
+            +input-check('Dehydrated','condition_dehydrated')
+            +input-check('Sleep Deprived','condition_sleepdeprived')
+            +input-check('Hypothermic','condition_hypothermic')
+        .row-whole.row-tall.border-bottom-long.background-tan Radioact
+        .row-whole.row-tall
+          .col-half.flex-row.border-right
+            .label Temporary
+            .row-whole.damage
+              input.hidden.damage(name= "attr_temporaryrads",hidden,readonly)
+              +numbered-radioboxes('temporaryrads','gold')
+          .col-half.flex-row
+            .label Permanent
+            .row-whole.damage
+              input.hidden.damage(name= "attr_permanentrads",hidden,readonly)
+              +numbered-radioboxes('permanentrads','red')
     .weapons-row 
       //.row-tall.border-bottom-long.background-tan
       //  .col-full Weapons
       .row-tall.row-100pc.border-bottom-long.background-tan
         .col-3-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em WEAPONS
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em TYPE
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em AMMO
         .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em REL
         .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em RDF
         .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em DAMAGE
@@ -111,11 +151,12 @@ include ../components/component
         .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em ARMOR
         .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em WEIGHT
         .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em SPENT
-        .col-14th.border-bottom-short.background-tan.no-pad.middle.center.h-2-5em ROLL
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em ROLL
       fieldset.repeating_weapons
-        .row-tall.row-100pc
+        .row-tall.row-100pc.border-bottom-long
           .col-3-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em M16
-          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em AR
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 5.56
           .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
           .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
           .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
@@ -124,5 +165,167 @@ include ../components/component
           .col-14th.border-bottom-short.border-right.no-pa.middle.center.h-2-5em 30
           .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
           .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
-          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 12
-          .col-14th.border-bottom-short.no-pad.middle.center.h-2-5em t
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em t
+  .gear
+    //.row-tall.border-bottom-long.background-tan
+      .col-third.border-right Combat Gear
+      .col-third.border-right Backpack
+      .col-third Tiny items 
+    .row-tall.border-bottom-long.background-tan.row-100pc
+      .col-third
+        +span-value('Combat Encumbrance','attr_combatgear_total')
+        +span-value('Combat Carry Limit','attr_carry_limit')
+      .col-third
+        +span-value('Backpack Encumbrance','attr_backpack_total')
+        +span-value('Backpack Carry Limit','attr_carry_limit_backpack')
+      .col-third
+    .row-tall.border-bottom-long.background-tan
+      .col-third.no-pad
+        .row-tall.row-100pc.no-pad
+          .col-twothird.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em Combat Gear
+          .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em Wt
+          .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em #
+      .col-third.no-pad
+        .row-tall.row-100pc.no-pad
+          .col-twothird.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em Backback
+          .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em Wt
+          .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em #
+      .col-third.no-pad
+        .row-tall.row-100pc.no-pad
+          .col-threequarter.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em Tiny Items
+          .col-quarter.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em #
+    .row-tall.border-bottom-long
+      .col-third.no-pad
+        fieldset.repeating_combatgear
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em M16
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Knife
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 0.5
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Flak jacket
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Helmet
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Mag M16
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 0.25
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 5
+          +gear-item
+      .col-third.no-pad
+        fieldset.repeating_backpack
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Mag
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 0.25
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Handradio
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Flare
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 0.25
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
+          +gear-item
+      .col-third.no-pad
+        fieldset.repeating_tinyitems
+          //.row-tall.row-100pc.no-pad
+            .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Map
+            .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          //.row-tall.row-100pc.no-pad
+            .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Crucifix
+            .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          //.row-tall.row-100pc.no-pad
+            .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Dollars
+            .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 12
+          //.row-tall.row-100pc.no-pad
+            .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Kronor
+            .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 550
+          +tiny-item
+  .vehicle
+    .row-tall.border-bottom-long.background-tan
+      .col-whole Vehicle 
+    .row-tall.border-bottom-long
+      .col-twothird.info.border-all
+        .row.row-100pc          
+          .col-threequarter.border-right
+            +input('Vehicle name')          
+          .col-quarter
+            +input('Type')          
+        .row.row-100pc
+          .col-fifth.border-right
+            +input-number('Rel.')          
+          .col-fifth.border-right
+            +input-number('Travel speed')          
+          .col-fifth.border-right
+            +input-number('Combat Speed')          
+          .col-fifth.border-right
+            +input-number('Crew')          
+          .col-fifth
+            +input-number('Cargo')
+      .col-third
+        .row.row-100pc
+          label Armor
+        .row.row-100pc
+          label Fuel
+    .weapons-row 
+      //.row-tall.border-bottom-long.background-tan
+      //  .col-full Weapons
+      .row-tall.row-100pc.border-bottom-long.background-tan
+        .col-3-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em WEAPONS
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em TYPE
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em AMMO
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em REL
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em RDF
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em DAMAGE
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em CRIT
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em BLAST
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em RANGE
+        .col-14th.border-bottom-short.border-right.background-tan.no-pa.middle.center.h-2-5em MAG
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em ARMOR
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em WEIGHT
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em SPENT
+        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em ROLL
+      fieldset.repeating_weapons
+        .row-tall.row-100pc.border-bottom-long
+          .col-3-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em M16
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em AR
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 5.56
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em -
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 8
+          .col-14th.border-bottom-short.border-right.no-pa.middle.center.h-2-5em 30
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
+          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em t
+    .vehicle-gear
+      //.row-tall.border-bottom-long.background-tan
+        .col-third.border-right Combat Gear
+        .col-third.border-right Backpack
+        .col-third Tiny items 
+      .row-tall.border-bottom-long
+        .col-third.no-pad
+          .row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em Vehicle Gear
+            .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em Wt
+            .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em #
+      .row-tall.border-bottom-long
+        .col-third.no-pad
+          fieldset.repeating_vehiclegear
+            +gear-item
+
+  .notes
+  .action
+    label This is a test

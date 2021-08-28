@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Special+Elite|Anton|Abel|Chilanka|Delius&display=swap');
+@font-face {
+	font-family: T2KCharSheet;
+    src: url(https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/STENCILSTD.OTF?raw=true) format("opentype");
+  }
+@font-face {
+  font-family: DaisyWheel;
+    src: url( https://github.com/dwarfwing/twilight2000/raw/main/Twilight%202000/assets/fonts/daisywhl.otf?raw=true) format("opentype");
+  }
+ 
+// -- Variables -- //
+@import "./parts/variables.scss";
+
+// Main
+@import "./parts/main.scss";
+
+// -- Tabs -- //
+@import "./parts/tabs.scss";
+
+// Mixins
+@import "./parts/mixins.scss";
+
+// Main styles
+@import "./styles/main.scss";
+
+// Repeating section
+@import "./parts/repeating.scss";
+
+// Input
+@import "./styles/input.scss";
+
+// Styles
+@import "./styles/boxes.scss";
+@import "./styles/colors.scss";
+@import "./styles/cols.scss";
+@import "./styles/main.scss";
+@import "./styles/rows.scss";
+
+.action {
+  display: none;
+}

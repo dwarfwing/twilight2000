@@ -1,0 +1,226 @@
+/* ROLL TEMPLATE STYLING */
+.rolltemplate-t2k .template-wrap {
+    background-color: hsl(0, 0%, 22%);
+    border: 1px solid #404040;
+    border-radius: 5px;
+    width: 100%;
+    margin-left: -10px;
+    padding: 5px;
+}
+
+.rolltemplate-t2k .template-background {
+    background-color: #404040;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.rolltemplate-t2k .template-grid {
+    display: grid;
+    grid-gap: 3px;
+    background-color: transparent;
+    padding: 3px;
+    grid-template-columns: 15.75% 15.75% 15.75% 15.75% 15.75% 15.75%;
+}
+
+.rolltemplate-t2k .template-grid-item {
+    background-color: rgba(259, 259, 259, 0.05);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+    text-align: center;
+}
+
+.rolltemplate-t2k .template-span-six {
+  grid-column: 1 / 7;
+}
+
+.rolltemplate-t2k .template-span-left {
+  grid-column: 1 / 3;
+}
+
+.rolltemplate-t2k .template-span-center {
+  grid-column: 3 / 5;
+}
+
+.rolltemplate-t2k .template-span-right {
+  grid-column: 5 / 7;
+}
+
+.rolltemplate-t2k .template-span-one {
+  grid-column: 1 / 2;
+}
+
+.rolltemplate-t2k .template-span-two {
+  grid-column: 2 / 3;
+}
+
+.rolltemplate-t2k .template-span-three {
+  grid-column: 3 / 4;
+}
+
+.rolltemplate-t2k .template-span-four {
+  grid-column: 4 / 5;
+}
+
+.rolltemplate-t2k .template-span-five {
+  grid-column: 5 / 6;
+}
+
+.rolltemplate-t2k .template-span-shix {
+  grid-column: 6 / 7;
+}
+
+.rolltemplate-t2k .template-to-the-left {
+    text-align: left;
+}
+
+.rolltemplate-t2k .template-to-the-center {
+    padding-left: 43%;
+}
+
+.rolltemplate-t2k .inlinerollresult  {
+    color: transparent;
+    font-size: 1.9em;
+    line-height: 35px;
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+}
+ 
+.rolltemplate-t2k .inlinerollresult.fullcrit {
+    color: transparent;
+    border: none;
+}
+ 
+.rolltemplate-t2k .inlinerollresult.fullfail {
+	color: transparent;
+    border: none;
+}
+ 
+.rolltemplate-t2k .inlinerollresult.importantroll {
+	color: transparent;
+    border: none;
+}
+
+.rolltemplate-t2k .template-base-six-fail {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-d1.png?raw=true");
+    background-size: 100% 100%;
+}
+.rolltemplate-t2k .template-base-eight-fail {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-c1.png?raw=true");
+    background-size: 100% 100%;
+}
+.rolltemplate-t2k .template-base-ten-fail {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-b1.png?raw=true");
+    background-size: 100% 100%;
+}
+.rolltemplate-t2k .template-base-twelve-fail {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-a1.png?raw=true");
+    background-size: 100% 100%;
+}
+
+.rolltemplate-t2k .template-base-six-between {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-d0.png?raw=true");
+    background-size: 100% 100%;
+}
+.rolltemplate-t2k .template-base-eight-between {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-c0.png?raw=true");
+    background-size: 100% 100%;
+    
+}
+.rolltemplate-t2k .template-base-ten-between {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-b0.png?raw=true");
+    background-size: 100% 100%;
+    
+}
+.rolltemplate-t2k .template-base-twelve-between {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-a0.png?raw=true");
+    background-size: 100% 100%;
+    
+}
+
+.rolltemplate-t2k .template-base-six-success {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-d6.png?raw=true");
+    background-size: 100% 100%;
+}
+.rolltemplate-t2k .template-base-eight-success {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-c6.png?raw=true");
+    background-size: 100% 100%;
+}
+.rolltemplate-t2k .template-base-ten-success {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-b6.png?raw=true");
+    background-size: 100% 100%;
+}
+.rolltemplate-t2k .template-base-twelve-success {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-a6.png?raw=true");
+    background-size: 100% 100%;
+}
+
+.rolltemplate-t2k .template-base-ten-critical {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-b10.png?raw=true");
+    background-size: 100% 100%;
+}
+.rolltemplate-t2k .template-base-twelve-critical {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-a10.png?raw=true");
+    background-size: 100% 100%;
+}
+
+.rolltemplate-t2k .template-ammo-fail {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-g1.png?raw=true");
+    background-size: 100% 100%;
+}
+
+.rolltemplate-t2k .template-ammo-between {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-g0.png?raw=true");
+    background-size: 100% 100%;
+}
+
+.rolltemplate-t2k .template-ammo-success {
+    height: 30px;
+    width: 30px;
+    background-image: url("https://github.com/NocFenix/roll20-character-sheets/blob/t2k-4e/T2K%204e/Images/t2k-g6.png?raw=true");
+    background-size: 100% 100%;
+}
+
+.rolltemplate-t2k .template-yellow {
+    height: 30px;
+    width: 30px;
+    background-color: #ffe600;
+    border: none;
+    border-radius: 5px;
+    background-position: center;
+}
