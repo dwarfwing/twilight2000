@@ -14,6 +14,6 @@ Then modify files in subfolder /app in pug format
 In folder source, run command
 
 ```
-sass --watch style\twilight2000-2020.scss ..\twilight2000-2020.css
+sass --watch style\twilight2000.scss ..\twilight2000.css
 ```
 Then modify files in subfolder /style in scss format
