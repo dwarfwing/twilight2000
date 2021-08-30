@@ -25,9 +25,15 @@
   }
   .row-whole {
     @extend %cell-flex-row;
-    max-width: 99%;
-    min-width: 99%;
+    max-width: 100%;
+    min-width: 100%;
+    padding-top: 5px;
     padding-bottom: 5px;
+  }
+  .row-whole-nopad {
+    @extend %cell-flex-row;
+    max-width: 100%;
+    min-width: 100%;
   }
   .row-fill {
     flex: 1;
@@ -43,4 +49,7 @@
   }
   .flex-row {  
     @extend %cell-flex-row;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
   }

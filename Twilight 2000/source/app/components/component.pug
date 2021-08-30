@@ -1,63 +1,137 @@
-mixin component
-  .component=locals['component-example']
+mixin input(label,attribute='test',align)
+  if label != ""
+    .label-caps= label
+  if align == "right"   
+    input.input-text.right(type= 'text',name="attr_"+attribute)
+  else
+    input.input-text(type= 'text',name="attr_"+attribute)
 
-mixin input(label,attribute='test')
-  .label-caps= label 
-  input.input-text(name=attribute)
+mixin input-hidden(clss,attribute,vlue)
+  input.input-hidden(type='hidden',class=clss, name= "attr_"+attribute, value= vlue,hidden,readonly)
 
 mixin input-field(label,attribute='test')
-  .label-caps= label 
-  textarea.input-textarea(name= attribute)
-
-mixin span-value(label,attribute='test')
-  .row
+  if label != ""
     .label-caps= label 
-    span.input-text(name=attribute)
+  textarea.input-textarea(name= "attr_"+attribute)
 
-mixin input-attribute(label,attribute)
-  .row-whole
-    .label-caps.row-fill= label 
-    select.attribute(name=attribute, value='C')
-      each val in ['A', 'B', 'C', 'D']
-        option(value= val)= val
-    span.separator =
-    span.input-die(readonly= true) D6
-
-mixin input-skill(label,skill)
-  .row-whole
-    input.hidden(id=skill, name="act_"+skill, type="checkbox", value="1")
-    label.label.row-fill(for=skill)= label 
-    select.skill(name=skill, value='F')
-      each val in ['A', 'B', 'C', 'D', 'F']
-        option(value= val)= val
-    span.separator =
-    span.input-die(readonly= true) D6
-
-mixin input-number(label,attribute)
-  .row-whole
+mixin input-number(label,attribute,nofill)
+  if label != "" && !nofill
+    //.row-whole
     .label.row-fill= label 
-    input(type='number').input-number(name=attribute)
+  else if nofill
+    .label= label 
+  input.input-number(type='number',name="attr_"+attribute)
 
 mixin input-value-number(label,attribute)
-  .row-whole
+  if label != ""
+    //.row-whole
     .label.row-fill= label 
-    input.input-text.flex5(name=attribute)
-    input(type='number').input-number(name=attribute+'_v')
-
-mixin input-condition(label,attribute)
-  .row-whole.border-top-short
-    .label.row-fill.right= label 
-    input(type='checkbox').numbered-box.grey-box(name=attribute) 
-    span(title='+')
+    input.input-text.flex5(name="attr_"+attribute+"_item")
+    input(type='number').input-number(name="attr_"+attribute)
+  else
+    input.input-text.flex5(name="attr_"+attribute+"_item")
+    input(type='number').input-number(name="attr_"+attribute)
 
 mixin input-check(label,attribute)
-  .row-whole
+  if label != ""
+    //.row-whole
     .label.row-fill= label 
-    input(type='checkbox').numbered-box.grey-box(name=attribute) 
+    input(type='checkbox').numbered-box.grey-box(name="attr_"+attribute) 
+    span(title='+')
+  else 
+    input(type='checkbox').numbered-box.grey-box(name="attr_"+attribute) 
     span(title='+')
 
-mixin input-hidden(clss,nme,vlue='0')
-  input.input-hidden(type='hidden',class=clss, name= nme, value= vlue)
+mixin span-value(label,attribute='test')
+  if label != ""
+    .row
+      .label-caps= label 
+      span.input-text(name="attr_"+attribute)
+  else
+    span.input-text(name="attr_"+attribute)
+    
+mixin span-number(label,attribute,noborder)
+  if label != ""
+    //.row-whole
+    .label.row-fill= label 
+  if noborder == ""
+    span.input-number(name="attr_"+attribute)
+  else 
+    span.input-number.noborder.noshadow(name="attr_"+attribute)
+
+mixin input-experience
+  .row-whole
+    .col-half.flex-row
+      +input-number("Current","currentexperience","nofill")
+    .col-half.flex-row
+      +input-number("Total","totalexperience","nofill")
+
+mixin input-attribute(label,attribute,caps,titl)
+  .row-whole.border-bottom-long
+    if caps 
+      button.label-caps.row-fill.strength-attribute.attribute-button(type='roll',name='roll_'+attribute,id='roll_'+attribute,value='&{template:t2k} {{character-name=@{character_name} }} {{roll-name='+attribute+'}} {{roll-die-one=[[1d@{'+attribute+'die}]] }} {{roll-one-type=[[@{'+attribute+'die}]]}}')= label 
+        //span(title=titl,for='roll_'+attribute)= label 
+    else 
+      .label.row-fill(title=titl)= label 
+    select.attribute(name="attr_"+attribute, value='C')
+      each val in ['A', 'B', 'C', 'D']
+        option(value= val)= val
+    // Attribute die size, e.g. 8, *calculated through sheetworker
+    +input-hidden('attribute','attr_'+attribute+'die','') 
+    span.separator =
+    // Attribute die type. e.g. D8, calculated through sheetworker
+    +input-hidden('attribute','attr_'+attribute+'dietype','') 
+    span.input-die(name= 'attr_'+attribute+'dietype')
+
+mixin input-skill(label,skill,caps,titl)
+  .row-whole.row-fill.middle.border-bottom-long.no-marg.no-pad
+    input.hidden(id=skill, name="act_"+skill, type="checkbox", value="1")
+    if caps 
+      .row-fill.h-fill.middle.no-pad
+        label.label-caps(title=titl,for=skill)= label 
+    else
+      .row-fill.h-fill.middle.no-pad
+        label.label(title=titl,for=skill)= label 
+    select.skill(name="attr_"+skill, value='F')
+      each val in ['A', 'B', 'C', 'D', 'F']
+        option(value= val)= val
+    // Skill die size, e.g. 8, *calculated through sheetworker
+    +input-hidden('skill','attr_'+skill+'die','') 
+    span.separator =
+    // Skill die type. e.g. D8, calculated through sheetworker
+    +input-hidden('skill','attr_'+skill+'dietype','') 
+    span.input-die(name='attr_'+skill+'dietype')
+
+// Same as Skill input, but different top level div classes
+mixin input-unitmorale(label,skill,caps,titl) 
+  .row-whole
+    input.hidden(id=skill, name="act_"+skill, type="checkbox", value="1")
+    label.label.row-fill.no-marg(title=titl,for=skill)= label 
+    select.skill(name="attr_"+skill, value='F')
+      each val in ['A', 'B', 'C', 'D', 'F']
+        option(value= val)= val
+    // Skill die size, e.g. 8, *calculated through sheetworker
+    +input-hidden('skill','attr_'+skill+'die','') 
+    span.separator =
+    // Skill die type. e.g. D8, calculated through sheetworker
+    +input-hidden('skill','attr_'+skill+'dietype','') 
+    span.input-die(name='attr_'+skill+'dietype')
+
+mixin input-condition(label,attribute)
+  .row-whole.condition
+    .label.row-fill.right= label 
+    input.numbered-box.grey-box.condition(type='checkbox',name="attr_"+attribute) 
+    span(title='+')
+
+mixin input-weight(attribute,defaultval)
+  select.weight(name='attr_'+attribute,value=defaultval) 
+    if defaultval == "-" || defaultval == ""
+      option(value= defaultval, selected, disabled, hidden)
+    each val in ['0.25', '0.5', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+      if val === value
+        option(value= val, selected)= val
+      else  
+        option(value= val)= val
 
 mixin tab-button(label,name)
   button.tab.main-buttons(class= "button-"+name, type= "action", name= "act_"+name)= label
@@ -74,19 +148,61 @@ mixin speciality-add
   .speciality-box.box.center.middle.dashed
     .center.middle= '+Add'
 
+mixin armor-item(location,name)
+  .row-whole-nopad.flex-row.flex1.middle.no-marg.no-pad
+    .label.col-fifth.center= location 
+    .row-fill.pad-right8
+      +input("",name="attr_armor_"+name+"_name","right")
+    .armor-weight
+      +input-weight("armor_"+name+"_weight","")
+    .armor-damage
+      +input-number("","attr_armor_"+name+"_damage")
+    .armor-rating
+      +input-number("","attr_armor_"+name+"_rating")
+
+mixin weapon-item
+  .row-tall.row-100pc.border-bottom-long
+    .col-3-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
+      +input("","name")
+    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
+      +input("","type")
+    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
+      +input("","ammo")
+    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
+      +input-number("","rel")
+    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
+      +input-number("","rof")
+    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
+      +input-number("","damage")
+    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
+      +input-number("","crit")
+    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
+      +input-number("","blast")
+    .col-14th.border-bottom-short.border-right.no-pa.middle.center.h-2-5em
+      +input-number("","range")
+    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
+      +input-number("","magazine")
+    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
+      +input-number("","armor")
+    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
+      +input-number("","weight")
+    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
+      +input-number("","spent") 
+    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em t
+
 mixin gear-item
   .row-tall.row-100pc.no-pad
     .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em  
-      input.input-text.gear-name(name= 'attr_name',value= label)
+      input.input-text.gear-name(type= 'text',name= 'attr_name',value= label)
     .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
       select.weight(name='attr_weight',value='1')
         each val in ['0.25', '0.5', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-          if val === '1' 
-            option(value= val, selected= selected)= val
+          if val === value 
+            option(value= val, selected)= val
           else  
             option(value= val)= val
     .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
-      input(type='number').input-number(name='attr_amount')
+      input.input-number(type='number',name='attr_amount', value= "1")
 mixin tiny-item
   .row-tall.row-100pc.no-pad
     .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em  
@@ -94,19 +210,11 @@ mixin tiny-item
     .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
       input.input-number(name='attr_amount')
 
-mixin numbered-checkbox(attribute,index,color)
+//mixin numbered-checkbox(attribute,index,color)
   input.numbered-box(type= "checkbox",value= index,class= color+"-box",name= "attr_"+attribute,title= "@{"+attribute+"}")
   span(title= index)
-mixin numbered-radiobox(attribute,index,color)
-  //- var i = 1, j = 10, lt = '', gt = '';
-  //while i < index
-    - gt += " "+i++
-  //while j > index
-    - lt += " "+(--j)
-  input.numbered-box(type= "radio",value= index,id= attribute+index,class= color+"-box" attribute,name= "attr_"+attribute,title= "@{"+attribute+"}",hidden)
-  //label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index
-  label.damage(title= index,for= attribute+index,class= attribute+index)= index
-mixin numbered-checkboxes(attribute,color,rowbreak)
+  
+//mixin numbered-checkboxes(attribute,color,rowbreak)
   - var i = 1, max = 10;
   .row-whole.space-even
     while i <= max/2
@@ -114,12 +222,35 @@ mixin numbered-checkboxes(attribute,color,rowbreak)
   .row-whole.space-even
     while i <= max
       +numbered-checkbox(attribute,i++,color)
-mixin numbered-radioboxes(attribute,color,rowbreak)
-  - var i = 0, max = 10;
+
+mixin numbered-radiobox(attribute,index,color)
+  - var i = 0;
+  - gt = '';
+  //- var j = 10;
+  //- lt = '';
+  while i < index
+    - gt += " v"+(++i)
+  //while j > index
+    - lt += " v"+(j--)  
+  input.numbered-box(type= "radio",value= index,id= attribute+index,class= ""+color+"-box "+attribute+"radio "+gt,name= "attr_"+attribute,title= "@{"+attribute+"}",hidden)
+  //label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index
+  label.damage(title= index,for= attribute+index,class= ""+attribute+""+index+" "+gt)= index
+
+mixin numbered-radioboxes(attribute,color,limiter)
+  - var i = 1, max = 10;
   //.row-whole.space-even
-  while i <= max
-    if i == 6 
-      .spacer 
-      +numbered-radiobox(attribute,i++,color)
-    else 
+  .col-sixth.flex1
+    +numbered-radiobox(attribute,0,color)    
+  .col-fivesixth.flex5.flex-row.radioboxes
+    +input-hidden('damage hitcapacity hidden',limiter)
+    //input.damage.hitcapacity.hidden(name= "hitcapacity",value="ceil((@{strengthdie}+@{agilitydie})/4)",readonly,hidden)
+    +input-hidden('',attribute,'0')
+    //input.damage.hidden(name= "damage",readonly,hidden)
+    input.hidden(type= "radio",value= '0',id= attribute+"0",class= ""+color+"-box "+attribute+"radio",name= "attr_"+attribute,title= "@{"+attribute+"}",hidden)
+    while i <= max
+      //if i == 6 
+        .spacer 
+        +numbered-radiobox(attribute,i++,color)
+      //else 
+        +numbered-radiobox(attribute,i++,color)
       +numbered-radiobox(attribute,i++,color)

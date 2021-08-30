@@ -12,7 +12,6 @@
     justify-self: flex-start;
     align-self: stretch;
     flex-wrap: wrap;
-
   }
   %cell-flex-row {
     display: flex;
@@ -27,7 +26,8 @@
     color: $primary;
     text-align: left;
     padding-left: 3px;
-    font-weight: normal;
+    -font-weight: normal;
+    font-size: $fontsize;
   }
   %text-upper {
     text-transform: uppercase;
@@ -35,6 +35,12 @@
   %text-lower {
     text-transform: unset;
     font-weight: unset;
+  }
+  %text-large {
+    font-size: $largefont;
+  }
+  %text-small {
+    font-size: $smallfont;
   }
   %bordered {
     border: 1px solid $primary !important;
@@ -82,6 +88,11 @@
     width: 30px;
     min-height: 20px;
     height: 20px;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 0px 5px #808080;
   }
   %input-text {
     width: auto;

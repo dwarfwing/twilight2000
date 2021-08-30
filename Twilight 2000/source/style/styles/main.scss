@@ -15,29 +15,27 @@
   h1, h2, h3, h4, select, option, .label-caps {
     @extend %text-base;
     @extend %text-upper;
-    font-size: 1em;
+    -font-size: 1em;
     box-sizing: border-box;
   }
   .label-caps {
-   font-size: 90%; 
+   -font-size: 90%; 
    padding-left: 0;
+  }
+  .small-caps {
+    font-variant: small-caps;
+    font-size: 80%;
   }
   div.headlabel div.label-caps {
     -font-size: 80%;
+    margin-bottom: -5px;
+    margin-top: 4px;
   }
   .row-whole label {
     font-size: unset;
-    font-size: 80%;
+    -font-size: 80%;
+  }
+  .characterviewer label {
+    margin-bottom: unset;
   }
   
-  span {
-    &.input-die {
-    @extend %input-box;   
-    background-color: inherit !important;
-    min-width: 2.5em !important;
-    text-align: center;  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    }
-  }

@@ -1,123 +1,159 @@
 include ../components/component
 
 .page-container
-  +input-hidden('tabstoggle','attr_sheetTab','basic')
+  +input-hidden('tabstoggle','sheetTab','basic')
   .header
     .row-tall.border-bottom-long
       .col-third.border-right.logo
       .col-third.headlabel.border-right 
-        +input('Name','attr_character_name')
+        +input('Name','character_name')
       .col-quarter.headlabel.border-right 
-        +input('Nationality')
+        +input('Nationality',"attr_nationality")
       .col-14th.headlabel 
-        +input('Age')
+        +input('Age',"attr_age")
     .row-tall.border-bottom-long
       .col-third.border-right
-        +input('Branch')
+        +input('Branch',"attr_branch")
       .col-twothird.headlabel 
-        +input('Appearance')
+        +input('Appearance',"attr_appearance")
     .row-tall.border-bottom-long
       .col-third.headlabel.border-right 
-        +input('Military Rank')
+        +input('Military Rank',"attr_militaryrank")
       .col-twothird.headlabel 
-        +input('Moral code')
+        +input('Moral code',"attr_moralcode")
     .row-tall.border-bottom-long
       .col-third.headlabel.border-right 
-        +input('Buddy')
+        +input('Buddy',"attr_buddy")
       .col-twothird.headlabel
-        +input('Big dream')
+        +input('Big dream',"attr_bigdream")
     .row-tall.border-bottom-long
-      .col-threequarter.headlabel.border-right 
-        +input('How I met the group')
-      .col-quarter.headlabel
-        +input('Experience')
+      .col-twothird.headlabel.border-right 
+        +input('How I met the group',"attr_howyoumetthegroup")
+      .col-third.headlabel
+        +input-experience
   .tabs.row-tall.row-100pc.border-bottom-long.tab-buttons-container
-    +input-hidden('tabstoggle','attr_sheetTab','basic')
+    +input-hidden('tabstoggle','sheetTab','basic')
     +tab-button('Attributes <br/> and Skills','basic')
     +tab-button('Combat','combat')
     +tab-button('Gear','gear')
     +tab-button('Vehicle','vehicle')
     +tab-button('Notes','notes')
   .basic
-    .row-tall.border-bottom-long.background-tan
-      .col-whole Attributes and Skills 
+    .row-tall.border-bottom-long.background-tan.flex-wrap
+      .row-whole
+      .row-whole.flex-column.flex1.label-caps Attributes and Skills 
+      .row-whole-nopad.flex-column.no-marg.no-pad.flex1
+        .col-quarter.flex-row
+          .row-fill.no-marg.border-right.middle.right= "&nbsp;"
+          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "RATING"
+          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "BASE"
+        .col-quarter.flex-row
+          .row-fill.no-marg.border-right.middle.right= "&nbsp;"
+          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "RATING"
+          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "BASE"
+        .col-quarter.flex-row
+          .row-fill.no-marg.border-right.middle.right= "&nbsp;"
+          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "RATING"
+          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "BASE"
+        .col-quarter.flex-row
+          .row-fill.no-marg.border-right.middle.right= "&nbsp;"
+          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "RATING"
+          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "BASE"
     .row-tall.border-bottom-long
       .col-quarter.border-right.flex-column
-        .col-whole.flex-row
-          +input-attribute('Strength','attr_strength') 
-          +input-skill('Heavy Weapons','attr_skill_heavyweapons') 
-          +input-skill('Close Combat','attr_skill_closecombat') 
-          +input-skill('Stamina','attr_skill_stamina') 
-          +input-condition('Starving','condition_starving')
+        .col-whole.flex-row.no-marg
+          +input-attribute('Strength','strength','caps','Muscle power, toughness, and physical endurance. ') 
+          +input-skill('Heavy Weapons','heavyweapons','','Use the HEAVY WEAPONS skill to fire machine guns, rocket launchers, mortars, tank guns, howitzers, and other heavy weapons. Sp') 
+          +input-skill('Melee','closecombat','','Use MELEE when fighting an enemy up close and personal, with or without a melee weapon in hand. If') 
+          +input-skill('Stamina','stamina','','When your physical toughness or endurance is tested, roll for STAMINA') 
+          +input-condition('Starving','starving','','')
       .col-quarter.border-right.flex-column
         .col-whole.flex-row 
-          +input-attribute('Agility','attr_agility')
-          +input-skill('Driving','attr_skill_driving') 
-          +input-skill('Mobility','attr_skill_mobility') 
-          +input-skill('Ranged Combat','attr_skill_rangedcombat') 
-          +input-condition('Dehydrated','condition_dehydrated')
+          +input-attribute('Agility','agility','caps','Body control, speed, and fine motor skills. ')
+          +input-skill('Driving','driving','','Use the DRIVING skill to maneuver motorcycles, cars, armored personnel carriers and even tanks. ') 
+          +input-skill('Mobility','mobility','','When you jump, climb, run fast, or perform any other action that requires speed or motor control, you roll MOBILITY.') 
+          +input-skill('Ranged Combat','rangedcombat','','Use the RANGED COMBAT skill to use hand-held ranged weapons, such as pistols, bows, submachineguns, and assault rifles. ') 
+          +input-condition('Dehydrated','dehydrated','','')
       .col-quarter.border-right.flex-column
         .col-whole.flex-row 
-          +input-attribute('Intelligence','attr_intelligence')
-          +input-skill('Recon','attr_skill_recon') 
-          +input-skill('Survival','attr_skill_survival') 
-          +input-skill('Tech','attr_skill_tech') 
-          +input-condition('Sleep Deprived','condition_sleepdeprived')
+          +input-attribute('Intelligence','intelligence','caps','Perception, intellect, and mental stability. ')
+          +input-skill('Recon','recon','','Use the RECON skill to spot concealed enemies, avoid ambushes, move silently and avoid being detected. ') 
+          +input-skill('Survival','survival','','o survive, you need to know how to find food and shelter in the wild. You can roll SURVIVAL in a number of different situations  when  you  are  traveling.  R') 
+          +input-skill('Tech','tech','','Use the TECH skill to repair gear and scavenge parts. You can even use the skill to craft new items if you have access to a workshop. ') 
+          +input-condition('Sleep Deprived','sleep_deprived','','')
       .col-quarter.border-right.flex-column
         .col-whole.flex-row  
-          +input-attribute('Empathy','attr_empathy')
-          +input-skill('Command','attr_skill_command') 
-          +input-skill('Persuasion','attr_skill_persuasion') 
-          +input-skill('Medical Aid','attr_skill_medicalaid')
-          +input-condition('Hypothermic','condition_hypothermic')
-    .row-tall.border-bottom-long.background-tan
-      .col-whole Specialities
+          +input-attribute('Empathy','empathy','caps',' Charisma, amiability, and emotional stability. ')
+          +input-skill('Command','command','','You can use your COMMAND skill to help a person who is incapacitated by stress get back on their feet.') 
+          +input-skill('Persuasion','persuasion','','Use PERSUASION to make others see things your way. Your chances can be affected by your bargaining position and military rank. ') 
+          +input-skill('Medical Aid','medicalaid','','The MEDICAL AID skill can be used to help a friend who is incapacitated by damage get back on their feet, and to save the life of a fallen comrade who has suffered a critical injury. ')
+          +input-condition('Hypothermic','hypothermic','','')
+    .row-tall.border-bottom-long.background-tan.flex-wrap
+      .row-whole
+      .col-whole.label-caps Specialities
+      .row-whole
     .row-tall.border-bottom-long
       .row-tall.flex-row
         +speciality('Combat Medic','Medical Aid','Gives a +1 modifier to MEDICAL AID rolls for helping an incapacitated character get back up (page 73). No effect on treating critical injuries.')
         +speciality('Combat Medic','Medical Aid','Gives a +1 modifier to MEDICAL AID rolls for helping an incapacitated character get back up (page 73). No effect on treating critical injuries.')
         +speciality-add
   .combat
-    .row-tall.border-bottom-long.background-tan
-      .col-half.border-right Combat
-      .col-quarter.border-right Armor
-      .col-quarter Conditions
-    .row-tall
-      .col-half.border-right.flex-row
-        .row-whole.border-bottom-long
+    .row-tall.border-bottom-long.background-tan.flex-wrap
+      .col-half.border-right.height-margs5.label-caps Combat
+      .col-half.border-right.height-margs5.label-caps Armor
+      //.row-whole-nopad
+      .col-half.border-right= "&nbsp;"
+      .row-fill.border-right= "&nbsp;"
+      .col-42px.border-right.center.middle.small-caps= "Weight"
+      .col-42px.border-right.center.middle.small-caps= "Damage"
+      .col-42px.border-right.center.middle.small-caps= "Rating"
+      //.col-quarter Conditions
+    .row-tall.no-pad.no-marg
+      .col-half.border-right.no-pad.no-marg
+        .row-whole.border-bottom-long.height-fit-content
           .col-half.row-tall.border-right
             .row-whole
-              .label Damage
-            .row-whole.damage
-              input.damage.hitcapacity.hidden(name= "attr_hitcapacity",value="ceil((@{strengthdie}+@{agilitydie})/4)",readonly,hidden)
-              input.damage.hidden(name= "attr_damage",readonly,hidden)
-              +numbered-radioboxes('damage','greyish')
+              .label-caps Damage
+            .row-whole.damage.pad-side5
+              //+input-hidden('damage hitcapacity hidden',"hitcapacity")
+              //input.damage.hitcapacity.hidden(name= "hitcapacity",value="ceil((@{strengthdie}+@{agilitydie})/4)",readonly,hidden)
+              //+input-hidden('',"damage",'0')
+              //input.damage.hidden(name= "damage",readonly,hidden)
+              +numbered-radioboxes('damage','greyish','hitcapacity')
           .col-half.row-tall
             .row-whole
-              .label Stress
-            .row-whole.damage
-              input.damage.stresscapacity.hidden(name= "attr_stresscapacity",value="ceil((@{intelligencedie}+@{empathydie})/4)",readonly,hidden)
-              input.hidden.damage(name= "attr_stress",hidden,readonly)
-              +numbered-radioboxes('stress','greyish')
-        .row-whole
-          .col-half.border-right
-            +input-number('Hit capacity','hitcapacity')
-            +input-number('Stress Capacity','stresscapacity')
-            +input-number('Coolness Under Fire','cuf')
-            +input-number('Unit Morale','unitmorale')
-          .col-half 
+              .label-caps Stress
+            .row-whole.damage.pad-side5
+              //+input-hidden('damage stresscapacity hidden',"stresscapacity")
+              //input.damage.stresscapacity.hidden(name= "stresscapacity",value="ceil((@{intelligencedie}+@{empathydie})/4)",readonly,hidden)
+              //+input-hidden('',"stress",'0')
+              //input.hidden.damage(name= "stress",hidden,readonly)
+              +numbered-radioboxes('stress','greyish','stresscapacity')
+        .row-whole.no-pad.no-marg
+          .col-half.border-right.pad-right5
+            .row-whole.border-bottom-long
+              +span-number('Hit capacity','hitcapacity','noborder')
+            .row-whole.border-bottom-long
+              +span-number('Stress Capacity','stresscapacity','noborder')
+            +input-attribute('C. U. F.','cuf','', 'Coolness Under Fire')
+            +input-unitmorale('Unit Morale','cuf_unit','','Equals the highest Command skill level in the unit')
+          .col-half.pad10
             .row-whole  
               +input-field('Critical Injuries','critials')
             .row-whole
               +input-field('Diseases','diseases')
       .col-half.flex-row
-        .row-whole.border-bottom-long
-          .col-half.flex-row.border-right
+        .row-whole.flex-row.border-bottom-long.armor-box
+          +armor-item("Head","two")
+          +armor-item("Arms","three")
+          +armor-item("Torso","one")
+          +armor-item("Legs","four")
+          //.col-half.flex-row.border-right
             +input-value-number('Head','armor_head')
             +input-value-number('Arms','armor_arms')
             +input-value-number('Torso','armor_torso')
             +input-value-number('Legs','armor_legs')
-          .col-half.flex-row
+          //.col-half.flex-row
             +input-check('Starving','condition_starving')
             +input-check('Dehydrated','condition_dehydrated')
             +input-check('Sleep Deprived','condition_sleepdeprived')
@@ -127,12 +163,14 @@ include ../components/component
           .col-half.flex-row.border-right
             .label Temporary
             .row-whole.damage
-              input.hidden.damage(name= "attr_temporaryrads",hidden,readonly)
+              //+input-hidden('radiation damage',"radiation",'0')
+              //input.hidden.damage(name= "attr_radiation",hidden,readonly)
               +numbered-radioboxes('temporaryrads','gold')
           .col-half.flex-row
             .label Permanent
             .row-whole.damage
-              input.hidden.damage(name= "attr_permanentrads",hidden,readonly)
+              //+input-hidden('radiation damage',"permanentradiation",'0')
+              //input.hidden.damage(name= "attr_permanentradiation",hidden,readonly)
               +numbered-radioboxes('permanentrads','red')
     .weapons-row 
       //.row-tall.border-bottom-long.background-tan
@@ -153,21 +191,7 @@ include ../components/component
         .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em SPENT
         .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em ROLL
       fieldset.repeating_weapons
-        .row-tall.row-100pc.border-bottom-long
-          .col-3-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em M16
-          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em AR
-          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 5.56
-          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
-          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
-          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
-          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em -
-          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 8
-          .col-14th.border-bottom-short.border-right.no-pa.middle.center.h-2-5em 30
-          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
-          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
-          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
-          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
-          .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em t
+        +weapon-item
   .gear
     //.row-tall.border-bottom-long.background-tan
       .col-third.border-right Combat Gear
@@ -175,11 +199,12 @@ include ../components/component
       .col-third Tiny items 
     .row-tall.border-bottom-long.background-tan.row-100pc
       .col-third
-        +span-value('Combat Encumbrance','attr_combatgear_total')
-        +span-value('Combat Carry Limit','attr_carry_limit')
+        +span-value('Combat Encumbrance','combatgear_total')
+        +span-value('Weapon Encumbrance','weaponweight_total')
+        +span-value('Combat Carry Limit','carry_limit')
       .col-third
-        +span-value('Backpack Encumbrance','attr_backpack_total')
-        +span-value('Backpack Carry Limit','attr_carry_limit_backpack')
+        +span-value('Backpack Encumbrance','backpack_total')
+        +span-value('Backpack Carry Limit','carry_limit_backpack')
       .col-third
     .row-tall.border-bottom-long.background-tan
       .col-third.no-pad
@@ -294,8 +319,9 @@ include ../components/component
         .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em WEIGHT
         .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em SPENT
         .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em ROLL
-      fieldset.repeating_weapons
-        .row-tall.row-100pc.border-bottom-long
+      fieldset.repeating_vehicleweapons
+        +weapon-item
+        //.row-tall.row-100pc.border-bottom-long
           .col-3-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em M16
           .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em AR
           .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 5.56
@@ -311,6 +337,10 @@ include ../components/component
           .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
           .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em t
     .vehicle-gear
+      .row-tall.border-bottom-long.background-tan.row-100pc
+        .col-third
+          +span-value('Vehicle Encumbrance','vehiclegear_total')
+          +span-value('Vehicle Carry Limit','vehiclecarry_limit')
       //.row-tall.border-bottom-long.background-tan
         .col-third.border-right Combat Gear
         .col-third.border-right Backpack

@@ -1,65 +1,89 @@
 
+<!-- Same as Skill input, but different top level div classes-->
+<!--mixin numbered-checkbox(attribute,index,color)
+input.numbered-box(type= "checkbox",value= index,class= color+"-box",name= "attr_"+attribute,title= "@{"+attribute+"}")
+span(title= index)
+
+-->
+<!--mixin numbered-checkboxes(attribute,color,rowbreak)
+- var i = 1, max = 10;
+.row-whole.space-even
+  while i <= max/2
+    +numbered-checkbox(attribute,i++,color)
+.row-whole.space-even
+  while i <= max
+    +numbered-checkbox(attribute,i++,color)
+
+-->
 <div class="page-container">
-  <input class="input-hidden tabstoggle" type="hidden" name="attr_sheetTab" value="basic"/>
+  <input class="input-hidden tabstoggle" type="hidden" name="attr_sheetTab" value="basic" hidden="hidden" readonly="readonly"/>
   <div class="header">
     <div class="row-tall border-bottom-long">
       <div class="col-third border-right logo"></div>
       <div class="col-third headlabel border-right"> 
         <div class="label-caps">Name</div>
-        <input class="input-text" name="attr_character_name"/>
+        <input class="input-text" type="text" name="attr_character_name"/>
       </div>
       <div class="col-quarter headlabel border-right"> 
         <div class="label-caps">Nationality</div>
-        <input class="input-text" name="test"/>
+        <input class="input-text" type="text" name="attr_attr_nationality"/>
       </div>
       <div class="col-14th headlabel"> 
         <div class="label-caps">Age</div>
-        <input class="input-text" name="test"/>
+        <input class="input-text" type="text" name="attr_attr_age"/>
       </div>
     </div>
     <div class="row-tall border-bottom-long">
       <div class="col-third border-right">
         <div class="label-caps">Branch</div>
-        <input class="input-text" name="test"/>
+        <input class="input-text" type="text" name="attr_attr_branch"/>
       </div>
       <div class="col-twothird headlabel"> 
         <div class="label-caps">Appearance</div>
-        <input class="input-text" name="test"/>
+        <input class="input-text" type="text" name="attr_attr_appearance"/>
       </div>
     </div>
     <div class="row-tall border-bottom-long">
       <div class="col-third headlabel border-right"> 
         <div class="label-caps">Military Rank</div>
-        <input class="input-text" name="test"/>
+        <input class="input-text" type="text" name="attr_attr_militaryrank"/>
       </div>
       <div class="col-twothird headlabel"> 
         <div class="label-caps">Moral code</div>
-        <input class="input-text" name="test"/>
+        <input class="input-text" type="text" name="attr_attr_moralcode"/>
       </div>
     </div>
     <div class="row-tall border-bottom-long">
       <div class="col-third headlabel border-right"> 
         <div class="label-caps">Buddy</div>
-        <input class="input-text" name="test"/>
+        <input class="input-text" type="text" name="attr_attr_buddy"/>
       </div>
       <div class="col-twothird headlabel">
         <div class="label-caps">Big dream</div>
-        <input class="input-text" name="test"/>
+        <input class="input-text" type="text" name="attr_attr_bigdream"/>
       </div>
     </div>
     <div class="row-tall border-bottom-long">
-      <div class="col-threequarter headlabel border-right"> 
+      <div class="col-twothird headlabel border-right"> 
         <div class="label-caps">How I met the group</div>
-        <input class="input-text" name="test"/>
+        <input class="input-text" type="text" name="attr_attr_howyoumetthegroup"/>
       </div>
-      <div class="col-quarter headlabel">
-        <div class="label-caps">Experience</div>
-        <input class="input-text" name="test"/>
+      <div class="col-third headlabel">
+        <div class="row-whole">
+          <div class="col-half flex-row">
+            <div class="label">Current</div>
+            <input class="input-number" type="number" name="attr_currentexperience"/>
+          </div>
+          <div class="col-half flex-row">
+            <div class="label">Total</div>
+            <input class="input-number" type="number" name="attr_totalexperience"/>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="tabs row-tall row-100pc border-bottom-long tab-buttons-container">
-    <input class="input-hidden tabstoggle" type="hidden" name="attr_sheetTab" value="basic"/>
+    <input class="input-hidden tabstoggle" type="hidden" name="attr_sheetTab" value="basic" hidden="hidden" readonly="readonly"/>
     <button class="tab main-buttons button-basic" type="action" name="act_basic">Attributes &lt;br/&gt; and Skills</button>
     <button class="tab main-buttons button-combat" type="action" name="act_combat">Combat</button>
     <button class="tab main-buttons button-gear" type="action" name="act_gear">Gear</button>
@@ -67,213 +91,334 @@
     <button class="tab main-buttons button-notes" type="action" name="act_notes">Notes</button>
   </div>
   <div class="basic">
-    <div class="row-tall border-bottom-long background-tan">
-      <div class="col-whole">Attributes and Skills </div>
+    <div class="row-tall border-bottom-long background-tan flex-wrap">
+      <div class="row-whole"></div>
+      <div class="row-whole flex-column flex1 label-caps">Attributes and Skills </div>
+      <div class="row-whole-nopad flex-column no-marg no-pad flex1">
+        <div class="col-quarter flex-row">
+          <div class="row-fill no-marg border-right middle right">&amp;nbsp;</div>
+          <div class="col-46px col-flex no-marg border-right middle right small-caps">RATING</div>
+          <div class="col-46px col-flex no-marg border-right middle right small-caps">BASE</div>
+        </div>
+        <div class="col-quarter flex-row">
+          <div class="row-fill no-marg border-right middle right">&amp;nbsp;</div>
+          <div class="col-46px col-flex no-marg border-right middle right small-caps">RATING</div>
+          <div class="col-46px col-flex no-marg border-right middle right small-caps">BASE</div>
+        </div>
+        <div class="col-quarter flex-row">
+          <div class="row-fill no-marg border-right middle right">&amp;nbsp;</div>
+          <div class="col-46px col-flex no-marg border-right middle right small-caps">RATING</div>
+          <div class="col-46px col-flex no-marg border-right middle right small-caps">BASE</div>
+        </div>
+        <div class="col-quarter flex-row">
+          <div class="row-fill no-marg border-right middle right">&amp;nbsp;</div>
+          <div class="col-46px col-flex no-marg border-right middle right small-caps">RATING</div>
+          <div class="col-46px col-flex no-marg border-right middle right small-caps">BASE</div>
+        </div>
+      </div>
     </div>
     <div class="row-tall border-bottom-long">
       <div class="col-quarter border-right flex-column">
-        <div class="col-whole flex-row">
-          <div class="row-whole">
-            <div class="label-caps row-fill">Strength</div>
+        <div class="col-whole flex-row no-marg">
+          <div class="row-whole border-bottom-long">
+            <button class="label-caps row-fill strength-attribute attribute-button" type="roll" name="roll_strength" id="roll_strength" value="&amp;{template:t2k} {{character-name=@{character_name} }} {{roll-name=strength}} {{roll-die-one=[[1d@{strengthdie}]] }} {{roll-one-type=[[@{strengthdie}]]}}">Strength
+              <!--span(title=titl,for='roll_'+attribute)= label -->
+            </button>
             <select class="attribute" name="attr_strength" value="C">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Attribute die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden attribute" type="hidden" name="attr_attr_strengthdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden attribute" type="hidden" name="attr_attr_strengthdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_strengthdietype"></span>
           </div>
-          <div class="row-whole">
-            <input class="hidden" id="attr_skill_heavyweapons" name="act_attr_skill_heavyweapons" type="checkbox" value="1"/>
-            <label class="label row-fill" for="attr_skill_heavyweapons">Heavy Weapons</label>
-            <select class="skill" name="attr_skill_heavyweapons" value="F">
+          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+            <input class="hidden" id="heavyweapons" name="act_heavyweapons" type="checkbox" value="1"/>
+            <div class="row-fill h-fill middle no-pad">
+              <label class="label" title="Use the HEAVY WEAPONS skill to fire machine guns, rocket launchers, mortars, tank guns, howitzers, and other heavy weapons. Sp" for="heavyweapons">Heavy Weapons</label>
+            </div>
+            <select class="skill" name="attr_heavyweapons" value="F">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
               <option value="F">F</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_heavyweaponsdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Skill die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_heavyweaponsdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_heavyweaponsdietype"></span>
           </div>
-          <div class="row-whole">
-            <input class="hidden" id="attr_skill_closecombat" name="act_attr_skill_closecombat" type="checkbox" value="1"/>
-            <label class="label row-fill" for="attr_skill_closecombat">Close Combat</label>
-            <select class="skill" name="attr_skill_closecombat" value="F">
+          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+            <input class="hidden" id="closecombat" name="act_closecombat" type="checkbox" value="1"/>
+            <div class="row-fill h-fill middle no-pad">
+              <label class="label" title="Use MELEE when fighting an enemy up close and personal, with or without a melee weapon in hand. If" for="closecombat">Melee</label>
+            </div>
+            <select class="skill" name="attr_closecombat" value="F">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
               <option value="F">F</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_closecombatdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Skill die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_closecombatdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_closecombatdietype"></span>
           </div>
-          <div class="row-whole">
-            <input class="hidden" id="attr_skill_stamina" name="act_attr_skill_stamina" type="checkbox" value="1"/>
-            <label class="label row-fill" for="attr_skill_stamina">Stamina</label>
-            <select class="skill" name="attr_skill_stamina" value="F">
+          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+            <input class="hidden" id="stamina" name="act_stamina" type="checkbox" value="1"/>
+            <div class="row-fill h-fill middle no-pad">
+              <label class="label" title="When your physical toughness or endurance is tested, roll for STAMINA" for="stamina">Stamina</label>
+            </div>
+            <select class="skill" name="attr_stamina" value="F">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
               <option value="F">F</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_staminadie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Skill die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_staminadietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_staminadietype"></span>
           </div>
-          <div class="row-whole border-top-short">
+          <div class="row-whole condition">
             <div class="label row-fill right">Starving</div>
-            <input class="numbered-box grey-box" type="checkbox" name="condition_starving"/><span title="+"></span>
+            <input class="numbered-box grey-box condition" type="checkbox" name="attr_starving"/><span title="+"></span>
           </div>
         </div>
       </div>
       <div class="col-quarter border-right flex-column">
         <div class="col-whole flex-row"> 
-          <div class="row-whole">
-            <div class="label-caps row-fill">Agility</div>
+          <div class="row-whole border-bottom-long">
+            <button class="label-caps row-fill strength-attribute attribute-button" type="roll" name="roll_agility" id="roll_agility" value="&amp;{template:t2k} {{character-name=@{character_name} }} {{roll-name=agility}} {{roll-die-one=[[1d@{agilitydie}]] }} {{roll-one-type=[[@{agilitydie}]]}}">Agility
+              <!--span(title=titl,for='roll_'+attribute)= label -->
+            </button>
             <select class="attribute" name="attr_agility" value="C">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Attribute die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden attribute" type="hidden" name="attr_attr_agilitydie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden attribute" type="hidden" name="attr_attr_agilitydietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_agilitydietype"></span>
           </div>
-          <div class="row-whole">
-            <input class="hidden" id="attr_skill_driving" name="act_attr_skill_driving" type="checkbox" value="1"/>
-            <label class="label row-fill" for="attr_skill_driving">Driving</label>
-            <select class="skill" name="attr_skill_driving" value="F">
+          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+            <input class="hidden" id="driving" name="act_driving" type="checkbox" value="1"/>
+            <div class="row-fill h-fill middle no-pad">
+              <label class="label" title="Use the DRIVING skill to maneuver motorcycles, cars, armored personnel carriers and even tanks. " for="driving">Driving</label>
+            </div>
+            <select class="skill" name="attr_driving" value="F">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
               <option value="F">F</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_drivingdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Skill die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_drivingdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_drivingdietype"></span>
           </div>
-          <div class="row-whole">
-            <input class="hidden" id="attr_skill_mobility" name="act_attr_skill_mobility" type="checkbox" value="1"/>
-            <label class="label row-fill" for="attr_skill_mobility">Mobility</label>
-            <select class="skill" name="attr_skill_mobility" value="F">
+          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+            <input class="hidden" id="mobility" name="act_mobility" type="checkbox" value="1"/>
+            <div class="row-fill h-fill middle no-pad">
+              <label class="label" title="When you jump, climb, run fast, or perform any other action that requires speed or motor control, you roll MOBILITY." for="mobility">Mobility</label>
+            </div>
+            <select class="skill" name="attr_mobility" value="F">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
               <option value="F">F</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_mobilitydie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Skill die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_mobilitydietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_mobilitydietype"></span>
           </div>
-          <div class="row-whole">
-            <input class="hidden" id="attr_skill_rangedcombat" name="act_attr_skill_rangedcombat" type="checkbox" value="1"/>
-            <label class="label row-fill" for="attr_skill_rangedcombat">Ranged Combat</label>
-            <select class="skill" name="attr_skill_rangedcombat" value="F">
+          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+            <input class="hidden" id="rangedcombat" name="act_rangedcombat" type="checkbox" value="1"/>
+            <div class="row-fill h-fill middle no-pad">
+              <label class="label" title="Use the RANGED COMBAT skill to use hand-held ranged weapons, such as pistols, bows, submachineguns, and assault rifles. " for="rangedcombat">Ranged Combat</label>
+            </div>
+            <select class="skill" name="attr_rangedcombat" value="F">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
               <option value="F">F</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_rangedcombatdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Skill die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_rangedcombatdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_rangedcombatdietype"></span>
           </div>
-          <div class="row-whole border-top-short">
+          <div class="row-whole condition">
             <div class="label row-fill right">Dehydrated</div>
-            <input class="numbered-box grey-box" type="checkbox" name="condition_dehydrated"/><span title="+"></span>
+            <input class="numbered-box grey-box condition" type="checkbox" name="attr_dehydrated"/><span title="+"></span>
           </div>
         </div>
       </div>
       <div class="col-quarter border-right flex-column">
         <div class="col-whole flex-row"> 
-          <div class="row-whole">
-            <div class="label-caps row-fill">Intelligence</div>
+          <div class="row-whole border-bottom-long">
+            <button class="label-caps row-fill strength-attribute attribute-button" type="roll" name="roll_intelligence" id="roll_intelligence" value="&amp;{template:t2k} {{character-name=@{character_name} }} {{roll-name=intelligence}} {{roll-die-one=[[1d@{intelligencedie}]] }} {{roll-one-type=[[@{intelligencedie}]]}}">Intelligence
+              <!--span(title=titl,for='roll_'+attribute)= label -->
+            </button>
             <select class="attribute" name="attr_intelligence" value="C">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Attribute die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden attribute" type="hidden" name="attr_attr_intelligencedie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden attribute" type="hidden" name="attr_attr_intelligencedietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_intelligencedietype"></span>
           </div>
-          <div class="row-whole">
-            <input class="hidden" id="attr_skill_recon" name="act_attr_skill_recon" type="checkbox" value="1"/>
-            <label class="label row-fill" for="attr_skill_recon">Recon</label>
-            <select class="skill" name="attr_skill_recon" value="F">
+          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+            <input class="hidden" id="recon" name="act_recon" type="checkbox" value="1"/>
+            <div class="row-fill h-fill middle no-pad">
+              <label class="label" title="Use the RECON skill to spot concealed enemies, avoid ambushes, move silently and avoid being detected. " for="recon">Recon</label>
+            </div>
+            <select class="skill" name="attr_recon" value="F">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
               <option value="F">F</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_recondie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Skill die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_recondietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_recondietype"></span>
           </div>
-          <div class="row-whole">
-            <input class="hidden" id="attr_skill_survival" name="act_attr_skill_survival" type="checkbox" value="1"/>
-            <label class="label row-fill" for="attr_skill_survival">Survival</label>
-            <select class="skill" name="attr_skill_survival" value="F">
+          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+            <input class="hidden" id="survival" name="act_survival" type="checkbox" value="1"/>
+            <div class="row-fill h-fill middle no-pad">
+              <label class="label" title="o survive, you need to know how to find food and shelter in the wild. You can roll SURVIVAL in a number of different situations  when  you  are  traveling.  R" for="survival">Survival</label>
+            </div>
+            <select class="skill" name="attr_survival" value="F">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
               <option value="F">F</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_survivaldie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Skill die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_survivaldietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_survivaldietype"></span>
           </div>
-          <div class="row-whole">
-            <input class="hidden" id="attr_skill_tech" name="act_attr_skill_tech" type="checkbox" value="1"/>
-            <label class="label row-fill" for="attr_skill_tech">Tech</label>
-            <select class="skill" name="attr_skill_tech" value="F">
+          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+            <input class="hidden" id="tech" name="act_tech" type="checkbox" value="1"/>
+            <div class="row-fill h-fill middle no-pad">
+              <label class="label" title="Use the TECH skill to repair gear and scavenge parts. You can even use the skill to craft new items if you have access to a workshop. " for="tech">Tech</label>
+            </div>
+            <select class="skill" name="attr_tech" value="F">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
               <option value="F">F</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_techdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Skill die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_techdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_techdietype"></span>
           </div>
-          <div class="row-whole border-top-short">
+          <div class="row-whole condition">
             <div class="label row-fill right">Sleep Deprived</div>
-            <input class="numbered-box grey-box" type="checkbox" name="condition_sleepdeprived"/><span title="+"></span>
+            <input class="numbered-box grey-box condition" type="checkbox" name="attr_sleep_deprived"/><span title="+"></span>
           </div>
         </div>
       </div>
       <div class="col-quarter border-right flex-column">
         <div class="col-whole flex-row"> 
-          <div class="row-whole">
-            <div class="label-caps row-fill">Empathy</div>
+          <div class="row-whole border-bottom-long">
+            <button class="label-caps row-fill strength-attribute attribute-button" type="roll" name="roll_empathy" id="roll_empathy" value="&amp;{template:t2k} {{character-name=@{character_name} }} {{roll-name=empathy}} {{roll-die-one=[[1d@{empathydie}]] }} {{roll-one-type=[[@{empathydie}]]}}">Empathy
+              <!--span(title=titl,for='roll_'+attribute)= label -->
+            </button>
             <select class="attribute" name="attr_empathy" value="C">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Attribute die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden attribute" type="hidden" name="attr_attr_empathydie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden attribute" type="hidden" name="attr_attr_empathydietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_empathydietype"></span>
           </div>
-          <div class="row-whole">
-            <input class="hidden" id="attr_skill_command" name="act_attr_skill_command" type="checkbox" value="1"/>
-            <label class="label row-fill" for="attr_skill_command">Command</label>
-            <select class="skill" name="attr_skill_command" value="F">
+          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+            <input class="hidden" id="command" name="act_command" type="checkbox" value="1"/>
+            <div class="row-fill h-fill middle no-pad">
+              <label class="label" title="You can use your COMMAND skill to help a person who is incapacitated by stress get back on their feet." for="command">Command</label>
+            </div>
+            <select class="skill" name="attr_command" value="F">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
               <option value="F">F</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_commanddie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Skill die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_commanddietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_commanddietype"></span>
           </div>
-          <div class="row-whole">
-            <input class="hidden" id="attr_skill_persuasion" name="act_attr_skill_persuasion" type="checkbox" value="1"/>
-            <label class="label row-fill" for="attr_skill_persuasion">Persuasion</label>
-            <select class="skill" name="attr_skill_persuasion" value="F">
+          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+            <input class="hidden" id="persuasion" name="act_persuasion" type="checkbox" value="1"/>
+            <div class="row-fill h-fill middle no-pad">
+              <label class="label" title="Use PERSUASION to make others see things your way. Your chances can be affected by your bargaining position and military rank. " for="persuasion">Persuasion</label>
+            </div>
+            <select class="skill" name="attr_persuasion" value="F">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
               <option value="F">F</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_persuasiondie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Skill die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_persuasiondietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_persuasiondietype"></span>
           </div>
-          <div class="row-whole">
-            <input class="hidden" id="attr_skill_medicalaid" name="act_attr_skill_medicalaid" type="checkbox" value="1"/>
-            <label class="label row-fill" for="attr_skill_medicalaid">Medical Aid</label>
-            <select class="skill" name="attr_skill_medicalaid" value="F">
+          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+            <input class="hidden" id="medicalaid" name="act_medicalaid" type="checkbox" value="1"/>
+            <div class="row-fill h-fill middle no-pad">
+              <label class="label" title="The MEDICAL AID skill can be used to help a friend who is incapacitated by damage get back on their feet, and to save the life of a fallen comrade who has suffered a critical injury. " for="medicalaid">Medical Aid</label>
+            </div>
+            <select class="skill" name="attr_medicalaid" value="F">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
               <option value="F">F</option>
-            </select><span class="separator">=</span><span class="input-die" readonly="readonly">D6</span>
+            </select>
+            <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_medicalaiddie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+            <!-- Skill die type. e.g. D8, calculated through sheetworker-->
+            <input class="input-hidden skill" type="hidden" name="attr_attr_medicalaiddietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_medicalaiddietype"></span>
           </div>
-          <div class="row-whole border-top-short">
+          <div class="row-whole condition">
             <div class="label row-fill right">Hypothermic</div>
-            <input class="numbered-box grey-box" type="checkbox" name="condition_hypothermic"/><span title="+"></span>
+            <input class="numbered-box grey-box condition" type="checkbox" name="attr_hypothermic"/><span title="+"></span>
           </div>
         </div>
       </div>
     </div>
-    <div class="row-tall border-bottom-long background-tan">
-      <div class="col-whole">Specialities</div>
+    <div class="row-tall border-bottom-long background-tan flex-wrap">
+      <div class="row-whole"></div>
+      <div class="col-whole label-caps">Specialities</div>
+      <div class="row-whole"></div>
     </div>
     <div class="row-tall border-bottom-long">
       <div class="row-tall flex-row">
@@ -300,435 +445,739 @@
     </div>
   </div>
   <div class="combat">
-    <div class="row-tall border-bottom-long background-tan">
-      <div class="col-half border-right">Combat</div>
-      <div class="col-quarter border-right">Armor</div>
-      <div class="col-quarter">Conditions</div>
+    <div class="row-tall border-bottom-long background-tan flex-wrap">
+      <div class="col-half border-right height-margs5 label-caps">Combat</div>
+      <div class="col-half border-right height-margs5 label-caps">Armor</div>
+      <!--.row-whole-nopad-->
+      <div class="col-half border-right">&amp;nbsp;</div>
+      <div class="row-fill border-right">&amp;nbsp;</div>
+      <div class="col-42px border-right center middle small-caps">Weight</div>
+      <div class="col-42px border-right center middle small-caps">Damage</div>
+      <div class="col-42px border-right center middle small-caps">Rating</div>
+      <!--.col-quarter Conditions-->
     </div>
-    <div class="row-tall">
-      <div class="col-half border-right flex-row">
-        <div class="row-whole border-bottom-long">
+    <div class="row-tall no-pad no-marg">
+      <div class="col-half border-right no-pad no-marg">
+        <div class="row-whole border-bottom-long height-fit-content">
           <div class="col-half row-tall border-right">
             <div class="row-whole">
-              <div class="label">Damage</div>
+              <div class="label-caps">Damage</div>
             </div>
-            <div class="row-whole damage">
-              <input class="damage hitcapacity hidden" name="attr_hitcapacity" value="ceil((@{strengthdie}+@{agilitydie})/4)" readonly="readonly" hidden="hidden"/>
-              <input class="damage hidden" name="attr_damage" readonly="readonly" hidden="hidden"/>
+            <div class="row-whole damage pad-side5">
+              <!--+input-hidden('damage hitcapacity hidden',"hitcapacity")-->
+              <!--input.damage.hitcapacity.hidden(name= "hitcapacity",value="ceil((@{strengthdie}+@{agilitydie})/4)",readonly,hidden)-->
+              <!--+input-hidden('',"damage",'0')-->
+              <!--input.damage.hidden(name= "damage",readonly,hidden)-->
               <!--.row-whole.space-even-->
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="0" id="damage0" attribute="attribute" name="attr_damage" title="@{damage}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage damage0" title="0" for="damage0">0</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="1" id="damage1" attribute="attribute" name="attr_damage" title="@{damage}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage damage1" title="1" for="damage1">1</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="2" id="damage2" attribute="attribute" name="attr_damage" title="@{damage}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage damage2" title="2" for="damage2">2</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="3" id="damage3" attribute="attribute" name="attr_damage" title="@{damage}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage damage3" title="3" for="damage3">3</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="4" id="damage4" attribute="attribute" name="attr_damage" title="@{damage}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage damage4" title="4" for="damage4">4</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="5" id="damage5" attribute="attribute" name="attr_damage" title="@{damage}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage damage5" title="5" for="damage5">5</label>
-              <div class="spacer"> </div>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="6" id="damage6" attribute="attribute" name="attr_damage" title="@{damage}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage damage6" title="6" for="damage6">6</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="7" id="damage7" attribute="attribute" name="attr_damage" title="@{damage}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage damage7" title="7" for="damage7">7</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="8" id="damage8" attribute="attribute" name="attr_damage" title="@{damage}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage damage8" title="8" for="damage8">8</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="9" id="damage9" attribute="attribute" name="attr_damage" title="@{damage}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage damage9" title="9" for="damage9">9</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="10" id="damage10" attribute="attribute" name="attr_damage" title="@{damage}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage damage10" title="10" for="damage10">10</label>
+              <div class="col-sixth flex1">
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box damageradio " type="radio" value="0" id="damage0" name="attr_damage" title="@{damage}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage damage0 " title="0" for="damage0">0</label>
+              </div>
+              <div class="col-fivesixth flex5 flex-row radioboxes">
+                <input class="input-hidden damage hitcapacity hidden" type="hidden" name="attr_hitcapacity" hidden="hidden" readonly="readonly"/>
+                <!--input.damage.hitcapacity.hidden(name= "hitcapacity",value="ceil((@{strengthdie}+@{agilitydie})/4)",readonly,hidden)-->
+                <input class="input-hidden" type="hidden" name="attr_damage" value="0" hidden="hidden" readonly="readonly"/>
+                <!--input.damage.hidden(name= "damage",readonly,hidden)-->
+                <input class="hidden greyish-box damageradio" type="radio" value="0" id="damage0" name="attr_damage" title="@{damage}" hidden="hidden"/>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box damageradio  v1" type="radio" value="1" id="damage1" name="attr_damage" title="@{damage}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage damage1  v1" title="1" for="damage1">1</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box damageradio  v1 v2" type="radio" value="2" id="damage2" name="attr_damage" title="@{damage}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage damage2  v1 v2" title="2" for="damage2">2</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box damageradio  v1 v2 v3" type="radio" value="3" id="damage3" name="attr_damage" title="@{damage}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage damage3  v1 v2 v3" title="3" for="damage3">3</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box damageradio  v1 v2 v3 v4" type="radio" value="4" id="damage4" name="attr_damage" title="@{damage}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage damage4  v1 v2 v3 v4" title="4" for="damage4">4</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box damageradio  v1 v2 v3 v4 v5" type="radio" value="5" id="damage5" name="attr_damage" title="@{damage}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage damage5  v1 v2 v3 v4 v5" title="5" for="damage5">5</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box damageradio  v1 v2 v3 v4 v5 v6" type="radio" value="6" id="damage6" name="attr_damage" title="@{damage}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage damage6  v1 v2 v3 v4 v5 v6" title="6" for="damage6">6</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box damageradio  v1 v2 v3 v4 v5 v6 v7" type="radio" value="7" id="damage7" name="attr_damage" title="@{damage}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage damage7  v1 v2 v3 v4 v5 v6 v7" title="7" for="damage7">7</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box damageradio  v1 v2 v3 v4 v5 v6 v7 v8" type="radio" value="8" id="damage8" name="attr_damage" title="@{damage}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage damage8  v1 v2 v3 v4 v5 v6 v7 v8" title="8" for="damage8">8</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box damageradio  v1 v2 v3 v4 v5 v6 v7 v8 v9" type="radio" value="9" id="damage9" name="attr_damage" title="@{damage}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage damage9  v1 v2 v3 v4 v5 v6 v7 v8 v9" title="9" for="damage9">9</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box damageradio  v1 v2 v3 v4 v5 v6 v7 v8 v9 v10" type="radio" value="10" id="damage10" name="attr_damage" title="@{damage}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage damage10  v1 v2 v3 v4 v5 v6 v7 v8 v9 v10" title="10" for="damage10">10</label>
+              </div>
             </div>
           </div>
           <div class="col-half row-tall">
             <div class="row-whole">
-              <div class="label">Stress</div>
+              <div class="label-caps">Stress</div>
             </div>
-            <div class="row-whole damage">
-              <input class="damage stresscapacity hidden" name="attr_stresscapacity" value="ceil((@{intelligencedie}+@{empathydie})/4)" readonly="readonly" hidden="hidden"/>
-              <input class="hidden damage" name="attr_stress" hidden="hidden" readonly="readonly"/>
+            <div class="row-whole damage pad-side5">
+              <!--+input-hidden('damage stresscapacity hidden',"stresscapacity")-->
+              <!--input.damage.stresscapacity.hidden(name= "stresscapacity",value="ceil((@{intelligencedie}+@{empathydie})/4)",readonly,hidden)-->
+              <!--+input-hidden('',"stress",'0')-->
+              <!--input.hidden.damage(name= "stress",hidden,readonly)-->
               <!--.row-whole.space-even-->
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="0" id="stress0" attribute="attribute" name="attr_stress" title="@{stress}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage stress0" title="0" for="stress0">0</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="1" id="stress1" attribute="attribute" name="attr_stress" title="@{stress}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage stress1" title="1" for="stress1">1</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="2" id="stress2" attribute="attribute" name="attr_stress" title="@{stress}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage stress2" title="2" for="stress2">2</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="3" id="stress3" attribute="attribute" name="attr_stress" title="@{stress}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage stress3" title="3" for="stress3">3</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="4" id="stress4" attribute="attribute" name="attr_stress" title="@{stress}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage stress4" title="4" for="stress4">4</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="5" id="stress5" attribute="attribute" name="attr_stress" title="@{stress}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage stress5" title="5" for="stress5">5</label>
-              <div class="spacer"> </div>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="6" id="stress6" attribute="attribute" name="attr_stress" title="@{stress}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage stress6" title="6" for="stress6">6</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="7" id="stress7" attribute="attribute" name="attr_stress" title="@{stress}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage stress7" title="7" for="stress7">7</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="8" id="stress8" attribute="attribute" name="attr_stress" title="@{stress}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage stress8" title="8" for="stress8">8</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="9" id="stress9" attribute="attribute" name="attr_stress" title="@{stress}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage stress9" title="9" for="stress9">9</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box greyish-box" type="radio" value="10" id="stress10" attribute="attribute" name="attr_stress" title="@{stress}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage stress10" title="10" for="stress10">10</label>
+              <div class="col-sixth flex1">
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box stressradio " type="radio" value="0" id="stress0" name="attr_stress" title="@{stress}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage stress0 " title="0" for="stress0">0</label>
+              </div>
+              <div class="col-fivesixth flex5 flex-row radioboxes">
+                <input class="input-hidden damage hitcapacity hidden" type="hidden" name="attr_stresscapacity" hidden="hidden" readonly="readonly"/>
+                <!--input.damage.hitcapacity.hidden(name= "hitcapacity",value="ceil((@{strengthdie}+@{agilitydie})/4)",readonly,hidden)-->
+                <input class="input-hidden" type="hidden" name="attr_stress" value="0" hidden="hidden" readonly="readonly"/>
+                <!--input.damage.hidden(name= "damage",readonly,hidden)-->
+                <input class="hidden greyish-box stressradio" type="radio" value="0" id="stress0" name="attr_stress" title="@{stress}" hidden="hidden"/>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box stressradio  v1" type="radio" value="1" id="stress1" name="attr_stress" title="@{stress}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage stress1  v1" title="1" for="stress1">1</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box stressradio  v1 v2" type="radio" value="2" id="stress2" name="attr_stress" title="@{stress}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage stress2  v1 v2" title="2" for="stress2">2</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box stressradio  v1 v2 v3" type="radio" value="3" id="stress3" name="attr_stress" title="@{stress}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage stress3  v1 v2 v3" title="3" for="stress3">3</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box stressradio  v1 v2 v3 v4" type="radio" value="4" id="stress4" name="attr_stress" title="@{stress}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage stress4  v1 v2 v3 v4" title="4" for="stress4">4</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box stressradio  v1 v2 v3 v4 v5" type="radio" value="5" id="stress5" name="attr_stress" title="@{stress}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage stress5  v1 v2 v3 v4 v5" title="5" for="stress5">5</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box stressradio  v1 v2 v3 v4 v5 v6" type="radio" value="6" id="stress6" name="attr_stress" title="@{stress}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage stress6  v1 v2 v3 v4 v5 v6" title="6" for="stress6">6</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box stressradio  v1 v2 v3 v4 v5 v6 v7" type="radio" value="7" id="stress7" name="attr_stress" title="@{stress}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage stress7  v1 v2 v3 v4 v5 v6 v7" title="7" for="stress7">7</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box stressradio  v1 v2 v3 v4 v5 v6 v7 v8" type="radio" value="8" id="stress8" name="attr_stress" title="@{stress}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage stress8  v1 v2 v3 v4 v5 v6 v7 v8" title="8" for="stress8">8</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box stressradio  v1 v2 v3 v4 v5 v6 v7 v8 v9" type="radio" value="9" id="stress9" name="attr_stress" title="@{stress}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage stress9  v1 v2 v3 v4 v5 v6 v7 v8 v9" title="9" for="stress9">9</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box greyish-box stressradio  v1 v2 v3 v4 v5 v6 v7 v8 v9 v10" type="radio" value="10" id="stress10" name="attr_stress" title="@{stress}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage stress10  v1 v2 v3 v4 v5 v6 v7 v8 v9 v10" title="10" for="stress10">10</label>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row-whole">
-          <div class="col-half border-right">
-            <div class="row-whole">
-              <div class="label row-fill">Hit capacity</div>
-              <input class="input-number" type="number" name="hitcapacity"/>
+        <div class="row-whole no-pad no-marg">
+          <div class="col-half border-right pad-right5">
+            <div class="row-whole border-bottom-long">
+              <!--.row-whole-->
+              <div class="label row-fill">Hit capacity</div><span class="input-number noborder noshadow" name="attr_hitcapacity"></span>
+            </div>
+            <div class="row-whole border-bottom-long">
+              <!--.row-whole-->
+              <div class="label row-fill">Stress Capacity</div><span class="input-number noborder noshadow" name="attr_stresscapacity"></span>
+            </div>
+            <div class="row-whole border-bottom-long">
+              <div class="label row-fill" title="Coolness Under Fire">C. U. F.</div>
+              <select class="attribute" name="attr_cuf" value="C">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+              </select>
+              <!-- Attribute die size, e.g. 8, *calculated through sheetworker-->
+              <input class="input-hidden attribute" type="hidden" name="attr_attr_cufdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+              <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
+              <input class="input-hidden attribute" type="hidden" name="attr_attr_cufdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_cufdietype"></span>
             </div>
             <div class="row-whole">
-              <div class="label row-fill">Stress Capacity</div>
-              <input class="input-number" type="number" name="stresscapacity"/>
-            </div>
-            <div class="row-whole">
-              <div class="label row-fill">Coolness Under Fire</div>
-              <input class="input-number" type="number" name="cuf"/>
-            </div>
-            <div class="row-whole">
-              <div class="label row-fill">Unit Morale</div>
-              <input class="input-number" type="number" name="unitmorale"/>
+              <input class="hidden" id="cuf_unit" name="act_cuf_unit" type="checkbox" value="1"/>
+              <label class="label row-fill no-marg" title="Equals the highest Command skill level in the unit" for="cuf_unit">Unit Morale</label>
+              <select class="skill" name="attr_cuf_unit" value="F">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="F">F</option>
+              </select>
+              <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
+              <input class="input-hidden skill" type="hidden" name="attr_attr_cuf_unitdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+              <!-- Skill die type. e.g. D8, calculated through sheetworker-->
+              <input class="input-hidden skill" type="hidden" name="attr_attr_cuf_unitdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_cuf_unitdietype"></span>
             </div>
           </div>
-          <div class="col-half"> 
+          <div class="col-half pad10">
             <div class="row-whole"> 
               <div class="label-caps">Critical Injuries</div>
-              <textarea class="input-textarea" name="critials"></textarea>
+              <textarea class="input-textarea" name="attr_critials"></textarea>
             </div>
             <div class="row-whole">
               <div class="label-caps">Diseases</div>
-              <textarea class="input-textarea" name="diseases"></textarea>
+              <textarea class="input-textarea" name="attr_diseases"></textarea>
             </div>
           </div>
         </div>
       </div>
       <div class="col-half flex-row">
-        <div class="row-whole border-bottom-long">
-          <div class="col-half flex-row border-right">
-            <div class="row-whole">
-              <div class="label row-fill">Head</div>
-              <input class="input-text flex5" name="armor_head"/>
-              <input class="input-number" type="number" name="armor_head_v"/>
+        <div class="row-whole flex-row border-bottom-long armor-box">
+          <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad">
+            <div class="label col-fifth center">Head</div>
+            <div class="row-fill pad-right8">
+              <input class="input-text right" type="text" name="attr_attr_armor_two_name"/>
             </div>
-            <div class="row-whole">
-              <div class="label row-fill">Arms</div>
-              <input class="input-text flex5" name="armor_arms"/>
-              <input class="input-number" type="number" name="armor_arms_v"/>
+            <div class="armor-weight">
+              <select class="weight" name="attr_armor_attr_armor_two_name_weight" value=""> 
+                <option value="" selected="selected" disabled="disabled" hidden="hidden"></option>
+                <option value="0.25">0.25</option>
+                <option value="0.5">0.5</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
             </div>
-            <div class="row-whole">
-              <div class="label row-fill">Torso</div>
-              <input class="input-text flex5" name="armor_torso"/>
-              <input class="input-number" type="number" name="armor_torso_v"/>
+            <div class="armor-damage">
+              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_two_name_damage"/>
             </div>
-            <div class="row-whole">
-              <div class="label row-fill">Legs</div>
-              <input class="input-text flex5" name="armor_legs"/>
-              <input class="input-number" type="number" name="armor_legs_v"/>
-            </div>
-          </div>
-          <div class="col-half flex-row">
-            <div class="row-whole">
-              <div class="label row-fill">Starving</div>
-              <input class="numbered-box grey-box" type="checkbox" name="condition_starving"/><span title="+"></span>
-            </div>
-            <div class="row-whole">
-              <div class="label row-fill">Dehydrated</div>
-              <input class="numbered-box grey-box" type="checkbox" name="condition_dehydrated"/><span title="+"></span>
-            </div>
-            <div class="row-whole">
-              <div class="label row-fill">Sleep Deprived</div>
-              <input class="numbered-box grey-box" type="checkbox" name="condition_sleepdeprived"/><span title="+"></span>
-            </div>
-            <div class="row-whole">
-              <div class="label row-fill">Hypothermic</div>
-              <input class="numbered-box grey-box" type="checkbox" name="condition_hypothermic"/><span title="+"></span>
+            <div class="armor-rating">
+              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_two_name_rating"/>
             </div>
           </div>
+          <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad">
+            <div class="label col-fifth center">Arms</div>
+            <div class="row-fill pad-right8">
+              <input class="input-text right" type="text" name="attr_attr_armor_three_name"/>
+            </div>
+            <div class="armor-weight">
+              <select class="weight" name="attr_armor_attr_armor_three_name_weight" value=""> 
+                <option value="" selected="selected" disabled="disabled" hidden="hidden"></option>
+                <option value="0.25">0.25</option>
+                <option value="0.5">0.5</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+            <div class="armor-damage">
+              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_three_name_damage"/>
+            </div>
+            <div class="armor-rating">
+              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_three_name_rating"/>
+            </div>
+          </div>
+          <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad">
+            <div class="label col-fifth center">Torso</div>
+            <div class="row-fill pad-right8">
+              <input class="input-text right" type="text" name="attr_attr_armor_one_name"/>
+            </div>
+            <div class="armor-weight">
+              <select class="weight" name="attr_armor_attr_armor_one_name_weight" value=""> 
+                <option value="" selected="selected" disabled="disabled" hidden="hidden"></option>
+                <option value="0.25">0.25</option>
+                <option value="0.5">0.5</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+            <div class="armor-damage">
+              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_one_name_damage"/>
+            </div>
+            <div class="armor-rating">
+              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_one_name_rating"/>
+            </div>
+          </div>
+          <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad">
+            <div class="label col-fifth center">Legs</div>
+            <div class="row-fill pad-right8">
+              <input class="input-text right" type="text" name="attr_attr_armor_four_name"/>
+            </div>
+            <div class="armor-weight">
+              <select class="weight" name="attr_armor_attr_armor_four_name_weight" value=""> 
+                <option value="" selected="selected" disabled="disabled" hidden="hidden"></option>
+                <option value="0.25">0.25</option>
+                <option value="0.5">0.5</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+            <div class="armor-damage">
+              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_four_name_damage"/>
+            </div>
+            <div class="armor-rating">
+              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_four_name_rating"/>
+            </div>
+          </div>
+          <!--.col-half.flex-row.border-right
+          +input-value-number('Head','armor_head')
+          +input-value-number('Arms','armor_arms')
+          +input-value-number('Torso','armor_torso')
+          +input-value-number('Legs','armor_legs')
+          -->
+          <!--.col-half.flex-row
+          +input-check('Starving','condition_starving')
+          +input-check('Dehydrated','condition_dehydrated')
+          +input-check('Sleep Deprived','condition_sleepdeprived')
+          +input-check('Hypothermic','condition_hypothermic')
+          -->
         </div>
         <div class="row-whole row-tall border-bottom-long background-tan">Radioact</div>
         <div class="row-whole row-tall">
           <div class="col-half flex-row border-right">
             <div class="label">Temporary</div>
             <div class="row-whole damage">
-              <input class="hidden damage" name="attr_temporaryrads" hidden="hidden" readonly="readonly"/>
+              <!--+input-hidden('radiation damage',"radiation",'0')-->
+              <!--input.hidden.damage(name= "attr_radiation",hidden,readonly)-->
               <!--.row-whole.space-even-->
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box gold-box" type="radio" value="0" id="temporaryrads0" attribute="attribute" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage temporaryrads0" title="0" for="temporaryrads0">0</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box gold-box" type="radio" value="1" id="temporaryrads1" attribute="attribute" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage temporaryrads1" title="1" for="temporaryrads1">1</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box gold-box" type="radio" value="2" id="temporaryrads2" attribute="attribute" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage temporaryrads2" title="2" for="temporaryrads2">2</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box gold-box" type="radio" value="3" id="temporaryrads3" attribute="attribute" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage temporaryrads3" title="3" for="temporaryrads3">3</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box gold-box" type="radio" value="4" id="temporaryrads4" attribute="attribute" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage temporaryrads4" title="4" for="temporaryrads4">4</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box gold-box" type="radio" value="5" id="temporaryrads5" attribute="attribute" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage temporaryrads5" title="5" for="temporaryrads5">5</label>
-              <div class="spacer"> </div>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box gold-box" type="radio" value="6" id="temporaryrads6" attribute="attribute" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage temporaryrads6" title="6" for="temporaryrads6">6</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box gold-box" type="radio" value="7" id="temporaryrads7" attribute="attribute" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage temporaryrads7" title="7" for="temporaryrads7">7</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box gold-box" type="radio" value="8" id="temporaryrads8" attribute="attribute" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage temporaryrads8" title="8" for="temporaryrads8">8</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box gold-box" type="radio" value="9" id="temporaryrads9" attribute="attribute" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage temporaryrads9" title="9" for="temporaryrads9">9</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box gold-box" type="radio" value="10" id="temporaryrads10" attribute="attribute" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage temporaryrads10" title="10" for="temporaryrads10">10</label>
+              <div class="col-sixth flex1">
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box gold-box temporaryradsradio " type="radio" value="0" id="temporaryrads0" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage temporaryrads0 " title="0" for="temporaryrads0">0</label>
+              </div>
+              <div class="col-fivesixth flex5 flex-row radioboxes">
+                <input class="input-hidden damage hitcapacity hidden" type="hidden" name="attr_undefined" hidden="hidden" readonly="readonly"/>
+                <!--input.damage.hitcapacity.hidden(name= "hitcapacity",value="ceil((@{strengthdie}+@{agilitydie})/4)",readonly,hidden)-->
+                <input class="input-hidden" type="hidden" name="attr_temporaryrads" value="0" hidden="hidden" readonly="readonly"/>
+                <!--input.damage.hidden(name= "damage",readonly,hidden)-->
+                <input class="hidden gold-box temporaryradsradio" type="radio" value="0" id="temporaryrads0" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box gold-box temporaryradsradio  v1" type="radio" value="1" id="temporaryrads1" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage temporaryrads1  v1" title="1" for="temporaryrads1">1</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box gold-box temporaryradsradio  v1 v2" type="radio" value="2" id="temporaryrads2" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage temporaryrads2  v1 v2" title="2" for="temporaryrads2">2</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box gold-box temporaryradsradio  v1 v2 v3" type="radio" value="3" id="temporaryrads3" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage temporaryrads3  v1 v2 v3" title="3" for="temporaryrads3">3</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box gold-box temporaryradsradio  v1 v2 v3 v4" type="radio" value="4" id="temporaryrads4" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage temporaryrads4  v1 v2 v3 v4" title="4" for="temporaryrads4">4</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box gold-box temporaryradsradio  v1 v2 v3 v4 v5" type="radio" value="5" id="temporaryrads5" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage temporaryrads5  v1 v2 v3 v4 v5" title="5" for="temporaryrads5">5</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box gold-box temporaryradsradio  v1 v2 v3 v4 v5 v6" type="radio" value="6" id="temporaryrads6" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage temporaryrads6  v1 v2 v3 v4 v5 v6" title="6" for="temporaryrads6">6</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box gold-box temporaryradsradio  v1 v2 v3 v4 v5 v6 v7" type="radio" value="7" id="temporaryrads7" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage temporaryrads7  v1 v2 v3 v4 v5 v6 v7" title="7" for="temporaryrads7">7</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box gold-box temporaryradsradio  v1 v2 v3 v4 v5 v6 v7 v8" type="radio" value="8" id="temporaryrads8" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage temporaryrads8  v1 v2 v3 v4 v5 v6 v7 v8" title="8" for="temporaryrads8">8</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box gold-box temporaryradsradio  v1 v2 v3 v4 v5 v6 v7 v8 v9" type="radio" value="9" id="temporaryrads9" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage temporaryrads9  v1 v2 v3 v4 v5 v6 v7 v8 v9" title="9" for="temporaryrads9">9</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box gold-box temporaryradsradio  v1 v2 v3 v4 v5 v6 v7 v8 v9 v10" type="radio" value="10" id="temporaryrads10" name="attr_temporaryrads" title="@{temporaryrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage temporaryrads10  v1 v2 v3 v4 v5 v6 v7 v8 v9 v10" title="10" for="temporaryrads10">10</label>
+              </div>
             </div>
           </div>
           <div class="col-half flex-row">
             <div class="label">Permanent</div>
             <div class="row-whole damage">
-              <input class="hidden damage" name="attr_permanentrads" hidden="hidden" readonly="readonly"/>
+              <!--+input-hidden('radiation damage',"permanentradiation",'0')-->
+              <!--input.hidden.damage(name= "attr_permanentradiation",hidden,readonly)-->
               <!--.row-whole.space-even-->
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box red-box" type="radio" value="0" id="permanentrads0" attribute="attribute" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage permanentrads0" title="0" for="permanentrads0">0</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box red-box" type="radio" value="1" id="permanentrads1" attribute="attribute" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage permanentrads1" title="1" for="permanentrads1">1</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box red-box" type="radio" value="2" id="permanentrads2" attribute="attribute" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage permanentrads2" title="2" for="permanentrads2">2</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box red-box" type="radio" value="3" id="permanentrads3" attribute="attribute" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage permanentrads3" title="3" for="permanentrads3">3</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box red-box" type="radio" value="4" id="permanentrads4" attribute="attribute" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage permanentrads4" title="4" for="permanentrads4">4</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box red-box" type="radio" value="5" id="permanentrads5" attribute="attribute" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage permanentrads5" title="5" for="permanentrads5">5</label>
-              <div class="spacer"> </div>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box red-box" type="radio" value="6" id="permanentrads6" attribute="attribute" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage permanentrads6" title="6" for="permanentrads6">6</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box red-box" type="radio" value="7" id="permanentrads7" attribute="attribute" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage permanentrads7" title="7" for="permanentrads7">7</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box red-box" type="radio" value="8" id="permanentrads8" attribute="attribute" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage permanentrads8" title="8" for="permanentrads8">8</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box red-box" type="radio" value="9" id="permanentrads9" attribute="attribute" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage permanentrads9" title="9" for="permanentrads9">9</label>
-              <!--while i < index- gt += " "+i++
-              -->
-              <!--while j > index- lt += " "+(--j)
-              -->
-              <input class="numbered-box red-box" type="radio" value="10" id="permanentrads10" attribute="attribute" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
-              <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
-              <label class="damage permanentrads10" title="10" for="permanentrads10">10</label>
+              <div class="col-sixth flex1">
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box red-box permanentradsradio " type="radio" value="0" id="permanentrads0" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage permanentrads0 " title="0" for="permanentrads0">0</label>
+              </div>
+              <div class="col-fivesixth flex5 flex-row radioboxes">
+                <input class="input-hidden damage hitcapacity hidden" type="hidden" name="attr_undefined" hidden="hidden" readonly="readonly"/>
+                <!--input.damage.hitcapacity.hidden(name= "hitcapacity",value="ceil((@{strengthdie}+@{agilitydie})/4)",readonly,hidden)-->
+                <input class="input-hidden" type="hidden" name="attr_permanentrads" value="0" hidden="hidden" readonly="readonly"/>
+                <!--input.damage.hidden(name= "damage",readonly,hidden)-->
+                <input class="hidden red-box permanentradsradio" type="radio" value="0" id="permanentrads0" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box red-box permanentradsradio  v1" type="radio" value="1" id="permanentrads1" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage permanentrads1  v1" title="1" for="permanentrads1">1</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box red-box permanentradsradio  v1 v2" type="radio" value="2" id="permanentrads2" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage permanentrads2  v1 v2" title="2" for="permanentrads2">2</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box red-box permanentradsradio  v1 v2 v3" type="radio" value="3" id="permanentrads3" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage permanentrads3  v1 v2 v3" title="3" for="permanentrads3">3</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box red-box permanentradsradio  v1 v2 v3 v4" type="radio" value="4" id="permanentrads4" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage permanentrads4  v1 v2 v3 v4" title="4" for="permanentrads4">4</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box red-box permanentradsradio  v1 v2 v3 v4 v5" type="radio" value="5" id="permanentrads5" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage permanentrads5  v1 v2 v3 v4 v5" title="5" for="permanentrads5">5</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box red-box permanentradsradio  v1 v2 v3 v4 v5 v6" type="radio" value="6" id="permanentrads6" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage permanentrads6  v1 v2 v3 v4 v5 v6" title="6" for="permanentrads6">6</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box red-box permanentradsradio  v1 v2 v3 v4 v5 v6 v7" type="radio" value="7" id="permanentrads7" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage permanentrads7  v1 v2 v3 v4 v5 v6 v7" title="7" for="permanentrads7">7</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box red-box permanentradsradio  v1 v2 v3 v4 v5 v6 v7 v8" type="radio" value="8" id="permanentrads8" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage permanentrads8  v1 v2 v3 v4 v5 v6 v7 v8" title="8" for="permanentrads8">8</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box red-box permanentradsradio  v1 v2 v3 v4 v5 v6 v7 v8 v9" type="radio" value="9" id="permanentrads9" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage permanentrads9  v1 v2 v3 v4 v5 v6 v7 v8 v9" title="9" for="permanentrads9">9</label>
+                <!--if i == 6 
+                .spacer 
+                +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--else +numbered-radiobox(attribute,i++,color)
+                -->
+                <!--while j > index- lt += " v"+(j--)  
+                -->
+                <input class="numbered-box red-box permanentradsradio  v1 v2 v3 v4 v5 v6 v7 v8 v9 v10" type="radio" value="10" id="permanentrads10" name="attr_permanentrads" title="@{permanentrads}" hidden="hidden"/>
+                <!--label.damage(title= index,for= attribute+index,class=  attribute+index,data-value-lt= lt,data-value-gt= gt)= index-->
+                <label class="damage permanentrads10  v1 v2 v3 v4 v5 v6 v7 v8 v9 v10" title="10" for="permanentrads10">10</label>
+              </div>
             </div>
           </div>
         </div>
@@ -755,19 +1204,45 @@
       </div>
       <fieldset class="repeating_weapons">
         <div class="row-tall row-100pc border-bottom-long">
-          <div class="col-3-14th border-bottom-short border-right no-pad middle center h-2-5em">M16</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">AR</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">5.56</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">3</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">2</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">3</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">-</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">8</div>
-          <div class="col-14th border-bottom-short border-right no-pa middle center h-2-5em">30</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">3</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">2</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">1</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em"> </div>
+          <div class="col-3-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-text" type="text" name="attr_name"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em"> 
+            <input class="input-text" type="text" name="attr_type"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em"> 
+            <input class="input-text" type="text" name="attr_ammo"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_rel"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_rof"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_damage"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_crit"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_blast"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pa middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_range"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_magazine"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_armor"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_weight"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_spent"/>
+          </div>
           <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">t</div>
         </div>
       </fieldset>
@@ -783,6 +1258,9 @@
       <div class="col-third">
         <div class="row">
           <div class="label-caps">Combat Encumbrance</div><span class="input-text" name="attr_combatgear_total"></span>
+        </div>
+        <div class="row">
+          <div class="label-caps">Weapon Encumbrance</div><span class="input-text" name="attr_weaponweight_total"></span>
         </div>
         <div class="row">
           <div class="label-caps">Combat Carry Limit</div><span class="input-text" name="attr_carry_limit"></span>
@@ -850,7 +1328,7 @@
           -->
           <div class="row-tall row-100pc no-pad">
             <div class="col-twothird border-bottom-short border-right no-pad middle center h-2-5em"> 
-              <input class="input-text gear-name" name="attr_name"/>
+              <input class="input-text gear-name" type="text" name="attr_name"/>
             </div>
             <div class="col-sixth border-bottom-short border-right no-pad middle center h-2-5em">
               <select class="weight" name="attr_weight" value="1">
@@ -869,7 +1347,7 @@
               </select>
             </div>
             <div class="col-sixth border-bottom-short border-right no-pad middle center h-2-5em"> 
-              <input class="input-number" type="number" name="attr_amount"/>
+              <input class="input-number" type="number" name="attr_amount" value="1"/>
             </div>
           </div>
         </fieldset>
@@ -893,7 +1371,7 @@
           -->
           <div class="row-tall row-100pc no-pad">
             <div class="col-twothird border-bottom-short border-right no-pad middle center h-2-5em"> 
-              <input class="input-text gear-name" name="attr_name"/>
+              <input class="input-text gear-name" type="text" name="attr_name"/>
             </div>
             <div class="col-sixth border-bottom-short border-right no-pad middle center h-2-5em">
               <select class="weight" name="attr_weight" value="1">
@@ -912,7 +1390,7 @@
               </select>
             </div>
             <div class="col-sixth border-bottom-short border-right no-pad middle center h-2-5em"> 
-              <input class="input-number" type="number" name="attr_amount"/>
+              <input class="input-number" type="number" name="attr_amount" value="1"/>
             </div>
           </div>
         </fieldset>
@@ -956,43 +1434,38 @@
         <div class="row row-100pc">         
           <div class="col-threequarter border-right">
             <div class="label-caps">Vehicle name</div>
-            <input class="input-text" name="test"/>
+            <input class="input-text" type="text" name="attr_test"/>
           </div>
           <div class="col-quarter">
             <div class="label-caps">Type</div>
-            <input class="input-text" name="test"/>
+            <input class="input-text" type="text" name="attr_test"/>
           </div>
         </div>
         <div class="row row-100pc">
           <div class="col-fifth border-right">
-            <div class="row-whole">
-              <div class="label row-fill">Rel.</div>
-              <input class="input-number" type="number"/>
-            </div>
+            <!--.row-whole-->
+            <div class="label row-fill">Rel.</div>
+            <input class="input-number" type="number" name="attr_undefined"/>
           </div>
           <div class="col-fifth border-right">
-            <div class="row-whole">
-              <div class="label row-fill">Travel speed</div>
-              <input class="input-number" type="number"/>
-            </div>
+            <!--.row-whole-->
+            <div class="label row-fill">Travel speed</div>
+            <input class="input-number" type="number" name="attr_undefined"/>
           </div>
           <div class="col-fifth border-right">
-            <div class="row-whole">
-              <div class="label row-fill">Combat Speed</div>
-              <input class="input-number" type="number"/>
-            </div>
+            <!--.row-whole-->
+            <div class="label row-fill">Combat Speed</div>
+            <input class="input-number" type="number" name="attr_undefined"/>
           </div>
           <div class="col-fifth border-right">
-            <div class="row-whole">
-              <div class="label row-fill">Crew</div>
-              <input class="input-number" type="number"/>
-            </div>
+            <!--.row-whole-->
+            <div class="label row-fill">Crew</div>
+            <input class="input-number" type="number" name="attr_undefined"/>
           </div>
           <div class="col-fifth">
-            <div class="row-whole">
-              <div class="label row-fill">Cargo</div>
-              <input class="input-number" type="number"/>
-            </div>
+            <!--.row-whole-->
+            <div class="label row-fill">Cargo</div>
+            <input class="input-number" type="number" name="attr_undefined"/>
           </div>
         </div>
       </div>
@@ -1024,26 +1497,78 @@
         <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">SPENT</div>
         <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">ROLL</div>
       </div>
-      <fieldset class="repeating_weapons">
+      <fieldset class="repeating_vehicleweapons">
         <div class="row-tall row-100pc border-bottom-long">
-          <div class="col-3-14th border-bottom-short border-right no-pad middle center h-2-5em">M16</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">AR</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">5.56</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">3</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">2</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">3</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">-</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">8</div>
-          <div class="col-14th border-bottom-short border-right no-pa middle center h-2-5em">30</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">3</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">2</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">1</div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em"> </div>
+          <div class="col-3-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-text" type="text" name="attr_name"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em"> 
+            <input class="input-text" type="text" name="attr_type"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em"> 
+            <input class="input-text" type="text" name="attr_ammo"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_rel"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_rof"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_damage"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_crit"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_blast"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pa middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_range"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_magazine"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_armor"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_weight"/>
+          </div>
+          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
+            <input class="input-number" type="number" name="attr_spent"/>
+          </div>
           <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">t</div>
         </div>
+        <!--.row-tall.row-100pc.border-bottom-long
+        .col-3-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em M16
+        .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em AR
+        .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 5.56
+        .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
+        .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
+        .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
+        .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em -
+        .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 8
+        .col-14th.border-bottom-short.border-right.no-pa.middle.center.h-2-5em 30
+        .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 3
+        .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
+        .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+        .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
+        .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em t
+        -->
       </fieldset>
     </div>
     <div class="vehicle-gear">
+      <div class="row-tall border-bottom-long background-tan row-100pc">
+        <div class="col-third">
+          <div class="row">
+            <div class="label-caps">Vehicle Encumbrance</div><span class="input-text" name="attr_vehiclegear_total"></span>
+          </div>
+          <div class="row">
+            <div class="label-caps">Vehicle Carry Limit</div><span class="input-text" name="attr_vehiclecarry_limit"></span>
+          </div>
+        </div>
+      </div>
       <!--.row-tall.border-bottom-long.background-tan
       .col-third.border-right Combat Gear
       .col-third.border-right Backpack
@@ -1063,7 +1588,7 @@
           <fieldset class="repeating_vehiclegear">
             <div class="row-tall row-100pc no-pad">
               <div class="col-twothird border-bottom-short border-right no-pad middle center h-2-5em"> 
-                <input class="input-text gear-name" name="attr_name"/>
+                <input class="input-text gear-name" type="text" name="attr_name"/>
               </div>
               <div class="col-sixth border-bottom-short border-right no-pad middle center h-2-5em">
                 <select class="weight" name="attr_weight" value="1">
@@ -1082,7 +1607,7 @@
                 </select>
               </div>
               <div class="col-sixth border-bottom-short border-right no-pad middle center h-2-5em"> 
-                <input class="input-number" type="number" name="attr_amount"/>
+                <input class="input-number" type="number" name="attr_amount" value="1"/>
               </div>
             </div>
           </fieldset>
@@ -1095,16 +1620,17 @@
     <label>This is a test</label>
   </div>
 </div>
-<rolltemplate class="rolltemplate-t2k"></rolltemplate>
-<div class="template-wrap">
-  <div class="template-background">
-    <div class="template-grid">
-      <div class="template-grid-item template-span-six">
-        {{character-name}}
-        {{roll-name}}
-        {{#roll-dice}}
-        <div class="template-grid-item template-span-six template-to-the-center">
-          <div class="template-yellow">{{roll-dice}}</div>
+<rolltemplate class="sheet-rolltemplate-t2k">
+  <div class="template-wrap">
+    <div class="template-background">
+      <div class="template-grid">
+        <div class="template-grid-item template-span-six">{{character-name}}</div>
+        <div class="template-grid-item template-span-six">{{roll-name}}</div>
+        <div class="template-grid-item template-span-six">
+                           {{#roll-dice}}
+          <div class="template-grid-item template-span-six template-to-the-center">
+            <div class="template-yellow">{{roll-dice}}</div>
+          </div>
         </div>{{/roll-dice}}
         {{#rollGreater() roll-die-one 0}} <!-- DIE ONE -->
         <div class="template-grid-item template-span-one template-die-one">
@@ -1206,8 +1732,8 @@
         <div class="template-ammo-success">{{ammo-roll-two}}</div>{{/rollWasCrit() ammo-roll-two}}      
       </div>{{/rollGreater() ammo-dice 1}}
       {{#rollGreater() ammo-dice 2}} <!-- AMMO DIE THREE -->
-      <div class="template-grid-item">
-        template-span-three template-ammo-die-three      {{#rollWasFumble() ammo-roll-three}}
+      <div class="template-grid-item template-span-three template-ammo-die-three">
+             {{#rollWasFumble() ammo-roll-three}}
         <div class="template-ammo-fail">{{ammo-roll-three}}</div>{{/rollWasFumble() ammo-roll-three}}
         {{#rollBetween() ammo-roll-three 2 5}}
         <div class="template-ammo-between">{{ammo-roll-three}}</div>{{/rollBetween() ammo-roll-three 2 5}}
@@ -1215,8 +1741,8 @@
         <div class="template-ammo-success">{{ammo-roll-three}}</div>{{/rollWasCrit() ammo-roll-three}}      
       </div>{{/rollGreater() ammo-dice 2}}
       {{#rollGreater() ammo-dice 3}} <!-- AMMO DIE FOUR -->
-      <div class="template-grid-item">
-        template-span-four template-ammo-die-four      {{#rollWasFumble() ammo-roll-four}}
+      <div class="template-grid-item template-span-four template-ammo-die-four">
+             {{#rollWasFumble() ammo-roll-four}}
         <div class="template-ammo-fail">{{ammo-roll-four}}</div>{{/rollWasFumble() ammo-roll-four}}
         {{#rollBetween() ammo-roll-four 2 5}}
         <div class="template-ammo-between">{{ammo-roll-four}}</div>{{/rollBetween() ammo-roll-four 2 5}}
@@ -1224,8 +1750,8 @@
         <div class="template-ammo-success">{{ammo-roll-four}}</div>{{/rollWasCrit() ammo-roll-four}}      
       </div>{{/rollGreater() ammo-dice 3}}
       {{#rollGreater() ammo-dice 4}} <!-- AMMO DIE FIVE -->
-      <div class="template-grid-item">
-        template-span-five template-ammo-die-five      {{#rollWasFumble() ammo-roll-five}}
+      <div class="template-grid-item template-span-five template-ammo-die-five">
+             {{#rollWasFumble() ammo-roll-five}}
         <div class="template-ammo-fail">{{ammo-roll-five}}</div>{{/rollWasFumble() ammo-roll-five}}
         {{#rollBetween() ammo-roll-five 2 5}}
         <div class="template-ammo-between">{{ammo-roll-five}}</div>{{/rollBetween() ammo-roll-five 2 5}}
@@ -1233,8 +1759,8 @@
         <div class="template-ammo-success">{{ammo-roll-five}}</div>{{/rollWasCrit() ammo-roll-five}}      
       </div>{{/rollGreater() ammo-dice 4}}
       {{#rollGreater() ammo-dice 5}} <!-- AMMO DIE SIX -->
-      <div class="template-grid-item">
-        template-span-shix template-ammo-die-six      {{#rollWasFumble() ammo-roll-six}}
+      <div class="template-grid-item template-span-six template-ammo-die-six">
+             {{#rollWasFumble() ammo-roll-six}}
         <div class="template-ammo-fail">{{ammo-roll-six}}</div>{{/rollWasFumble() ammo-roll-six}}
         {{#rollBetween() ammo-roll-six 2 5}}
         <div class="template-ammo-between">{{ammo-roll-six}}</div>{{/rollBetween() ammo-roll-six 2 5}}
@@ -1242,15 +1768,14 @@
         <div class="template-ammo-success">{{ammo-roll-six}}</div>{{/rollWasCrit() ammo-roll-six}}      
       </div>{{/rollGreater() ammo-dice 5}}
       {{#current-crit}}
-      <div class="template-grid-item template-span-left"><span>Crit: </span>| {{current-crit}}   </div>{{/current-crit}}
+      <div class="template-grid-item template-span-left">Crit: {{current-crit}}   </div>{{/current-crit}}
       {{#current-damage}}
-      <div class="template-grid-item template-span-center">
-         <span>Damage: </span>| {{current-damage}}     </div>{{/current-damage}}
+      <div class="template-grid-item template-span-center">Damage: {{current-damage}}     </div>{{/current-damage}}
       {{#current-range}}
-      <div class="template-grid-item template-span-right"><span>Range: </span>| {{current-range}}  </div>{{/current-range}}
+      <div class="template-grid-item template-span-right">Range: {{current-range}}  </div>{{/current-range}}
     </div>
   </div>
-</div>
+</rolltemplate>
 <script type="text/worker">/**
   Example worker function
 
@@ -1258,6 +1783,62 @@ on('change:', function() {
   setAttrs({});
 });
 */
+
+// VersionController()
+// on sheet:opened VersionController(version)
+// Upgrade from version 0
+//  Repeating weapons
+//  Armor 
+//  Gear
+//  CUF till cuf
+//  Manipulation to persuasion
+//  
+
+
+  /* ===== PARAMETERS ==========
+  GiGs 'Super Simple Summarizer'
+  */
+ const repeatingSum = (destination, section, fields, multiplier = 1) => {
+  if (!Array.isArray(fields)) fields = [fields];
+  getSectionIDs(`repeating_${section}`, (idArray) => {
+    const attrArray = idArray.reduce((m, id) => [...m, ...fields.map((field) => `repeating_${section}_${id}_${field}`)], []);
+    getAttrs(attrArray, (v) => {
+      console.log("values of v: " + JSON.stringify(v));
+      // getValue: if not a number, returns 1 if it is 'on' (checkbox), otherwise returns 0..
+      const getValue = (section, id, field) => parseFloat(v[`repeating_${section}_${id}_${field}`]) || (v[`repeating_${section}_${id}_${field}`] === "on" ? 1 : 0);
+
+      const sumTotal = idArray.reduce((total, id) => total + fields.reduce((subtotal, field) => subtotal * getValue(section, id, field), 1), 0);
+      setAttrs({
+        [destination]: sumTotal * multiplier,
+      });
+    });
+  });
+};
+
+/* combat gear encumbrance */
+on("change:repeating_combatgear remove:repeating_combatgear sheet:opened", () => {
+ console.log("Change Detected: Combat Gear Encumbrance");
+ repeatingSum("combatgear_total", "combatgear", ["weight", "amount"]);
+});
+
+/* weapon encumbrance */
+on("change:repeating_weapons remove:repeating_weapons sheet:opened", () => {
+ console.log("Change Detected: Weapon Encumbrance");
+ repeatingSum("weaponweight_total", "weapons", ["weight"]);
+});
+
+/* backpack encumbrance */
+on("change:repeating_backpack remove:repeating_backpack sheet:opened", function () {
+  console.log("Change Detected: Backpack Gear Encumbrance");
+  repeatingSum("backpack_total", "backpack", ["weight", "amount"]);
+});
+
+/* vehicle encumbrance */
+on("change:repeating_vehiclegear remove:repeating_vehiclegear sheet:opened", () => {
+  console.log("Change Detected: vehicle Gear Encumbrance");
+  repeatingSum("vehiclegear_total", "vehiclegear", ["weight", "amount"]);
+});
+
 
 const buttonlist = ["basic","attributes","weapons","combat","gear","vehicle","notes"];
 buttonlist.forEach(button => {
@@ -1267,5 +1848,61 @@ buttonlist.forEach(button => {
             sheetTab: button
         });
     });
+});
+
+
+const valueList = ["strength","heavyweapons","closecombat","stamina","agility","driving","mobility","rangedcombat","intelligence","recon","survival","tech","empathy","command","persuasion","medicalaid","cuf","cuf_unit"];
+valueList.forEach(value => {
+    on(`change:${value} sheet:opened`, function() {  
+        getAttrs([`${value}`], function(v) {
+          console.log(JSON.stringify(v));
+          const rank = v[`${value}`], attribute = `${value}die`;
+          const dietype = `${value}dietype`;
+          var die = 0, setter = {};
+          if (rank == "A") die = 12;
+          if (rank == "B") die = 10;
+          if (rank == "C") die = 8;
+          if (rank == "D") die = 6;
+          if (rank == "F") die = '';
+          setter[attribute] = die;
+          setter[dietype] = die == '' ? "" : "D"+die;
+          setAttrs(setter);
+        });
+    });
+});
+
+// Update Hit Capacity
+on('change:strengthdie change:agilitydie sheet:opened', () => {
+  getAttrs(["strengthdie","agilitydie","hitcapacity"], (values) => {
+    console.log(JSON.stringify(values));
+    const str = parseInt(values.strengthdie),
+    agi = parseInt(values.agilitydie),
+    hitcap = Math.ceil(( str + agi ) / 4);
+    console.log("HIt capacity calculated: "+hitcap);
+    setAttrs({hitcapacity : hitcap});
+  });
+});
+
+// Update Stress capacity
+on('change:intelligencedie change:empathydie sheet:opened', () => {
+  getAttrs(["intelligencedie","empathydie","stresscapacity"], (values) => {
+    console.log(JSON.stringify(values));
+    const int = parseInt(values.intelligencedie),
+    emp = parseInt(values.empathydie),
+    stresscap = Math.ceil(( int + emp ) / 4);
+    console.log("Stress capacity calculated: "+stresscap);
+    setAttrs({stresscapacity : stresscap});
+  });
+});
+
+// Update Carry Limit
+on('change:strengthdie sheet:opened', () => {
+  getAttrs(["strengthdie","carry_limit","carry_limit_backpack"], (values) => {
+    console.log(JSON.stringify(values));
+    const str = parseInt(values.strengthdie);
+    console.log("Carry limit calculated: "+str);
+    setAttrs({carry_limit: str,
+              carry_limit_backpack: str});
+  });
 });
 </script>

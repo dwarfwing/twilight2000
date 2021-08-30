@@ -1,5 +1,12 @@
 // Cols
-
+.col-flex {
+  @extend %cell-flex-col;
+}
+.col-whole {
+  @extend %cell-flex-col;
+  max-width: 100%;
+  min-width: 100%;
+}
 .col-half {
     @extend %cell-flex-col;
     max-width: 50%;
@@ -25,15 +32,45 @@
     max-width: 75%;
     min-width: 75%;
   }
+  .col-225 {
+    @extend %cell-flex-col;
+    max-width: 22.5%;
+    min-width: 22.5%;
+  }
+  .col-35px {
+    @extend %cell-flex-col;
+    max-width: 35px;
+    min-width: 35px;
+  }
+  .col-42px {
+    @extend %cell-flex-col;
+    max-width: 42px;
+    min-width: 42px;
+  }
+  .col-46px {
+    @extend %cell-flex-col;
+    max-width: 46px;
+    min-width: 46px;
+  }
   .col-fifth {
     @extend %cell-flex-col;
     max-width: 20%;
     min-width: 20%;
   }
+  .col-threefifth {
+    @extend %cell-flex-col;
+    max-width: 60%;
+    min-width: 60%;
+  }
   .col-sixth {
     @extend %cell-flex-col;
     max-width: 16.7%;
     min-width: 16.7%;
+  }
+  .col-fivesixth {
+    @extend %cell-flex-col;
+    max-width: 83.3%;
+    min-width: 83.3%;
   }
   .col-14th {
     @extend %cell-flex-col;
