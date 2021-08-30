@@ -1,5 +1,21 @@
 // Input
-
+input[type="number"] {
+  text-align: right;
+}
+.input-number {
+  @extend %input-box;
+  @extend %input-select;
+  text-align: center;
+}
+.input-text {
+  color: $dark-font;
+  font-family: 'Delius', 'Chilanka', 'Abel';
+}
+.input-textarea {
+  color: $dark-font;
+  font-family: 'Delius', 'Chilanka', 'Abel';
+  height: auto;
+}
 input, textarea {
     @extend %text-base;
     @extend %input-text; 
@@ -8,14 +24,6 @@ input, textarea {
     color: $secondary;
     width: 100%;
     margin-bottom: 3px !important;
-    &.input-number {
-      @extend %input-box;
-      @extend %input-select;
-    }
-    &.input-text {
-      color: $dark-font;
-      font-family: 'Delius', 'Chilanka', 'Abel';
-    }
     &.input-textarea {
       color: $dark-font;
       font-family: 'Delius', 'Chilanka', 'Abel';
@@ -60,8 +68,11 @@ input, textarea {
         margin-right: 3px;
         padding: 0px 0px 0px 0px;
         line-height: 18px;
-        box-shadow: 0px 0px 5px #dcdcdc;
+        box-shadow: 0px 0px 5px #808080;
         z-index: 0;
+      }
+      &.condition + span {
+        margin-left: -14px;
       }
     }
 /*     &.numbered-box:checked + span::before, &.numbered-box:checked + label {
@@ -80,7 +91,7 @@ input, textarea {
       color: #ffffff;
       background: #808080;
       border: solid 1px #808080;
-      box-shadow: 0px 0px 10px #808080;
+      box-shadow: 0px 0px 5px #808080;
     }
     &.green-box:checked + span::before, &.green-box:checked +  {
       color: #000000;
@@ -101,17 +112,24 @@ input, textarea {
       box-shadow: 0px 0px 10px #b30000;
     }
   }
-
-div.damage {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-
+span.input-die {
+  @extend %input-box;   
+  background-color: inherit;
+  width: 36px;
+  height: 24px;
+  text-align: center;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 input[type="radio"] + label.damage {
   color: $light;
   background: $primary;
   border: solid 1px $secondary;
   box-shadow: 0px 0px 10px #808080;
+  margin-right: 12px;
+  margin-bottom: 8px;
 }
 input[type="radio"].red-box + label.damage {
   color: #ffffff;
@@ -125,6 +143,8 @@ input[type="radio"].gold-box + label.damage {
   border: solid 1px #ffd700;
   box-shadow: 0px 0px 10px #ffd700;
 }
+
+/* */
 input[type="radio"][value="0"] + label.damage {
   border-radius: 50%;
   color: $light;
@@ -143,62 +163,78 @@ input[type="radio"]:checked ~ input[type="radio"] + label.damage {
   border: solid 1px $secondary;
   box-shadow: 0px 0px 5px #808080;
 }
+
+input.damage[value='1'] ~ .v2 {display: none;}
+input.damage[value='2'] ~ .v3 {display: none;} 
+input.damage[value='3'] ~ .v4 {display: none;} 
+input.damage[value='4'] ~ .v5 {display: none;} 
+input.damage[value='5'] ~ .v6 {display: none;} 
+input.damage[value='6'] ~ .v7 {display: none;}
+input.damage[value='7'] ~ .v8 {display: none;} 
+input.damage[value='8'] ~ .v9 {display: none;} 
+input.damage[value='9'] ~ .v10 {display: none;} 
  
-
-/*   input.damage[value="0"] ~ label.damage[data-value-lt~="0"] { @extend %checked-box-greyish; }
-  input.damage[value="1"] ~ label.damage[data-value-lt~="1"] { @extend %checked-box-greyish; }
-  input.damage[value="2"] ~ label.damage[data-value-lt~="2"] { @extend %checked-box-greyish; }
-  input.damage[value="3"] ~ label.damage[data-value-lt~="3"]  { @extend %checked-box-greyish; }
-  input.damage[value="4"] ~ label.damage[data-value-lt~="4"]  { @extend %checked-box-greyish; }
-  input.damage[value="5"] ~ label.damage[data-value-lt~="5"]  { @extend %checked-box-greyish; }
-  input.damage[value="6"] ~ label.damage[data-value-lt~="6"]  { @extend %checked-box-greyish; }
-  input.damage[value="7"] ~ label.damage[data-value-lt~="7"]  { @extend %checked-box-greyish; }
-  input.damage[value="8"] ~ label.damage[data-value-lt~="8"]  { @extend %checked-box-greyish; }
-  input.damage[value="9"] ~ label.damage[data-value-lt~="9"]  { @extend %checked-box-greyish; }
-  input.damage[value="10"] ~ label.damage[data-value-lt~="10"] { @extend %checked-box-greyish; } */
-
-/*   input[name="attr_damage"][value="1"] ~ label.damage1 { @extend %checked-box-greyish; }
-  input.damage-attr[value="2"] ~ label.damage1, input.damage-attr[value="2"] ~ label.damage2 { @extend %checked-box-greyish; }
-  input.damage-attr[value="3"] ~ .damage1, input.damage-attr[value="3"] ~ .damage2, input.damage-attr[value="3"] ~ .damage3 { @extend %checked-box-greyish; }
-  input.damage-attr[value="4"] ~ label.damage[data-value-lt~="4"] { @extend %checked-box-greyish; }
-  input.damage-attr[value="5"] ~ div label.damage5 { @extend %checked-box-greyish; }
-  input.damage-attr[value="6"] ~ div label.damage1 { @extend %checked-box-greyish; }
-  input.damage-attr[value="7"] ~ div label.damage2 { @extend %checked-box-greyish; }
-  input.damage-attr[value="8"] ~ div label.damage3 { @extend %checked-box-greyish; }
-  input.damage-attr[value="9"] ~ div label.damage4 { @extend %checked-box-greyish; }
-  input.damage-attr[value="10"] ~ div label.damage5 { @extend %checked-box-greyish; }
-  input.damage-attr[value="4"] ~ div label {background-color: red;} */
-
-/*   input.numbered-box:valid + label.damage { @extend %checked-box-greyish; } */
-  
-  select { 
-    @extend %no-outline;   
-    @extend %input-box;  
-    @extend %input-select;  
-    -width: 38px;
-    -height: 26px;    
-    justify-content: center;
-    justify-items: center;
-    background-color: transparent;
-    padding-left: 5px;
-    &.spec-category {
-      width: 95%;
-      margin: 3px;
-    }
-    &.weight {
-      appearance: none;
-      text-align: center;
-      text-align-last: center;    
-    }
-    &.weight option {
-      text-align: center;
-    }
+select { 
+  @extend %no-outline;   
+  @extend %input-box;  
+  @extend %input-select;  
+  -width: 38px;
+  -height: 26px;    
+  justify-content: center;
+  justify-items: center;
+  background-color: transparent;
+  padding-left: 3px;
+  &.spec-category {
+    width: 95%;
+    margin: 3px;
   }
-  option {    
-    @extend %no-outline;  
-    @extend %input-select; 
-    justify-content: center;
-    justify-items: center;
-    background-color: $light;
+  &.weight {
+    appearance: none;
+    text-align: center;
+    text-align-last: center;    
+  }
+  &.weight option {
     text-align: center;
   }
+}
+select.weight {
+  margin-top: -2px;
+}
+option {    
+  @extend %no-outline;  
+  @extend %input-select; 
+  justify-content: center;
+  justify-items: center;
+  background-color: $light;
+  text-align: center;
+}
+
+.ui-dialog .charsheet button[type="roll"]::before, .ui-dialog .charsheet button[type="action"]::before {
+  content: "";
+}
+
+.ui-dialog .charsheet button.label-caps {
+  @extend %text-base;
+  @extend %text-upper;
+  background-color: unset;
+  background-image: unset;
+  box-shadow: unset;
+  border: none;  
+}
+.ui-dialog .charsheet button.label {
+  @extend %text-base;
+  @extend %text-lower;
+  background-color: unset;
+  background-image: unset;
+  box-shadow: unset;
+  border: none;  
+}
+.ui-dialog .charsheet button.label-caps:hover, .ui-dialog .charsheet button.label:hover {
+  background-color: unset;
+  text-decoration: underline;
+  color: unset;
+}
+.ui-dialog .charsheet button.attribute-button {
+  appearance: unset;
+  text-shadow: unset;
+}

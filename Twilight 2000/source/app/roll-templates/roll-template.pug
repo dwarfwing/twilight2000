@@ -1,17 +1,18 @@
-rolltemplate.rolltemplate-t2k
-.template-wrap
-  .template-background
-    .template-grid
-      .template-grid-item.template-span-six
-        | {{character-name}}
-        | {{roll-name}}
-                
-        | {{#roll-dice}}
-        .template-grid-item.template-span-six.template-to-the-center
-           .template-yellow
-              | {{roll-dice}}
+rolltemplate.sheet-rolltemplate-t2k
+  .template-wrap
+    .template-background
+      .template-grid
+        .template-grid-item.template-span-six
+          | {{character-name}}
+        .template-grid-item.template-span-six
+          | {{roll-name}}
+        .template-grid-item.template-span-six                  
+          | {{#roll-dice}}
+          .template-grid-item.template-span-six.template-to-the-center
+            .template-yellow
+                | {{roll-dice}}
         | {{/roll-dice}}
-                
+                  
         | {{#rollGreater() roll-die-one 0}} <!-- DIE ONE -->
         .template-grid-item.template-span-one.template-die-one
           | {{#rollWasFumble() roll-die-one}}
@@ -191,7 +192,7 @@ rolltemplate.rolltemplate-t2k
       | {{/rollGreater() ammo-dice 1}}
       
       | {{#rollGreater() ammo-dice 2}} <!-- AMMO DIE THREE -->
-      .template-grid-item template-span-three template-ammo-die-three      
+      .template-grid-item.template-span-three.template-ammo-die-three      
         | {{#rollWasFumble() ammo-roll-three}}
         .template-ammo-fail
           | {{ammo-roll-three}}
@@ -207,7 +208,7 @@ rolltemplate.rolltemplate-t2k
       | {{/rollGreater() ammo-dice 2}}
       
       | {{#rollGreater() ammo-dice 3}} <!-- AMMO DIE FOUR -->
-      .template-grid-item template-span-four template-ammo-die-four      
+      .template-grid-item.template-span-four.template-ammo-die-four      
         | {{#rollWasFumble() ammo-roll-four}}
         .template-ammo-fail
           | {{ammo-roll-four}}
@@ -223,7 +224,7 @@ rolltemplate.rolltemplate-t2k
       | {{/rollGreater() ammo-dice 3}}
       
       | {{#rollGreater() ammo-dice 4}} <!-- AMMO DIE FIVE -->
-      .template-grid-item template-span-five template-ammo-die-five      
+      .template-grid-item.template-span-five.template-ammo-die-five      
         | {{#rollWasFumble() ammo-roll-five}}
         .template-ammo-fail
           | {{ammo-roll-five}}
@@ -239,7 +240,7 @@ rolltemplate.rolltemplate-t2k
       | {{/rollGreater() ammo-dice 4}}
       
       | {{#rollGreater() ammo-dice 5}} <!-- AMMO DIE SIX -->
-      .template-grid-item template-span-shix template-ammo-die-six      
+      .template-grid-item.template-span-six.template-ammo-die-six      
         | {{#rollWasFumble() ammo-roll-six}}
         .template-ammo-fail
           | {{ammo-roll-six}}
@@ -255,14 +256,14 @@ rolltemplate.rolltemplate-t2k
       | {{/rollGreater() ammo-dice 5}}
 
       | {{#current-crit}}
-      .template-grid-item.template-span-left
-        <span>Crit: </span>| {{current-crit}}   
+      .template-grid-item.template-span-left= "Crit: " 
+        | {{current-crit}}   
       | {{/current-crit}}
       | {{#current-damage}}
-      .template-grid-item.template-span-center 
-        <span>Damage: </span>| {{current-damage}}     
+      .template-grid-item.template-span-center= "Damage: "
+        | {{current-damage}}     
       | {{/current-damage}}
       | {{#current-range}}
-      .template-grid-item.template-span-right
-        <span>Range: </span>| {{current-range}}  
+      .template-grid-item.template-span-right= "Range: "
+        | {{current-range}}  
       | {{/current-range}}

@@ -2,8 +2,8 @@
 .speciality-box {
     @extend %input-box;
     margin: 4px;
-    max-width: 22%;
-    min-width: 22%;
+    max-width: 24%;
+    min-width: 24%;
     min-height: 135px;
     max-height: 135px;
     display: flex;
@@ -44,12 +44,36 @@
     margin-top: 3px;
     padding-top: 5px;
   }
+  .noborder { border: none !important; }
+  .noshadow { box-shadow: none !important; }
+  .separator { margin: 2px; padding: 0; }
+  .no-marg {   margin: 0; }
   .no-pad {   padding: 0; }
+  .pad3 {   padding: 3px; }
+  .pad5 {   padding: 5px; }
+  .pad8 {   padding: 8px; }
+  .pad10 {   padding: 10px; }
+  .pad-side3 { padding-left: 3px; padding-right: 3px;}
+  .pad-side5 { padding-left: 5px; padding-right: 5px;}
+  .pad-side8 { padding-left: 8px; padding-right: 8px;}
+  .pad-right3 { padding-right: 3px;}
+  .pad-right5 { padding-right: 5px;}
+  .pad-right8 { padding-right: 8px;}
   .left-margin {  margin-left: 3px; }
+  .height-margs3 { margin-top: 3px; margin-bottom: 3px;}
+  .height-margs5 { margin-top: 5px; margin-bottom: 5px;}
+  .height-margs8 { margin-top: 8px; margin-bottom: 8px;}
+  .height-fit-content { height: fit-content; }
+  .height-fill-avail { height: -webkit-fill-available; }
   .middle {
     align-items: center;
     align-content: center;
     align-self: center;
+  }
+  .bottom {
+    align-items: flex-end;
+    align-content:flex-end;
+    align-self: flex-end;
   }
   .center {
     justify-content: center;
@@ -57,9 +81,9 @@
     justify-items: center;
   }
   .right {
-    justify-content: right;
-    justify-self: right;
-    justify-items: right;
+    justify-content: flex-end;
+    justify-self: flex-end;
+    justify-items: flex-end;
     text-align: right;
   }
   .space-even {
