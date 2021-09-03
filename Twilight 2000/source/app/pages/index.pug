@@ -35,9 +35,10 @@ include ../components/component
     +input-hidden('tabstoggle','sheetTab','basic')
     +tab-button('Attributes <br/> and Skills','basic')
     +tab-button('Combat','combat')
+    +tab-button('Action','action')
     +tab-button('Gear','gear')
     +tab-button('Vehicle','vehicle')
-    +tab-button('Notes','notes')
+    +tab-button('Stockpile','stockpile')
   .basic
     .row-tall.border-bottom-long.background-tan.flex-wrap
       .row-whole
@@ -45,20 +46,20 @@ include ../components/component
       .row-whole-nopad.flex-column.no-marg.no-pad.flex1
         .col-quarter.flex-row
           .row-fill.no-marg.border-right.middle.right= "&nbsp;"
-          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "RATING"
-          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "BASE"
+          .col-46px.col-flex.no-marg.border-right.middle.right.smallcaps= "RATING"
+          .col-46px.col-flex.no-marg.border-right.middle.right.smallcaps= "BASE"
         .col-quarter.flex-row
           .row-fill.no-marg.border-right.middle.right= "&nbsp;"
-          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "RATING"
-          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "BASE"
+          .col-46px.col-flex.no-marg.border-right.middle.right.smallcaps= "RATING"
+          .col-46px.col-flex.no-marg.border-right.middle.right.smallcaps= "BASE"
         .col-quarter.flex-row
           .row-fill.no-marg.border-right.middle.right= "&nbsp;"
-          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "RATING"
-          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "BASE"
+          .col-46px.col-flex.no-marg.border-right.middle.right.smallcaps= "RATING"
+          .col-46px.col-flex.no-marg.border-right.middle.right.smallcaps= "BASE"
         .col-quarter.flex-row
           .row-fill.no-marg.border-right.middle.right= "&nbsp;"
-          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "RATING"
-          .col-46px.col-flex.no-marg.border-right.middle.right.small-caps= "BASE"
+          .col-46px.col-flex.no-marg.border-right.middle.right.smallcaps= "RATING"
+          .col-46px.col-flex.no-marg.border-right.middle.right.smallcaps= "BASE"
     .row-tall.border-bottom-long
       .col-quarter.border-right.flex-column
         .col-whole.flex-row.no-marg
@@ -93,10 +94,12 @@ include ../components/component
       .col-whole.label-caps Specialities
       .row-whole
     .row-tall.border-bottom-long
-      .row-tall.flex-row
-        +speciality('Combat Medic','Medical Aid','Gives a +1 modifier to MEDICAL AID rolls for helping an incapacitated character get back up (page 73). No effect on treating critical injuries.')
-        +speciality('Combat Medic','Medical Aid','Gives a +1 modifier to MEDICAL AID rolls for helping an incapacitated character get back up (page 73). No effect on treating critical injuries.')
-        +speciality-add
+      .row-tall.flex-row.speciality
+        fieldset.repeating_speciality
+          +speciality
+        //+speciality('Combat Medic','Medical Aid','Gives a +1 modifier to MEDICAL AID rolls for helping an incapacitated character get back up (page 73). No effect on treating critical injuries.')
+        //+speciality('Combat Medic','Medical Aid','Gives a +1 modifier to MEDICAL AID rolls for helping an incapacitated character get back up (page 73). No effect on treating critical injuries.')
+        //+speciality-add
   .combat
     .row-tall.border-bottom-long.background-tan.flex-wrap
       .col-half.border-right.height-margs5.label-caps Combat
@@ -104,11 +107,11 @@ include ../components/component
       //.row-whole-nopad
       .col-half.border-right= "&nbsp;"
       .row-fill.border-right= "&nbsp;"
-      .col-42px.border-right.center.middle.small-caps= "Weight"
-      .col-42px.border-right.center.middle.small-caps= "Damage"
-      .col-42px.border-right.center.middle.small-caps= "Rating"
+      .col-42px.border-right.center.middle.smallcaps.wide= "Weight"
+      .col-42px.border-right.center.middle.smallcaps= "Damage"
+      .col-42px.border-right.center.middle.smallcaps= "Rating"
       //.col-quarter Conditions
-    .row-tall.no-pad.no-marg
+    .row-tall.no-pad.no-marg.border-bottom-long
       .col-half.border-right.no-pad.no-marg
         .row-whole.border-bottom-long.height-fit-content
           .col-half.row-tall.border-right
@@ -172,24 +175,10 @@ include ../components/component
               //+input-hidden('radiation damage',"permanentradiation",'0')
               //input.hidden.damage(name= "attr_permanentradiation",hidden,readonly)
               +numbered-radioboxes('permanentrads','red')
-    .weapons-row 
+    .weapons-row.no-pad 
       //.row-tall.border-bottom-long.background-tan
       //  .col-full Weapons
-      .row-tall.row-100pc.border-bottom-long.background-tan
-        .col-3-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em WEAPONS
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em TYPE
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em AMMO
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em REL
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em RDF
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em DAMAGE
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em CRIT
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em BLAST
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em RANGE
-        .col-14th.border-bottom-short.border-right.background-tan.no-pa.middle.center.h-2-5em MAG
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em ARMOR
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em WEIGHT
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em SPENT
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em ROLL
+      +weapons-row
       fieldset.repeating_weapons
         +weapon-item
   .gear
@@ -197,30 +186,31 @@ include ../components/component
       .col-third.border-right Combat Gear
       .col-third.border-right Backpack
       .col-third Tiny items 
-    .row-tall.border-bottom-long.background-tan.row-100pc
-      .col-third
-        +span-value('Combat Encumbrance','combatgear_total')
-        +span-value('Weapon Encumbrance','weaponweight_total')
-        +span-value('Combat Carry Limit','carry_limit')
-      .col-third
-        +span-value('Backpack Encumbrance','backpack_total')
-        +span-value('Backpack Carry Limit','carry_limit_backpack')
-      .col-third
+    .row-whole.border-bottom-long.row-100pc.no-pad.encumbrance
+      .col-third.no-pad
+          //+encumbrance-line('Combat Encumbrance','combatgear_total')
+          //+encumbrance-line('Armor Encumbrance','armorweight_total')
+          //+encumbrance-line('Weapon Encumbrance','weaponweight_total')
+          +encumbrance-line('Combat Carry Limit','carrycap_total','carry_limit')
+      .col-third.no-pad
+          //+encumbrance-line('Backpack Encumbrance','backpack_total')
+          +encumbrance-line('Backpack Carry Limit','backpack_total','carry_limit_backpack')
+      .col-third.no-pad
     .row-tall.border-bottom-long.background-tan
       .col-third.no-pad
         .row-tall.row-100pc.no-pad
-          .col-twothird.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em Combat Gear
-          .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em Wt
+          .col-fill.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em.label-caps Combat Gear
+          .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em.wide Weight
           .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em #
       .col-third.no-pad
         .row-tall.row-100pc.no-pad
-          .col-twothird.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em Backback
-          .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em Wt
+          .col-fill.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em.label-caps Backback
+          .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em.wide Weight
           .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em #
       .col-third.no-pad
         .row-tall.row-100pc.no-pad
-          .col-threequarter.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em Tiny Items
-          .col-quarter.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em #
+          .col-fourfifth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em.label-caps Tiny Items
+          .col-fifth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em #
     .row-tall.border-bottom-long
       .col-third.no-pad
         fieldset.repeating_combatgear
@@ -301,24 +291,10 @@ include ../components/component
           label Armor
         .row.row-100pc
           label Fuel
-    .weapons-row 
+    .vehicleweapons-row 
       //.row-tall.border-bottom-long.background-tan
       //  .col-full Weapons
-      .row-tall.row-100pc.border-bottom-long.background-tan
-        .col-3-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em WEAPONS
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em TYPE
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em AMMO
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em REL
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em RDF
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em DAMAGE
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em CRIT
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em BLAST
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em RANGE
-        .col-14th.border-bottom-short.border-right.background-tan.no-pa.middle.center.h-2-5em MAG
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em ARMOR
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em WEIGHT
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em SPENT
-        .col-14th.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em ROLL
+      +weapons-row
       fieldset.repeating_vehicleweapons
         +weapon-item
         //.row-tall.row-100pc.border-bottom-long
@@ -345,6 +321,7 @@ include ../components/component
         .col-third.border-right Combat Gear
         .col-third.border-right Backpack
         .col-third Tiny items 
+        
       .row-tall.border-bottom-long
         .col-third.no-pad
           .row-tall.row-100pc.no-pad
@@ -355,7 +332,7 @@ include ../components/component
         .col-third.no-pad
           fieldset.repeating_vehiclegear
             +gear-item
-
+  .stockpile
   .notes
   .action
     label This is a test

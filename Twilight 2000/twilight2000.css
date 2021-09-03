@@ -23,22 +23,19 @@
   display: block;
 }
 
-.basic,
-.weapons,
-.combat,
-.gear,
-.vehicle,
-.notes {
+.basic, .weapons, .combat, .gear, .vehicle, .notes, .stockpile {
   display: none;
 }
 
 .tabstoggle[value=basic] ~ div.basic,
 .tabstoggle[value=attributes] ~ div.attributes,
 .tabstoggle[value=weapons] ~ div.weapons,
+.tabstoggle[value=action] ~ div.action,
 .tabstoggle[value=combat] ~ div.combat,
 .tabstoggle[value=gear] ~ div.gear,
 .tabstoggle[value=vehicle] ~ div.vehicle,
-.tabstoggle[value=notes] ~ div.notes {
+.tabstoggle[value=notes] ~ div.notes,
+.tabstoggle[value=stockpile] ~ div.stockpile {
   display: flex;
   flex-direction: column;
 }
@@ -47,9 +44,11 @@
 .tabstoggle[value=attributes] ~ .main-buttons.button-attributes,
 .tabstoggle[value=weapons] ~ .main-buttons.button-weapons,
 .tabstoggle[value=combat] ~ .main-buttons.button-combat,
+.tabstoggle[value=action] ~ .main-buttons.button-action,
 .tabstoggle[value=gear] ~ .main-buttons.button-gear,
 .tabstoggle[value=vehicle] ~ .main-buttons.button-vehicle,
-.tabstoggle[value=notes] ~ .main-buttons.button-notes {
+.tabstoggle[value=notes] ~ .main-buttons.button-notes,
+.tabstoggle[value=stockpile] ~ .main-buttons.button-stockpile {
   background-color: #877D70;
   color: #fff;
   border: 3px solid #877D70;
@@ -80,7 +79,7 @@
   -border-bottom: 1px solid #534c3b;
 }
 
-.box, .col-3-14th, .col-14th, .col-fivesixth, .col-sixth, .col-threefifth, .col-fifth, .col-46px, .col-42px, .col-35px, .col-225, .col-threequarter, .col-quarter, .col-twothird, .col-third, .col-half, .col-whole, .col-flex {
+.box, .col-fill, .col-3-14th, .col-14th, .col-fivesixth, .col-sixth, .col-fourfifth, .col-threefifth, .col-fifth, .col-46px, .col-42px, .col-35px, .col-225, .col-threequarter, .col-quarter, .col-twothird, .col-third, .col-half, .col-whole, .col-flex {
   display: flex;
   flex-direction: column;
   justify-self: flex-start;
@@ -132,7 +131,7 @@
   -border-right: 2px solid #756758;
   border-width: 2px;
   border-style: solid;
-  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 4 4 4 4;
+  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 2 2 2 2;
 }
 
 .border-right {
@@ -140,25 +139,37 @@
   -border-right: 2px solid #756758;
   border-width: 0 2px 0 0;
   border-style: solid;
-  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 4 0 0;
+  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 2 0 0;
 }
 
 .border-bottom-long {
   border-width: 0 0 2px 0;
   border-style: solid;
-  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 0 4 0;
+  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 0 2 0;
+}
+
+.border-bottom-short {
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-short-light1.png) 0 0 2 0;
 }
 
 .border-top-short {
   border-width: 2px 0 0 0;
   border-style: solid;
-  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 4 0 0 0;
+  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 2 0 0 0;
+}
+
+.border-top-sectioned {
+  border-width: 6px 0 0 0;
+  border-style: solid;
+  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-top-sectioned2.png) 6 0 0 0;
 }
 
 .border-bottom-right {
   border-width: 0 2px 2px 0;
   border-style: solid;
-  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 4 4 0;
+  border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 2 2 0;
 }
 
 .speciality-box, select, span.input-die, .input-number {
@@ -227,6 +238,13 @@ option:active, select:active, input:active, textarea:active, option:focus, selec
   outline: none;
 }
 
+.repcontrol_del, .repcontrol_move, .repcontrol_add, .repcontrol_edit {
+  color: #e4ddc9;
+  background: #756758;
+  border: solid 1px #5a4c3a;
+  box-shadow: 0px 0px 10px #808080;
+}
+
 .logo {
   background-image: url("https://github.com/dwarfwing/twilight2000/blob/main/Twilight%202000/images/twilight2000logo.png?raw=true");
   background-size: contain;
@@ -247,8 +265,8 @@ h1, h2, h3, h4, select, option, .label-caps {
   padding-left: 0;
 }
 
-.small-caps {
-  font-variant: small-caps;
+.smallcaps {
+  font-variant: smallcaps;
   font-size: 80%;
 }
 
@@ -271,14 +289,92 @@ div.headlabel div.label-caps {
   padding-left: 0;
 }
 
-.repcontrol_add, .repcontrol_edit {
+/*.repcontrol_add, .repcontrol_edit {
   float: right;
   margin-top: 4px;
   margin-right: 2px;
-  color: #e4ddc9;
-  background: #756758;
-  border: solid 1px #5a4c3a;
+  color: $light;
+  background: $primary;
+  border: solid 1px $secondary;
   box-shadow: 0px 0px 10px #808080;
+} 
+.speciality .repcontrol_add {
+  @extend %input-box;
+  margin: 4px;
+  max-width: 200px;
+  min-width: 185px;;
+  min-height: 135px;
+  max-height: 135px;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  color: $primary;
+} */
+.speciality .repcontrol {
+  align-self: flex-start;
+  position: absolute;
+  right: 55px;
+  margin-top: -35px;
+}
+
+.repcontrol_add, .repcontrol_edit {
+  /* , .speciality .repcontrol_move, .speciality .repcontrol_del */
+  -opacity: 0;
+  visibility: hidden;
+  width: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.repcontrol_add::before, .repcontrol_edit::before {
+  /* , .speciality .repcontrol_move::before, .speciality .repcontrol_del::before */
+  -opacity: 1;
+  visibility: visible;
+  color: #756758;
+  -margin-left: -35px;
+  font-family: "Pictos";
+}
+
+.repcontrol_add::before {
+  content: "&";
+}
+
+.repcontrol_edit::before {
+  -position: relative;
+  -opacity: 1;
+  -visibility: visible;
+  -color: #756758;
+  -top: 15px;
+  -margin-left: -38px;
+  -font-family: "Pictos";
+  content: "(";
+}
+
+.repcontrol_add, .repcontrol_edit {
+  float: right;
+}
+
+.repcontrol_move {
+  float: right;
+  -position: relative;
+  -opacity: 1;
+  -visibility: visible;
+  -color: #756758;
+  -top: 15px;
+  -margin-left: -38px;
+  -font-family: "Pictos";
+  -content: "(";
+}
+
+.repcontainer.editmode ~ .repcontrol button.repcontrol_edit::before {
+  font-family: "Pictos";
+  content: ")";
+}
+
+.speciality .repcontainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 input[type=number] {
@@ -287,6 +383,16 @@ input[type=number] {
 
 .input-number {
   text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  background-color: transparent;
+  color: #756758;
+}
+
+input[type=number]::-webkit-inner-spin-button:hover {
+  background-color: transparent;
+  color: #5a4c3a;
 }
 
 .input-text {
@@ -488,17 +594,17 @@ select {
   justify-items: center;
   background-color: transparent;
   padding-left: 3px;
+  text-align: center;
+  text-align-last: center;
 }
 select.spec-category {
   width: 95%;
   margin: 3px;
 }
 select.weight {
-  appearance: none;
-  text-align: center;
-  text-align-last: center;
+  -appearance: none;
 }
-select.weight option {
+select option {
   text-align: center;
 }
 
@@ -542,14 +648,25 @@ option {
   text-shadow: unset;
 }
 
+.speciality {
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.speciality .repcontainer {
+  flex-wrap: wrap;
+}
+
 .speciality-box {
   margin: 4px;
-  max-width: 24%;
-  min-width: 24%;
+  max-width: 200px;
+  min-width: 185px;
   min-height: 135px;
   max-height: 135px;
   display: flex;
   flex-direction: column;
+  flex: 1;
+  flex-basis: 1;
 }
 .speciality-box .spec-name {
   background-color: #cdc3af;
@@ -557,13 +674,18 @@ option {
 }
 
 .border-bottom-short {
-  margin-top: 3px;
-  border-bottom: 1px solid #756758;
+  -margin-top: 3px;
+  -border-bottom: 1px solid #756758;
 }
 
 .border-top-short {
   margin-top: 3px;
   padding-top: 5px;
+}
+
+.border-top-sectioned {
+  -margin-top: 3px;
+  -padding-top: 4px;
 }
 
 .noborder {
@@ -579,12 +701,19 @@ option {
   padding: 0;
 }
 
+.slash {
+  padding: 0;
+  min-width: unset;
+  width: unset;
+  margin: 2px;
+}
+
 .no-marg {
-  margin: 0;
+  margin: 0 !important;
 }
 
 .no-pad {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .pad3 {
@@ -649,6 +778,14 @@ option {
   margin-bottom: 8px;
 }
 
+.height-bot-margs8 {
+  margin-bottom: 8px !important;
+}
+
+.height-bot-pads8 {
+  padding-bottom: 8px !important;
+}
+
 .height-fit-content {
   height: fit-content;
 }
@@ -657,10 +794,85 @@ option {
   height: -webkit-fill-available;
 }
 
+.weapons-row .narrow, .vehicleweapons-row .narrow {
+  width: 46px;
+  min-width: 46px;
+}
+
+.weapons-row input.narrow, .vehicleweapons-row input.narrow {
+  width: 42px;
+  min-width: 42px;
+}
+
+.weapons-row .wide, .vehicleweapons-row .wide, .combat .wide, .gear .wide {
+  width: 57px;
+  min-width: 57px;
+}
+
+.weapons-row input.wide, .vehicleweapons-row input.wide, .combat input.wide, .gear input.wide {
+  width: 53px;
+  min-width: 53px;
+}
+
+.weapons-row .xwide, .vehicleweapons-row .xwide {
+  width: 87px;
+  min-width: 87px;
+}
+
+.weapons-row input.xwide, .vehicleweapons-row input.xwide {
+  width: 83px;
+  min-width: 83px;
+}
+
+.weapons-row input[type=number], .weapons-row input[type=text], .weapons-row select,
+.vehicleweapons-row input[type=number], .vehicleweapons-row input[type=text], .vehicleweapons-row select {
+  -font-family: "GNUTypewriter", "DaisyWheel", "Special Elite", "Abel";
+  -color: #756758;
+  font-family: "Delius", "Chilanka", "Abel";
+  color: #000;
+  -appearance: initial;
+  border: none;
+  box-shadow: unset;
+}
+
+.encumbrance span.input-number {
+  width: unset;
+  min-width: unset;
+  -height: 22px;
+  align-items: unset;
+  min-height: unset;
+  padding-top: 0;
+}
+
+.encumbrance div.col-half, .encumbrance div.col-third, .encumbrance div.col-quarter, .encumbrance div.col-twothird, .encumbrance div.col-threequarter {
+  height: 30px;
+  padding: unset;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  line-height: 1.2em;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.encumbrance div.col-third, .encumbrance div.col-quarter {
+  padding-right: 0;
+  padding-left: 0;
+  justify-content: center;
+}
+
 .middle {
   align-items: center;
   align-content: center;
   align-self: center;
+}
+
+.top {
+  align-items: flex-start;
+  align-content: flex-start;
+  align-self: flex-start;
 }
 
 .bottom {
@@ -673,6 +885,7 @@ option {
   justify-content: center;
   justify-self: center;
   justify-items: center;
+  text-align: center;
 }
 
 .right {
@@ -757,6 +970,11 @@ option {
   min-width: 60%;
 }
 
+.col-fourfifth {
+  max-width: 80%;
+  min-width: 80%;
+}
+
 .col-sixth {
   max-width: 16.7%;
   min-width: 16.7%;
@@ -785,6 +1003,15 @@ option {
   flex: 5;
 }
 
+.col-fill {
+  width: 100%;
+  width: -moz-available;
+  /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available;
+  /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
+}
+
 .logo {
   background-image: url("https://github.com/dwarfwing/twilight2000/blob/main/Twilight%202000/images/twilight2000logo.png?raw=true");
   background-size: contain;
@@ -805,8 +1032,8 @@ h1, h2, h3, h4, select, option, .label-caps {
   padding-left: 0;
 }
 
-.small-caps {
-  font-variant: small-caps;
+.smallcaps {
+  font-variant: smallcaps;
   font-size: 80%;
 }
 
@@ -875,6 +1102,10 @@ div.headlabel div.label-caps {
 
 .h-2-5em {
   height: 2.5em;
+}
+
+.h-1-5em {
+  height: 1.5em;
 }
 
 .flex-wrap {

@@ -1,20 +1,5 @@
 
 <!-- Same as Skill input, but different top level div classes-->
-<!--mixin numbered-checkbox(attribute,index,color)
-input.numbered-box(type= "checkbox",value= index,class= color+"-box",name= "attr_"+attribute,title= "@{"+attribute+"}")
-span(title= index)
-
--->
-<!--mixin numbered-checkboxes(attribute,color,rowbreak)
-- var i = 1, max = 10;
-.row-whole.space-even
-  while i <= max/2
-    +numbered-checkbox(attribute,i++,color)
-.row-whole.space-even
-  while i <= max
-    +numbered-checkbox(attribute,i++,color)
-
--->
 <div class="page-container">
   <input class="input-hidden tabstoggle" type="hidden" name="attr_sheetTab" value="basic" hidden="hidden" readonly="readonly"/>
   <div class="header">
@@ -86,9 +71,10 @@ span(title= index)
     <input class="input-hidden tabstoggle" type="hidden" name="attr_sheetTab" value="basic" hidden="hidden" readonly="readonly"/>
     <button class="tab main-buttons button-basic" type="action" name="act_basic">Attributes &lt;br/&gt; and Skills</button>
     <button class="tab main-buttons button-combat" type="action" name="act_combat">Combat</button>
+    <button class="tab main-buttons button-action" type="action" name="act_action">Action</button>
     <button class="tab main-buttons button-gear" type="action" name="act_gear">Gear</button>
     <button class="tab main-buttons button-vehicle" type="action" name="act_vehicle">Vehicle</button>
-    <button class="tab main-buttons button-notes" type="action" name="act_notes">Notes</button>
+    <button class="tab main-buttons button-stockpile" type="action" name="act_stockpile">Stockpile</button>
   </div>
   <div class="basic">
     <div class="row-tall border-bottom-long background-tan flex-wrap">
@@ -97,23 +83,23 @@ span(title= index)
       <div class="row-whole-nopad flex-column no-marg no-pad flex1">
         <div class="col-quarter flex-row">
           <div class="row-fill no-marg border-right middle right">&amp;nbsp;</div>
-          <div class="col-46px col-flex no-marg border-right middle right small-caps">RATING</div>
-          <div class="col-46px col-flex no-marg border-right middle right small-caps">BASE</div>
+          <div class="col-46px col-flex no-marg border-right middle right smallcaps">RATING</div>
+          <div class="col-46px col-flex no-marg border-right middle right smallcaps">BASE</div>
         </div>
         <div class="col-quarter flex-row">
           <div class="row-fill no-marg border-right middle right">&amp;nbsp;</div>
-          <div class="col-46px col-flex no-marg border-right middle right small-caps">RATING</div>
-          <div class="col-46px col-flex no-marg border-right middle right small-caps">BASE</div>
+          <div class="col-46px col-flex no-marg border-right middle right smallcaps">RATING</div>
+          <div class="col-46px col-flex no-marg border-right middle right smallcaps">BASE</div>
         </div>
         <div class="col-quarter flex-row">
           <div class="row-fill no-marg border-right middle right">&amp;nbsp;</div>
-          <div class="col-46px col-flex no-marg border-right middle right small-caps">RATING</div>
-          <div class="col-46px col-flex no-marg border-right middle right small-caps">BASE</div>
+          <div class="col-46px col-flex no-marg border-right middle right smallcaps">RATING</div>
+          <div class="col-46px col-flex no-marg border-right middle right smallcaps">BASE</div>
         </div>
         <div class="col-quarter flex-row">
           <div class="row-fill no-marg border-right middle right">&amp;nbsp;</div>
-          <div class="col-46px col-flex no-marg border-right middle right small-caps">RATING</div>
-          <div class="col-46px col-flex no-marg border-right middle right small-caps">BASE</div>
+          <div class="col-46px col-flex no-marg border-right middle right smallcaps">RATING</div>
+          <div class="col-46px col-flex no-marg border-right middle right smallcaps">BASE</div>
         </div>
       </div>
     </div>
@@ -133,7 +119,7 @@ span(title= index)
             <!-- Attribute die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden attribute" type="hidden" name="attr_attr_strengthdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden attribute" type="hidden" name="attr_attr_strengthdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_strengthdietype"></span>
+            <input class="input-hidden attribute" type="hidden" name="attr_attr_strengthdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_strengthdietype"></span>
           </div>
           <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
             <input class="hidden" id="heavyweapons" name="act_heavyweapons" type="checkbox" value="1"/>
@@ -150,7 +136,7 @@ span(title= index)
             <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_heavyweaponsdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden skill" type="hidden" name="attr_attr_heavyweaponsdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_heavyweaponsdietype"></span>
+            <input class="input-hidden skill" type="hidden" name="attr_attr_heavyweaponsdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_heavyweaponsdietype"></span>
           </div>
           <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
             <input class="hidden" id="closecombat" name="act_closecombat" type="checkbox" value="1"/>
@@ -167,7 +153,7 @@ span(title= index)
             <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_closecombatdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden skill" type="hidden" name="attr_attr_closecombatdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_closecombatdietype"></span>
+            <input class="input-hidden skill" type="hidden" name="attr_attr_closecombatdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_closecombatdietype"></span>
           </div>
           <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
             <input class="hidden" id="stamina" name="act_stamina" type="checkbox" value="1"/>
@@ -184,7 +170,7 @@ span(title= index)
             <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_staminadie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden skill" type="hidden" name="attr_attr_staminadietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_staminadietype"></span>
+            <input class="input-hidden skill" type="hidden" name="attr_attr_staminadietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_staminadietype"></span>
           </div>
           <div class="row-whole condition">
             <div class="label row-fill right">Starving</div>
@@ -207,7 +193,7 @@ span(title= index)
             <!-- Attribute die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden attribute" type="hidden" name="attr_attr_agilitydie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden attribute" type="hidden" name="attr_attr_agilitydietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_agilitydietype"></span>
+            <input class="input-hidden attribute" type="hidden" name="attr_attr_agilitydietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_agilitydietype"></span>
           </div>
           <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
             <input class="hidden" id="driving" name="act_driving" type="checkbox" value="1"/>
@@ -224,7 +210,7 @@ span(title= index)
             <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_drivingdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden skill" type="hidden" name="attr_attr_drivingdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_drivingdietype"></span>
+            <input class="input-hidden skill" type="hidden" name="attr_attr_drivingdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_drivingdietype"></span>
           </div>
           <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
             <input class="hidden" id="mobility" name="act_mobility" type="checkbox" value="1"/>
@@ -241,7 +227,7 @@ span(title= index)
             <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_mobilitydie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden skill" type="hidden" name="attr_attr_mobilitydietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_mobilitydietype"></span>
+            <input class="input-hidden skill" type="hidden" name="attr_attr_mobilitydietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_mobilitydietype"></span>
           </div>
           <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
             <input class="hidden" id="rangedcombat" name="act_rangedcombat" type="checkbox" value="1"/>
@@ -258,7 +244,7 @@ span(title= index)
             <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_rangedcombatdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden skill" type="hidden" name="attr_attr_rangedcombatdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_rangedcombatdietype"></span>
+            <input class="input-hidden skill" type="hidden" name="attr_attr_rangedcombatdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_rangedcombatdietype"></span>
           </div>
           <div class="row-whole condition">
             <div class="label row-fill right">Dehydrated</div>
@@ -281,7 +267,7 @@ span(title= index)
             <!-- Attribute die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden attribute" type="hidden" name="attr_attr_intelligencedie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden attribute" type="hidden" name="attr_attr_intelligencedietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_intelligencedietype"></span>
+            <input class="input-hidden attribute" type="hidden" name="attr_attr_intelligencedietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_intelligencedietype"></span>
           </div>
           <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
             <input class="hidden" id="recon" name="act_recon" type="checkbox" value="1"/>
@@ -298,7 +284,7 @@ span(title= index)
             <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_recondie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden skill" type="hidden" name="attr_attr_recondietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_recondietype"></span>
+            <input class="input-hidden skill" type="hidden" name="attr_attr_recondietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_recondietype"></span>
           </div>
           <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
             <input class="hidden" id="survival" name="act_survival" type="checkbox" value="1"/>
@@ -315,7 +301,7 @@ span(title= index)
             <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_survivaldie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden skill" type="hidden" name="attr_attr_survivaldietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_survivaldietype"></span>
+            <input class="input-hidden skill" type="hidden" name="attr_attr_survivaldietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_survivaldietype"></span>
           </div>
           <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
             <input class="hidden" id="tech" name="act_tech" type="checkbox" value="1"/>
@@ -332,7 +318,7 @@ span(title= index)
             <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_techdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden skill" type="hidden" name="attr_attr_techdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_techdietype"></span>
+            <input class="input-hidden skill" type="hidden" name="attr_attr_techdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_techdietype"></span>
           </div>
           <div class="row-whole condition">
             <div class="label row-fill right">Sleep Deprived</div>
@@ -355,7 +341,7 @@ span(title= index)
             <!-- Attribute die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden attribute" type="hidden" name="attr_attr_empathydie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden attribute" type="hidden" name="attr_attr_empathydietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_empathydietype"></span>
+            <input class="input-hidden attribute" type="hidden" name="attr_attr_empathydietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_empathydietype"></span>
           </div>
           <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
             <input class="hidden" id="command" name="act_command" type="checkbox" value="1"/>
@@ -372,7 +358,7 @@ span(title= index)
             <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_commanddie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden skill" type="hidden" name="attr_attr_commanddietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_commanddietype"></span>
+            <input class="input-hidden skill" type="hidden" name="attr_attr_commanddietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_commanddietype"></span>
           </div>
           <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
             <input class="hidden" id="persuasion" name="act_persuasion" type="checkbox" value="1"/>
@@ -389,7 +375,7 @@ span(title= index)
             <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_persuasiondie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden skill" type="hidden" name="attr_attr_persuasiondietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_persuasiondietype"></span>
+            <input class="input-hidden skill" type="hidden" name="attr_attr_persuasiondietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_persuasiondietype"></span>
           </div>
           <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
             <input class="hidden" id="medicalaid" name="act_medicalaid" type="checkbox" value="1"/>
@@ -406,7 +392,7 @@ span(title= index)
             <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_medicalaiddie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
-            <input class="input-hidden skill" type="hidden" name="attr_attr_medicalaiddietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_medicalaiddietype"></span>
+            <input class="input-hidden skill" type="hidden" name="attr_attr_medicalaiddietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_medicalaiddietype"></span>
           </div>
           <div class="row-whole condition">
             <div class="label row-fill right">Hypothermic</div>
@@ -421,26 +407,20 @@ span(title= index)
       <div class="row-whole"></div>
     </div>
     <div class="row-tall border-bottom-long">
-      <div class="row-tall flex-row">
-        <div class="speciality-box box">
-          <input class="input-text spec-name" value="Combat Medic"/>
-          <!--select.spec-category(name=spec-cat,value= category)
-          each val in ['Close Combat', 'Heavy Weapons', 'Stamina', 'Driving', 'Mobility', 'Ranged Combat', 'Recon', 'Survival', 'Tech', 'Command', 'Medical Aid', 'Persuasion']
-            option(value= val)= val
-          -->
-          <textarea class="spec-desc input-textarea">Gives a +1 modifier to MEDICAL AID rolls for helping an incapacitated character get back up (page 73). No effect on treating critical injuries.</textarea>
-        </div>
-        <div class="speciality-box box">
-          <input class="input-text spec-name" value="Combat Medic"/>
-          <!--select.spec-category(name=spec-cat,value= category)
-          each val in ['Close Combat', 'Heavy Weapons', 'Stamina', 'Driving', 'Mobility', 'Ranged Combat', 'Recon', 'Survival', 'Tech', 'Command', 'Medical Aid', 'Persuasion']
-            option(value= val)= val
-          -->
-          <textarea class="spec-desc input-textarea">Gives a +1 modifier to MEDICAL AID rolls for helping an incapacitated character get back up (page 73). No effect on treating critical injuries.</textarea>
-        </div>
-        <div class="speciality-box box center middle dashed">
-          <div class="center middle">+Add</div>
-        </div>
+      <div class="row-tall flex-row speciality">
+        <fieldset class="repeating_speciality">
+          <div class="speciality-box">
+            <input class="input-text spec-name" type="text" name="attr_name"/>
+            <!--select.spec-category(name=spec-cat,value= category)
+            each val in ['Close Combat', 'Heavy Weapons', 'Stamina', 'Driving', 'Mobility', 'Ranged Combat', 'Recon', 'Survival', 'Tech', 'Command', 'Medical Aid', 'Persuasion']
+              option(value= val)= val
+            -->
+            <textarea class="spec-desc input-textarea" name="attr_description"></textarea>
+          </div>
+        </fieldset>
+        <!--+speciality('Combat Medic','Medical Aid','Gives a +1 modifier to MEDICAL AID rolls for helping an incapacitated character get back up (page 73). No effect on treating critical injuries.')-->
+        <!--+speciality('Combat Medic','Medical Aid','Gives a +1 modifier to MEDICAL AID rolls for helping an incapacitated character get back up (page 73). No effect on treating critical injuries.')-->
+        <!--+speciality-add-->
       </div>
     </div>
   </div>
@@ -451,12 +431,12 @@ span(title= index)
       <!--.row-whole-nopad-->
       <div class="col-half border-right">&amp;nbsp;</div>
       <div class="row-fill border-right">&amp;nbsp;</div>
-      <div class="col-42px border-right center middle small-caps">Weight</div>
-      <div class="col-42px border-right center middle small-caps">Damage</div>
-      <div class="col-42px border-right center middle small-caps">Rating</div>
+      <div class="col-42px border-right center middle smallcaps wide">Weight</div>
+      <div class="col-42px border-right center middle smallcaps">Damage</div>
+      <div class="col-42px border-right center middle smallcaps">Rating</div>
       <!--.col-quarter Conditions-->
     </div>
-    <div class="row-tall no-pad no-marg">
+    <div class="row-tall no-pad no-marg border-bottom-long">
       <div class="col-half border-right no-pad no-marg">
         <div class="row-whole border-bottom-long height-fit-content">
           <div class="col-half row-tall border-right">
@@ -753,7 +733,7 @@ span(title= index)
               <!-- Attribute die size, e.g. 8, *calculated through sheetworker-->
               <input class="input-hidden attribute" type="hidden" name="attr_attr_cufdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
               <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
-              <input class="input-hidden attribute" type="hidden" name="attr_attr_cufdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_cufdietype"></span>
+              <input class="input-hidden attribute" type="hidden" name="attr_attr_cufdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_cufdietype"></span>
             </div>
             <div class="row-whole">
               <input class="hidden" id="cuf_unit" name="act_cuf_unit" type="checkbox" value="1"/>
@@ -768,7 +748,7 @@ span(title= index)
               <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
               <input class="input-hidden skill" type="hidden" name="attr_attr_cuf_unitdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
               <!-- Skill die type. e.g. D8, calculated through sheetworker-->
-              <input class="input-hidden skill" type="hidden" name="attr_attr_cuf_unitdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die" name="attr_cuf_unitdietype"></span>
+              <input class="input-hidden skill" type="hidden" name="attr_attr_cuf_unitdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_cuf_unitdietype"></span>
             </div>
           </div>
           <div class="col-half pad10">
@@ -786,12 +766,13 @@ span(title= index)
       <div class="col-half flex-row">
         <div class="row-whole flex-row border-bottom-long armor-box">
           <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad">
+            <input class="input-hidden" type="hidden" name="attr_armor_two_ar" value="0" hidden="hidden" readonly="readonly"/>
             <div class="label col-fifth center">Head</div>
             <div class="row-fill pad-right8">
-              <input class="input-text right" type="text" name="attr_attr_armor_two_name"/>
+              <input class="input-text right" type="text" name="attr_armor_two_name"/>
             </div>
-            <div class="armor-weight">
-              <select class="weight" name="attr_armor_attr_armor_two_name_weight" value=""> 
+            <div class="armor-weight wide">
+              <select class="weight wide" name="attr_armor_two_weight" value=""> 
                 <option value="" selected="selected" disabled="disabled" hidden="hidden"></option>
                 <option value="0.25">0.25</option>
                 <option value="0.5">0.5</option>
@@ -808,19 +789,20 @@ span(title= index)
               </select>
             </div>
             <div class="armor-damage">
-              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_two_name_damage"/>
+              <input class="input-number" type="number" max="0" min="-10" value="" name="attr_armor_two_damage"/>
             </div>
             <div class="armor-rating">
-              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_two_name_rating"/>
+              <input class="input-number" type="number" name="attr_armor_two_rating"/>
             </div>
           </div>
           <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad">
+            <input class="input-hidden" type="hidden" name="attr_armor_three_ar" value="0" hidden="hidden" readonly="readonly"/>
             <div class="label col-fifth center">Arms</div>
             <div class="row-fill pad-right8">
-              <input class="input-text right" type="text" name="attr_attr_armor_three_name"/>
+              <input class="input-text right" type="text" name="attr_armor_three_name"/>
             </div>
-            <div class="armor-weight">
-              <select class="weight" name="attr_armor_attr_armor_three_name_weight" value=""> 
+            <div class="armor-weight wide">
+              <select class="weight wide" name="attr_armor_three_weight" value=""> 
                 <option value="" selected="selected" disabled="disabled" hidden="hidden"></option>
                 <option value="0.25">0.25</option>
                 <option value="0.5">0.5</option>
@@ -837,19 +819,20 @@ span(title= index)
               </select>
             </div>
             <div class="armor-damage">
-              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_three_name_damage"/>
+              <input class="input-number" type="number" max="0" min="-10" value="" name="attr_armor_three_damage"/>
             </div>
             <div class="armor-rating">
-              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_three_name_rating"/>
+              <input class="input-number" type="number" name="attr_armor_three_rating"/>
             </div>
           </div>
           <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad">
+            <input class="input-hidden" type="hidden" name="attr_armor_one_ar" value="0" hidden="hidden" readonly="readonly"/>
             <div class="label col-fifth center">Torso</div>
             <div class="row-fill pad-right8">
-              <input class="input-text right" type="text" name="attr_attr_armor_one_name"/>
+              <input class="input-text right" type="text" name="attr_armor_one_name"/>
             </div>
-            <div class="armor-weight">
-              <select class="weight" name="attr_armor_attr_armor_one_name_weight" value=""> 
+            <div class="armor-weight wide">
+              <select class="weight wide" name="attr_armor_one_weight" value=""> 
                 <option value="" selected="selected" disabled="disabled" hidden="hidden"></option>
                 <option value="0.25">0.25</option>
                 <option value="0.5">0.5</option>
@@ -866,19 +849,20 @@ span(title= index)
               </select>
             </div>
             <div class="armor-damage">
-              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_one_name_damage"/>
+              <input class="input-number" type="number" max="0" min="-10" value="" name="attr_armor_one_damage"/>
             </div>
             <div class="armor-rating">
-              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_one_name_rating"/>
+              <input class="input-number" type="number" name="attr_armor_one_rating"/>
             </div>
           </div>
           <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad">
+            <input class="input-hidden" type="hidden" name="attr_armor_four_ar" value="0" hidden="hidden" readonly="readonly"/>
             <div class="label col-fifth center">Legs</div>
             <div class="row-fill pad-right8">
-              <input class="input-text right" type="text" name="attr_attr_armor_four_name"/>
+              <input class="input-text right" type="text" name="attr_armor_four_name"/>
             </div>
-            <div class="armor-weight">
-              <select class="weight" name="attr_armor_attr_armor_four_name_weight" value=""> 
+            <div class="armor-weight wide">
+              <select class="weight wide" name="attr_armor_four_weight" value=""> 
                 <option value="" selected="selected" disabled="disabled" hidden="hidden"></option>
                 <option value="0.25">0.25</option>
                 <option value="0.5">0.5</option>
@@ -895,10 +879,10 @@ span(title= index)
               </select>
             </div>
             <div class="armor-damage">
-              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_four_name_damage"/>
+              <input class="input-number" type="number" max="0" min="-10" value="" name="attr_armor_four_damage"/>
             </div>
             <div class="armor-rating">
-              <input class="input-number" type="number" name="attr_attr_armor_attr_armor_four_name_rating"/>
+              <input class="input-number" type="number" name="attr_armor_four_rating"/>
             </div>
           </div>
           <!--.col-half.flex-row.border-right
@@ -1183,67 +1167,112 @@ span(title= index)
         </div>
       </div>
     </div>
-    <div class="weapons-row"> 
+    <div class="weapons-row no-pad"> 
       <!--.row-tall.border-bottom-long.background-tan-->
       <!--  .col-full Weapons-->
       <div class="row-tall row-100pc border-bottom-long background-tan">
-        <div class="col-3-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">WEAPONS</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">TYPE</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">AMMO</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">REL</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">RDF</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">DAMAGE</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">CRIT</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">BLAST</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">RANGE</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pa middle center h-2-5em">MAG</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">ARMOR</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">WEIGHT</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">SPENT</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">ROLL</div>
+        <div class="col-sixth border-right background-tan no-pad middle center h-2-5em">WEAPONS</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em xwide">TYPE</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em">AMMO</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em narrow">REL</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em narrow">ROF</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em">DAMAGE</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em narrow">CRIT</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em narrow">BLAST</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em">RANGE</div>
+        <div class="col-14th border-right background-tan smallcaps no-pa middle center h-2-5em">MAG</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em wide">ARMOR</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em wide">WEIGHT</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em">SPENT</div>
+        <div class="col-14th background-tan smallcaps no-pad middle center h-2-5em">ROLL</div>
       </div>
       <fieldset class="repeating_weapons">
         <div class="row-tall row-100pc border-bottom-long">
-          <div class="col-3-14th border-bottom-short border-right no-pad middle center h-2-5em">
+          <div class="col-sixth border-right no-pad middle center h-2-5em">
             <input class="input-text" type="text" name="attr_name"/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em"> 
-            <input class="input-text" type="text" name="attr_type"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em xwide"> 
+            <select class="weapontype xwide" name="attr_type"> 
+              <option value="Unarmed">Unarmed</option>
+              <option value="Melee">Melee</option>
+              <option value="Bow">Bow</option>
+              <option value="Thrown">Thrown</option>
+              <option value="Grenade">Grenade</option>
+              <option value="Revolver">Revolver</option>
+              <option value="Pistol">Pistol</option>
+              <option value="SMG">SMG</option>
+              <option value="Hunting">Hunting</option>
+              <option value="Shotgun">Shotgun</option>
+              <option value="Carbine">Carbine</option>
+              <option value="AR">AR</option>
+              <option value="Battle Rifle">Battle Rifle</option>
+              <option value="Sniper">Sniper</option>
+              <option value="LMG">LMG</option>
+              <option value="GPMG">GPMG</option>
+              <option value="HMG">HMG</option>
+              <option value="GL">GL</option>
+              <option value="RL">RL</option>
+              <option value="ATRL">ATRL</option>
+              <option value="ATGM">ATGM</option>
+            </select>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em"> 
-            <input class="input-text" type="text" name="attr_ammo"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em"> 
+            <input class="input-text center" type="text" name="attr_ammo"/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_rel"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em narrow">
+            <input class="input-number narrow" type="number" name="attr_rel" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_rof"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em narrow">
+            <input class="input-number narrow" type="number" name="attr_rof" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_damage"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em">
+            <input class="input-number narrow" type="number" name="attr_damage" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_crit"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em narrow">
+            <input class="input-number narrow" type="number" name="attr_crit" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_blast"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em narrow">
+            <input class="input-number narrow" type="number" name="attr_blast" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pa middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_range"/>
+          <div class="col-14th border-right no-pa middle center h-2-5em">
+            <input class="input-number narrow" type="number" name="attr_range" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_magazine"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em">
+            <input class="input-number narrow" type="number" name="attr_magazine" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_armor"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em wide">
+            <select class="armormod wide" name="attr_armor" value="0"> 
+              <option value="+3">+3</option>
+              <option value="+2">+2</option>
+              <option value="+1">+1</option>
+              <option value="0">0</option>
+              <option value="-1">-1</option>
+              <option value="-2">-2</option>
+              <option value="-3">-3</option>
+            </select>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_weight"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em wide">
+            <select class="weight wide" name="attr_weight" value="1"> 
+              <option value="0.25">0.25</option>
+              <option value="0.5">0.5</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_spent"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em">
+            <input class="input-number narrow" type="number" name="attr_spent" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">t</div>
+          <div class="col-14th no-pad middle center h-2-5em"> 
+            <button class="custom-roll attribute-button" type="roll" name="roll_rawdice" value="&amp;{template:t2k} {{character-name=@{character_name} }} {{roll-name=@{name} }} {{roll-die-one=[[1d@{rawdie1}]] }} {{roll-die-two=[[1d@{rawdie2}]] }} {{roll-one-type=[[@{rawdie1}]]}} {{roll-two-type=[[@{rawdie2}]]}} {{ammo-dice=[[@{rawammo}]] }} {{ammo-roll-one=[[1d6]] }} {{ammo-roll-two=[[1d6]] }} {{ammo-roll-three=[[1d6]] }} {{ammo-roll-four=[[1d6]] }} {{ammo-roll-five=[[1d6]] }} {{ammo-roll-six=[[1d6]] }} {{current-crit=@{weapon_one_crit} }} {{current-damage=@{weapon_one_damage} }} {{current-range=@{weapon_one_range} }}"></button>
+          </div>
         </div>
       </fieldset>
     </div>
@@ -1254,47 +1283,52 @@ span(title= index)
     .col-third.border-right Backpack
     .col-third Tiny items 
     -->
-    <div class="row-tall border-bottom-long background-tan row-100pc">
-      <div class="col-third">
-        <div class="row">
-          <div class="label-caps">Combat Encumbrance</div><span class="input-text" name="attr_combatgear_total"></span>
-        </div>
-        <div class="row">
-          <div class="label-caps">Weapon Encumbrance</div><span class="input-text" name="attr_weaponweight_total"></span>
-        </div>
-        <div class="row">
-          <div class="label-caps">Combat Carry Limit</div><span class="input-text" name="attr_carry_limit"></span>
-        </div>
-      </div>
-      <div class="col-third">
-        <div class="row">
-          <div class="label-caps">Backpack Encumbrance</div><span class="input-text" name="attr_backpack_total"></span>
-        </div>
-        <div class="row">
-          <div class="label-caps">Backpack Carry Limit</div><span class="input-text" name="attr_carry_limit_backpack"></span>
+    <div class="row-whole border-bottom-long row-100pc no-pad encumbrance">
+      <div class="col-third no-pad">
+        <!--+encumbrance-line('Combat Encumbrance','combatgear_total')-->
+        <!--+encumbrance-line('Armor Encumbrance','armorweight_total')-->
+        <!--+encumbrance-line('Weapon Encumbrance','weaponweight_total')-->
+        <div class="row-whole border-right">
+          <!--.col-threefifth.middle-->
+          <div class="col-threequarter border-right"><span class="label-caps">Combat Carry Limit</span></div>
+          <!--.col-fifth.box.h-2-5em-->
+          <div class="col-quarter">
+            <input class="input-hidden" type="hidden" name="attr_carrycap_total" value="0" hidden="hidden" readonly="readonly"/><span class="input-number noborder noshadow" name="attr_carrycap_total"> </span><span class="input-number slash noborder noshadow h-2-5em no-marg">/</span><span class="input-number noborder noshadow border-right" name="attr_carry_limit"> </span>
+          </div>
         </div>
       </div>
-      <div class="col-third"></div>
+      <div class="col-third no-pad">
+        <!--+encumbrance-line('Backpack Encumbrance','backpack_total')-->
+        <div class="row-whole border-right">
+          <!--.col-threefifth.middle-->
+          <div class="col-threequarter border-right"><span class="label-caps">Backpack Carry Limit</span></div>
+          <!--.col-fifth.box.h-2-5em-->
+          <div class="col-quarter">
+            <input class="input-hidden" type="hidden" name="attr_carrycap_total" value="0" hidden="hidden" readonly="readonly"/><span class="input-number noborder noshadow" name="attr_backpack_total"> </span><span class="input-number slash noborder noshadow h-2-5em no-marg">/</span><span class="input-number noborder noshadow border-right" name="attr_carry_limit_backpack"> </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-third no-pad"></div>
     </div>
     <div class="row-tall border-bottom-long background-tan">
       <div class="col-third no-pad">
         <div class="row-tall row-100pc no-pad">
-          <div class="col-twothird border-bottom-short border-right background-tan no-pad middle center h-2-5em">Combat Gear</div>
-          <div class="col-sixth border-bottom-short border-right background-tan no-pad middle center h-2-5em">Wt</div>
+          <div class="col-fill border-bottom-short border-right background-tan no-pad middle center h-2-5em label-caps">Combat Gear</div>
+          <div class="col-sixth border-bottom-short border-right background-tan no-pad middle center h-2-5em wide">Weight</div>
           <div class="col-sixth border-bottom-short border-right background-tan no-pad middle center h-2-5em">#</div>
         </div>
       </div>
       <div class="col-third no-pad">
         <div class="row-tall row-100pc no-pad">
-          <div class="col-twothird border-bottom-short border-right background-tan no-pad middle center h-2-5em">Backback</div>
-          <div class="col-sixth border-bottom-short border-right background-tan no-pad middle center h-2-5em">Wt</div>
+          <div class="col-fill border-bottom-short border-right background-tan no-pad middle center h-2-5em label-caps">Backback</div>
+          <div class="col-sixth border-bottom-short border-right background-tan no-pad middle center h-2-5em wide">Weight</div>
           <div class="col-sixth border-bottom-short border-right background-tan no-pad middle center h-2-5em">#</div>
         </div>
       </div>
       <div class="col-third no-pad">
         <div class="row-tall row-100pc no-pad">
-          <div class="col-threequarter border-bottom-short border-right background-tan no-pad middle center h-2-5em">Tiny Items</div>
-          <div class="col-quarter border-bottom-short border-right background-tan no-pad middle center h-2-5em">#</div>
+          <div class="col-fourfifth border-bottom-short border-right background-tan no-pad middle center h-2-5em label-caps">Tiny Items</div>
+          <div class="col-fifth border-bottom-short border-right background-tan no-pad middle center h-2-5em">#</div>
         </div>
       </div>
     </div>
@@ -1326,12 +1360,12 @@ span(title= index)
           .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 0.25
           .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 5
           -->
-          <div class="row-tall row-100pc no-pad">
-            <div class="col-twothird border-bottom-short border-right no-pad middle center h-2-5em"> 
-              <input class="input-text gear-name" type="text" name="attr_name"/>
+          <div class="row-tall row-100pc no-pad border-top-sectioned">
+            <div class="col-fill border-right no-pad middle center h-2-5em"> 
+              <input class="input-text gear-name center" type="text" name="attr_name"/>
             </div>
-            <div class="col-sixth border-bottom-short border-right no-pad middle center h-2-5em">
-              <select class="weight" name="attr_weight" value="1">
+            <div class="col-sixth border-right no-pad middle center h-2-5em wide">
+              <select class="weight wide" name="attr_weight" value="1">
                 <option value="0.25">0.25</option>
                 <option value="0.5">0.5</option>
                 <option value="1">1</option>
@@ -1346,7 +1380,7 @@ span(title= index)
                 <option value="10">10</option>
               </select>
             </div>
-            <div class="col-sixth border-bottom-short border-right no-pad middle center h-2-5em"> 
+            <div class="col-sixth border-right no-pad middle center h-2-5em"> 
               <input class="input-number" type="number" name="attr_amount" value="1"/>
             </div>
           </div>
@@ -1369,12 +1403,12 @@ span(title= index)
           .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 0.25
           .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
           -->
-          <div class="row-tall row-100pc no-pad">
-            <div class="col-twothird border-bottom-short border-right no-pad middle center h-2-5em"> 
-              <input class="input-text gear-name" type="text" name="attr_name"/>
+          <div class="row-tall row-100pc no-pad border-top-sectioned">
+            <div class="col-fill border-right no-pad middle center h-2-5em"> 
+              <input class="input-text gear-name center" type="text" name="attr_name"/>
             </div>
-            <div class="col-sixth border-bottom-short border-right no-pad middle center h-2-5em">
-              <select class="weight" name="attr_weight" value="1">
+            <div class="col-sixth border-right no-pad middle center h-2-5em wide">
+              <select class="weight wide" name="attr_weight" value="1">
                 <option value="0.25">0.25</option>
                 <option value="0.5">0.5</option>
                 <option value="1">1</option>
@@ -1389,7 +1423,7 @@ span(title= index)
                 <option value="10">10</option>
               </select>
             </div>
-            <div class="col-sixth border-bottom-short border-right no-pad middle center h-2-5em"> 
+            <div class="col-sixth border-right no-pad middle center h-2-5em"> 
               <input class="input-number" type="number" name="attr_amount" value="1"/>
             </div>
           </div>
@@ -1414,11 +1448,11 @@ span(title= index)
           .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 550
           -->
           <div class="row-tall row-100pc no-pad">
-            <div class="col-threequarter border-bottom-short border-right no-pad middle center h-2-5em"> 
-              <input class="input-text gear-name" name="attr_name"/>
+            <div class="col-fourfifth border-bottom-short border-right no-pad middle center h-2-5em"> 
+              <input class="input-text gear-name center" type="text" name="attr_name"/>
             </div>
-            <div class="col-quarter border-bottom-short border-right no-pad middle center h-2-5em"> 
-              <input class="input-number" name="attr_amount"/>
+            <div class="col-fifth border-bottom-short border-right no-pad middle center h-2-5em"> 
+              <input class="input-number" type="number" name="attr_amount"/>
             </div>
           </div>
         </fieldset>
@@ -1478,67 +1512,112 @@ span(title= index)
         </div>
       </div>
     </div>
-    <div class="weapons-row"> 
+    <div class="vehicleweapons-row"> 
       <!--.row-tall.border-bottom-long.background-tan-->
       <!--  .col-full Weapons-->
       <div class="row-tall row-100pc border-bottom-long background-tan">
-        <div class="col-3-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">WEAPONS</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">TYPE</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">AMMO</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">REL</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">RDF</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">DAMAGE</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">CRIT</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">BLAST</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">RANGE</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pa middle center h-2-5em">MAG</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">ARMOR</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">WEIGHT</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">SPENT</div>
-        <div class="col-14th border-bottom-short border-right background-tan no-pad middle center h-2-5em">ROLL</div>
+        <div class="col-sixth border-right background-tan no-pad middle center h-2-5em">WEAPONS</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em xwide">TYPE</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em">AMMO</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em narrow">REL</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em narrow">ROF</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em">DAMAGE</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em narrow">CRIT</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em narrow">BLAST</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em">RANGE</div>
+        <div class="col-14th border-right background-tan smallcaps no-pa middle center h-2-5em">MAG</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em wide">ARMOR</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em wide">WEIGHT</div>
+        <div class="col-14th border-right background-tan smallcaps no-pad middle center h-2-5em">SPENT</div>
+        <div class="col-14th background-tan smallcaps no-pad middle center h-2-5em">ROLL</div>
       </div>
       <fieldset class="repeating_vehicleweapons">
         <div class="row-tall row-100pc border-bottom-long">
-          <div class="col-3-14th border-bottom-short border-right no-pad middle center h-2-5em">
+          <div class="col-sixth border-right no-pad middle center h-2-5em">
             <input class="input-text" type="text" name="attr_name"/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em"> 
-            <input class="input-text" type="text" name="attr_type"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em xwide"> 
+            <select class="weapontype xwide" name="attr_type"> 
+              <option value="Unarmed">Unarmed</option>
+              <option value="Melee">Melee</option>
+              <option value="Bow">Bow</option>
+              <option value="Thrown">Thrown</option>
+              <option value="Grenade">Grenade</option>
+              <option value="Revolver">Revolver</option>
+              <option value="Pistol">Pistol</option>
+              <option value="SMG">SMG</option>
+              <option value="Hunting">Hunting</option>
+              <option value="Shotgun">Shotgun</option>
+              <option value="Carbine">Carbine</option>
+              <option value="AR">AR</option>
+              <option value="Battle Rifle">Battle Rifle</option>
+              <option value="Sniper">Sniper</option>
+              <option value="LMG">LMG</option>
+              <option value="GPMG">GPMG</option>
+              <option value="HMG">HMG</option>
+              <option value="GL">GL</option>
+              <option value="RL">RL</option>
+              <option value="ATRL">ATRL</option>
+              <option value="ATGM">ATGM</option>
+            </select>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em"> 
-            <input class="input-text" type="text" name="attr_ammo"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em"> 
+            <input class="input-text center" type="text" name="attr_ammo"/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_rel"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em narrow">
+            <input class="input-number narrow" type="number" name="attr_rel" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_rof"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em narrow">
+            <input class="input-number narrow" type="number" name="attr_rof" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_damage"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em">
+            <input class="input-number narrow" type="number" name="attr_damage" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_crit"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em narrow">
+            <input class="input-number narrow" type="number" name="attr_crit" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_blast"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em narrow">
+            <input class="input-number narrow" type="number" name="attr_blast" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pa middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_range"/>
+          <div class="col-14th border-right no-pa middle center h-2-5em">
+            <input class="input-number narrow" type="number" name="attr_range" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_magazine"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em">
+            <input class="input-number narrow" type="number" name="attr_magazine" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_armor"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em wide">
+            <select class="armormod wide" name="attr_armor" value="0"> 
+              <option value="+3">+3</option>
+              <option value="+2">+2</option>
+              <option value="+1">+1</option>
+              <option value="0">0</option>
+              <option value="-1">-1</option>
+              <option value="-2">-2</option>
+              <option value="-3">-3</option>
+            </select>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_weight"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em wide">
+            <select class="weight wide" name="attr_weight" value="1"> 
+              <option value="0.25">0.25</option>
+              <option value="0.5">0.5</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">
-            <input class="input-number" type="number" name="attr_spent"/>
+          <div class="col-14th border-right no-pad middle center h-2-5em">
+            <input class="input-number narrow" type="number" name="attr_spent" min="0" max=""/>
           </div>
-          <div class="col-14th border-bottom-short border-right no-pad middle center h-2-5em">t</div>
+          <div class="col-14th no-pad middle center h-2-5em"> 
+            <button class="custom-roll attribute-button" type="roll" name="roll_rawdice" value="&amp;{template:t2k} {{character-name=@{character_name} }} {{roll-name=@{name} }} {{roll-die-one=[[1d@{rawdie1}]] }} {{roll-die-two=[[1d@{rawdie2}]] }} {{roll-one-type=[[@{rawdie1}]]}} {{roll-two-type=[[@{rawdie2}]]}} {{ammo-dice=[[@{rawammo}]] }} {{ammo-roll-one=[[1d6]] }} {{ammo-roll-two=[[1d6]] }} {{ammo-roll-three=[[1d6]] }} {{ammo-roll-four=[[1d6]] }} {{ammo-roll-five=[[1d6]] }} {{ammo-roll-six=[[1d6]] }} {{current-crit=@{weapon_one_crit} }} {{current-damage=@{weapon_one_damage} }} {{current-range=@{weapon_one_range} }}"></button>
+          </div>
         </div>
         <!--.row-tall.row-100pc.border-bottom-long
         .col-3-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em M16
@@ -1573,6 +1652,7 @@ span(title= index)
       .col-third.border-right Combat Gear
       .col-third.border-right Backpack
       .col-third Tiny items 
+      
       -->
       <div class="row-tall border-bottom-long">
         <div class="col-third no-pad">
@@ -1586,12 +1666,12 @@ span(title= index)
       <div class="row-tall border-bottom-long">
         <div class="col-third no-pad">
           <fieldset class="repeating_vehiclegear">
-            <div class="row-tall row-100pc no-pad">
-              <div class="col-twothird border-bottom-short border-right no-pad middle center h-2-5em"> 
-                <input class="input-text gear-name" type="text" name="attr_name"/>
+            <div class="row-tall row-100pc no-pad border-top-sectioned">
+              <div class="col-fill border-right no-pad middle center h-2-5em"> 
+                <input class="input-text gear-name center" type="text" name="attr_name"/>
               </div>
-              <div class="col-sixth border-bottom-short border-right no-pad middle center h-2-5em">
-                <select class="weight" name="attr_weight" value="1">
+              <div class="col-sixth border-right no-pad middle center h-2-5em wide">
+                <select class="weight wide" name="attr_weight" value="1">
                   <option value="0.25">0.25</option>
                   <option value="0.5">0.5</option>
                   <option value="1">1</option>
@@ -1606,7 +1686,7 @@ span(title= index)
                   <option value="10">10</option>
                 </select>
               </div>
-              <div class="col-sixth border-bottom-short border-right no-pad middle center h-2-5em"> 
+              <div class="col-sixth border-right no-pad middle center h-2-5em"> 
                 <input class="input-number" type="number" name="attr_amount" value="1"/>
               </div>
             </div>
@@ -1615,6 +1695,7 @@ span(title= index)
       </div>
     </div>
   </div>
+  <div class="stockpile"></div>
   <div class="notes"></div>
   <div class="action">
     <label>This is a test</label>
@@ -1796,16 +1877,17 @@ on('change:', function() {
 
 
   /* ===== PARAMETERS ==========
-  GiGs 'Super Simple Summarizer'
+  GiGs 'Super Simple Summarizer', modified so that you need to include "repeating_" in the name of the section, 
+  which allows to use it for any indexed attribute series with the format [name]_[id]_[field] -- NOT WORKING
   */
  const repeatingSum = (destination, section, fields, multiplier = 1) => {
   if (!Array.isArray(fields)) fields = [fields];
-  getSectionIDs(`repeating_${section}`, (idArray) => {
-    const attrArray = idArray.reduce((m, id) => [...m, ...fields.map((field) => `repeating_${section}_${id}_${field}`)], []);
+  getSectionIDs(`${section}`, (idArray) => {
+    const attrArray = idArray.reduce((m, id) => [...m, ...fields.map((field) => `${section}_${id}_${field}`)], []);
     getAttrs(attrArray, (v) => {
       console.log("values of v: " + JSON.stringify(v));
       // getValue: if not a number, returns 1 if it is 'on' (checkbox), otherwise returns 0..
-      const getValue = (section, id, field) => parseFloat(v[`repeating_${section}_${id}_${field}`]) || (v[`repeating_${section}_${id}_${field}`] === "on" ? 1 : 0);
+      const getValue = (section, id, field) => parseFloat(v[`${section}_${id}_${field}`]) || (v[`${section}_${id}_${field}`] === "on" ? 1 : 0);
 
       const sumTotal = idArray.reduce((total, id) => total + fields.reduce((subtotal, field) => subtotal * getValue(section, id, field), 1), 0);
       setAttrs({
@@ -1818,29 +1900,80 @@ on('change:', function() {
 /* combat gear encumbrance */
 on("change:repeating_combatgear remove:repeating_combatgear sheet:opened", () => {
  console.log("Change Detected: Combat Gear Encumbrance");
- repeatingSum("combatgear_total", "combatgear", ["weight", "amount"]);
+ repeatingSum("combatgear_total", "repeating_combatgear", ["weight", "amount"]);
 });
 
 /* weapon encumbrance */
 on("change:repeating_weapons remove:repeating_weapons sheet:opened", () => {
  console.log("Change Detected: Weapon Encumbrance");
- repeatingSum("weaponweight_total", "weapons", ["weight"]);
+ repeatingSum("weaponweight_total", "repeating_weapons", ["weight"]);
+});
+
+/* armor encumbrance */
+const armorrating = [["armor_one","armor_one_rating","armor_one_damage"],["armor_two","armor_two_rating","armor_two_damage"],["armor_three","armor_three_rating","armor_three_damage"],["armor_four","armor_four_rating","armor_four_damage"]];
+const armorweight = ["armor_one_weight","armor_two_weight","armor_three_weight","armor_four_weight"];
+armorrating.forEach( (item) => {
+  //console.log("Making sheet worker: "+JSON.stringify(item));  
+  on(`change:${item[1]} change:${item[2]}`, () => { // Removed sheet:opened
+    getAttrs(item, (values) => {
+      //console.log("Change Detected: Armor Rating: "+JSON.stringify(item));
+      //console.log("Change Detected: Armor Rating rating: "+parseInt(values[item[1]]));
+      //console.log("Change Detected: Armor Rating damage: "+parseInt(values[item[2]]));
+      const rating = parseInt(values[item[1]]),
+      damage = parseInt(values[item[2]]),
+      dmgadj = damage < -rating ? -rating : damage,
+      ar = Math.max(rating + damage,0), 
+      attr = item[0]+"_ar";
+      console.log("Change Detected: Armor Rating: "+attr+" "+ar+" and damage "+dmgadj);
+      setAttrs({[attr]: ar,
+                [item[2]]: dmgadj},false);
+      });
+   });
+});
+
+armorweight.forEach(item => {
+  on(`change:${item} remove:${item} sheet:opened`, () => {
+    console.log("Change Detected: Armor Encumbrance: "+JSON.stringify(item));
+    //console.log("Armor wigths: "+`${armorweight}`);
+    getAttrs(armorweight, (values) => {
+      //console.log("Armor weigths: "+ parseFloat(values.armor_one_weight) +" "+ parseFloat(values.armor_two_weight) +" "+ parseFloat(values.armor_three_weight) +" "+ parseFloat(values.armor_four_weight));
+      //console.log("Armor weigths by index: "+ parseFloat(values[0]) +" "+ parseFloat(values[1]) +" "+ parseFloat(values[2]) +" "+ parseFloat(values[3]));
+      const sum = _.reduce(values, (m,n) => {return parseFloat(m||0)+parseFloat(n||0)}, values[0]);
+      //console.log("Armor weigth sum: "+ sum);
+      //const sum = parseInt(values[0]) + parseInt(values[1]) + parseInt(values[2]) + parseInt(values[3]);
+      setAttrs({armorweight_total: sum});
+    });
+   });
+});
+
+/* Total carry encumbrance */
+on("change:armorweight_total change:combatgear_total change:weaponweight_total sheet:opened", function () {
+  console.log("Change Detected: Total Gear Encumbrance");
+  getAttrs(["armorweight_total","combatgear_total","weaponweight_total","carrycap_total"], (values) => {
+    console.log("Change Detected: Total Gear Encumbrance : "+JSON.stringify(values));
+    const armor = parseFloat(values.armorweight_total),
+    combat = parseFloat(values.combatgear_total),
+    weapon = parseFloat(values.weaponweight_total),
+    total = parseFloat(armor+combat+weapon);
+    console.log("Change Detected: Carrycap_total : "+total);
+    setAttrs({carrycap_total: total});
+  });
 });
 
 /* backpack encumbrance */
 on("change:repeating_backpack remove:repeating_backpack sheet:opened", function () {
   console.log("Change Detected: Backpack Gear Encumbrance");
-  repeatingSum("backpack_total", "backpack", ["weight", "amount"]);
+  repeatingSum("backpack_total", "repeating_backpack", ["weight", "amount"]);
 });
 
 /* vehicle encumbrance */
 on("change:repeating_vehiclegear remove:repeating_vehiclegear sheet:opened", () => {
   console.log("Change Detected: vehicle Gear Encumbrance");
-  repeatingSum("vehiclegear_total", "vehiclegear", ["weight", "amount"]);
+  repeatingSum("vehiclegear_total", "repeating_vehiclegear", ["weight", "amount"]);
 });
 
 
-const buttonlist = ["basic","attributes","weapons","combat","gear","vehicle","notes"];
+const buttonlist = ["basic","attributes","weapons","combat","action","gear","vehicle","notes","stockpile"];
 buttonlist.forEach(button => {
     on(`clicked:${button}`, function(eventInfo) {
       console.log(JSON.stringify(eventInfo));
