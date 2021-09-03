@@ -1,7 +1,7 @@
 .repcontainer, .repitem {
     padding-left: 0;
   }
-  .repcontrol_add, .repcontrol_edit {
+  /*.repcontrol_add, .repcontrol_edit {
     float: right;
     margin-top: 4px;
     margin-right: 2px;
@@ -9,4 +9,77 @@
     background: $primary;
     border: solid 1px $secondary;
     box-shadow: 0px 0px 10px #808080;
+  } 
+  .speciality .repcontrol_add {
+    @extend %input-box;
+    margin: 4px;
+    max-width: 200px;
+    min-width: 185px;;
+    min-height: 135px;
+    max-height: 135px;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    color: $primary;
+  } */
+  .speciality .repcontrol {
+    align-self: flex-start;
+    position: absolute;
+    right: 55px;
+    margin-top: -35px;
+  }
+  .repcontrol_add, .repcontrol_edit { /* , .speciality .repcontrol_move, .speciality .repcontrol_del */
+    -opacity: 0;
+    visibility: hidden;
+    width: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .repcontrol_add::before, .repcontrol_edit::before { /* , .speciality .repcontrol_move::before, .speciality .repcontrol_del::before */
+    -opacity: 1;
+    visibility:visible; 
+    color: $primary;
+    -margin-left: -35px;
+    font-family: "Pictos";
+  } 
+   .repcontrol_add::before {
+    content: "&";
+  }
+  .repcontrol_edit::before {
+    -position: relative;
+    -opacity: 1;
+    -visibility:visible; 
+    -color: $primary;
+    -top: 15px;
+    -margin-left: -38px;
+    -font-family: "Pictos";
+    content: "(";
+  } 
+  .repcontrol_add, .repcontrol_edit {
+    @extend %checked-box-greyish;
+    float: right;
+  }
+  .repcontrol_move {
+    @extend %checked-box-greyish;
+    float: right;
+    -position: relative;
+    -opacity: 1;
+    -visibility:visible; 
+    -color: $primary;
+    -top: 15px;
+    -margin-left: -38px;
+    -font-family: "Pictos";
+    -content: "(";
+  } 
+  .repcontrol_del  {
+    @extend %checked-box-greyish;
+  }
+  .repcontainer.editmode ~ .repcontrol button.repcontrol_edit::before {
+    font-family: "Pictos";
+    content: ")";
+  }
+  .speciality .repcontainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
   }

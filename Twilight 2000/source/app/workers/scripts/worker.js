@@ -18,16 +18,17 @@ on('change:', function() {
 
 
   /* ===== PARAMETERS ==========
-  GiGs 'Super Simple Summarizer'
+  GiGs 'Super Simple Summarizer', modified so that you need to include "repeating_" in the name of the section, 
+  which allows to use it for any indexed attribute series with the format [name]_[id]_[field] -- NOT WORKING
   */
  const repeatingSum = (destination, section, fields, multiplier = 1) => {
   if (!Array.isArray(fields)) fields = [fields];
-  getSectionIDs(`repeating_${section}`, (idArray) => {
-    const attrArray = idArray.reduce((m, id) => [...m, ...fields.map((field) => `repeating_${section}_${id}_${field}`)], []);
+  getSectionIDs(`${section}`, (idArray) => {
+    const attrArray = idArray.reduce((m, id) => [...m, ...fields.map((field) => `${section}_${id}_${field}`)], []);
     getAttrs(attrArray, (v) => {
       console.log("values of v: " + JSON.stringify(v));
       // getValue: if not a number, returns 1 if it is 'on' (checkbox), otherwise returns 0..
-      const getValue = (section, id, field) => parseFloat(v[`repeating_${section}_${id}_${field}`]) || (v[`repeating_${section}_${id}_${field}`] === "on" ? 1 : 0);
+      const getValue = (section, id, field) => parseFloat(v[`${section}_${id}_${field}`]) || (v[`${section}_${id}_${field}`] === "on" ? 1 : 0);
 
       const sumTotal = idArray.reduce((total, id) => total + fields.reduce((subtotal, field) => subtotal * getValue(section, id, field), 1), 0);
       setAttrs({
@@ -40,29 +41,80 @@ on('change:', function() {
 /* combat gear encumbrance */
 on("change:repeating_combatgear remove:repeating_combatgear sheet:opened", () => {
  console.log("Change Detected: Combat Gear Encumbrance");
- repeatingSum("combatgear_total", "combatgear", ["weight", "amount"]);
+ repeatingSum("combatgear_total", "repeating_combatgear", ["weight", "amount"]);
 });
 
 /* weapon encumbrance */
 on("change:repeating_weapons remove:repeating_weapons sheet:opened", () => {
  console.log("Change Detected: Weapon Encumbrance");
- repeatingSum("weaponweight_total", "weapons", ["weight"]);
+ repeatingSum("weaponweight_total", "repeating_weapons", ["weight"]);
+});
+
+/* armor encumbrance */
+const armorrating = [["armor_one","armor_one_rating","armor_one_damage"],["armor_two","armor_two_rating","armor_two_damage"],["armor_three","armor_three_rating","armor_three_damage"],["armor_four","armor_four_rating","armor_four_damage"]];
+const armorweight = ["armor_one_weight","armor_two_weight","armor_three_weight","armor_four_weight"];
+armorrating.forEach( (item) => {
+  //console.log("Making sheet worker: "+JSON.stringify(item));  
+  on(`change:${item[1]} change:${item[2]}`, () => { // Removed sheet:opened
+    getAttrs(item, (values) => {
+      //console.log("Change Detected: Armor Rating: "+JSON.stringify(item));
+      //console.log("Change Detected: Armor Rating rating: "+parseInt(values[item[1]]));
+      //console.log("Change Detected: Armor Rating damage: "+parseInt(values[item[2]]));
+      const rating = parseInt(values[item[1]]),
+      damage = parseInt(values[item[2]]),
+      dmgadj = damage < -rating ? -rating : damage,
+      ar = Math.max(rating + damage,0), 
+      attr = item[0]+"_ar";
+      console.log("Change Detected: Armor Rating: "+attr+" "+ar+" and damage "+dmgadj);
+      setAttrs({[attr]: ar,
+                [item[2]]: dmgadj},false);
+      });
+   });
+});
+
+armorweight.forEach(item => {
+  on(`change:${item} remove:${item} sheet:opened`, () => {
+    console.log("Change Detected: Armor Encumbrance: "+JSON.stringify(item));
+    //console.log("Armor wigths: "+`${armorweight}`);
+    getAttrs(armorweight, (values) => {
+      //console.log("Armor weigths: "+ parseFloat(values.armor_one_weight) +" "+ parseFloat(values.armor_two_weight) +" "+ parseFloat(values.armor_three_weight) +" "+ parseFloat(values.armor_four_weight));
+      //console.log("Armor weigths by index: "+ parseFloat(values[0]) +" "+ parseFloat(values[1]) +" "+ parseFloat(values[2]) +" "+ parseFloat(values[3]));
+      const sum = _.reduce(values, (m,n) => {return parseFloat(m||0)+parseFloat(n||0)}, values[0]);
+      //console.log("Armor weigth sum: "+ sum);
+      //const sum = parseInt(values[0]) + parseInt(values[1]) + parseInt(values[2]) + parseInt(values[3]);
+      setAttrs({armorweight_total: sum});
+    });
+   });
+});
+
+/* Total carry encumbrance */
+on("change:armorweight_total change:combatgear_total change:weaponweight_total sheet:opened", function () {
+  console.log("Change Detected: Total Gear Encumbrance");
+  getAttrs(["armorweight_total","combatgear_total","weaponweight_total","carrycap_total"], (values) => {
+    console.log("Change Detected: Total Gear Encumbrance : "+JSON.stringify(values));
+    const armor = parseFloat(values.armorweight_total),
+    combat = parseFloat(values.combatgear_total),
+    weapon = parseFloat(values.weaponweight_total),
+    total = parseFloat(armor+combat+weapon);
+    console.log("Change Detected: Carrycap_total : "+total);
+    setAttrs({carrycap_total: total});
+  });
 });
 
 /* backpack encumbrance */
 on("change:repeating_backpack remove:repeating_backpack sheet:opened", function () {
   console.log("Change Detected: Backpack Gear Encumbrance");
-  repeatingSum("backpack_total", "backpack", ["weight", "amount"]);
+  repeatingSum("backpack_total", "repeating_backpack", ["weight", "amount"]);
 });
 
 /* vehicle encumbrance */
 on("change:repeating_vehiclegear remove:repeating_vehiclegear sheet:opened", () => {
   console.log("Change Detected: vehicle Gear Encumbrance");
-  repeatingSum("vehiclegear_total", "vehiclegear", ["weight", "amount"]);
+  repeatingSum("vehiclegear_total", "repeating_vehiclegear", ["weight", "amount"]);
 });
 
 
-const buttonlist = ["basic","attributes","weapons","combat","gear","vehicle","notes"];
+const buttonlist = ["basic","attributes","weapons","combat","action","gear","vehicle","notes","stockpile"];
 buttonlist.forEach(button => {
     on(`clicked:${button}`, function(eventInfo) {
       console.log(JSON.stringify(eventInfo));

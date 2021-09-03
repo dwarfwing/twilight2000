@@ -1,21 +1,18 @@
 // -- Tabs -- //
 
-.basic,
-.weapons,
-.combat,
-.gear,
-.vehicle,
-.notes {
+.basic, .weapons, .combat, .gear, .vehicle, .notes, .stockpile {
   display: none;
 }
 
 .tabstoggle[value="basic"] ~ div.basic,
 .tabstoggle[value="attributes"] ~ div.attributes,
 .tabstoggle[value="weapons"] ~ div.weapons,
+.tabstoggle[value="action"] ~ div.action,
 .tabstoggle[value="combat"] ~ div.combat,
 .tabstoggle[value="gear"] ~ div.gear,
 .tabstoggle[value="vehicle"] ~ div.vehicle,
-.tabstoggle[value="notes"] ~ div.notes {
+.tabstoggle[value="notes"] ~ div.notes,
+.tabstoggle[value="stockpile"] ~ div.stockpile {
   display: flex;
   flex-direction: column;
 }
@@ -24,9 +21,11 @@
 .tabstoggle[value="attributes"] ~ .main-buttons.button-attributes,
 .tabstoggle[value="weapons"] ~ .main-buttons.button-weapons,
 .tabstoggle[value="combat"] ~ .main-buttons.button-combat,
+.tabstoggle[value="action"] ~ .main-buttons.button-action,
 .tabstoggle[value="gear"] ~ .main-buttons.button-gear,
 .tabstoggle[value="vehicle"] ~ .main-buttons.button-vehicle,
-.tabstoggle[value="notes"] ~ .main-buttons.button-notes {
+.tabstoggle[value="notes"] ~ .main-buttons.button-notes,
+.tabstoggle[value="stockpile"] ~ .main-buttons.button-stockpile {
 	background-color: #877D70;
 	color: #fff;
     border: 3px solid #877D70;

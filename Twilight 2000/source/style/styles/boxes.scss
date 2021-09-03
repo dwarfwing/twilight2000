@@ -1,13 +1,23 @@
 
+.speciality {
+  width: 100%;
+  flex-wrap: nowrap;
+
+}
+.speciality .repcontainer {
+  flex-wrap: wrap;
+}
 .speciality-box {
     @extend %input-box;
     margin: 4px;
-    max-width: 24%;
-    min-width: 24%;
+    max-width: 200px;
+    min-width: 185px;;
     min-height: 135px;
     max-height: 135px;
     display: flex;
     flex-direction: column;
+    flex: 1;
+    flex-basis: 1;
     .spec-name {
       background-color: $tan;
       padding: 4px;
@@ -36,19 +46,26 @@
     @extend %border-bottom-right;
   }
   .border-bottom-short {
-    margin-top: 3px;
-    border-bottom: 1px solid $primary;
+    @extend %border-bottom-short;
+    -margin-top: 3px;
+    -border-bottom: 1px solid $primary;
   }
   .border-top-short {
     @extend %border-top;
     margin-top: 3px;
     padding-top: 5px;
   }
+  .border-top-sectioned {
+    @extend %border-top-sectioned;
+    -margin-top: 3px;
+    -padding-top: 4px;
+  }
   .noborder { border: none !important; }
   .noshadow { box-shadow: none !important; }
   .separator { margin: 2px; padding: 0; }
-  .no-marg {   margin: 0; }
-  .no-pad {   padding: 0; }
+  .slash { padding: 0; min-width: unset; width: unset; margin: 2px; }
+  .no-marg {   margin: 0 !important; }
+  .no-pad {   padding: 0 !important; }
   .pad3 {   padding: 3px; }
   .pad5 {   padding: 5px; }
   .pad8 {   padding: 8px; }
@@ -63,12 +80,60 @@
   .height-margs3 { margin-top: 3px; margin-bottom: 3px;}
   .height-margs5 { margin-top: 5px; margin-bottom: 5px;}
   .height-margs8 { margin-top: 8px; margin-bottom: 8px;}
+  .height-bot-margs8 { margin-bottom: 8px !important;}
+  .height-bot-pads8 { padding-bottom: 8px !important;}
   .height-fit-content { height: fit-content; }
   .height-fill-avail { height: -webkit-fill-available; }
+  .weapons-row .narrow, .vehicleweapons-row .narrow { width: 46px; min-width: 46px; }
+  .weapons-row input.narrow,.vehicleweapons-row input.narrow { width: 42px; min-width: 42px; }
+  .weapons-row .wide, .vehicleweapons-row .wide, .combat .wide, .gear .wide { width: 57px; min-width: 57px; }
+  .weapons-row input.wide, .vehicleweapons-row input.wide, .combat input.wide , .gear input.wide { width: 53px; min-width: 53px; }
+  .weapons-row .xwide, .vehicleweapons-row .xwide { width: 87px; min-width: 87px; }
+  .weapons-row input.xwide, .vehicleweapons-row input.xwide { width: 83px; min-width: 83px; }
+  .weapons-row input[type="number"], .weapons-row input[type="text"], .weapons-row select,
+    .vehicleweapons-row input[type="number"], .vehicleweapons-row input[type="text"], .vehicleweapons-row select {
+      -font-family: $font-selection;
+      -color: $primary;
+      font-family: $font-input;
+      color: $dark-font;
+      -appearance:initial;
+      border: none;
+      box-shadow: unset;
+  } 
+  .encumbrance span.input-number {
+    width: unset;
+    min-width: unset;
+    -height: 22px;
+    align-items: unset;
+    min-height: unset;
+    padding-top: 0;
+  }
+  .encumbrance div.col-half, .encumbrance div.col-third, .encumbrance div.col-quarter, .encumbrance div.col-twothird, .encumbrance div.col-threequarter {
+    height: 30px;
+    padding: unset;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    line-height: 1.2em;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-end; 
+  } 
+  .encumbrance div.col-third, .encumbrance div.col-quarter {
+    padding-right: 0;
+    padding-left: 0;
+    justify-content: center;
+  }
   .middle {
     align-items: center;
     align-content: center;
     align-self: center;
+  }
+  .top {
+    align-items: flex-start;
+    align-content:flex-start;
+    align-self: flex-start;
   }
   .bottom {
     align-items: flex-end;
@@ -79,6 +144,7 @@
     justify-content: center;
     justify-self: center;
     justify-items: center;
+    text-align: center;
   }
   .right {
     justify-content: flex-end;

@@ -3,6 +3,8 @@ mixin input(label,attribute='test',align)
     .label-caps= label
   if align == "right"   
     input.input-text.right(type= 'text',name="attr_"+attribute)
+  else if align == "center"   
+    input.input-text.center(type= 'text',name="attr_"+attribute)
   else
     input.input-text(type= 'text',name="attr_"+attribute)
 
@@ -14,13 +16,24 @@ mixin input-field(label,attribute='test')
     .label-caps= label 
   textarea.input-textarea(name= "attr_"+attribute)
 
-mixin input-number(label,attribute,nofill)
+mixin input-number(label,attribute,nofill,vmin,vmax,narrow)
+  if label != "" && !nofill
+    //.row-whole
+    .label.row-fill= label 
+  else if nofill
+    .label= label
+  if !narrow || narrow == ""
+    input.input-number(type='number',name="attr_"+attribute,min=vmin,max=vmax)
+  else 
+    input.input-number.narrow(type='number',name="attr_"+attribute,min=vmin,max=vmax)
+
+mixin input-number-negative(label,attribute,nofill)
   if label != "" && !nofill
     //.row-whole
     .label.row-fill= label 
   else if nofill
     .label= label 
-  input.input-number(type='number',name="attr_"+attribute)
+  input.input-number(type='number',max= 0, min= -10, value= '', name="attr_"+attribute)
 
 mixin input-value-number(label,attribute)
   if label != ""
@@ -81,7 +94,7 @@ mixin input-attribute(label,attribute,caps,titl)
     span.separator =
     // Attribute die type. e.g. D8, calculated through sheetworker
     +input-hidden('attribute','attr_'+attribute+'dietype','') 
-    span.input-die(name= 'attr_'+attribute+'dietype')
+    span.input-die.noborder(name= 'attr_'+attribute+'dietype')
 
 mixin input-skill(label,skill,caps,titl)
   .row-whole.row-fill.middle.border-bottom-long.no-marg.no-pad
@@ -100,7 +113,7 @@ mixin input-skill(label,skill,caps,titl)
     span.separator =
     // Skill die type. e.g. D8, calculated through sheetworker
     +input-hidden('skill','attr_'+skill+'dietype','') 
-    span.input-die(name='attr_'+skill+'dietype')
+    span.input-die.noborder(name='attr_'+skill+'dietype')
 
 // Same as Skill input, but different top level div classes
 mixin input-unitmorale(label,skill,caps,titl) 
@@ -115,7 +128,7 @@ mixin input-unitmorale(label,skill,caps,titl)
     span.separator =
     // Skill die type. e.g. D8, calculated through sheetworker
     +input-hidden('skill','attr_'+skill+'dietype','') 
-    span.input-die(name='attr_'+skill+'dietype')
+    span.input-die.noborder(name='attr_'+skill+'dietype')
 
 mixin input-condition(label,attribute)
   .row-whole.condition
@@ -123,8 +136,20 @@ mixin input-condition(label,attribute)
     input.numbered-box.grey-box.condition(type='checkbox',name="attr_"+attribute) 
     span(title='+')
 
+mixin speciality(label,category,description)
+  .speciality-box
+    input.input-text.spec-name(type= "text",name= "attr_name",value= label)
+    //select.spec-category(name=spec-cat,value= category)
+      each val in ['Close Combat', 'Heavy Weapons', 'Stamina', 'Driving', 'Mobility', 'Ranged Combat', 'Recon', 'Survival', 'Tech', 'Command', 'Medical Aid', 'Persuasion']
+        option(value= val)= val
+    textarea.spec-desc.input-textarea(name= "attr_description")= description
+
+mixin speciality-add
+  .speciality-box.box.center.middle.dashed
+    .center.middle= '+Add'
+
 mixin input-weight(attribute,defaultval)
-  select.weight(name='attr_'+attribute,value=defaultval) 
+  select.weight.wide(name='attr_'+attribute,value=defaultval) 
     if defaultval == "-" || defaultval == ""
       option(value= defaultval, selected, disabled, hidden)
     each val in ['0.25', '0.5', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
@@ -133,95 +158,127 @@ mixin input-weight(attribute,defaultval)
       else  
         option(value= val)= val
 
+mixin input-armormod(attribute,defaultval)
+  select.armormod.wide(name='attr_'+attribute,value=defaultval) 
+    if defaultval == "-" || defaultval == ""
+      option(value= defaultval, selected, disabled, hidden)
+    each val in ['+3', '+2', '+1', '0', '-1', '-2', '-3']
+      if val === value
+        option(value= val, selected)= val
+      else  
+        option(value= val)= val
+
+mixin input-weapontype(attribute,defaultval)
+  select.weapontype.xwide(name='attr_'+attribute,value=defaultval) 
+    if defaultval == "-" || defaultval == ""
+      option(value= defaultval, selected, disabled, hidden)
+    each val in ['Unarmed', 'Melee', 'Bow', 'Thrown', 'Grenade', 'Revolver', 'Pistol', 'SMG', 'Hunting', 'Shotgun', 'Carbine', "AR", "Battle Rifle", "Sniper", "LMG","GPMG","HMG","GL","RL","ATRL","ATGM",]
+      if val === value
+        option(value= val, selected)= val
+      else  
+        option(value= val)= val
+
 mixin tab-button(label,name)
   button.tab.main-buttons(class= "button-"+name, type= "action", name= "act_"+name)= label
 
-mixin speciality(label,category,description)
-  .speciality-box.box
-    input.input-text.spec-name(value= label)
-    //select.spec-category(name=spec-cat,value= category)
-      each val in ['Close Combat', 'Heavy Weapons', 'Stamina', 'Driving', 'Mobility', 'Ranged Combat', 'Recon', 'Survival', 'Tech', 'Command', 'Medical Aid', 'Persuasion']
-        option(value= val)= val
-    textarea.spec-desc.input-textarea= description
-
-mixin speciality-add
-  .speciality-box.box.center.middle.dashed
-    .center.middle= '+Add'
-
 mixin armor-item(location,name)
   .row-whole-nopad.flex-row.flex1.middle.no-marg.no-pad
+    +input-hidden("","armor_"+name+"_ar","0")
     .label.col-fifth.center= location 
     .row-fill.pad-right8
-      +input("",name="attr_armor_"+name+"_name","right")
-    .armor-weight
+      +input("","armor_"+name+"_name","right")
+    .armor-weight.wide
       +input-weight("armor_"+name+"_weight","")
     .armor-damage
-      +input-number("","attr_armor_"+name+"_damage")
+      +input-number-negative("","armor_"+name+"_damage")
     .armor-rating
-      +input-number("","attr_armor_"+name+"_rating")
+      +input-number("","armor_"+name+"_rating")
+      
+mixin weapons-row
+      .row-tall.row-100pc.border-bottom-long.background-tan
+        .col-sixth.border-right.background-tan.no-pad.middle.center.h-2-5em WEAPONS
+        .col-14th.border-right.background-tan.smallcaps.no-pad.middle.center.h-2-5em.xwide TYPE
+        .col-14th.border-right.background-tan.smallcaps.no-pad.middle.center.h-2-5em AMMO
+        .col-14th.border-right.background-tan.smallcaps.no-pad.middle.center.h-2-5em.narrow REL
+        .col-14th.border-right.background-tan.smallcaps.no-pad.middle.center.h-2-5em.narrow ROF
+        .col-14th.border-right.background-tan.smallcaps.no-pad.middle.center.h-2-5em DAMAGE
+        .col-14th.border-right.background-tan.smallcaps.no-pad.middle.center.h-2-5em.narrow CRIT
+        .col-14th.border-right.background-tan.smallcaps.no-pad.middle.center.h-2-5em.narrow BLAST
+        .col-14th.border-right.background-tan.smallcaps.no-pad.middle.center.h-2-5em RANGE
+        .col-14th.border-right.background-tan.smallcaps.no-pa.middle.center.h-2-5em MAG
+        .col-14th.border-right.background-tan.smallcaps.no-pad.middle.center.h-2-5em.wide ARMOR
+        .col-14th.border-right.background-tan.smallcaps.no-pad.middle.center.h-2-5em.wide WEIGHT
+        .col-14th.border-right.background-tan.smallcaps.no-pad.middle.center.h-2-5em SPENT
+        .col-14th.background-tan.smallcaps.no-pad.middle.center.h-2-5em ROLL
 
 mixin weapon-item
   .row-tall.row-100pc.border-bottom-long
-    .col-3-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
+    .col-sixth.border-right.no-pad.middle.center.h-2-5em
       +input("","name")
-    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
-      +input("","type")
-    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
-      +input("","ammo")
-    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
-      +input-number("","rel")
-    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
-      +input-number("","rof")
-    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
-      +input-number("","damage")
-    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
-      +input-number("","crit")
-    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
-      +input-number("","blast")
-    .col-14th.border-bottom-short.border-right.no-pa.middle.center.h-2-5em
-      +input-number("","range")
-    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
-      +input-number("","magazine")
-    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
-      +input-number("","armor")
-    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
-      +input-number("","weight")
-    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
-      +input-number("","spent") 
-    .col-14th.border-bottom-short.border-right.no-pad.middle.center.h-2-5em t
+    .col-14th.border-right.no-pad.middle.center.h-2-5em.xwide 
+      +input-weapontype("type")
+    .col-14th.border-right.no-pad.middle.center.h-2-5em 
+      +input("","ammo","center")
+    .col-14th.border-right.no-pad.middle.center.h-2-5em.narrow
+      +input-number("","rel","","0","","narrow")
+    .col-14th.border-right.no-pad.middle.center.h-2-5em.narrow
+      +input-number("","rof","","0","","narrow")
+    .col-14th.border-right.no-pad.middle.center.h-2-5em
+      +input-number("","damage","","0","","narrow")
+    .col-14th.border-right.no-pad.middle.center.h-2-5em.narrow
+      +input-number("","crit","","0","","narrow")
+    .col-14th.border-right.no-pad.middle.center.h-2-5em.narrow
+      +input-number("","blast","","0","","narrow")
+    .col-14th.border-right.no-pa.middle.center.h-2-5em
+      +input-number("","range","","0","","narrow")
+    .col-14th.border-right.no-pad.middle.center.h-2-5em
+      +input-number("","magazine","","0","","narrow")
+    .col-14th.border-right.no-pad.middle.center.h-2-5em.wide
+      +input-armormod("armor","0")
+    .col-14th.border-right.no-pad.middle.center.h-2-5em.wide
+      +input-weight("weight","1")
+    .col-14th.border-right.no-pad.middle.center.h-2-5em
+      +input-number("","spent","","0","","narrow") 
+    .col-14th.no-pad.middle.center.h-2-5em 
+      button.custom-roll.attribute-button(type="roll",name="roll_rawdice",value="&{template:t2k} {{character-name=@{character_name} }} {{roll-name=@{name} }} {{roll-die-one=[[1d@{rawdie1}]] }} {{roll-die-two=[[1d@{rawdie2}]] }} {{roll-one-type=[[@{rawdie1}]]}} {{roll-two-type=[[@{rawdie2}]]}} {{ammo-dice=[[@{rawammo}]] }} {{ammo-roll-one=[[1d6]] }} {{ammo-roll-two=[[1d6]] }} {{ammo-roll-three=[[1d6]] }} {{ammo-roll-four=[[1d6]] }} {{ammo-roll-five=[[1d6]] }} {{ammo-roll-six=[[1d6]] }} {{current-crit=@{weapon_one_crit} }} {{current-damage=@{weapon_one_damage} }} {{current-range=@{weapon_one_range} }}")
+
+    
+mixin encumbrance-line(label,attribute,total)
+    .row-whole.border-right
+      //.col-threefifth.middle
+      .col-threequarter.border-right
+        span.label-caps= label 
+      //.col-fifth.box.h-2-5em
+      if total
+        .col-quarter
+          +input-hidden("","carrycap_total","0")
+          span.input-number.noborder.noshadow(name="attr_"+attribute) 
+          span.input-number.slash.noborder.noshadow.h-2-5em.no-marg= "/" 
+          span.input-number.noborder.noshadow.border-right(name="attr_"+total) 
+      else 
+        .col-quarter.h-2-5em.row-fill
+          span.input-number.noborder.noshadow.row-fillborder-right(name="attr_"+attribute)         
 
 mixin gear-item
-  .row-tall.row-100pc.no-pad
-    .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em  
-      input.input-text.gear-name(type= 'text',name= 'attr_name',value= label)
-    .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em
-      select.weight(name='attr_weight',value='1')
+  .row-tall.row-100pc.no-pad.border-top-sectioned
+    .col-fill.border-right.no-pad.middle.center.h-2-5em  
+      input.input-text.gear-name.center(type= 'text',name= 'attr_name',value= label)
+    .col-sixth.border-right.no-pad.middle.center.h-2-5em.wide
+      select.weight.wide(name='attr_weight',value='1')
         each val in ['0.25', '0.5', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
           if val === value 
             option(value= val, selected)= val
           else  
             option(value= val)= val
-    .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
+    .col-sixth.border-right.no-pad.middle.center.h-2-5em 
       input.input-number(type='number',name='attr_amount', value= "1")
+
 mixin tiny-item
   .row-tall.row-100pc.no-pad
-    .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em  
-      input.input-text.gear-name(name= 'attr_name',value= label)
-    .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
-      input.input-number(name='attr_amount')
-
-//mixin numbered-checkbox(attribute,index,color)
-  input.numbered-box(type= "checkbox",value= index,class= color+"-box",name= "attr_"+attribute,title= "@{"+attribute+"}")
-  span(title= index)
-  
-//mixin numbered-checkboxes(attribute,color,rowbreak)
-  - var i = 1, max = 10;
-  .row-whole.space-even
-    while i <= max/2
-      +numbered-checkbox(attribute,i++,color)
-  .row-whole.space-even
-    while i <= max
-      +numbered-checkbox(attribute,i++,color)
+    .col-fourfifth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em  
+      input.input-text.gear-name.center(type="text",name= 'attr_name',value= label)
+    .col-fifth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
+      input.input-number(type="number",name='attr_amount')
 
 mixin numbered-radiobox(attribute,index,color)
   - var i = 0;

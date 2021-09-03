@@ -56,29 +56,39 @@
     -border-right: 2px solid $primary;
     border-width: 2px;
     border-style: solid;
-    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 4 4 4 4;
+    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 2 2 2 2;
   } 
   %border-right {
     padding-right: 3px;
     -border-right: 2px solid $primary;
     border-width: 0 2px 0 0;
     border-style: solid;
-    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 4 0 0;
+    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 2 0 0;
   }
   %border-bottom {
     border-width: 0 0 2px 0;
     border-style: solid;
-    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 0 4 0;
+    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 0 2 0;
+  }
+  %border-bottom-short {
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-short-light1.png) 0 0 2 0;
   }
   %border-top {
     border-width: 2px 0 0 0;
     border-style: solid;
-    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 4 0 0 0;
+    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 2 0 0 0;
+  }
+  %border-top-sectioned {
+    border-width: 6px 0 0 0;
+    border-style: solid;
+    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-top-sectioned2.png) 6 0 0 0;
   }
   %border-bottom-right {
     border-width: 0 2px 2px 0;
     border-style: solid;
-    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 4 4 0;
+    border-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/border-long1.png) 0 2 2 0;
   }
   %input-box {
     padding: 2px;
