@@ -60,7 +60,7 @@ include ../components/component
           .row-fill.no-marg.border-right.middle.right= "&nbsp;"
           .col-46px.col-flex.no-marg.border-right.middle.right.smallcaps= "RATING"
           .col-46px.col-flex.no-marg.border-right.middle.right.smallcaps= "BASE"
-    .row-tall.border-bottom-long
+    .row-tall.attributesskills.border-bottom-long
       .col-quarter.border-right.flex-column
         .col-whole.flex-row.no-marg
           +input-attribute('Strength','strength','caps','Muscle power, toughness, and physical endurance. ') 
@@ -139,7 +139,8 @@ include ../components/component
             .row-whole.border-bottom-long
               +span-number('Stress Capacity','stresscapacity','noborder')
             +input-attribute('C. U. F.','cuf','', 'Coolness Under Fire')
-            +input-unitmorale('Unit Morale','cuf_unit','','Equals the highest Command skill level in the unit')
+            //+input-unitmorale('Unit Morale','cuf_unit','','Equals the highest Command skill level in the unit')
+            +input-attribute('Unit Morale','cuf_unit','','Equals the highest Command skill level in the unit')
           .col-half.pad10
             .row-whole  
               +input-field('Critical Injuries','critials')
@@ -188,13 +189,14 @@ include ../components/component
       .col-third Tiny items 
     .row-whole.border-bottom-long.row-100pc.no-pad.encumbrance
       .col-third.no-pad
-          //+encumbrance-line('Combat Encumbrance','combatgear_total')
-          //+encumbrance-line('Armor Encumbrance','armorweight_total')
-          //+encumbrance-line('Weapon Encumbrance','weaponweight_total')
-          +encumbrance-line('Combat Carry Limit','carrycap_total','carry_limit')
+        //.expand.arrow  
+        +encumbrance-line('Combat Carry Limit','carrycap_total','carry_limit')
+        +encumbrance-line('Combat Encumbrance','combatgear_total')
+        +encumbrance-line('Armor Encumbrance','armorweight_total')
+        +encumbrance-line('Weapon Encumbrance','weaponweight_total')
       .col-third.no-pad
-          //+encumbrance-line('Backpack Encumbrance','backpack_total')
-          +encumbrance-line('Backpack Carry Limit','backpack_total','carry_limit_backpack')
+        //+encumbrance-line('Backpack Encumbrance','backpack_total')
+        +encumbrance-line('Backpack Carry Limit','backpack_total','carry_limit_backpack')
       .col-third.no-pad
     .row-tall.border-bottom-long.background-tan
       .col-third.no-pad
@@ -335,4 +337,267 @@ include ../components/component
   .stockpile
   .notes
   .action
-    label This is a test
+    .row-whole.row-tall.border-bottom-long.background-tan
+      .col-fifth.border-right
+        .label-caps Presets
+      .col-quarter.no-marg.border-right
+        .label-caps Dice
+      .col-55pc
+        .label-caps Modifiers
+    .row-whole.border-all
+      +input-hidden("","actiontype")
+      +input-hidden("","rangedtype")
+      .col-fifth.border-right
+        .row-whole.flex-row.middle.top
+          +action-select
+          +action-type("ranged",['Handgun','Rifle','Sniper','Machine Gun'])
+      .col-quarter.border-right.action-dice
+        //.label-caps DICE
+        //+input-attribute("Base die","basedie","caps","Base die").nobordered
+        //+input-attribute("Skill die","skilldie","caps","Skill die").nobordered
+        .row-whole.border-bottom-short
+          +input-dice("Base dice","actionbasedie","attribute")
+        .row-whole.border-bottom-short
+          +input-dice("Skill dice","actionskilldie","skill")
+        .row-whole.border-bottom-short
+          +input-number("Ammo dice","ammodice")
+        .row-whole.border-bottom-short
+          +input-number("Total modifier","totmodifier")
+        .row-whole.right
+          //+span-dice("","agility","") 
+          //+span-dice("","rangedcombat","") 
+          //+span-number("","damage","")
+          button.action-dice-button.right= "Roll"
+      .col-55pc.flex-row
+        .row-whole.mods.closecombatmods.border-bottom-short
+          .row-whole.border-bottom-long.background-tan
+            .label-caps Close Combat
+          .row-whole
+            //.flex-row
+              +input-field("Test 0",'test0')
+            //.flex-row
+              +input-number("Test2","test2","nofill","0","3","narrow")
+            //.flex-row
+              +input-value-number("Test2","test2")
+            .flex-row.mod
+              +input-check("Attacker prone","test1")
+            .flex-row.mod
+              +input-check("Target prone","test1")
+            .flex-row.mod
+              +input-check("Defenseless target","test1")
+            .flex-row.mod
+              +input-check("Aimed blow","test1")
+            .flex-row.mod
+              +input-check("Diving blow","test1")
+        .row-whole.mods.rangedcombatmods.border-bottom-short
+          .row-whole.border-bottom-long.background-tan
+            .label-caps Ranged Combat
+          .row-whole
+            .row-whole.mods.aimmods
+              .row-whole.headlabel.no-marg.no-pad.border-bottom-short.background-tan
+                .label-caps Attacker modifications
+              //.col-quarter.flex-row
+                +input-field("Test 0",'test0')
+              //.col-quarter.flex-row
+                +input-number("Test2","test2","nofill","0","3","narrow")
+              //.col-quarter.flex-row
+                +input-value-number("Test2","test2")
+              .flex-row.mod.no-marg
+                +input-check("Quick shot (no aim)","test1")
+              .flex-row.mod.no-marg
+                +input-select("Scope (slow aim)","test1","xxwide",["No stabilisation","Stable stance"], "Select")
+              .flex-row.mod.no-marg
+                +input-check("Called shot","test1")
+              .flex-row.mod.no-marg
+                +input-check("Elevated firing position","test1")
+              .flex-row.mod.no-marg
+                +input-check("Firing from moving vehicle","test1")
+            .row-whole.mods.targetmods
+              .row-whole.headlabel.no-marg.no-pad.border-bottom-short.background-tan
+                .label-caps Target modifications
+              //.col-quarter.flex-row
+                +input-field("Test 0",'test0')
+              //.col-quarter.flex-row
+                +input-number("Test2","test2","nofill","0","3","narrow")
+              //.col-quarter.flex-row
+                +input-value-number("Test2","test2")
+              //.col-quarter.flex-row
+                +input-check("Test1","test1")
+              .flex-row.mod.no-marg
+                +input-select("Range", "test", "xwide", ['Same hex','Short','Medium','Long','Extreme'], "Select")
+              .flex-row.mod.no-marg
+                +input-check("Defenseless target","test1")
+              .flex-row.mod.no-marg
+                +input-check("Target prone","test1")
+              .flex-row.mod.no-marg
+                +input-check("Target full cover","test1")
+              .flex-row.mod.no-marg
+                +input-check("Moving target","test1")
+              .flex-row.mod.no-marg
+                +input-check("Large target","test1")
+              .flex-row.mod.no-marg
+                +input-check("Small target","test1")
+              .flex-row.mod.no-marg
+                +input-check("Diving blow","test1")
+            .row-whole.mods.environmods
+              .row-whole.headlabel.no-marg.no-pad.border-bottom-short.background-tan
+                .label-caps Environmental modifications
+              //.col-quarter.flex-row
+                +input-field("Test 0",'test0')
+              //.col-quarter.flex-row
+                +input-number("Test2","test2","nofill","0","3","narrow")
+              //.col-quarter.flex-row
+                +input-value-number("Test2","test2")
+              //.col-quarter.flex-row
+                +input-check("Test1","test1")
+              //.col-quarter.flex-row
+                +input-select("Range", "test", "xxwide", ['Same hex','Short','Medium','Long','Extreme'], "Select")
+              .flex-row.mod.no-marg
+                +input-select("Target hex terrain", "test1", "", ['0','-1','-2'])
+              .flex-row.mod.no-marg
+                +input-check("Dim lights","test1")
+              .flex-row.mod.no-marg
+                +input-check("Darkness","test1")
+              .flex-row.mod.no-marg
+                +input-check("Heavy rain or wind","test1")
+              .flex-row.mod.no-marg
+                +input-check("Dense smoke","test1")
+        .row-whole.mods.socialconflictmods.border-bottom-short
+          .row-whole.border-bottom-long.background-tan
+            .label-caps Social Conflict
+          .row-whole
+            .col-half.mods.instigatormods
+              .row-whole.headlabel.no-marg.no-pad.border-bottom-short.background-tan
+                .label-caps Instigator modifications
+              //.col-quarter.flex-row
+                +input-field("Test 0",'test0')
+              //.col-quarter.flex-row
+                +input-number("Test2","test2","nofill","0","3","narrow")
+              //.col-quarter.flex-row
+                +input-value-number("Test2","test2")
+              .flex-row.mod.no-marg.right
+                +input-check("More people on your side","test1","")
+              .flex-row.mod.no-marg.right
+                +input-check("Doesn’t cost opponent","test1","")
+              .flex-row.mod.no-marg.right
+                +input-check("Suffered damage or stress","test1","")
+              .flex-row.mod.no-marg.right
+                +input-check("Opponent is sick","test1","")
+              .flex-row.mod.no-marg.right
+                +input-check("Opponent is held captive","test1","")
+              .flex-row.mod.no-marg.right
+                +input-check("Helped opponent previously","test1","")
+              .flex-row.mod.no-marg.right
+                +input-check("Outrank your opponent","test1","")
+              .flex-row.mod.no-marg.right
+                +input-check("Present case very well","test1","")
+            .col-half.mods.opponentmods
+              .row-whole.headlabel.no-marg.no-pad.border-bottom-short.background-tan
+                .label-caps Opponent modifications
+              //.col-quarter.flex-row
+                +input-field("Test 0",'test0')
+              //.col-quarter.flex-row
+                +input-number("Test2","test2","nofill","0","3","narrow")
+              //.col-quarter.flex-row
+                +input-value-number("Test2","test2")
+              //.col-quarter.flex-row
+                +input-check("Test1","test1")
+              .flex-row.mod-left.no-marg
+                +input-check("More people on their side","test1","","reverse")
+              .flex-row.mod-left.no-marg
+                +input-check("Valuable or dangerous","test1","","reverse")
+              .flex-row.mod-left.no-marg
+                +input-check("Nothing to gain","test1","","reverse")
+              .flex-row.mod-left.no-marg
+                +input-check("Held captive by opponent","test1","","reverse")
+              .flex-row.mod-left.no-marg
+                +input-check("Trouble understanding","test1","","reverse")
+              .flex-row.mod-left.no-marg
+                +input-check("Not in the same hex","test1","","reverse")
+              .flex-row.mod-left.no-marg
+                +input-check("Opponent outranks you","test1","","reverse")
+  .stockpile
+    //.row-tall.border-bottom-long.background-tan
+      .col-third.border-right Combat Gear
+      .col-third.border-right Backpack
+      .col-third Tiny items 
+    .row-whole.border-bottom-long.row-100pc.no-pad.encumbrance
+      //.col-third.no-pad
+          //+encumbrance-line('Combat Encumbrance','combatgear_total')
+          //+encumbrance-line('Armor Encumbrance','armorweight_total')
+          //+encumbrance-line('Weapon Encumbrance','weaponweight_total')
+          +encumbrance-line('Combat Carry Limit','carrycap_total','carry_limit')
+      //.col-third.no-pad
+          //+encumbrance-line('Backpack Encumbrance','backpack_total')
+          +encumbrance-line('Backpack Carry Limit','backpack_total','carry_limit_backpack')
+      //.col-third.no-pad
+    .row-tall.border-bottom-long.background-tan
+      .col-third.no-pad
+        .row-tall.row-100pc.no-pad
+          .col-fill.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em.label-caps Combat Gear
+          .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em.wide Weight
+          .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em #
+      .col-third.no-pad
+        .row-tall.row-100pc.no-pad
+          .col-fill.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em.label-caps Utility Gear
+          .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em.wide Weight
+          .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em #
+      .col-third.no-pad
+        .row-tall.row-100pc.no-pad
+          .col-fill.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em.label-caps Other Items
+          .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em.wide Weight
+          .col-sixth.border-bottom-short.border-right.background-tan.no-pad.middle.center.h-2-5em #
+    .row-tall.border-bottom-long
+      .col-third.no-pad
+        fieldset.repeating_stockcombat
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em M16
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Knife
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 0.5
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Flak jacket
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Helmet
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Mag M16
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 0.25
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 5
+          +gear-item
+      .col-third.no-pad
+        fieldset.repeating_stockutil
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Mag
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 0.25
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Handradio
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          //.row-tall.row-100pc.no-pad
+            .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Flare
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 0.25
+            .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
+          +gear-item
+      .col-third.no-pad
+        fieldset.repeating_stockother
+          //.row-tall.row-100pc.no-pad
+            .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Map
+            .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          //.row-tall.row-100pc.no-pad
+            .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Crucifix
+            .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          //.row-tall.row-100pc.no-pad
+            .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Dollars
+            .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 12
+          //.row-tall.row-100pc.no-pad
+            .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Kronor
+            .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 550
+          +gear-item

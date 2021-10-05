@@ -24,6 +24,21 @@ input[type=number]::-webkit-inner-spin-button:hover {
   font-family: 'Delius', 'Chilanka', 'Abel';
   height: auto;
 }
+.attributesskills .label-div {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+  border-width: 97%;
+}
+.attributesskills select,
+.attributesskills span {
+  align-self: flex-start;
+  &.separator {
+    align-self: center;
+  }
+}
+
 input, textarea {
     @extend %text-base;
     @extend %input-text; 
@@ -97,9 +112,9 @@ input, textarea {
     } */
     &.grey-box:checked + span::before, &.grey-box:checked + label {
       color: #ffffff;
-      background: #808080;
-      border: solid 1px #808080;
-      box-shadow: 0px 0px 5px #808080;
+      background: $buttons;
+      border: solid 1px $primary;
+      box-shadow: 0px 0px 5px $secondary;
     }
     &.green-box:checked + span::before, &.green-box:checked +  {
       color: #000000;
@@ -130,7 +145,9 @@ span.input-die {
   align-items: center;
   justify-content: center;
 }
-
+span.input-die::before {
+  -content: "D";
+}
 input[type="radio"] + label.damage {
   color: $light;
   background: $primary;
@@ -150,6 +167,24 @@ input[type="radio"].gold-box + label.damage {
   background: #ffd700;
   border: solid 1px #ffd700;
   box-shadow: 0px 0px 10px #ffd700;
+}
+.row-whole-nopad input.dice-button, 
+.row-whole-nopad label.dice-button {  
+  border-radius: 15%;  
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+  align-self:center;
+}
+.row-whole-nopad label.dice-button {
+  padding-top: 5px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.action-dice label.dice-button-label {
+  @extend %text-base;
+  @extend %text-upper;
+  display: flex;
 }
 
 /* */
@@ -208,6 +243,10 @@ select {
 select.weight {
   margin-top: -2px;
 }
+select.actionpresets {
+  margin-bottom: 8px;
+  margin-right: 5px;
+}
 option {    
   @extend %no-outline;  
   @extend %input-select; 
@@ -217,8 +256,20 @@ option {
   text-align: center;
 }
 
+.rangedcombatmods div.mods div.label-caps { margin-top: 0px; }
+.rangedtype, .closecombatmods,.rangedcombatmods, .socialconflictmods { display: none; align-self: flex-start;}
+input[name="attr_actiontype"][value="Ranged Combat"] ~ div .rangedtype { display: flex; }
+input[name="attr_actiontype"][value="Close Combat"] ~ div .closecombatmods { display: flex; }
+input[name="attr_actiontype"][value="Ranged Combat"] ~ div .rangedcombatmods { display: flex; }
+input[name="attr_actiontype"][value="Persuasion"] ~ div .socialconflictmods { display: flex; }
+
+
 .ui-dialog .charsheet button[type="roll"]::before, .ui-dialog .charsheet button[type="action"]::before {
   content: "";
+}
+
+.ui-dialog .charsheet button.action-dice-button {
+  background-color: $tan;
 }
 
 .ui-dialog .charsheet button.label-caps {

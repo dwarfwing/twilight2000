@@ -33,7 +33,7 @@
     visibility: hidden;
     width: 5px;
     padding-left: 5px;
-    padding-right: 5px;
+    -padding-right: 5px;
   }
   .repcontrol_add::before, .repcontrol_edit::before { /* , .speciality .repcontrol_move::before, .speciality .repcontrol_del::before */
     -opacity: 1;
