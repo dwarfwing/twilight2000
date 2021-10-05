@@ -40,20 +40,35 @@ mixin input-value-number(label,attribute)
     //.row-whole
     .label.row-fill= label 
     input.input-text.flex5(name="attr_"+attribute+"_item")
-    input(type='number').input-number(name="attr_"+attribute)
+    input.input-number(type='number',name="attr_"+attribute)
   else
     input.input-text.flex5(name="attr_"+attribute+"_item")
-    input(type='number').input-number(name="attr_"+attribute)
+    input.input-number(type='number',name="attr_"+attribute)
 
-mixin input-check(label,attribute)
-  if label != ""
-    //.row-whole
-    .label.row-fill= label 
-    input(type='checkbox').numbered-box.grey-box(name="attr_"+attribute) 
+mixin input-check(label,attribute,titl,reverse)
+  if label != "" 
+    if reverse 
+      input.numbered-box.grey-box(type='checkbox',name="attr_"+attribute)
+      span(title='+')
+      .label.row-fill(title=titl)= label 
+    else
+      .label.row-fill(title=titl)= label 
+      input.numbered-box.grey-box(type='checkbox',name="attr_"+attribute)
+      span(title='+')
+  else
+    input.numbered-box.grey-box(type='checkbox',name="attr_"+attribute,title=titl)
     span(title='+')
-  else 
-    input(type='checkbox').numbered-box.grey-box(name="attr_"+attribute) 
-    span(title='+')
+
+mixin input-select(labl,nme,clss,vlues,topvlue)
+  .row-whole
+    if label != ""
+      //.row-whole
+      .label= labl 
+    select.input-select(class=clss,name=nme)
+      if topval 
+        option(disabled,selected,hidden)= topvlue
+      each val in vlues
+        option(name=val,value=val)= val
 
 mixin span-value(label,attribute='test')
   if label != ""
@@ -70,7 +85,18 @@ mixin span-number(label,attribute,noborder)
   if noborder == ""
     span.input-number(name="attr_"+attribute)
   else 
-    span.input-number.noborder.noshadow(name="attr_"+attribute)
+    span.input-number.noborder.noshadow(name="attr_"+attribute) 
+
+mixin span-dice(label,attribute,noborder)
+  if label != ""
+    //.row-whole
+    .label.row-fill= label 
+  if noborder == ""
+    +input-hidden('attribute','attr_'+attribute+'dietype','') 
+    span.input-die(name= 'attr_'+attribute+'dietype')
+  else 
+    +input-hidden('attribute','attr_'+attribute+'dietype','') 
+    span.input-die.noborder(name= 'attr_'+attribute+'dietype')
 
 mixin input-experience
   .row-whole
@@ -80,12 +106,14 @@ mixin input-experience
       +input-number("Total","totalexperience","nofill")
 
 mixin input-attribute(label,attribute,caps,titl)
-  .row-whole.border-bottom-long
-    if caps 
-      button.label-caps.row-fill.strength-attribute.attribute-button(type='roll',name='roll_'+attribute,id='roll_'+attribute,value='&{template:t2k} {{character-name=@{character_name} }} {{roll-name='+attribute+'}} {{roll-die-one=[[1d@{'+attribute+'die}]] }} {{roll-one-type=[[@{'+attribute+'die}]]}}')= label 
+  .row-whole
+    if caps    
+      .label-div.row-fill.h-fill.middle.no-pad.border-bottom-short.pad-right3 
+        button.label-caps.row-fill.strength-attribute.attribute-button(type='roll',name='roll_'+attribute,id='roll_'+attribute,value='&{template:t2k} {{character-name=@{character_name} }} {{roll-name='+attribute+'}} {{roll-die-one=[[1d@{'+attribute+'die}]] }} {{roll-one-type=[[@{'+attribute+'die}]]}}')= label 
         //span(title=titl,for='roll_'+attribute)= label 
-    else 
-      .label.row-fill(title=titl)= label 
+    else    
+      .label-div.row-fill.h-fill.middle.no-pad.border-bottom-short.pad-right3 
+        .label.row-fill(title=titl)= label 
     select.attribute(name="attr_"+attribute, value='C')
       each val in ['A', 'B', 'C', 'D']
         option(value= val)= val
@@ -97,13 +125,13 @@ mixin input-attribute(label,attribute,caps,titl)
     span.input-die.noborder(name= 'attr_'+attribute+'dietype')
 
 mixin input-skill(label,skill,caps,titl)
-  .row-whole.row-fill.middle.border-bottom-long.no-marg.no-pad
+  .row-whole.row-fill.middle 
     input.hidden(id=skill, name="act_"+skill, type="checkbox", value="1")
     if caps 
-      .row-fill.h-fill.middle.no-pad
+      .label-div.row-fill.h-fill.middle.no-pad.border-bottom-short.pad-right3
         label.label-caps(title=titl,for=skill)= label 
     else
-      .row-fill.h-fill.middle.no-pad
+      .label-div.row-fill.h-fill.middle.no-pad.border-bottom-short.pad-right3
         label.label(title=titl,for=skill)= label 
     select.skill(name="attr_"+skill, value='F')
       each val in ['A', 'B', 'C', 'D', 'F']
@@ -274,7 +302,7 @@ mixin gear-item
       input.input-number(type='number',name='attr_amount', value= "1")
 
 mixin tiny-item
-  .row-tall.row-100pc.no-pad
+  .row-tall.row-100pc.no-pad.border-top-sectioned
     .col-fourfifth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em  
       input.input-text.gear-name.center(type="text",name= 'attr_name',value= label)
     .col-fifth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 
@@ -311,3 +339,57 @@ mixin numbered-radioboxes(attribute,color,limiter)
       //else 
         +numbered-radiobox(attribute,i++,color)
       +numbered-radiobox(attribute,i++,color)
+
+mixin action-select
+    //+input-hidden("actiontype","actiontype")
+    select.xxwide.actionpresets.actionselect(name="attr_actiontype")
+      - var combat = ['Close Combat','Ranged Combat','Heavy Weapon','Thrown','Grenade']
+      - var skills = ['Heavy Weapons','Melee','Stamina','Driving','Mobility','Ranged Combat','Recon','Survival','Tech','Command','Persuasion','Medical Aid']
+      - var attributes = ['Strength','Agility','Intelligence','Karisma']
+      //option(disabled,selected,hidden)= "Action type"
+      option(name="",selected,style="font-weight:bold;")= "Custom"
+      //optgroup(label="Combat")
+      option(disabled,style="font-weight:bold;")= "Combat"
+      each val in combat
+        option(name="",value=val)= "&nbsp;&nbsp;&nbsp;"+ val
+      //optgroup(label="Skills")
+      option(disabled,style="font-weight:bold;")="Skills"
+      each val in skills
+        option(name="",value=val)= "&nbsp;&nbsp;&nbsp;"+ val
+      //optgroup(label="Attributes")
+      option(disabled,style="font-weight:bold;")= "Attributes"
+        //option(value="")
+      each val in attributes
+        option(name="",value=val)= "&nbsp;&nbsp;&nbsp;"+ val
+
+mixin action-type(name,vals,defval)
+    select.xxwide.actionpresets(class=name+"type",name="attr_"+name+"type")
+      //- var ranged = ['Handgun','Rifle','Sniper','Machine Gun']
+      option(disabled,selected,hidden)= "Choose type"
+      each val in vals
+        if defval && defval == val
+          option(name=val,value=val,selected)= val
+        else
+          option(name=val,value=val)= val
+
+mixin input-dice(titl,attr='test',type='attribute')
+  .row-whole-nopad.flex-row.flex1.middle.no-marg.no-pad.center
+    label.dice-button-label.center= titl
+  .row-whole-nopad.flex-row.flex1.middle.no-marg.no-pad.center
+    +input-dice-row(attr,type)
+
+mixin input-dice-row(attr,type)
+  if type == "attribute" 
+    each val in ['D6','D8','D10','D12']
+      input.dice-button.numbered-box.grey-box(type= "radio",value= val,id= attr+"button"+val,class= "action-"+type+"-die "+val,name= "attr_"+attr,title= "@{"+attr+"}",hidden)
+      label.dice-button(title= index,for= attr+"button"+val,class= "action-"+type+"-die "+val)= val
+  if type == "skill" 
+    each val in ['-','D6','D8','D10','D12']
+      if val == "-"
+        input.dice-button.numbered-box.grey-box(type= "radio",value= val,id= attr+"none",class= "action-no-die",name= "attr_"+attr,title= "@{"+attr+"}",hidden)
+        label.dice-button(title= index,for= attr+"none",class= "action-no-die")= val
+      else
+        input.dice-button.numbered-box.grey-box(type= "radio",value= val,id= attr+"button"+val,class= "action-"+val+"-die "+val,name= "attr_"+attr,title= "@{"+attr+"}",hidden)
+        label.dice-button(title= index,for= attr+"button"+val,class= "action-"+val+"-die "+val)= val
+
+           

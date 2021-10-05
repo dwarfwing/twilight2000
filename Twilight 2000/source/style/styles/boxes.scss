@@ -1,3 +1,6 @@
+.characterviewer {
+  height: 800px;
+}
 
 .speciality {
   width: 100%;
@@ -24,11 +27,18 @@
     }
   }
   
-.border-right {
+  .border-right {
     @extend %border-right;
   }
   .border-all {
     @extend %border-all;
+  }
+  .nobordered {
+    border: unset;
+    border-top: unset;
+    border-bottom: unset;
+    border-right: unset;
+    border-left: unset;
   }
   .bordered {
     @extend %bordered;
@@ -38,6 +48,9 @@
   }
   .dashed {
     @extend %dotted;
+  }
+  .border-all {
+    @extend %border-all
   }
   .border-bottom-long {
     @extend %border-bottom;
@@ -84,12 +97,18 @@
   .height-bot-pads8 { padding-bottom: 8px !important;}
   .height-fit-content { height: fit-content; }
   .height-fill-avail { height: -webkit-fill-available; }
+  .mod, .mod-left { -width: fit-content; max-width: unset; min-width: unset; padding: 3px; margin: 5px;}
+  .mod .label { text-align: right; margin-right: 0; padding-right: 0;}
+  .mod-left .label { text-align: left; margin-left: 0; padding-left: 3px;}
+  .mod span, .mod-left span { margin-left: -12px;}
+  .mod select, .mod-left select { margin-left: 6px;}
   .weapons-row .narrow, .vehicleweapons-row .narrow { width: 46px; min-width: 46px; }
   .weapons-row input.narrow,.vehicleweapons-row input.narrow { width: 42px; min-width: 42px; }
   .weapons-row .wide, .vehicleweapons-row .wide, .combat .wide, .gear .wide { width: 57px; min-width: 57px; }
   .weapons-row input.wide, .vehicleweapons-row input.wide, .combat input.wide , .gear input.wide { width: 53px; min-width: 53px; }
+  input.xxwide, select.xxwide { width: 140px; min-width: 140px; }
+  input.xwide, select.xwide { width: 83px; min-width: 83px; }
   .weapons-row .xwide, .vehicleweapons-row .xwide { width: 87px; min-width: 87px; }
-  .weapons-row input.xwide, .vehicleweapons-row input.xwide { width: 83px; min-width: 83px; }
   .weapons-row input[type="number"], .weapons-row input[type="text"], .weapons-row select,
     .vehicleweapons-row input[type="number"], .vehicleweapons-row input[type="text"], .vehicleweapons-row select {
       -font-family: $font-selection;

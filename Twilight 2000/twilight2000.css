@@ -49,9 +49,9 @@
 .tabstoggle[value=vehicle] ~ .main-buttons.button-vehicle,
 .tabstoggle[value=notes] ~ .main-buttons.button-notes,
 .tabstoggle[value=stockpile] ~ .main-buttons.button-stockpile {
-  background-color: #877D70;
+  background-color: #756758;
   color: #fff;
-  border: 3px solid #877D70;
+  border: 3px solid #756758;
 }
 
 .tab {
@@ -79,7 +79,7 @@
   -border-bottom: 1px solid #534c3b;
 }
 
-.box, .col-fill, .col-3-14th, .col-14th, .col-fivesixth, .col-sixth, .col-fourfifth, .col-threefifth, .col-fifth, .col-46px, .col-42px, .col-35px, .col-225, .col-threequarter, .col-quarter, .col-twothird, .col-third, .col-half, .col-whole, .col-flex {
+.box, .col-fill, .col-3-14th, .col-14th, .col-fivesixth, .col-sixth, .col-fourfifth, .col-threefifth, .col-twofifth, .col-fifth, .col-55pc, .col-46px, .col-42px, .col-35px, .col-225, .col-threequarter, .col-quarter, .col-twothird, .col-third, .col-half, .col-whole, .col-flex {
   display: flex;
   flex-direction: column;
   justify-self: flex-start;
@@ -96,7 +96,7 @@
   flex-wrap: wrap;
 }
 
-.ui-dialog .charsheet button.label, .ui-dialog .charsheet button.label-caps, input, textarea, h1, h2, h3, h4, select, option, .label-caps, div, span, p, label, .label, .row-whole label, .logo {
+.ui-dialog .charsheet button.label, .ui-dialog .charsheet button.label-caps, .action-dice label.dice-button-label, input, textarea, h1, h2, h3, h4, select, option, .label-caps, div, span, p, label, .label, .row-whole label, .logo {
   font-family: "GNUTypewriter", "DaisyWheel", "Special Elite", "Abel";
   color: #756758;
   text-align: left;
@@ -105,7 +105,7 @@
   font-size: 12px;
 }
 
-.ui-dialog .charsheet button.label-caps, h1, h2, h3, h4, select, option, .label-caps, .logo {
+.ui-dialog .charsheet button.label-caps, .action-dice label.dice-button-label, h1, h2, h3, h4, select, option, .label-caps, .logo {
   text-transform: uppercase;
 }
 
@@ -323,7 +323,7 @@ div.headlabel div.label-caps {
   visibility: hidden;
   width: 5px;
   padding-left: 5px;
-  padding-right: 5px;
+  -padding-right: 5px;
 }
 
 .repcontrol_add::before, .repcontrol_edit::before {
@@ -406,6 +406,23 @@ input[type=number]::-webkit-inner-spin-button:hover {
   height: auto;
 }
 
+.attributesskills .label-div {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+  border-width: 97%;
+}
+
+.attributesskills select,
+.attributesskills span {
+  align-self: flex-start;
+}
+.attributesskills select.separator,
+.attributesskills span.separator {
+  align-self: center;
+}
+
 input, textarea {
   background-color: transparent;
   color: #5a4c3a;
@@ -474,9 +491,9 @@ input.numbered-box.condition + span, textarea.numbered-box.condition + span {
 }
 input.grey-box:checked + span::before, input.grey-box:checked + label, textarea.grey-box:checked + span::before, textarea.grey-box:checked + label {
   color: #ffffff;
-  background: #808080;
-  border: solid 1px #808080;
-  box-shadow: 0px 0px 5px #808080;
+  background: #877D70;
+  border: solid 1px #756758;
+  box-shadow: 0px 0px 5px #5a4c3a;
 }
 input.green-box:checked + span::before, input.green-box:checked +, textarea.green-box:checked + span::before, textarea.green-box:checked + {
   color: #000000;
@@ -507,6 +524,10 @@ span.input-die {
   justify-content: center;
 }
 
+span.input-die::before {
+  -content: "D";
+}
+
 input[type=radio] + label.damage {
   color: #e4ddc9;
   background: #756758;
@@ -528,6 +549,25 @@ input[type=radio].gold-box + label.damage {
   background: #ffd700;
   border: solid 1px #ffd700;
   box-shadow: 0px 0px 10px #ffd700;
+}
+
+.row-whole-nopad input.dice-button,
+.row-whole-nopad label.dice-button {
+  border-radius: 15%;
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+  align-self: center;
+}
+
+.row-whole-nopad label.dice-button {
+  padding-top: 5px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.action-dice label.dice-button-label {
+  display: flex;
 }
 
 /* */
@@ -612,6 +652,11 @@ select.weight {
   margin-top: -2px;
 }
 
+select.actionpresets {
+  margin-bottom: 8px;
+  margin-right: 5px;
+}
+
 option {
   justify-content: center;
   justify-items: center;
@@ -619,8 +664,37 @@ option {
   text-align: center;
 }
 
+.rangedcombatmods div.mods div.label-caps {
+  margin-top: 0px;
+}
+
+.rangedtype, .closecombatmods, .rangedcombatmods, .socialconflictmods {
+  display: none;
+  align-self: flex-start;
+}
+
+input[name=attr_actiontype][value="Ranged Combat"] ~ div .rangedtype {
+  display: flex;
+}
+
+input[name=attr_actiontype][value="Close Combat"] ~ div .closecombatmods {
+  display: flex;
+}
+
+input[name=attr_actiontype][value="Ranged Combat"] ~ div .rangedcombatmods {
+  display: flex;
+}
+
+input[name=attr_actiontype][value=Persuasion] ~ div .socialconflictmods {
+  display: flex;
+}
+
 .ui-dialog .charsheet button[type=roll]::before, .ui-dialog .charsheet button[type=action]::before {
   content: "";
+}
+
+.ui-dialog .charsheet button.action-dice-button {
+  background-color: #cdc3af;
 }
 
 .ui-dialog .charsheet button.label-caps {
@@ -648,6 +722,10 @@ option {
   text-shadow: unset;
 }
 
+.characterviewer {
+  height: 800px;
+}
+
 .speciality {
   width: 100%;
   flex-wrap: nowrap;
@@ -671,6 +749,14 @@ option {
 .speciality-box .spec-name {
   background-color: #cdc3af;
   padding: 4px;
+}
+
+.nobordered {
+  border: unset;
+  border-top: unset;
+  border-bottom: unset;
+  border-right: unset;
+  border-left: unset;
 }
 
 .border-bottom-short {
@@ -794,6 +880,34 @@ option {
   height: -webkit-fill-available;
 }
 
+.mod, .mod-left {
+  -width: fit-content;
+  max-width: unset;
+  min-width: unset;
+  padding: 3px;
+  margin: 5px;
+}
+
+.mod .label {
+  text-align: right;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.mod-left .label {
+  text-align: left;
+  margin-left: 0;
+  padding-left: 3px;
+}
+
+.mod span, .mod-left span {
+  margin-left: -12px;
+}
+
+.mod select, .mod-left select {
+  margin-left: 6px;
+}
+
 .weapons-row .narrow, .vehicleweapons-row .narrow {
   width: 46px;
   min-width: 46px;
@@ -814,14 +928,19 @@ option {
   min-width: 53px;
 }
 
+input.xxwide, select.xxwide {
+  width: 140px;
+  min-width: 140px;
+}
+
+input.xwide, select.xwide {
+  width: 83px;
+  min-width: 83px;
+}
+
 .weapons-row .xwide, .vehicleweapons-row .xwide {
   width: 87px;
   min-width: 87px;
-}
-
-.weapons-row input.xwide, .vehicleweapons-row input.xwide {
-  width: 83px;
-  min-width: 83px;
 }
 
 .weapons-row input[type=number], .weapons-row input[type=text], .weapons-row select,
@@ -960,9 +1079,19 @@ option {
   min-width: 46px;
 }
 
+.col-55pc {
+  max-width: 55%;
+  min-width: 55%;
+}
+
 .col-fifth {
   max-width: 20%;
   min-width: 20%;
+}
+
+.col-twofifth {
+  max-width: 40%;
+  min-width: 40%;
 }
 
 .col-threefifth {
@@ -1004,7 +1133,7 @@ option {
 }
 
 .col-fill {
-  width: 100%;
+  -width: 100%;
   width: -moz-available;
   /* WebKit-based browsers will ignore this. */
   width: -webkit-fill-available;
@@ -1110,6 +1239,20 @@ div.headlabel div.label-caps {
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.weapons-row .repitem .row-tall {
+  height: 3.5em;
+}
+
+.encumbrance .row-whole {
+  height: 24px;
+  justify-content: flex-end;
+}
+
+.encumbrance div.col-third {
+  height: unset;
+  flex-wrap: wrap !important;
 }
 
 /* ROLL TEMPLATE STYLING */

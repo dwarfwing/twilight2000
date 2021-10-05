@@ -26,9 +26,9 @@
 .tabstoggle[value="vehicle"] ~ .main-buttons.button-vehicle,
 .tabstoggle[value="notes"] ~ .main-buttons.button-notes,
 .tabstoggle[value="stockpile"] ~ .main-buttons.button-stockpile {
-	background-color: #877D70;
+	background-color: $primary;
 	color: #fff;
-    border: 3px solid #877D70;
+  border: 3px solid $primary;
 }
 
 .tab {

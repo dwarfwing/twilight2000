@@ -103,13 +103,14 @@
         </div>
       </div>
     </div>
-    <div class="row-tall border-bottom-long">
+    <div class="row-tall attributesskills border-bottom-long">
       <div class="col-quarter border-right flex-column">
         <div class="col-whole flex-row no-marg">
-          <div class="row-whole border-bottom-long">
-            <button class="label-caps row-fill strength-attribute attribute-button" type="roll" name="roll_strength" id="roll_strength" value="&amp;{template:t2k} {{character-name=@{character_name} }} {{roll-name=strength}} {{roll-die-one=[[1d@{strengthdie}]] }} {{roll-one-type=[[@{strengthdie}]]}}">Strength
+          <div class="row-whole">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3"> 
+              <button class="label-caps row-fill strength-attribute attribute-button" type="roll" name="roll_strength" id="roll_strength" value="&amp;{template:t2k} {{character-name=@{character_name} }} {{roll-name=strength}} {{roll-die-one=[[1d@{strengthdie}]] }} {{roll-one-type=[[@{strengthdie}]]}}">Strength</button>
               <!--span(title=titl,for='roll_'+attribute)= label -->
-            </button>
+            </div>
             <select class="attribute" name="attr_strength" value="C">
               <option value="A">A</option>
               <option value="B">B</option>
@@ -121,9 +122,9 @@
             <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
             <input class="input-hidden attribute" type="hidden" name="attr_attr_strengthdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_strengthdietype"></span>
           </div>
-          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+          <div class="row-whole row-fill middle"> 
             <input class="hidden" id="heavyweapons" name="act_heavyweapons" type="checkbox" value="1"/>
-            <div class="row-fill h-fill middle no-pad">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3">
               <label class="label" title="Use the HEAVY WEAPONS skill to fire machine guns, rocket launchers, mortars, tank guns, howitzers, and other heavy weapons. Sp" for="heavyweapons">Heavy Weapons</label>
             </div>
             <select class="skill" name="attr_heavyweapons" value="F">
@@ -138,9 +139,9 @@
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_heavyweaponsdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_heavyweaponsdietype"></span>
           </div>
-          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+          <div class="row-whole row-fill middle"> 
             <input class="hidden" id="closecombat" name="act_closecombat" type="checkbox" value="1"/>
-            <div class="row-fill h-fill middle no-pad">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3">
               <label class="label" title="Use MELEE when fighting an enemy up close and personal, with or without a melee weapon in hand. If" for="closecombat">Melee</label>
             </div>
             <select class="skill" name="attr_closecombat" value="F">
@@ -155,9 +156,9 @@
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_closecombatdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_closecombatdietype"></span>
           </div>
-          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+          <div class="row-whole row-fill middle"> 
             <input class="hidden" id="stamina" name="act_stamina" type="checkbox" value="1"/>
-            <div class="row-fill h-fill middle no-pad">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3">
               <label class="label" title="When your physical toughness or endurance is tested, roll for STAMINA" for="stamina">Stamina</label>
             </div>
             <select class="skill" name="attr_stamina" value="F">
@@ -180,10 +181,11 @@
       </div>
       <div class="col-quarter border-right flex-column">
         <div class="col-whole flex-row"> 
-          <div class="row-whole border-bottom-long">
-            <button class="label-caps row-fill strength-attribute attribute-button" type="roll" name="roll_agility" id="roll_agility" value="&amp;{template:t2k} {{character-name=@{character_name} }} {{roll-name=agility}} {{roll-die-one=[[1d@{agilitydie}]] }} {{roll-one-type=[[@{agilitydie}]]}}">Agility
+          <div class="row-whole">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3"> 
+              <button class="label-caps row-fill strength-attribute attribute-button" type="roll" name="roll_agility" id="roll_agility" value="&amp;{template:t2k} {{character-name=@{character_name} }} {{roll-name=agility}} {{roll-die-one=[[1d@{agilitydie}]] }} {{roll-one-type=[[@{agilitydie}]]}}">Agility</button>
               <!--span(title=titl,for='roll_'+attribute)= label -->
-            </button>
+            </div>
             <select class="attribute" name="attr_agility" value="C">
               <option value="A">A</option>
               <option value="B">B</option>
@@ -195,9 +197,9 @@
             <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
             <input class="input-hidden attribute" type="hidden" name="attr_attr_agilitydietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_agilitydietype"></span>
           </div>
-          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+          <div class="row-whole row-fill middle"> 
             <input class="hidden" id="driving" name="act_driving" type="checkbox" value="1"/>
-            <div class="row-fill h-fill middle no-pad">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3">
               <label class="label" title="Use the DRIVING skill to maneuver motorcycles, cars, armored personnel carriers and even tanks. " for="driving">Driving</label>
             </div>
             <select class="skill" name="attr_driving" value="F">
@@ -212,9 +214,9 @@
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_drivingdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_drivingdietype"></span>
           </div>
-          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+          <div class="row-whole row-fill middle"> 
             <input class="hidden" id="mobility" name="act_mobility" type="checkbox" value="1"/>
-            <div class="row-fill h-fill middle no-pad">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3">
               <label class="label" title="When you jump, climb, run fast, or perform any other action that requires speed or motor control, you roll MOBILITY." for="mobility">Mobility</label>
             </div>
             <select class="skill" name="attr_mobility" value="F">
@@ -229,9 +231,9 @@
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_mobilitydietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_mobilitydietype"></span>
           </div>
-          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+          <div class="row-whole row-fill middle"> 
             <input class="hidden" id="rangedcombat" name="act_rangedcombat" type="checkbox" value="1"/>
-            <div class="row-fill h-fill middle no-pad">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3">
               <label class="label" title="Use the RANGED COMBAT skill to use hand-held ranged weapons, such as pistols, bows, submachineguns, and assault rifles. " for="rangedcombat">Ranged Combat</label>
             </div>
             <select class="skill" name="attr_rangedcombat" value="F">
@@ -254,10 +256,11 @@
       </div>
       <div class="col-quarter border-right flex-column">
         <div class="col-whole flex-row"> 
-          <div class="row-whole border-bottom-long">
-            <button class="label-caps row-fill strength-attribute attribute-button" type="roll" name="roll_intelligence" id="roll_intelligence" value="&amp;{template:t2k} {{character-name=@{character_name} }} {{roll-name=intelligence}} {{roll-die-one=[[1d@{intelligencedie}]] }} {{roll-one-type=[[@{intelligencedie}]]}}">Intelligence
+          <div class="row-whole">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3"> 
+              <button class="label-caps row-fill strength-attribute attribute-button" type="roll" name="roll_intelligence" id="roll_intelligence" value="&amp;{template:t2k} {{character-name=@{character_name} }} {{roll-name=intelligence}} {{roll-die-one=[[1d@{intelligencedie}]] }} {{roll-one-type=[[@{intelligencedie}]]}}">Intelligence</button>
               <!--span(title=titl,for='roll_'+attribute)= label -->
-            </button>
+            </div>
             <select class="attribute" name="attr_intelligence" value="C">
               <option value="A">A</option>
               <option value="B">B</option>
@@ -269,9 +272,9 @@
             <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
             <input class="input-hidden attribute" type="hidden" name="attr_attr_intelligencedietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_intelligencedietype"></span>
           </div>
-          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+          <div class="row-whole row-fill middle"> 
             <input class="hidden" id="recon" name="act_recon" type="checkbox" value="1"/>
-            <div class="row-fill h-fill middle no-pad">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3">
               <label class="label" title="Use the RECON skill to spot concealed enemies, avoid ambushes, move silently and avoid being detected. " for="recon">Recon</label>
             </div>
             <select class="skill" name="attr_recon" value="F">
@@ -286,9 +289,9 @@
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_recondietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_recondietype"></span>
           </div>
-          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+          <div class="row-whole row-fill middle"> 
             <input class="hidden" id="survival" name="act_survival" type="checkbox" value="1"/>
-            <div class="row-fill h-fill middle no-pad">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3">
               <label class="label" title="o survive, you need to know how to find food and shelter in the wild. You can roll SURVIVAL in a number of different situations  when  you  are  traveling.  R" for="survival">Survival</label>
             </div>
             <select class="skill" name="attr_survival" value="F">
@@ -303,9 +306,9 @@
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_survivaldietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_survivaldietype"></span>
           </div>
-          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+          <div class="row-whole row-fill middle"> 
             <input class="hidden" id="tech" name="act_tech" type="checkbox" value="1"/>
-            <div class="row-fill h-fill middle no-pad">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3">
               <label class="label" title="Use the TECH skill to repair gear and scavenge parts. You can even use the skill to craft new items if you have access to a workshop. " for="tech">Tech</label>
             </div>
             <select class="skill" name="attr_tech" value="F">
@@ -328,10 +331,11 @@
       </div>
       <div class="col-quarter border-right flex-column">
         <div class="col-whole flex-row"> 
-          <div class="row-whole border-bottom-long">
-            <button class="label-caps row-fill strength-attribute attribute-button" type="roll" name="roll_empathy" id="roll_empathy" value="&amp;{template:t2k} {{character-name=@{character_name} }} {{roll-name=empathy}} {{roll-die-one=[[1d@{empathydie}]] }} {{roll-one-type=[[@{empathydie}]]}}">Empathy
+          <div class="row-whole">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3"> 
+              <button class="label-caps row-fill strength-attribute attribute-button" type="roll" name="roll_empathy" id="roll_empathy" value="&amp;{template:t2k} {{character-name=@{character_name} }} {{roll-name=empathy}} {{roll-die-one=[[1d@{empathydie}]] }} {{roll-one-type=[[@{empathydie}]]}}">Empathy</button>
               <!--span(title=titl,for='roll_'+attribute)= label -->
-            </button>
+            </div>
             <select class="attribute" name="attr_empathy" value="C">
               <option value="A">A</option>
               <option value="B">B</option>
@@ -343,9 +347,9 @@
             <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
             <input class="input-hidden attribute" type="hidden" name="attr_attr_empathydietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_empathydietype"></span>
           </div>
-          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+          <div class="row-whole row-fill middle"> 
             <input class="hidden" id="command" name="act_command" type="checkbox" value="1"/>
-            <div class="row-fill h-fill middle no-pad">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3">
               <label class="label" title="You can use your COMMAND skill to help a person who is incapacitated by stress get back on their feet." for="command">Command</label>
             </div>
             <select class="skill" name="attr_command" value="F">
@@ -360,9 +364,9 @@
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_commanddietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_commanddietype"></span>
           </div>
-          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+          <div class="row-whole row-fill middle"> 
             <input class="hidden" id="persuasion" name="act_persuasion" type="checkbox" value="1"/>
-            <div class="row-fill h-fill middle no-pad">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3">
               <label class="label" title="Use PERSUASION to make others see things your way. Your chances can be affected by your bargaining position and military rank. " for="persuasion">Persuasion</label>
             </div>
             <select class="skill" name="attr_persuasion" value="F">
@@ -377,9 +381,9 @@
             <!-- Skill die type. e.g. D8, calculated through sheetworker-->
             <input class="input-hidden skill" type="hidden" name="attr_attr_persuasiondietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_persuasiondietype"></span>
           </div>
-          <div class="row-whole row-fill middle border-bottom-long no-marg no-pad">
+          <div class="row-whole row-fill middle"> 
             <input class="hidden" id="medicalaid" name="act_medicalaid" type="checkbox" value="1"/>
-            <div class="row-fill h-fill middle no-pad">
+            <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3">
               <label class="label" title="The MEDICAL AID skill can be used to help a friend who is incapacitated by damage get back on their feet, and to save the life of a fallen comrade who has suffered a critical injury. " for="medicalaid">Medical Aid</label>
             </div>
             <select class="skill" name="attr_medicalaid" value="F">
@@ -716,14 +720,16 @@
           <div class="col-half border-right pad-right5">
             <div class="row-whole border-bottom-long">
               <!--.row-whole-->
-              <div class="label row-fill">Hit capacity</div><span class="input-number noborder noshadow" name="attr_hitcapacity"></span>
+              <div class="label row-fill">Hit capacity</div><span class="input-number noborder noshadow" name="attr_hitcapacity"> </span>
             </div>
             <div class="row-whole border-bottom-long">
               <!--.row-whole-->
-              <div class="label row-fill">Stress Capacity</div><span class="input-number noborder noshadow" name="attr_stresscapacity"></span>
+              <div class="label row-fill">Stress Capacity</div><span class="input-number noborder noshadow" name="attr_stresscapacity"> </span>
             </div>
-            <div class="row-whole border-bottom-long">
-              <div class="label row-fill" title="Coolness Under Fire">C. U. F.</div>
+            <div class="row-whole">
+              <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3"> 
+                <div class="label row-fill" title="Coolness Under Fire">C. U. F.</div>
+              </div>
               <select class="attribute" name="attr_cuf" value="C">
                 <option value="A">A</option>
                 <option value="B">B</option>
@@ -735,20 +741,21 @@
               <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
               <input class="input-hidden attribute" type="hidden" name="attr_attr_cufdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_cufdietype"></span>
             </div>
+            <!--+input-unitmorale('Unit Morale','cuf_unit','','Equals the highest Command skill level in the unit')-->
             <div class="row-whole">
-              <input class="hidden" id="cuf_unit" name="act_cuf_unit" type="checkbox" value="1"/>
-              <label class="label row-fill no-marg" title="Equals the highest Command skill level in the unit" for="cuf_unit">Unit Morale</label>
-              <select class="skill" name="attr_cuf_unit" value="F">
+              <div class="label-div row-fill h-fill middle no-pad border-bottom-short pad-right3"> 
+                <div class="label row-fill" title="Equals the highest Command skill level in the unit">Unit Morale</div>
+              </div>
+              <select class="attribute" name="attr_cuf_unit" value="C">
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
                 <option value="D">D</option>
-                <option value="F">F</option>
               </select>
-              <!-- Skill die size, e.g. 8, *calculated through sheetworker-->
-              <input class="input-hidden skill" type="hidden" name="attr_attr_cuf_unitdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
-              <!-- Skill die type. e.g. D8, calculated through sheetworker-->
-              <input class="input-hidden skill" type="hidden" name="attr_attr_cuf_unitdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_cuf_unitdietype"></span>
+              <!-- Attribute die size, e.g. 8, *calculated through sheetworker-->
+              <input class="input-hidden attribute" type="hidden" name="attr_attr_cuf_unitdie" value="" hidden="hidden" readonly="readonly"/><span class="separator">=</span>
+              <!-- Attribute die type. e.g. D8, calculated through sheetworker-->
+              <input class="input-hidden attribute" type="hidden" name="attr_attr_cuf_unitdietype" value="" hidden="hidden" readonly="readonly"/><span class="input-die noborder" name="attr_cuf_unitdietype"></span>
             </div>
           </div>
           <div class="col-half pad10">
@@ -1285,9 +1292,7 @@
     -->
     <div class="row-whole border-bottom-long row-100pc no-pad encumbrance">
       <div class="col-third no-pad">
-        <!--+encumbrance-line('Combat Encumbrance','combatgear_total')-->
-        <!--+encumbrance-line('Armor Encumbrance','armorweight_total')-->
-        <!--+encumbrance-line('Weapon Encumbrance','weaponweight_total')-->
+        <!--.expand.arrow  -->
         <div class="row-whole border-right">
           <!--.col-threefifth.middle-->
           <div class="col-threequarter border-right"><span class="label-caps">Combat Carry Limit</span></div>
@@ -1295,6 +1300,24 @@
           <div class="col-quarter">
             <input class="input-hidden" type="hidden" name="attr_carrycap_total" value="0" hidden="hidden" readonly="readonly"/><span class="input-number noborder noshadow" name="attr_carrycap_total"> </span><span class="input-number slash noborder noshadow h-2-5em no-marg">/</span><span class="input-number noborder noshadow border-right" name="attr_carry_limit"> </span>
           </div>
+        </div>
+        <div class="row-whole border-right">
+          <!--.col-threefifth.middle-->
+          <div class="col-threequarter border-right"><span class="label-caps">Combat Encumbrance</span></div>
+          <!--.col-fifth.box.h-2-5em-->
+          <div class="col-quarter h-2-5em row-fill"><span class="input-number noborder noshadow row-fillborder-right" name="attr_combatgear_total">        </span></div>
+        </div>
+        <div class="row-whole border-right">
+          <!--.col-threefifth.middle-->
+          <div class="col-threequarter border-right"><span class="label-caps">Armor Encumbrance</span></div>
+          <!--.col-fifth.box.h-2-5em-->
+          <div class="col-quarter h-2-5em row-fill"><span class="input-number noborder noshadow row-fillborder-right" name="attr_armorweight_total">        </span></div>
+        </div>
+        <div class="row-whole border-right">
+          <!--.col-threefifth.middle-->
+          <div class="col-threequarter border-right"><span class="label-caps">Weapon Encumbrance</span></div>
+          <!--.col-fifth.box.h-2-5em-->
+          <div class="col-quarter h-2-5em row-fill"><span class="input-number noborder noshadow row-fillborder-right" name="attr_weaponweight_total">        </span></div>
         </div>
       </div>
       <div class="col-third no-pad">
@@ -1447,7 +1470,7 @@
           .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Kronor
           .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 550
           -->
-          <div class="row-tall row-100pc no-pad">
+          <div class="row-tall row-100pc no-pad border-top-sectioned">
             <div class="col-fourfifth border-bottom-short border-right no-pad middle center h-2-5em"> 
               <input class="input-text gear-name center" type="text" name="attr_name"/>
             </div>
@@ -1698,7 +1721,570 @@
   <div class="stockpile"></div>
   <div class="notes"></div>
   <div class="action">
-    <label>This is a test</label>
+    <div class="row-whole row-tall border-bottom-long background-tan">
+      <div class="col-fifth border-right">
+        <div class="label-caps">Presets</div>
+      </div>
+      <div class="col-quarter no-marg border-right">
+        <div class="label-caps">Dice</div>
+      </div>
+      <div class="col-55pc">
+        <div class="label-caps">Modifiers</div>
+      </div>
+    </div>
+    <div class="row-whole border-all">
+      <input class="input-hidden" type="hidden" name="attr_actiontype" hidden="hidden" readonly="readonly"/>
+      <input class="input-hidden" type="hidden" name="attr_rangedtype" hidden="hidden" readonly="readonly"/>
+      <div class="col-fifth border-right">
+        <div class="row-whole flex-row middle top">
+          <!--+input-hidden("actiontype","actiontype")-->
+          <select class="xxwide actionpresets actionselect" name="attr_actiontype">
+            <!--option(disabled,selected,hidden)= "Action type"-->
+            <option name="" selected="selected" style="font-weight:bold;">Custom</option>
+            <!--optgroup(label="Combat")-->
+            <option disabled="disabled" style="font-weight:bold;">Combat</option>
+            <option name="" value="Close Combat">&amp;nbsp;&amp;nbsp;&amp;nbsp;Close Combat</option>
+            <option name="" value="Ranged Combat">&amp;nbsp;&amp;nbsp;&amp;nbsp;Ranged Combat</option>
+            <option name="" value="Heavy Weapon">&amp;nbsp;&amp;nbsp;&amp;nbsp;Heavy Weapon</option>
+            <option name="" value="Thrown">&amp;nbsp;&amp;nbsp;&amp;nbsp;Thrown</option>
+            <option name="" value="Grenade">&amp;nbsp;&amp;nbsp;&amp;nbsp;Grenade</option>
+            <!--optgroup(label="Skills")-->
+            <option disabled="disabled" style="font-weight:bold;">Skills</option>
+            <option name="" value="Heavy Weapons">&amp;nbsp;&amp;nbsp;&amp;nbsp;Heavy Weapons</option>
+            <option name="" value="Melee">&amp;nbsp;&amp;nbsp;&amp;nbsp;Melee</option>
+            <option name="" value="Stamina">&amp;nbsp;&amp;nbsp;&amp;nbsp;Stamina</option>
+            <option name="" value="Driving">&amp;nbsp;&amp;nbsp;&amp;nbsp;Driving</option>
+            <option name="" value="Mobility">&amp;nbsp;&amp;nbsp;&amp;nbsp;Mobility</option>
+            <option name="" value="Ranged Combat">&amp;nbsp;&amp;nbsp;&amp;nbsp;Ranged Combat</option>
+            <option name="" value="Recon">&amp;nbsp;&amp;nbsp;&amp;nbsp;Recon</option>
+            <option name="" value="Survival">&amp;nbsp;&amp;nbsp;&amp;nbsp;Survival</option>
+            <option name="" value="Tech">&amp;nbsp;&amp;nbsp;&amp;nbsp;Tech</option>
+            <option name="" value="Command">&amp;nbsp;&amp;nbsp;&amp;nbsp;Command</option>
+            <option name="" value="Persuasion">&amp;nbsp;&amp;nbsp;&amp;nbsp;Persuasion</option>
+            <option name="" value="Medical Aid">&amp;nbsp;&amp;nbsp;&amp;nbsp;Medical Aid</option>
+            <!--optgroup(label="Attributes")-->
+            <option disabled="disabled" style="font-weight:bold;">Attributes
+              <!--option(value="")-->
+            </option>
+            <option name="" value="Strength">&amp;nbsp;&amp;nbsp;&amp;nbsp;Strength</option>
+            <option name="" value="Agility">&amp;nbsp;&amp;nbsp;&amp;nbsp;Agility</option>
+            <option name="" value="Intelligence">&amp;nbsp;&amp;nbsp;&amp;nbsp;Intelligence</option>
+            <option name="" value="Karisma">&amp;nbsp;&amp;nbsp;&amp;nbsp;Karisma</option>
+          </select>
+          <select class="xxwide actionpresets rangedtype" name="attr_rangedtype">
+            <option disabled="disabled" selected="selected" hidden="hidden">Choose type</option>
+            <option name="Handgun" value="Handgun">Handgun</option>
+            <option name="Rifle" value="Rifle">Rifle</option>
+            <option name="Sniper" value="Sniper">Sniper</option>
+            <option name="Machine Gun" value="Machine Gun">Machine Gun</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-quarter border-right action-dice">
+        <!--.label-caps DICE-->
+        <!--+input-attribute("Base die","basedie","caps","Base die").nobordered-->
+        <!--+input-attribute("Skill die","skilldie","caps","Skill die").nobordered-->
+        <div class="row-whole border-bottom-short">
+          <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad center">
+            <label class="dice-button-label center">Base dice</label>
+          </div>
+          <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad center">
+            <input class="dice-button numbered-box grey-box action-attribute-die D6" type="radio" value="D6" id="actionbasediebuttonD6" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
+            <label class="dice-button action-attribute-die D6" for="actionbasediebuttonD6">D6</label>
+            <input class="dice-button numbered-box grey-box action-attribute-die D8" type="radio" value="D8" id="actionbasediebuttonD8" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
+            <label class="dice-button action-attribute-die D8" for="actionbasediebuttonD8">D8</label>
+            <input class="dice-button numbered-box grey-box action-attribute-die D10" type="radio" value="D10" id="actionbasediebuttonD10" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
+            <label class="dice-button action-attribute-die D10" for="actionbasediebuttonD10">D10</label>
+            <input class="dice-button numbered-box grey-box action-attribute-die D12" type="radio" value="D12" id="actionbasediebuttonD12" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
+            <label class="dice-button action-attribute-die D12" for="actionbasediebuttonD12">D12</label>
+          </div>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad center">
+            <label class="dice-button-label center">Skill dice</label>
+          </div>
+          <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad center">
+            <input class="dice-button numbered-box grey-box action-no-die" type="radio" value="-" id="actionskilldienone" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
+            <label class="dice-button action-no-die" for="actionskilldienone">-</label>
+            <input class="dice-button numbered-box grey-box action-D6-die D6" type="radio" value="D6" id="actionskilldiebuttonD6" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
+            <label class="dice-button action-D6-die D6" for="actionskilldiebuttonD6">D6</label>
+            <input class="dice-button numbered-box grey-box action-D8-die D8" type="radio" value="D8" id="actionskilldiebuttonD8" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
+            <label class="dice-button action-D8-die D8" for="actionskilldiebuttonD8">D8</label>
+            <input class="dice-button numbered-box grey-box action-D10-die D10" type="radio" value="D10" id="actionskilldiebuttonD10" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
+            <label class="dice-button action-D10-die D10" for="actionskilldiebuttonD10">D10</label>
+            <input class="dice-button numbered-box grey-box action-D12-die D12" type="radio" value="D12" id="actionskilldiebuttonD12" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
+            <label class="dice-button action-D12-die D12" for="actionskilldiebuttonD12">D12</label>
+          </div>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <!--.row-whole-->
+          <div class="label row-fill">Ammo dice</div>
+          <input class="input-number" type="number" name="attr_ammodice"/>
+        </div>
+        <div class="row-whole border-bottom-short">
+          <!--.row-whole-->
+          <div class="label row-fill">Total modifier</div>
+          <input class="input-number" type="number" name="attr_totmodifier"/>
+        </div>
+        <div class="row-whole right">
+          <!--+span-dice("","agility","") -->
+          <!--+span-dice("","rangedcombat","") -->
+          <!--+span-number("","damage","")-->
+          <button class="action-dice-button right">Roll</button>
+        </div>
+      </div>
+      <div class="col-55pc flex-row">
+        <div class="row-whole mods closecombatmods border-bottom-short">
+          <div class="row-whole border-bottom-long background-tan">
+            <div class="label-caps">Close Combat</div>
+          </div>
+          <div class="row-whole">
+            <!--.flex-row+input-field("Test 0",'test0')
+            -->
+            <!--.flex-row+input-number("Test2","test2","nofill","0","3","narrow")
+            -->
+            <!--.flex-row+input-value-number("Test2","test2")
+            -->
+            <div class="flex-row mod">
+              <div class="label row-fill">Attacker prone</div>
+              <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+            </div>
+            <div class="flex-row mod">
+              <div class="label row-fill">Target prone</div>
+              <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+            </div>
+            <div class="flex-row mod">
+              <div class="label row-fill">Defenseless target</div>
+              <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+            </div>
+            <div class="flex-row mod">
+              <div class="label row-fill">Aimed blow</div>
+              <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+            </div>
+            <div class="flex-row mod">
+              <div class="label row-fill">Diving blow</div>
+              <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row-whole mods rangedcombatmods border-bottom-short">
+          <div class="row-whole border-bottom-long background-tan">
+            <div class="label-caps">Ranged Combat</div>
+          </div>
+          <div class="row-whole">
+            <div class="row-whole mods aimmods">
+              <div class="row-whole headlabel no-marg no-pad border-bottom-short background-tan">
+                <div class="label-caps">Attacker modifications</div>
+              </div>
+              <!--.col-quarter.flex-row+input-field("Test 0",'test0')
+              -->
+              <!--.col-quarter.flex-row+input-number("Test2","test2","nofill","0","3","narrow")
+              -->
+              <!--.col-quarter.flex-row+input-value-number("Test2","test2")
+              -->
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Quick shot (no aim)</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="row-whole">
+                  <!--.row-whole-->
+                  <div class="label">Scope (slow aim)</div>
+                  <select class="input-select xxwide" name="test1">
+                    <option name="No stabilisation" value="No stabilisation">No stabilisation</option>
+                    <option name="Stable stance" value="Stable stance">Stable stance</option>
+                  </select>
+                </div>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Called shot</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Elevated firing position</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Firing from moving vehicle</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+            </div>
+            <div class="row-whole mods targetmods">
+              <div class="row-whole headlabel no-marg no-pad border-bottom-short background-tan">
+                <div class="label-caps">Target modifications</div>
+              </div>
+              <!--.col-quarter.flex-row+input-field("Test 0",'test0')
+              -->
+              <!--.col-quarter.flex-row+input-number("Test2","test2","nofill","0","3","narrow")
+              -->
+              <!--.col-quarter.flex-row+input-value-number("Test2","test2")
+              -->
+              <!--.col-quarter.flex-row+input-check("Test1","test1")
+              -->
+              <div class="flex-row mod no-marg">
+                <div class="row-whole">
+                  <!--.row-whole-->
+                  <div class="label">Range</div>
+                  <select class="input-select xwide" name="test">
+                    <option name="Same hex" value="Same hex">Same hex</option>
+                    <option name="Short" value="Short">Short</option>
+                    <option name="Medium" value="Medium">Medium</option>
+                    <option name="Long" value="Long">Long</option>
+                    <option name="Extreme" value="Extreme">Extreme</option>
+                  </select>
+                </div>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Defenseless target</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Target prone</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Target full cover</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Moving target</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Large target</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Small target</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Diving blow</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+            </div>
+            <div class="row-whole mods environmods">
+              <div class="row-whole headlabel no-marg no-pad border-bottom-short background-tan">
+                <div class="label-caps">Environmental modifications</div>
+              </div>
+              <!--.col-quarter.flex-row+input-field("Test 0",'test0')
+              -->
+              <!--.col-quarter.flex-row+input-number("Test2","test2","nofill","0","3","narrow")
+              -->
+              <!--.col-quarter.flex-row+input-value-number("Test2","test2")
+              -->
+              <!--.col-quarter.flex-row+input-check("Test1","test1")
+              -->
+              <!--.col-quarter.flex-row+input-select("Range", "test", "xxwide", ['Same hex','Short','Medium','Long','Extreme'], "Select")
+              -->
+              <div class="flex-row mod no-marg">
+                <div class="row-whole">
+                  <!--.row-whole-->
+                  <div class="label">Target hex terrain</div>
+                  <select class="input-select" name="test1">
+                    <option name="0" value="0">0</option>
+                    <option name="-1" value="-1">-1</option>
+                    <option name="-2" value="-2">-2</option>
+                  </select>
+                </div>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Dim lights</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Darkness</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Heavy rain or wind</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg">
+                <div class="label row-fill">Dense smoke</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row-whole mods socialconflictmods border-bottom-short">
+          <div class="row-whole border-bottom-long background-tan">
+            <div class="label-caps">Social Conflict</div>
+          </div>
+          <div class="row-whole">
+            <div class="col-half mods instigatormods">
+              <div class="row-whole headlabel no-marg no-pad border-bottom-short background-tan">
+                <div class="label-caps">Instigator modifications</div>
+              </div>
+              <!--.col-quarter.flex-row+input-field("Test 0",'test0')
+              -->
+              <!--.col-quarter.flex-row+input-number("Test2","test2","nofill","0","3","narrow")
+              -->
+              <!--.col-quarter.flex-row+input-value-number("Test2","test2")
+              -->
+              <div class="flex-row mod no-marg right">
+                <div class="label row-fill" title="">More people on your side</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg right">
+                <div class="label row-fill" title="">Doesn’t cost opponent</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg right">
+                <div class="label row-fill" title="">Suffered damage or stress</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg right">
+                <div class="label row-fill" title="">Opponent is sick</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg right">
+                <div class="label row-fill" title="">Opponent is held captive</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg right">
+                <div class="label row-fill" title="">Helped opponent previously</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg right">
+                <div class="label row-fill" title="">Outrank your opponent</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+              <div class="flex-row mod no-marg right">
+                <div class="label row-fill" title="">Present case very well</div>
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+              </div>
+            </div>
+            <div class="col-half mods opponentmods">
+              <div class="row-whole headlabel no-marg no-pad border-bottom-short background-tan">
+                <div class="label-caps">Opponent modifications</div>
+              </div>
+              <!--.col-quarter.flex-row+input-field("Test 0",'test0')
+              -->
+              <!--.col-quarter.flex-row+input-number("Test2","test2","nofill","0","3","narrow")
+              -->
+              <!--.col-quarter.flex-row+input-value-number("Test2","test2")
+              -->
+              <!--.col-quarter.flex-row+input-check("Test1","test1")
+              -->
+              <div class="flex-row mod-left no-marg">
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+                <div class="label row-fill" title="">More people on their side</div>
+              </div>
+              <div class="flex-row mod-left no-marg">
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+                <div class="label row-fill" title="">Valuable or dangerous</div>
+              </div>
+              <div class="flex-row mod-left no-marg">
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+                <div class="label row-fill" title="">Nothing to gain</div>
+              </div>
+              <div class="flex-row mod-left no-marg">
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+                <div class="label row-fill" title="">Held captive by opponent</div>
+              </div>
+              <div class="flex-row mod-left no-marg">
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+                <div class="label row-fill" title="">Trouble understanding</div>
+              </div>
+              <div class="flex-row mod-left no-marg">
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+                <div class="label row-fill" title="">Not in the same hex</div>
+              </div>
+              <div class="flex-row mod-left no-marg">
+                <input class="numbered-box grey-box" type="checkbox" name="attr_test1"/><span title="+"></span>
+                <div class="label row-fill" title="">Opponent outranks you</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="stockpile">
+    <!--.row-tall.border-bottom-long.background-tan
+    .col-third.border-right Combat Gear
+    .col-third.border-right Backpack
+    .col-third Tiny items 
+    -->
+    <div class="row-whole border-bottom-long row-100pc no-pad encumbrance">
+      <!--.col-third.no-pad
+      //+encumbrance-line('Combat Encumbrance','combatgear_total')
+      //+encumbrance-line('Armor Encumbrance','armorweight_total')
+      //+encumbrance-line('Weapon Encumbrance','weaponweight_total')
+      +encumbrance-line('Combat Carry Limit','carrycap_total','carry_limit')
+      -->
+      <!--.col-third.no-pad
+      //+encumbrance-line('Backpack Encumbrance','backpack_total')
+      +encumbrance-line('Backpack Carry Limit','backpack_total','carry_limit_backpack')
+      -->
+      <!--.col-third.no-pad-->
+    </div>
+    <div class="row-tall border-bottom-long background-tan">
+      <div class="col-third no-pad">
+        <div class="row-tall row-100pc no-pad">
+          <div class="col-fill border-bottom-short border-right background-tan no-pad middle center h-2-5em label-caps">Combat Gear</div>
+          <div class="col-sixth border-bottom-short border-right background-tan no-pad middle center h-2-5em wide">Weight</div>
+          <div class="col-sixth border-bottom-short border-right background-tan no-pad middle center h-2-5em">#</div>
+        </div>
+      </div>
+      <div class="col-third no-pad">
+        <div class="row-tall row-100pc no-pad">
+          <div class="col-fill border-bottom-short border-right background-tan no-pad middle center h-2-5em label-caps">Utility Gear</div>
+          <div class="col-sixth border-bottom-short border-right background-tan no-pad middle center h-2-5em wide">Weight</div>
+          <div class="col-sixth border-bottom-short border-right background-tan no-pad middle center h-2-5em">#</div>
+        </div>
+      </div>
+      <div class="col-third no-pad">
+        <div class="row-tall row-100pc no-pad">
+          <div class="col-fill border-bottom-short border-right background-tan no-pad middle center h-2-5em label-caps">Other Items</div>
+          <div class="col-sixth border-bottom-short border-right background-tan no-pad middle center h-2-5em wide">Weight</div>
+          <div class="col-sixth border-bottom-short border-right background-tan no-pad middle center h-2-5em">#</div>
+        </div>
+      </div>
+    </div>
+    <div class="row-tall border-bottom-long">
+      <div class="col-third no-pad">
+        <fieldset class="repeating_stockcombat">
+          <!--.row-tall.row-100pc.no-pad
+          .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em M16
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          -->
+          <!--.row-tall.row-100pc.no-pad
+          .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Knife
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 0.5
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          -->
+          <!--.row-tall.row-100pc.no-pad
+          .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Flak jacket
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          -->
+          <!--.row-tall.row-100pc.no-pad
+          .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Helmet
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          -->
+          <!--.row-tall.row-100pc.no-pad
+          .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Mag M16
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 0.25
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 5
+          -->
+          <div class="row-tall row-100pc no-pad border-top-sectioned">
+            <div class="col-fill border-right no-pad middle center h-2-5em"> 
+              <input class="input-text gear-name center" type="text" name="attr_name"/>
+            </div>
+            <div class="col-sixth border-right no-pad middle center h-2-5em wide">
+              <select class="weight wide" name="attr_weight" value="1">
+                <option value="0.25">0.25</option>
+                <option value="0.5">0.5</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+            <div class="col-sixth border-right no-pad middle center h-2-5em"> 
+              <input class="input-number" type="number" name="attr_amount" value="1"/>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-third no-pad">
+        <fieldset class="repeating_stockutil">
+          <!--.row-tall.row-100pc.no-pad
+          .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Mag
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 0.25
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
+          -->
+          <!--.row-tall.row-100pc.no-pad
+          .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Handradio
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          -->
+          <!--.row-tall.row-100pc.no-pad
+          .col-twothird.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Flare
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 0.25
+          .col-sixth.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 2
+          -->
+          <div class="row-tall row-100pc no-pad border-top-sectioned">
+            <div class="col-fill border-right no-pad middle center h-2-5em"> 
+              <input class="input-text gear-name center" type="text" name="attr_name"/>
+            </div>
+            <div class="col-sixth border-right no-pad middle center h-2-5em wide">
+              <select class="weight wide" name="attr_weight" value="1">
+                <option value="0.25">0.25</option>
+                <option value="0.5">0.5</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+            <div class="col-sixth border-right no-pad middle center h-2-5em"> 
+              <input class="input-number" type="number" name="attr_amount" value="1"/>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-third no-pad">
+        <fieldset class="repeating_stockother">
+          <!--.row-tall.row-100pc.no-pad
+          .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Map
+          .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          -->
+          <!--.row-tall.row-100pc.no-pad
+          .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Crucifix
+          .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 1
+          -->
+          <!--.row-tall.row-100pc.no-pad
+          .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Dollars
+          .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 12
+          -->
+          <!--.row-tall.row-100pc.no-pad
+          .col-threequarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em Kronor
+          .col-quarter.border-bottom-short.border-right.no-pad.middle.center.h-2-5em 550
+          -->
+          <div class="row-tall row-100pc no-pad border-top-sectioned">
+            <div class="col-fill border-right no-pad middle center h-2-5em"> 
+              <input class="input-text gear-name center" type="text" name="attr_name"/>
+            </div>
+            <div class="col-sixth border-right no-pad middle center h-2-5em wide">
+              <select class="weight wide" name="attr_weight" value="1">
+                <option value="0.25">0.25</option>
+                <option value="0.5">0.5</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+            <div class="col-sixth border-right no-pad middle center h-2-5em"> 
+              <input class="input-number" type="number" name="attr_amount" value="1"/>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
   </div>
 </div>
 <rolltemplate class="sheet-rolltemplate-t2k">

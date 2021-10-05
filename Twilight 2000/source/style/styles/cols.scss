@@ -52,10 +52,20 @@
     max-width: 46px;
     min-width: 46px;
   }
+  .col-55pc {
+    @extend %cell-flex-col;
+    max-width: 55%;
+    min-width: 55%;
+  }
   .col-fifth {
     @extend %cell-flex-col;
     max-width: 20%;
     min-width: 20%;
+  }
+  .col-twofifth {
+    @extend %cell-flex-col;
+    max-width: 40%;
+    min-width: 40%;
   }
   .col-threefifth {
     @extend %cell-flex-col;
@@ -91,7 +101,7 @@
   .flex5 { flex: 5; }
   .col-fill {
     @extend %cell-flex-col;
-    width: 100%;
+    -width: 100%;
     width: -moz-available;          /* WebKit-based browsers will ignore this. */
     width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
     width: fill-available;

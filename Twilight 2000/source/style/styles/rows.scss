@@ -56,3 +56,14 @@
   .flex-wrap {
     flex-wrap: wrap;
   }
+  .weapons-row .repitem .row-tall {
+    height: 3.5em;
+  }
+  .encumbrance .row-whole {
+    height: 24px;
+    justify-content: flex-end;
+  }
+  .encumbrance div.col-third {
+    height: unset;
+    flex-wrap: wrap !important;
+  }
