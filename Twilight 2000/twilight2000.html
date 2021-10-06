@@ -1785,34 +1785,36 @@
         <!--+input-attribute("Base die","basedie","caps","Base die").nobordered-->
         <!--+input-attribute("Skill die","skilldie","caps","Skill die").nobordered-->
         <div class="row-whole border-bottom-short">
+          <input class="input-hidden" type="hidden" name="attr_actionbasedie" hidden="hidden" readonly="readonly"/>
           <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad center">
             <label class="dice-button-label center">Base dice</label>
           </div>
           <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad center">
-            <input class="dice-button numbered-box grey-box action-attribute-die D6" type="radio" value="D6" id="actionbasediebuttonD6" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
+            <input class="dice-button numbered-box action-attribute-die D6" type="radio" value="D6" id="actionbasediebuttonD6" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
             <label class="dice-button action-attribute-die D6" for="actionbasediebuttonD6">D6</label>
-            <input class="dice-button numbered-box grey-box action-attribute-die D8" type="radio" value="D8" id="actionbasediebuttonD8" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
+            <input class="dice-button numbered-box action-attribute-die D8" type="radio" value="D8" id="actionbasediebuttonD8" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
             <label class="dice-button action-attribute-die D8" for="actionbasediebuttonD8">D8</label>
-            <input class="dice-button numbered-box grey-box action-attribute-die D10" type="radio" value="D10" id="actionbasediebuttonD10" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
+            <input class="dice-button numbered-box action-attribute-die D10" type="radio" value="D10" id="actionbasediebuttonD10" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
             <label class="dice-button action-attribute-die D10" for="actionbasediebuttonD10">D10</label>
-            <input class="dice-button numbered-box grey-box action-attribute-die D12" type="radio" value="D12" id="actionbasediebuttonD12" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
+            <input class="dice-button numbered-box action-attribute-die D12" type="radio" value="D12" id="actionbasediebuttonD12" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
             <label class="dice-button action-attribute-die D12" for="actionbasediebuttonD12">D12</label>
           </div>
         </div>
         <div class="row-whole border-bottom-short">
+          <input class="input-hidden" type="hidden" name="attr_actionskilldie" hidden="hidden" readonly="readonly"/>
           <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad center">
             <label class="dice-button-label center">Skill dice</label>
           </div>
           <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad center">
-            <input class="dice-button numbered-box grey-box action-no-die" type="radio" value="-" id="actionskilldienone" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
-            <label class="dice-button action-no-die" for="actionskilldienone">-</label>
-            <input class="dice-button numbered-box grey-box action-D6-die D6" type="radio" value="D6" id="actionskilldiebuttonD6" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
+            <input class="dice-button numbered-box action-no-die" type="radio" value="-" id="actionskilldienone" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
+            <label class="dice-button action-no-die" for="actionskilldienone">X</label>
+            <input class="dice-button numbered-box action-D6-die D6" type="radio" value="D6" id="actionskilldiebuttonD6" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
             <label class="dice-button action-D6-die D6" for="actionskilldiebuttonD6">D6</label>
-            <input class="dice-button numbered-box grey-box action-D8-die D8" type="radio" value="D8" id="actionskilldiebuttonD8" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
+            <input class="dice-button numbered-box action-D8-die D8" type="radio" value="D8" id="actionskilldiebuttonD8" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
             <label class="dice-button action-D8-die D8" for="actionskilldiebuttonD8">D8</label>
-            <input class="dice-button numbered-box grey-box action-D10-die D10" type="radio" value="D10" id="actionskilldiebuttonD10" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
+            <input class="dice-button numbered-box action-D10-die D10" type="radio" value="D10" id="actionskilldiebuttonD10" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
             <label class="dice-button action-D10-die D10" for="actionskilldiebuttonD10">D10</label>
-            <input class="dice-button numbered-box grey-box action-D12-die D12" type="radio" value="D12" id="actionskilldiebuttonD12" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
+            <input class="dice-button numbered-box action-D12-die D12" type="radio" value="D12" id="actionskilldiebuttonD12" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
             <label class="dice-button action-D12-die D12" for="actionskilldiebuttonD12">D12</label>
           </div>
         </div>
