@@ -381,15 +381,15 @@ mixin input-dice(titl,attr='test',type='attribute')
 mixin input-dice-row(attr,type)
   if type == "attribute" 
     each val in ['D6','D8','D10','D12']
-      input.dice-button.numbered-box.grey-box(type= "radio",value= val,id= attr+"button"+val,class= "action-"+type+"-die "+val,name= "attr_"+attr,title= "@{"+attr+"}",hidden)
+      input.dice-button.numbered-box(type= "radio",value= val,id= attr+"button"+val,class= "action-"+type+"-die "+val,name= "attr_"+attr,title= "@{"+attr+"}",hidden)
       label.dice-button(title= index,for= attr+"button"+val,class= "action-"+type+"-die "+val)= val
   if type == "skill" 
     each val in ['-','D6','D8','D10','D12']
       if val == "-"
-        input.dice-button.numbered-box.grey-box(type= "radio",value= val,id= attr+"none",class= "action-no-die",name= "attr_"+attr,title= "@{"+attr+"}",hidden)
-        label.dice-button(title= index,for= attr+"none",class= "action-no-die")= val
+        input.dice-button.numbered-box(type= "radio",value= val,id= attr+"none",class= "action-no-die",name= "attr_"+attr,title= "@{"+attr+"}",hidden)
+        label.dice-button(title= index,for= attr+"none",class= "action-no-die")= "X"
       else
-        input.dice-button.numbered-box.grey-box(type= "radio",value= val,id= attr+"button"+val,class= "action-"+val+"-die "+val,name= "attr_"+attr,title= "@{"+attr+"}",hidden)
+        input.dice-button.numbered-box(type= "radio",value= val,id= attr+"button"+val,class= "action-"+val+"-die "+val,name= "attr_"+attr,title= "@{"+attr+"}",hidden)
         label.dice-button(title= index,for= attr+"button"+val,class= "action-"+val+"-die "+val)= val
 
            

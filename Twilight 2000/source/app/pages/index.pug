@@ -356,8 +356,10 @@ include ../components/component
         //+input-attribute("Base die","basedie","caps","Base die").nobordered
         //+input-attribute("Skill die","skilldie","caps","Skill die").nobordered
         .row-whole.border-bottom-short
+          +input-hidden("","actionbasedie")
           +input-dice("Base dice","actionbasedie","attribute")
         .row-whole.border-bottom-short
+          +input-hidden("","actionskilldie")
           +input-dice("Skill dice","actionskilldie","skill")
         .row-whole.border-bottom-short
           +input-number("Ammo dice","ammodice")
