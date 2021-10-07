@@ -572,19 +572,20 @@ input[type=radio].gold-box + label.damage {
   padding-top: 12px;
 }
 
-.action-dice label.dice-button.D6 {
+/* .action-dice label.dice-button.D6 */
+input.D6 + label {
   background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d6bg-dark.png);
 }
 
-.action-dice label.dice-button.D8 {
+input.D8 + label {
   background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d8bg-dark.png);
 }
 
-.action-dice label.dice-button.D10 {
+input.D10 + label {
   background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d10bg-dark.png);
 }
 
-.action-dice label.dice-button.D12 {
+input.D12 + label {
   background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d12bg-dark.png);
 }
 
@@ -593,26 +594,22 @@ input[name=attr_actionskilldie][value="-"].action-dice + label.dice-button.actio
   color: #ffffff;
 }
 
-input.D6:checked + label,
-input[name=attr_actionbasedie][value=D6].action-dice + label.dice-button.D6 input[name=attr_actionskilldie][value=D6].action-dice + label.dice-button.D6 {
+input.D6:checked + label {
   background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d6bg.png);
   color: #ffffff;
 }
 
-input.D8:checked + label,
-input[name=attr_actionbasedie][value=D8].action-dice + label.dice-button.D8 input[name=attr_actionskilldie][value=D8].action-dice + label.dice-button.D8 {
+input.D8:checked + label {
   background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d8bg.png);
   color: #ffffff;
 }
 
-input.D10:checked + label,
-input[name=attr_actionbasedie][value=D10].action-dice + label.dice-button.D10 input[name=attr_actionskilldie][value=D10].action-dice + label.dice-button.D10 {
+input.D10:checked + label {
   background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d10bg.png);
   color: #ffffff;
 }
 
-input.D12:checked + label,
-input[name=attr_actionbasedie][value=D12].action-dice + label.dice-button.D12 input[name=attr_actionskilldie][value=D12].action-dice + label.dice-button.D12 {
+input.D12:checked + label {
   background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d12bg.png);
   color: #ffffff;
 }
