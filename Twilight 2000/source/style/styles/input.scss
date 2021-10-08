@@ -168,15 +168,17 @@ input[type="radio"].gold-box + label.damage {
   border: solid 1px #ffd700;
   box-shadow: 0px 0px 10px #ffd700;
 }
-.row-whole-nopad input.dice-button, 
-.row-whole-nopad label.dice-button {  
+
+/* ACTION BASE AND SKILL AND AMMO DICE*/
+.dice-row input.dice-button, 
+.dice-row label.dice-button {  
   -border-radius: 15%; 
   width: 34px;
   height: 34px;
   font-size: 14px;
   align-self:center;
 }
-.row-whole-nopad label.dice-button {
+.dice-row label.dice-button {
   padding-top: 5px;
   font-weight: normal;
   text-transform: uppercase;border: 0;
@@ -186,18 +188,23 @@ input[type="radio"].gold-box + label.damage {
   height: 34px;
   padding-top: 12px;
 }
+.dice-row label.ammo-dice-button {
+  width: 26px;
+  height: 26px;
+  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/ammobg-grey.png);
+}
 /* .action-dice label.dice-button.D6 */ 
 input.D6 + label {
-  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d6bg-dark.png);
+  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d6bg-grey.png);
 }
 input.D8 + label {
-  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d8bg-dark.png);
+  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d8bg-grey.png);
 }
 input.D10 + label {
-  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d10bg-dark.png);
+  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d10bg-grey.png);
 }
 input.D12 + label {
-  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d12bg-dark.png);
+  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d12bg-grey.png);
 }
 input.action-no-die:checked + label,
 input[name="attr_actionskilldie"][value="-"].action-dice + label.dice-button.action-no-die {
@@ -217,6 +224,29 @@ input.D10:checked + label  {
 }
 input.D12:checked + label  {
   background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/d12bg.png);
+  color: #ffffff;
+}
+input.ammo-die-1:checked + label {
+  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/ammobg.png);
+}
+input.ammo-die-2:checked + label  {
+  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/ammobg.png);
+  color: #ffffff;
+}
+input.ammo-die-3:checked + label  {
+  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/ammobg.png);
+  color: #ffffff;
+}
+input.ammo-die-4:checked + label  {
+  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/ammobg.png);
+  color: #ffffff;
+}
+input.ammo-die-5:checked + label  {
+  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/ammobg.png);
+  color: #ffffff;
+}
+input.ammo-die-6:checked + label  {
+  background-image: url(https://raw.githubusercontent.com/dwarfwing/twilight2000/main/Twilight%202000/images/dice/ammobg.png);
   color: #ffffff;
 }
 .action-dice label.dice-button-label {

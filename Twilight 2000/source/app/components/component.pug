@@ -375,14 +375,14 @@ mixin action-type(name,vals,defval)
 mixin input-dice(titl,attr='test',type='attribute')
   .row-whole-nopad.flex-row.flex1.middle.no-marg.no-pad.center
     label.dice-button-label.center= titl
-  .row-whole-nopad.flex-row.flex1.middle.no-marg.no-pad.center
+  .row-whole-nopad.dice-row.flex-row.flex1.middle.no-marg.no-pad.center
     +input-dice-row(attr,type)
 
 mixin input-dice-row(attr,type)
   if type == "attribute" 
     each val in ['D6','D8','D10','D12']
       input.dice-button.numbered-box(type= "radio",value= val,id= attr+"button"+val,class= "action-"+type+"-die "+val,name= "attr_"+attr,title= "@{"+attr+"}",hidden)
-      label.dice-button(title= index,for= attr+"button"+val,class= "action-"+type+"-die "+val)= val
+      label.dice-button(title= "Base die "+val,for= attr+"button"+val,class= "action-"+type+"-die "+val)= val
   if type == "skill" 
     each val in ['-','D6','D8','D10','D12']
       if val == "-"
@@ -390,6 +390,15 @@ mixin input-dice-row(attr,type)
         label.dice-button(title= index,for= attr+"none",class= "action-no-die")= "X"
       else
         input.dice-button.numbered-box(type= "radio",value= val,id= attr+"button"+val,class= "action-"+val+"-die "+val,name= "attr_"+attr,title= "@{"+attr+"}",hidden)
-        label.dice-button(title= index,for= attr+"button"+val,class= "action-"+val+"-die "+val)= val
+        label.dice-button(title= "Skill die "+val,for= attr+"button"+val,class= "action-"+val+"-die "+val)= val
 
-           
+mixin input-ammo-dice(titl,attr="test")
+  .row-whole-nopad.flex-row.flex1.middle.no-marg.no-pad.center
+    label.ammo-row-label.center= titl
+  .row-whole-nopad.dice-row.ammo-row.flex-row.flex1.middle.no-marg.no-pad.center
+    +input-ammo-dice-row(attr,type)
+
+mixin input-ammo-dice-row(attr,type)
+  each val in ['1','2','3','4','5','6']
+    input.dice-button.ammo-dice-button.numbered-box(type= "radio",value= val,id= attr+"ammo-dice"+val,class= "ammo-die ammo-die-"+val,name= "attr_"+attr,title= "@{"+attr+"}",hidden)
+    label.dice-button.ammo-dice-button(title= "Ammo die "+val,for= attr+"ammo-dice"+val,class= "ammo-die ammo-die-"+val)= val
