@@ -1789,15 +1789,15 @@
           <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad center">
             <label class="dice-button-label center">Base dice</label>
           </div>
-          <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad center">
+          <div class="row-whole-nopad dice-row flex-row flex1 middle no-marg no-pad center">
             <input class="dice-button numbered-box action-attribute-die D6" type="radio" value="D6" id="actionbasediebuttonD6" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
-            <label class="dice-button action-attribute-die D6" for="actionbasediebuttonD6">D6</label>
+            <label class="dice-button action-attribute-die D6" title="Base die D6" for="actionbasediebuttonD6">D6</label>
             <input class="dice-button numbered-box action-attribute-die D8" type="radio" value="D8" id="actionbasediebuttonD8" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
-            <label class="dice-button action-attribute-die D8" for="actionbasediebuttonD8">D8</label>
+            <label class="dice-button action-attribute-die D8" title="Base die D8" for="actionbasediebuttonD8">D8</label>
             <input class="dice-button numbered-box action-attribute-die D10" type="radio" value="D10" id="actionbasediebuttonD10" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
-            <label class="dice-button action-attribute-die D10" for="actionbasediebuttonD10">D10</label>
+            <label class="dice-button action-attribute-die D10" title="Base die D10" for="actionbasediebuttonD10">D10</label>
             <input class="dice-button numbered-box action-attribute-die D12" type="radio" value="D12" id="actionbasediebuttonD12" name="attr_actionbasedie" title="@{actionbasedie}" hidden="hidden"/>
-            <label class="dice-button action-attribute-die D12" for="actionbasediebuttonD12">D12</label>
+            <label class="dice-button action-attribute-die D12" title="Base die D12" for="actionbasediebuttonD12">D12</label>
           </div>
         </div>
         <div class="row-whole border-bottom-short">
@@ -1805,23 +1805,39 @@
           <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad center">
             <label class="dice-button-label center">Skill dice</label>
           </div>
-          <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad center">
+          <div class="row-whole-nopad dice-row flex-row flex1 middle no-marg no-pad center">
             <input class="dice-button numbered-box action-no-die" type="radio" value="-" id="actionskilldienone" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
             <label class="dice-button action-no-die" for="actionskilldienone">X</label>
             <input class="dice-button numbered-box action-D6-die D6" type="radio" value="D6" id="actionskilldiebuttonD6" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
-            <label class="dice-button action-D6-die D6" for="actionskilldiebuttonD6">D6</label>
+            <label class="dice-button action-D6-die D6" title="Skill die D6" for="actionskilldiebuttonD6">D6</label>
             <input class="dice-button numbered-box action-D8-die D8" type="radio" value="D8" id="actionskilldiebuttonD8" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
-            <label class="dice-button action-D8-die D8" for="actionskilldiebuttonD8">D8</label>
+            <label class="dice-button action-D8-die D8" title="Skill die D8" for="actionskilldiebuttonD8">D8</label>
             <input class="dice-button numbered-box action-D10-die D10" type="radio" value="D10" id="actionskilldiebuttonD10" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
-            <label class="dice-button action-D10-die D10" for="actionskilldiebuttonD10">D10</label>
+            <label class="dice-button action-D10-die D10" title="Skill die D10" for="actionskilldiebuttonD10">D10</label>
             <input class="dice-button numbered-box action-D12-die D12" type="radio" value="D12" id="actionskilldiebuttonD12" name="attr_actionskilldie" title="@{actionskilldie}" hidden="hidden"/>
-            <label class="dice-button action-D12-die D12" for="actionskilldiebuttonD12">D12</label>
+            <label class="dice-button action-D12-die D12" title="Skill die D12" for="actionskilldiebuttonD12">D12</label>
           </div>
         </div>
         <div class="row-whole border-bottom-short">
-          <!--.row-whole-->
-          <div class="label row-fill">Ammo dice</div>
-          <input class="input-number" type="number" name="attr_ammodice"/>
+          <input class="input-hidden" type="hidden" name="attr_actionammodie" hidden="hidden" readonly="readonly"/>
+          <!--+input-number("Ammo dice","ammodice")-->
+          <div class="row-whole-nopad flex-row flex1 middle no-marg no-pad center">
+            <label class="ammo-row-label center">Ammo dice</label>
+          </div>
+          <div class="row-whole-nopad dice-row ammo-row flex-row flex1 middle no-marg no-pad center">
+            <input class="dice-button ammo-dice-button numbered-box ammo-die ammo-die-1" type="radio" value="1" id="actionammodiceammo-dice1" name="attr_actionammodice" title="@{actionammodice}" hidden="hidden"/>
+            <label class="dice-button ammo-dice-button ammo-die ammo-die-1" title="Ammo die 1" for="actionammodiceammo-dice1">1</label>
+            <input class="dice-button ammo-dice-button numbered-box ammo-die ammo-die-2" type="radio" value="2" id="actionammodiceammo-dice2" name="attr_actionammodice" title="@{actionammodice}" hidden="hidden"/>
+            <label class="dice-button ammo-dice-button ammo-die ammo-die-2" title="Ammo die 2" for="actionammodiceammo-dice2">2</label>
+            <input class="dice-button ammo-dice-button numbered-box ammo-die ammo-die-3" type="radio" value="3" id="actionammodiceammo-dice3" name="attr_actionammodice" title="@{actionammodice}" hidden="hidden"/>
+            <label class="dice-button ammo-dice-button ammo-die ammo-die-3" title="Ammo die 3" for="actionammodiceammo-dice3">3</label>
+            <input class="dice-button ammo-dice-button numbered-box ammo-die ammo-die-4" type="radio" value="4" id="actionammodiceammo-dice4" name="attr_actionammodice" title="@{actionammodice}" hidden="hidden"/>
+            <label class="dice-button ammo-dice-button ammo-die ammo-die-4" title="Ammo die 4" for="actionammodiceammo-dice4">4</label>
+            <input class="dice-button ammo-dice-button numbered-box ammo-die ammo-die-5" type="radio" value="5" id="actionammodiceammo-dice5" name="attr_actionammodice" title="@{actionammodice}" hidden="hidden"/>
+            <label class="dice-button ammo-dice-button ammo-die ammo-die-5" title="Ammo die 5" for="actionammodiceammo-dice5">5</label>
+            <input class="dice-button ammo-dice-button numbered-box ammo-die ammo-die-6" type="radio" value="6" id="actionammodiceammo-dice6" name="attr_actionammodice" title="@{actionammodice}" hidden="hidden"/>
+            <label class="dice-button ammo-dice-button ammo-die ammo-die-6" title="Ammo die 6" for="actionammodiceammo-dice6">6</label>
+          </div>
         </div>
         <div class="row-whole border-bottom-short">
           <!--.row-whole-->

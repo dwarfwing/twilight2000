@@ -362,7 +362,9 @@ include ../components/component
           +input-hidden("","actionskilldie")
           +input-dice("Skill dice","actionskilldie","skill")
         .row-whole.border-bottom-short
-          +input-number("Ammo dice","ammodice")
+          +input-hidden("","actionammodie")
+          //+input-number("Ammo dice","ammodice")
+          +input-ammo-dice("Ammo dice","actionammodice")
         .row-whole.border-bottom-short
           +input-number("Total modifier","totmodifier")
         .row-whole.right
